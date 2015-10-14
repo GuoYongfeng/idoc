@@ -2,31 +2,5 @@
 
 > sdfjsdjkfhsdfhs
 
-## test
+## 用md的格式来生成技术文档，真是太爽了
 
-
-## test1
-
-# demo1
-
-# 大标题
-
-> sdfjsdjkfhsdfhs
-
-## test
-
-
-## test1
-
-# demo1
-
-# 大标题
-
-> sdfjsdjkfhsdfhs
-
-## test
-
-
-## test1
-
-# demo1

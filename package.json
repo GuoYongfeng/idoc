@@ -1,0 +1,22 @@
+{
+    "name": "idoc-demo",
+    "version": "0.0.1",
+    "description": "",
+    "keywords": [
+        ""
+    ],
+    "homepage": "http://JSLite.io",
+    "author": "GuoYongfeng <guoyff@yonyou.com>",
+    "repository": {
+        "type": "git",
+        "url": ""
+    },
+    "licenses": "MIT",
+    "idoc": {
+        "theme": "default",
+        "md": [
+            "demo.md",
+            "share.md"
+        ]
+    }
+}

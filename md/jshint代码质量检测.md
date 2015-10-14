@@ -10,6 +10,7 @@
 ## 配置代码
 
 ```
+// npm i gulp-jshint --save-dev
 var jshint = require('gulp-jshint');
 
 gulp.task('jshint', function() {

@@ -8,13 +8,13 @@
 <body>
 <div class="nav">
 <div class="logo">MyTechBook</div>
-<ul><li class="active"><a href="index.html">jshint代码质量检测</a></li><li><a href="html/性能优化待办事项.html">性能优化待办事项</a></li><li><a href="html/演示.html">演示</a></li><li><a href="html/React基础篇.html">React基础篇</a></li><li><a href="html/React技术分享.html">React技术分享</a></li><li><a href="html/性能优化点总结.html">性能优化点总结</a></li></ul></div>
+<ul><li class="active"><a href="index.html">jshint代码质量检测</a></li><li><a href="html/性能优化待办事项.html">性能优化待办事项</a></li><li><a href="html/演示.html">演示</a></li><li><a href="html/React基础篇.html">React基础篇</a></li><li><a href="html/React技术分享.html">React技术分享</a></li><li><a href="html/前端模板.html">前端模板</a></li><li><a href="html/前端集成解决方案.html">前端集成解决方案</a></li><li><a href="html/性能优化点总结.html">性能优化点总结</a></li></ul></div>
 
 
 <div class="warpper">
 
     <div class="page-toc">
-        <ul><li><a href="#jshint代码质量检测">jshint代码质量检测</a><ul><li><a href="#选型">选型</a></li><li><a href="#配置代码">配置代码</a></li><li><a href="#分析结果示例">分析结果示例</a></li></ul></li></ul>
+        <ul><li><a href="#jshint代码质量检测">jshint代码质量检测</a><ul><li><a href="#选型">选型</a></li><li><a href="#部分配置代码">部分配置代码</a></li><li><a href="#分析结果示例">分析结果示例</a></li></ul></li></ul>
     </div>
     
     <div class="content markdown-body">
@@ -27,7 +27,7 @@
 <li>&#x57FA;&#x4E8E;Gulp&#x6784;&#x5EFA;&#x5DE5;&#x5177;&#x7BA1;&#x7406;&#x524D;&#x7AEF;&#x4EE3;&#x7801;</li>
 <li>&#x9009;&#x7528;gulp-jshint&#x5206;&#x6790;&#x524D;&#x7AEF;js&#x4EE3;&#x7801;</li>
 </ul>
-<h2 id="&#x914D;&#x7F6E;&#x4EE3;&#x7801;">&#x914D;&#x7F6E;&#x4EE3;&#x7801; <a href="#&#x914D;&#x7F6E;&#x4EE3;&#x7801;"> # </a></h2>
+<h2 id="&#x90E8;&#x5206;&#x914D;&#x7F6E;&#x4EE3;&#x7801;">&#x90E8;&#x5206;&#x914D;&#x7F6E;&#x4EE3;&#x7801; <a href="#&#x90E8;&#x5206;&#x914D;&#x7F6E;&#x4EE3;&#x7801;"> # </a></h2>
 <pre><code>// npm i gulp-jshint --save-dev
 var jshint = require(&apos;gulp-jshint&apos;);
 
@@ -67,6 +67,7 @@ var myReporter = map(function (file, cb) {
 <li>&#x884C;&#x6570;: 32,&#x95EE;&#x9898;&#x4EE3;&#x7801;:      var plug = this.plugs[type],&#x539F;&#x56E0;: Missing semicolon.</li>
 <li>&#x884C;&#x6570;: 33,&#x95EE;&#x9898;&#x4EE3;&#x7801;:      if (!plug) return null,&#x539F;&#x56E0;: Missing semicolon.</li>
 <li>&#x884C;&#x6570;: 34,&#x95EE;&#x9898;&#x4EE3;&#x7801;:      return new plug(element, options, viewModel, app),&#x539F;&#x56E0;: A constructor name should start with an uppercase letter.</li>
+<li>&#x884C;&#x6570;: 73,&#x95EE;&#x9898;&#x4EE3;&#x7801;:            if(val !=&apos;&apos; &amp;&amp; val != null){,&#x539F;&#x56E0;: Use &apos;!==&apos; to compare with &apos;&apos;.</li>
 </ul>
 
         <div class="copyright">Powered by <a href="https://github.com/jaywcjlove/idoc" target="_blank">idoc</a>. Dependence <a href="https://nodejs.org">Node.js</a> run.</div>

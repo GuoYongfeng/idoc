@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>MyTechBook</title>
+    <link rel="stylesheet" type="text/css" href="../css/main.css">
+</head>
+<body>
+<div class="nav">
+<div class="logo">MyTechBook</div>
+<ul><li><a href="../index.html">jshint代码质量检测</a></li><li><a href="../html/性能优化待办事项.html">性能优化待办事项</a></li><li><a href="../html/演示.html">演示</a></li><li><a href="../html/React基础篇.html">React基础篇</a></li><li><a href="../html/React技术分享.html">React技术分享</a></li><li class="active"><a href="../html/前端模板.html">前端模板</a></li><li><a href="../html/前端集成解决方案.html">前端集成解决方案</a></li><li><a href="../html/性能优化点总结.html">性能优化点总结</a></li></ul></div>
+
+
+<div class="warpper">
+
+    <div class="page-toc">
+        <ul><li><a href="#对前端模板的思考">对前端模板的思考</a><ul><li><a href="#前言">前言</a></li><li><a href="#对页面的快速开发的思考">对页面的快速开发的思考</a></li></ul></li></ul>
+    </div>
+    
+    <div class="content markdown-body">
+        <h1 id="&#x5BF9;&#x524D;&#x7AEF;&#x6A21;&#x677F;&#x7684;&#x601D;&#x8003;">&#x5BF9;&#x524D;&#x7AEF;&#x6A21;&#x677F;&#x7684;&#x601D;&#x8003; <a href="#&#x5BF9;&#x524D;&#x7AEF;&#x6A21;&#x677F;&#x7684;&#x601D;&#x8003;"> # </a></h1>
+<h2 id="&#x524D;&#x8A00;">&#x524D;&#x8A00; <a href="#&#x524D;&#x8A00;"> # </a></h2>
+<blockquote>
+<p>&#x8FD9;&#x51E0;&#x5929;&#xFF0C;&#x6211;&#x4E00;&#x76F4;&#x5BF9;&#x6A21;&#x677F;&#x8FD9;&#x4E2A;&#x8BCD;&#x803F;&#x803F;&#x4E8E;&#x6000;&#x3002;&#x6682;&#x4E14;&#x4E0D;&#x53BB;&#x601D;&#x8003;&#x540E;&#x7AEF;&#x7684;&#x5DE5;&#x7A0B;&#x6A21;&#x677F;&#x4EC0;&#x4E48;&#x7684;&#xFF0C;&#x5C31;&#x5355;&#x5355;&#x524D;&#x7AEF;&#x800C;&#x8A00;&#xFF0C;&#x6A21;&#x677F;&#x5F88;&#x5BB9;&#x6613;&#x8BA9;&#x4EBA;&#x60F3;&#x5230;&#x7684;&#x662F;&#x6A21;&#x677F;&#x5F15;&#x64CE;&#xFF0C;Underscore Templates&#x3001;Embedded JS Templates&#x3001;HandlebarsJS&#x3002;&#x5728;node&#x4E0A;&#x7528;&#x7684;&#x8FD8;&#x6709;Jade templating&#x3001;ejs&#x3001;express template....&#x3002;&#x7B49;&#x7B49;&#xFF0C;&#x4F46;&#x662F;boss&#x60F3;&#x7684;&#x4E0D;&#x662F;&#x8FD9;&#x4E2A;&#x6A21;&#x677F;&#x554A;&#xFF0C;&#x5E94;&#x8BE5;&#x662F;&#x5FEB;&#x901F;&#x5F00;&#x53D1;&#x65B9;&#x5411;&#x53BB;&#x601D;&#x8003;&#xFF0C;&#x6A21;&#x677F;&#x5E94;&#x8BE5;&#x662F;&#x9875;&#x9762;&#xFF0C;&#x5E94;&#x8BE5;&#x662F;&#x4E00;&#x770B;&#x5230;&#x5C31;&#x80FD;&#x62FF;&#x8FC7;&#x6765;&#x7528;&#x7684;&#x9875;&#x9762;&#xFF0C;&#x8FD9;&#x6837;&#x5E2E;&#x52A9;&#x7A0B;&#x5E8F;&#x733F;&#x5FEB;&#x901F;&#x5F00;&#x53D1;&#x554A;&#x3002;&#x539F;&#x6765;&#x53D1;&#x73B0;&#xFF0C;&#x8BA4;&#x77E5;&#x5C31;&#x4E0D;&#x5728;&#x4E00;&#x4E2A;&#x9891;&#x9053;&#x3002;</p>
+</blockquote>
+<h2 id="&#x5BF9;&#x9875;&#x9762;&#x7684;&#x5FEB;&#x901F;&#x5F00;&#x53D1;&#x7684;&#x601D;&#x8003;">&#x5BF9;&#x9875;&#x9762;&#x7684;&#x5FEB;&#x901F;&#x5F00;&#x53D1;&#x7684;&#x601D;&#x8003; <a href="#&#x5BF9;&#x9875;&#x9762;&#x7684;&#x5FEB;&#x901F;&#x5F00;&#x53D1;&#x7684;&#x601D;&#x8003;"> # </a></h2>
+<ul>
+<li>&#x6A21;&#x677F;&#x5F15;&#x64CE;</li>
+</ul>
+<p>&#x4F7F;&#x7528;&#x6A21;&#x677F;&#x5F15;&#x64CE;&#xFF0C;&#x53EF;&#x4EE5;&#x5B9E;&#x73B0;&#x4EE3;&#x7801;&#x590D;&#x7528;&#xFF0C;&#x53EF;&#x4EE5;&#x589E;&#x5F3A;&#x6E32;&#x67D3;&#x6027;&#x80FD;&#x3002;&#x4F46;&#x662F;&#xFF0C;&#x73B0;&#x5728;&#x6682;&#x4E0D;&#x8BA8;&#x8BBA;&#x8FD9;&#x4E2A;&#x95EE;&#x9898;</p>
+<ul>
+<li>&#x793A;&#x4F8B;&#x9875;&#x9762;</li>
+</ul>
+<p>&#x4E00;&#x4E2A;&#x793A;&#x4F8B;&#x9875;&#x9762;&#xFF0C;&#x5E94;&#x8BE5;&#x662F;&#x5BF9;&#x67D0;&#x4E2A;&#x5178;&#x578B;&#x573A;&#x666F;&#x7684;&#x5C55;&#x793A;&#x793A;&#x4F8B;&#xFF0C;&#x4E5F;&#x8BB8;&#x4E0D;&#x9700;&#x4FEE;&#x6539;&#x6216;&#x662F;&#x7B80;&#x5355;&#x4FEE;&#x6539;&#xFF0C;&#x5373;&#x53EF;&#x62FF;&#x6765;&#x5C31;&#x7528;&#x3002;</p>
+<ul>
+<li>UI&#x7EC4;&#x4EF6;</li>
+</ul>
+<p>&#x8FD9;&#x662F;&#x4E00;&#x79CD;&#x7EC4;&#x4EF6;&#x5316;&#x7684;&#x65B9;&#x5F0F;&#xFF1A;&#x4E00;&#x4E2A;&#x9875;&#x9762;&#x5207;&#x5206;&#x4E3A;&#x591A;&#x4E2A;UI&#x7EC4;&#x4EF6;&#xFF0C;&#x6BCF;&#x4E2A;UI&#x7EC4;&#x4EF6;&#x529F;&#x80FD;&#x72EC;&#x7ACB;&#xFF0C;&#x53EF;&#x4EE5;&#x76F4;&#x63A5;&#x590D;&#x7528;&#x5230;&#x4EFB;&#x4F55;&#x4E00;&#x4E2A;&#x9875;&#x9762;&#xFF0C;&#x6BCF;&#x4E2A;UI&#x7EC4;&#x4EF6;&#x4F1A;&#x6709;&#x5176;&#x72EC;&#x7ACB;&#x7684;css&#x3001;js&#x3001;json&#x3001;&#x6A21;&#x677F;&#x7247;&#x6BB5;(jsx php html jsp vm...)&#x3002;</p>
+
+        <div class="copyright">Powered by <a href="https://github.com/jaywcjlove/idoc" target="_blank">idoc</a>. Dependence <a href="https://nodejs.org">Node.js</a> run.</div>
+    </div>
+    
+</div>
+
+
+</body>
+</html>

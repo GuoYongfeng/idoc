@@ -7,7 +7,7 @@
 - 基于Gulp构建工具管理前端代码
 - 选用gulp-jshint分析前端js代码
 
-## 配置代码
+## 部分配置代码
 
 ```
 // npm i gulp-jshint --save-dev
@@ -51,5 +51,6 @@ var myReporter = map(function (file, cb) {
 - 行数: 32,问题代码:      var plug = this.plugs[type],原因: Missing semicolon.
 - 行数: 33,问题代码:      if (!plug) return null,原因: Missing semicolon.
 - 行数: 34,问题代码:      return new plug(element, options, viewModel, app),原因: A constructor name should start with an uppercase letter.
+- 行数: 73,问题代码:            if(val !='' && val != null){,原因: Use '!==' to compare with ''.
 
 

@@ -14,7 +14,7 @@
 <div class="warpper">
 
     <div class="page-toc">
-        <ul><li><a href="#对前端集成解决方案的思考">对前端集成解决方案的思考</a><ul><li><a href="#吐槽">吐槽</a></li><li><a href="#前端需要解决什么问题">前端需要解决什么问题</a><ul><li><a href="#第一阶段：规范与设计">第一阶段：规范与设计</a></li><li><a href="#第二阶段：技术选型">第二阶段：技术选型</a></li><li><a href="#第三阶段：自动化与拆分">第三阶段：自动化与拆分</a></li><li><a href="#第四阶段：性能优化">第四阶段：性能优化</a></li></ul></li><li><a href="#对方案的细化">对方案的细化</a><ul><li><a href="#开发规范">开发规范</a></li><li><a href="#模块化开发">模块化开发</a></li><li><a href="#组件化开发">组件化开发</a></li><li><a href="#组件仓库">组件仓库</a></li><li><a href="#性能优化">性能优化</a></li><li><a href="#项目部署">项目部署</a></li><li><a href="#开发流程">开发流程</a></li><li><a href="#开发工具">开发工具</a></li></ul></li><li><a href="#方案应该以什么样的方式提供">方案应该以什么样的方式提供</a><ul><li><a href="#图形化">图形化</a></li><li><a href="#命令行">命令行</a></li></ul></li><li><a href="#我们何去何从">我们何去何从</a></li></ul></li></ul>
+        <ul><li><a href="#对前端集成解决方案的思考">对前端集成解决方案的思考</a><ul><li><a href="#吐槽">吐槽</a></li><li><a href="#前端需要解决什么问题">前端需要解决什么问题</a><ul><li><a href="#第一阶段：规范与设计">第一阶段：规范与设计</a></li><li><a href="#第二阶段：技术选型">第二阶段：技术选型</a></li><li><a href="#第三阶段：自动化与拆分">第三阶段：自动化与拆分</a></li><li><a href="#第四阶段：性能优化">第四阶段：性能优化</a></li></ul></li><li><a href="#对方案的细化">对方案的细化</a><ul><li><a href="#开发规范">开发规范</a></li><li><a href="#模块化开发">模块化开发</a></li><li><a href="#组件化开发">组件化开发</a></li><li><a href="#组件仓库">组件仓库</a></li><li><a href="#性能优化">性能优化</a></li><li><a href="#项目部署">项目部署</a></li><li><a href="#开发流程">开发流程</a></li><li><a href="#开发工具">开发工具</a></li></ul></li><li><a href="#方案应该以什么样的方式提供">方案应该以什么样的方式提供</a><ul><li><a href="#图形化">图形化</a></li><li><a href="#命令行">命令行</a></li></ul></li><li><a href="#我们何去何从">我们何去何从</a><ul><li><a href="#其一">其一</a></li><li><a href="#其二">其二</a></li></ul></li></ul></li></ul>
     </div>
     
     <div class="content markdown-body">
@@ -93,18 +93,28 @@
 <h3 id="&#x547D;&#x4EE4;&#x884C;">&#x547D;&#x4EE4;&#x884C; <a href="#&#x547D;&#x4EE4;&#x884C;"> # </a></h3>
 <p>Node&#x5DF2;&#x7ECF;&#x706B;&#x904D;&#x5168;&#x7403;&#xFF0C;&#x6211;&#x4E0D;&#x662F;&#x5728;&#x5439;&#x725B;&#xFF0C;&#x4F60;&#x53BB;npm&#x4E0A;&#x770B;&#x770B;&#x5168;&#x7403;&#x6BCF;&#x5929;&#x6709;&#x591A;&#x5C11;&#x4EBA;&#x4E0B;&#x8F7D;nodejs&#x4F60;&#x5C31;&#x77E5;&#x9053;&#x4E86;&#xFF0C;&#x770B;&#x770B;npm&#x4E0A;&#x6709;&#x591A;&#x5C11;&#x5F00;&#x53D1;&#x8005;&#x8D21;&#x732E;&#x7684;&#x7B2C;&#x4E09;&#x65B9;&#x5305;&#x4F60;&#x5C31;&#x77E5;&#x9053;&#x4E86;&#x3002;&#x5982;&#x679C;&#x8FD9;&#x4E2A;&#x65B9;&#x6848;&#x5C01;&#x88C5;&#x6210;&#x4E00;&#x4E2A;node&#x5305;&#xFF0C;&#x90A3;&#x4E48;&#x4E0B;&#x8F7D;&#x540E;&#x4F60;&#x4FBF;&#x53EF;&#x4EE5;&#x5728;&#x53EF;&#x4EE5;&#x8FD0;&#x884C;&#x547D;&#x4EE4;&#x884C;&#x7684;&#x5730;&#x65B9;&#x4E00;&#x884C;&#x547D;&#x4EE4;&#x5904;&#x7406;&#x6240;&#x6709;&#x95EE;&#x9898;&#x3002;&#x4ED6;&#x4EEC;&#x5728;&#x8FD9;&#x6837;&#x5E72;&#xFF1A;</p>
 <ul>
-<li>FIS</li>
-<li>JDF</li>
+<li>FIS&#xFF08;&#x767E;&#x5EA6;&#xFF09;</li>
+<li>JDF&#xFF08;&#x4EAC;&#x4E1C;&#xFF09;</li>
 <li>Gulp</li>
 <li>Grunt</li>
-<li>fekit</li>
+<li>Turbo&#xFF08;&#x7F8E;&#x56E2;&#xFF09;</li>
+<li>fekit&#xFF08;&#x53BB;&#x54EA;&#x513F;&#xFF09;</li>
 <li>coolie</li>
+<li>webpack</li>
 <li>...</li>
 </ul>
 <blockquote>
-<p>&#x4E2A;&#x4EBA;&#x89C2;&#x70B9;&#xFF1A;&#x56FE;&#x5F62;&#x5316;&#x6765;&#x641E;&#x8FD9;&#x4E2A;&#x4E8B;&#x60C5;&#xFF0C;&#x8C8C;&#x4F3C;&#x4E0D;&#x592A;&#x53D7;&#x6B22;&#x8FCE;&#x3002;FIS&#x5728;2013&#x5E74;&#x51FA;&#x6765;&#x4E4B;&#x540E;&#xFF0C;&#x5F00;&#x53D1;&#x4E86;&#x4E00;&#x6B3E;&#x201C;FIS&#x53EF;&#x89C6;&#x5316;&#x64CD;&#x4F5C;&#x5DE5;&#x5177;&#x201D;&#xFF0C;&#x4F46;&#x662F;&#x8FD9;&#x4E2A;git&#x4ED3;&#x5E93;&#x7684;&#x4EE3;&#x7801;&#x4E24;&#x5E74;&#x524D;&#x5C31;&#x6CA1;&#x6709;&#x4EBA;&#x7EF4;&#x62A4;&#x4E86;&#xFF0C;&#x800C;&#x4E14;&#x53EA;&#x6709;4&#x4E2A;commits&#x3002;&#x8FD9;&#x8BF4;&#x660E;&#x4E00;&#x4E2A;&#x95EE;&#x9898;&#xFF0C;&#x5F00;&#x53D1;&#x8005;&#x662F;&#x8FD8;&#x662F;&#x89C9;&#x5F97;&#x547D;&#x4EE4;&#x884C;&#x6765;&#x5F97;&#x7075;&#x6D3B;&#x5B9E;&#x5728;&#x3002;</p>
+<p>&#x4E2A;&#x4EBA;&#x89C2;&#x70B9;&#xFF1A;&#x56FE;&#x5F62;&#x5316;&#x6765;&#x641E;&#x8FD9;&#x4E2A;&#x4E8B;&#x60C5;&#xFF0C;&#x8C8C;&#x4F3C;&#x4E0D;&#x592A;&#x53D7;&#x6B22;&#x8FCE;&#x3002;FIS&#x5728;2013&#x5E74;&#x51FA;&#x6765;&#x4E4B;&#x540E;&#xFF0C;&#x5F00;&#x53D1;&#x4E86;&#x4E00;&#x6B3E;&#x201C;FIS&#x53EF;&#x89C6;&#x5316;&#x64CD;&#x4F5C;&#x5DE5;&#x5177;&#x201D;&#xFF0C;&#x4F46;&#x662F;&#x8FD9;&#x4E2A;git&#x4ED3;&#x5E93;&#x7684;&#x4EE3;&#x7801;&#x4E24;&#x5E74;&#x524D;&#x5C31;&#x6CA1;&#x6709;&#x4EBA;&#x7EF4;&#x62A4;&#x4E86;&#xFF0C;&#x800C;&#x4E14;&#x53EA;&#x6709;4&#x4E2A;commits&#x3002;&#x8FD9;&#x8BF4;&#x660E;&#x4E00;&#x4E2A;&#x95EE;&#x9898;&#xFF0C;&#x5F00;&#x53D1;&#x8005;&#x662F;&#x8FD8;&#x662F;&#x89C9;&#x5F97;&#x547D;&#x4EE4;&#x884C;&#x6765;&#x5F97;&#x7075;&#x6D3B;&#x5B9E;&#x5728;&#x3002;&#x8BDA;&#x7136;&#xFF0C;&#x8FD9;&#x4E0D;&#x662F;&#x4E00;&#x4E2A;&#x7EDD;&#x5BF9;&#x7684;&#x8BBA;&#x70B9;&#x3002;</p>
 </blockquote>
 <h2 id="&#x6211;&#x4EEC;&#x4F55;&#x53BB;&#x4F55;&#x4ECE;">&#x6211;&#x4EEC;&#x4F55;&#x53BB;&#x4F55;&#x4ECE; <a href="#&#x6211;&#x4EEC;&#x4F55;&#x53BB;&#x4F55;&#x4ECE;"> # </a></h2>
+<h3 id="&#x5176;&#x4E00;">&#x5176;&#x4E00; <a href="#&#x5176;&#x4E00;"> # </a></h3>
+<ul>
+<li>&#x5C01;&#x88C5;&#x57FA;&#x4E8E;nodejs&#x7684;&#x5DE5;&#x5177;&#x5305;&#xFF0C;&#x6765;&#x81EA;&#x52A8;&#x5316;&#x5904;&#x7406;&#x524D;&#x7AEF;&#x4E8B;&#x52A1;</li>
+</ul>
+<h3 id="&#x5176;&#x4E8C;">&#x5176;&#x4E8C; <a href="#&#x5176;&#x4E8C;"> # </a></h3>
+<ul>
+<li>&#x5BF9;&#x6A21;&#x677F;&#x8BED;&#x8A00;&#x505A;&#x4E00;&#x5B9A;&#x6269;&#x5C55;&#xFF0C;&#x5177;&#x5907;&#x52A0;&#x8F7D;widget&#x53CA;layout&#x9875;&#x9762;&#x7684;&#x80FD;&#x529B;</li>
+</ul>
 
         <div class="copyright">Powered by <a href="https://github.com/jaywcjlove/idoc" target="_blank">idoc</a>. Dependence <a href="https://nodejs.org">Node.js</a> run.</div>
     </div>

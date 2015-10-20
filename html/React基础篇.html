@@ -14,61 +14,11 @@
 <div class="warpper">
 
     <div class="page-toc">
-        <ul><li><a href="#React技术学习--基础篇（一）">React技术学习--基础篇（一）</a><ul><li><a href="#JSX语法">JSX语法</a></li><li><a href="#组件生命周期中的那些钩子函数">组件生命周期中的那些钩子函数</a></li><li><a href="#state和prop为基础的单向数据流">state和prop为基础的单向数据流</a></li><li><a href="#复合组件">复合组件</a></li><li><a href="#DOM操作和事件处理">DOM操作和事件处理</a></li></ul></li></ul>
+        <ul></ul>
     </div>
     
     <div class="content markdown-body">
-        <h1 id="React&#x6280;&#x672F;&#x5B66;&#x4E60;--&#x57FA;&#x7840;&#x7BC7;&#xFF08;&#x4E00;&#xFF09;">React&#x6280;&#x672F;&#x5B66;&#x4E60;--&#x57FA;&#x7840;&#x7BC7;&#xFF08;&#x4E00;&#xFF09; <a href="#React&#x6280;&#x672F;&#x5B66;&#x4E60;--&#x57FA;&#x7840;&#x7BC7;&#xFF08;&#x4E00;&#xFF09;"> # </a></h1>
-<blockquote>
-<p>&#x8D8A;&#x662F;&#x57FA;&#x7840;&#x7684;&#x4E1C;&#x897F;&#xFF0C;&#x8D8A;&#x662F;&#x91CD;&#x8981;&#xFF1B;&#x8D8A;&#x662F;&#x539F;&#x7406;&#x7684;&#x5185;&#x5BB9;&#xFF0C;&#x8D8A;&#x8981;&#x53BB;&#x7406;&#x6E05;&#x695A;&#x3002;&#x4E3A;&#x4EC0;&#x4E48;&#x5728;&#x5F00;&#x7BC7;&#x56DE;&#x53BB;&#x5F3A;&#x8C03;&#x8FD9;&#x4E2A;&#x5185;&#x5BB9;&#xFF0C;&#x56E0;&#x4E3A;&#x4E5F;&#x8BB8;&#x7B49;&#x4F60;&#x5B66;&#x4E60;React&#x540E;&#x4F1A;&#x53D1;&#x73B0;&#xFF0C;&#x4F7F;&#x7528;React&#x7684;&#x4EBA;&#x6162;&#x6162;&#x7684;&#x5206;&#x6210;&#x4E86;&#x4E24;&#x6D3E;&#xFF0C;&#x4E00;&#x6D3E;&#x662F;&#x4E13;&#x95E8;&#x5C01;&#x88C5;React&#x7EC4;&#x4EF6;&#x6216;&#x7EC4;&#x4EF6;&#x5E93;&#x7684;&#xFF0C;&#x4E00;&#x6D3E;&#x662F;&#x4E13;&#x95E8;&#x4F7F;&#x7528;&#x524D;&#x8005;&#x7684;&#x3002;&#x6240;&#x4EE5;&#xFF0C;&#x5B66;&#x4E60;&#x57FA;&#x7840;&#x5C06;&#x662F;&#x8BA9;&#x81EA;&#x5DF1;&#x62E5;&#x6709;&#x5C01;&#x88C5;&#x548C;&#x8FD0;&#x7528;&#x7EC4;&#x4EF6;&#x7684;&#x57FA;&#x7840;&#x3002;</p>
-</blockquote>
-<h2 id="JSX&#x8BED;&#x6CD5;">JSX&#x8BED;&#x6CD5; <a href="#JSX&#x8BED;&#x6CD5;"> # </a></h2>
-<p>React&#x7684;&#x7CBE;&#x9AD3;&#x5728;&#x4E8E;&#x7EC4;&#x4EF6;&#xFF0C;&#x7EC4;&#x4EF6;&#x7684;&#x57FA;&#x7840;&#x662F;jsx&#xFF0C;&#x6240;&#x4EE5;&#x597D;&#x597D;&#x5B66;&#x5427;&#x3002;&#x5148;&#x4E0D;&#x8BB2;&#x9053;&#x7406;&#xFF0C;&#x76F4;&#x63A5;&#x4E0A;&#x4EE3;&#x7801;&#xFF1A;</p>
-<pre><code class="lang-javascript">&lt;script type=<span class="hljs-string">&quot;text/jsx&quot;</span>&gt;
-  <span class="hljs-keyword">var</span> div = React.createClass({
-    render: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{
-      <span class="hljs-keyword">return</span> (
-        <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-title">div</span>&gt;</span>
-          <span class="hljs-tag">&lt;<span class="hljs-title">h3</span>&gt;</span>hello wold<span class="hljs-tag">&lt;/<span class="hljs-title">h3</span>&gt;</span>
-        <span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
-      )</span>;
-    }
-  });
-
-<span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-title">script</span>&gt;</span>
-</span></code></pre>
-<h2 id="&#x7EC4;&#x4EF6;&#x751F;&#x547D;&#x5468;&#x671F;&#x4E2D;&#x7684;&#x90A3;&#x4E9B;&#x94A9;&#x5B50;&#x51FD;&#x6570;">&#x7EC4;&#x4EF6;&#x751F;&#x547D;&#x5468;&#x671F;&#x4E2D;&#x7684;&#x90A3;&#x4E9B;&#x94A9;&#x5B50;&#x51FD;&#x6570; <a href="#&#x7EC4;&#x4EF6;&#x751F;&#x547D;&#x5468;&#x671F;&#x4E2D;&#x7684;&#x90A3;&#x4E9B;&#x94A9;&#x5B50;&#x51FD;&#x6570;"> # </a></h2>
-<p>&#x5B66;&#x4F1A;&#x4E86;&#x7F16;&#x5199;&#x7EC4;&#x4EF6;&#xFF0C;&#x5219;&#x63A5;&#x4E0B;&#x6765;&#x4E0D;&#x5F97;&#x4E0D;&#x5B66;&#x4E60;&#x7EC4;&#x4EF6;&#x7684;&#x751F;&#x547D;&#x5468;&#x671F;&#xFF0C;&#x4EE5;&#x53CA;&#x6BCF;&#x4E2A;&#x751F;&#x547D;&#x5468;&#x671F;&#x5BF9;&#x5E94;&#x7684;&#x4E00;&#x4E9B;&#x94A9;&#x5B50;&#x51FD;&#x6570;&#xFF1A;</p>
-<ul>
-<li>&#x865A;&#x62DF;&#x671F;<ul>
-<li>getInitialState()</li>
-<li>getDefaultProps()</li>
-<li>componentWillmount()</li>
-</ul>
-</li>
-<li>&#x8FD0;&#x884C;&#x671F;<ul>
-<li>componentDidMount()</li>
-<li>shouldComponentUpdate()</li>
-<li>componentWillUpdate()</li>
-<li>componentWillUnmount()</li>
-</ul>
-</li>
-<li>&#x9500;&#x6BC1;&#x671F;<ul>
-<li>componentDidUnmount()<h2 id="state&#x548C;prop&#x4E3A;&#x57FA;&#x7840;&#x7684;&#x5355;&#x5411;&#x6570;&#x636E;&#x6D41;">state&#x548C;prop&#x4E3A;&#x57FA;&#x7840;&#x7684;&#x5355;&#x5411;&#x6570;&#x636E;&#x6D41; <a href="#state&#x548C;prop&#x4E3A;&#x57FA;&#x7840;&#x7684;&#x5355;&#x5411;&#x6570;&#x636E;&#x6D41;"> # </a></h2>
-</li>
-</ul>
-</li>
-</ul>
-<p>&#x9700;&#x8981;&#x7406;&#x89E3;&#x6E05;&#x695A;&#x7684;&#x662F;&#xFF0C;&#x867D;&#x7136;state&#x548C;prop&#x90FD;&#x662F;&#x5B58;&#x50A8;&#x6570;&#x636E;&#x7684;&#xFF0C;&#x4F46;&#x662F;&#x8981;&#x533A;&#x5206;&#x4E8C;&#x8005;&#x7684;&#x533A;&#x522B;&#xFF1A;</p>
-<ul>
-<li>state&#x5B58;&#x653E;&#x7684;&#x662F;&#x6D41;&#x52A8;&#x7684;&#xFF0C;&#x53D8;&#x5316;&#x7684;&#x7EC4;&#x4EF6;&#x6570;&#x636E;</li>
-<li>prop&#x5219;&#x4E00;&#x822C;&#x7528;&#x6765;&#x5B58;&#x653E;&#x7EC4;&#x4EF6;&#x521D;&#x59CB;&#x540E;&#x4E0D;&#x53D8;&#x7684;&#x6570;&#x636E;&#x548C;&#x5C5E;&#x6027;</li>
-</ul>
-<p>&#x4E8C;&#x8005;&#x7684;&#x7ED3;&#x5408;&#x5219;&#x53EF;&#x5B8C;&#x6210;&#x7EC4;&#x4EF6;&#x7684;&#x5355;&#x5411;&#x6570;&#x636E;&#x6D41;&#x52A8;</p>
-<h2 id="&#x590D;&#x5408;&#x7EC4;&#x4EF6;">&#x590D;&#x5408;&#x7EC4;&#x4EF6; <a href="#&#x590D;&#x5408;&#x7EC4;&#x4EF6;"> # </a></h2>
-<p>&#x591A;&#x4E2A;&#x7B80;&#x5355;&#x7684;&#x7EC4;&#x4EF6;&#x5D4C;&#x5957;&#xFF0C;&#x53EF;&#x6784;&#x6210;&#x4E00;&#x4E2A;&#x590D;&#x6742;&#x7684;&#x590D;&#x5408;&#x603B;&#x7ED3;&#xFF0C;&#x4ECE;&#x800C;&#x5B8C;&#x6210;&#x590D;&#x6742;&#x7684;&#x4EA4;&#x4E92;&#x903B;&#x8F91;</p>
-<h2 id="DOM&#x64CD;&#x4F5C;&#x548C;&#x4E8B;&#x4EF6;&#x5904;&#x7406;">DOM&#x64CD;&#x4F5C;&#x548C;&#x4E8B;&#x4EF6;&#x5904;&#x7406; <a href="#DOM&#x64CD;&#x4F5C;&#x548C;&#x4E8B;&#x4EF6;&#x5904;&#x7406;"> # </a></h2>
-
+        
         <div class="copyright">Powered by <a href="https://github.com/jaywcjlove/idoc" target="_blank">idoc</a>. Dependence <a href="https://nodejs.org">Node.js</a> run.</div>
     </div>
     

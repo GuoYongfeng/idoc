@@ -14,7 +14,7 @@
 <div class="warpper">
 
     <div class="page-toc">
-        <ul><li><a href="#对前端模板的思考">对前端模板的思考</a><ul><li><a href="#前言">前言</a></li><li><a href="#对页面的快速开发的思考">对页面的快速开发的思考</a><ul><li><a href="#方向之一：模板引擎">方向之一：模板引擎</a></li><li><a href="#方向之二：示例页面">方向之二：示例页面</a></li><li><a href="#方向之三：UI组件">方向之三：UI组件</a></li></ul></li><li><a href="#对示例页面的理解">对示例页面的理解</a><ul><li><a href="#典型的业务相关页面">典型的业务相关页面</a></li><li><a href="#由UI组件组成的示例页面">由UI组件组成的示例页面</a></li></ul></li></ul></li></ul>
+        <ul><li><a href="#对前端模板的思考">对前端模板的思考</a><ul><li><a href="#前言">前言</a></li><li><a href="#模板引擎总结">模板引擎总结</a></li><li><a href="#对页面的快速开发的思考">对页面的快速开发的思考</a><ul><li><a href="#方向之一：模板引擎">方向之一：模板引擎</a></li><li><a href="#方向之二：示例页面">方向之二：示例页面</a></li><li><a href="#方向之三：UI组件">方向之三：UI组件</a></li></ul></li><li><a href="#对示例页面的理解">对示例页面的理解</a><ul><li><a href="#典型的业务相关页面">典型的业务相关页面</a></li><li><a href="#由UI组件组成的示例页面">由UI组件组成的示例页面</a></li></ul></li></ul></li></ul>
     </div>
     
     <div class="content markdown-body">
@@ -23,6 +23,32 @@
 <blockquote>
 <p>&#x8FD9;&#x51E0;&#x5929;&#xFF0C;&#x6211;&#x4E00;&#x76F4;&#x5BF9;&#x6A21;&#x677F;&#x8FD9;&#x4E2A;&#x8BCD;&#x803F;&#x803F;&#x4E8E;&#x6000;&#x3002;&#x6682;&#x4E14;&#x4E0D;&#x53BB;&#x601D;&#x8003;&#x540E;&#x7AEF;&#x7684;&#x5DE5;&#x7A0B;&#x6A21;&#x677F;&#x4EC0;&#x4E48;&#x7684;&#xFF0C;&#x5C31;&#x5355;&#x5355;&#x524D;&#x7AEF;&#x800C;&#x8A00;&#xFF0C;&#x6A21;&#x677F;&#x5F88;&#x5BB9;&#x6613;&#x8BA9;&#x4EBA;&#x60F3;&#x5230;&#x7684;&#x662F;&#x6A21;&#x677F;&#x5F15;&#x64CE;&#xFF0C;Underscore Templates&#x3001;Embedded JS Templates&#x3001;HandlebarsJS&#x3002;&#x5728;node&#x4E0A;&#x7528;&#x7684;&#x8FD8;&#x6709;Jade templating&#x3001;ejs&#x3001;express template....&#x3002;&#x7B49;&#x7B49;&#xFF0C;&#x4F46;&#x662F;boss&#x60F3;&#x7684;&#x4E0D;&#x662F;&#x8FD9;&#x4E2A;&#x6A21;&#x677F;&#x554A;&#xFF0C;&#x5E94;&#x8BE5;&#x662F;&#x5FEB;&#x901F;&#x5F00;&#x53D1;&#x65B9;&#x5411;&#x53BB;&#x601D;&#x8003;&#xFF0C;&#x6A21;&#x677F;&#x5E94;&#x8BE5;&#x662F;&#x9875;&#x9762;&#xFF0C;&#x5E94;&#x8BE5;&#x662F;&#x4E00;&#x770B;&#x5230;&#x5C31;&#x80FD;&#x62FF;&#x8FC7;&#x6765;&#x7528;&#x7684;&#x9875;&#x9762;&#xFF0C;&#x8FD9;&#x6837;&#x5E2E;&#x52A9;&#x7A0B;&#x5E8F;&#x733F;&#x5FEB;&#x901F;&#x5F00;&#x53D1;&#x554A;&#x3002;&#x539F;&#x6765;&#x53D1;&#x73B0;&#xFF0C;&#x8BA4;&#x77E5;&#x5C31;&#x4E0D;&#x5728;&#x4E00;&#x4E2A;&#x9891;&#x9053;&#x3002;</p>
 </blockquote>
+<h2 id="&#x6A21;&#x677F;&#x5F15;&#x64CE;&#x603B;&#x7ED3;">&#x6A21;&#x677F;&#x5F15;&#x64CE;&#x603B;&#x7ED3; <a href="#&#x6A21;&#x677F;&#x5F15;&#x64CE;&#x603B;&#x7ED3;"> # </a></h2>
+<ul>
+<li>angular</li>
+<li>&#x679C;&#x7EAF;&#x7528;&#x6A21;&#x677F;&#x7684;&#x8BDD;&#xFF0C;&#x63A8;&#x8350;doT&#xFF0C;&#x901F;&#x5EA6;&#x5FEB;&#xFF0C;&#x652F;&#x6301;&#x7F16;&#x8BD1;&#x6210;&#x51FD;&#x6570;&#x3002;</li>
+<li>react&#xFF0C;&#x6BD4;&#x6A21;&#x677F;&#x66F4;&#x9AD8;&#x7EA7;&#x70B9;&#x3002;</li>
+<li>vue.js &#x56FD;&#x4EBA;&#x505A;&#x7684;&#x6846;&#x67B6; &#x548C;angular&#x7C7B;&#x4F3C; &#x4E0D;&#x8FC7;&#x7CBE;&#x7B80;&#x4E86;&#x5F88;&#x591A;&#x3002;&#x4E2D;&#x6587;&#x6587;&#x6863;&#x975E;&#x5E38;&#x5168;&#x3002;</li>
+<li>mustcache</li>
+<li>&#x6A21;&#x677F;&#x5F15;&#x64CE;&#x770B;&#x4E00;&#x4E0B; layer&#x7684;&#x5427;</li>
+<li>&#x5982;&#x679C;&#x60F3;&#x9AD8;&#x7EA7;&#x7684;&#x63A8;&#x8350; riotjs 2.0&#xFF0C;riotjs&#xFF0C;&#x4F60;&#x770B;&#x770B;&#x5B83;1.x&#x7684;&#x7248;&#x672C;&#x91CC;&#x9762;&#x6709;&#x4E2A;&#x7B80;&#x6D01;&#x7684;&#x6A21;&#x677F;&#x5B9E;</li>
+</ul>
+<pre><code>riot.render = function(tmpl, data, escape_fn) {
+    if (escape_fn === true) escape_fn = default_escape_fn;
+    tmpl = tmpl || &apos;&apos;;
+    return (FN[tmpl] = FN[tmpl] || new Function(&quot;_&quot;, &quot;e&quot;, &quot;try { return &apos;&quot; +
+        tmpl.replace(/[\\\n\r&apos;]/g, function(char) {
+            return template_escape[char];
+        }).replace(/{\s*([\w\.]+)\s*}/g, &quot;&apos; + (e?e(_.$1,&apos;$1&apos;):_.$1||(_.$1==undefined?&apos;&apos;:_.$1)) + &apos;&quot;) + &quot;&apos; } catch(e) { return &apos;&apos; }&quot;)
+    )(data, escape_fn);
+};
+</code></pre><ul>
+<li>JADE</li>
+<li>UNDERSCOREJS</li>
+<li>HANDLEBARSJS</li>
+<li>DOTJS</li>
+</ul>
+<p><a href="http://codecall.net/2014/04/23/10-best-javascript-template-engines-for-developers/">10&#x6B3E;&#x6A21;&#x677F;&#x5F15;&#x64CE;</a></p>
 <h2 id="&#x5BF9;&#x9875;&#x9762;&#x7684;&#x5FEB;&#x901F;&#x5F00;&#x53D1;&#x7684;&#x601D;&#x8003;">&#x5BF9;&#x9875;&#x9762;&#x7684;&#x5FEB;&#x901F;&#x5F00;&#x53D1;&#x7684;&#x601D;&#x8003; <a href="#&#x5BF9;&#x9875;&#x9762;&#x7684;&#x5FEB;&#x901F;&#x5F00;&#x53D1;&#x7684;&#x601D;&#x8003;"> # </a></h2>
 <h3 id="&#x65B9;&#x5411;&#x4E4B;&#x4E00;&#xFF1A;&#x6A21;&#x677F;&#x5F15;&#x64CE;">&#x65B9;&#x5411;&#x4E4B;&#x4E00;&#xFF1A;&#x6A21;&#x677F;&#x5F15;&#x64CE; <a href="#&#x65B9;&#x5411;&#x4E4B;&#x4E00;&#xFF1A;&#x6A21;&#x677F;&#x5F15;&#x64CE;"> # </a></h3>
 <p>&#x4F7F;&#x7528;&#x6A21;&#x677F;&#x5F15;&#x64CE;&#xFF0C;&#x53EF;&#x4EE5;&#x5B9E;&#x73B0;&#x4EE3;&#x7801;&#x590D;&#x7528;&#xFF0C;&#x53EF;&#x4EE5;&#x589E;&#x5F3A;&#x6E32;&#x67D3;&#x6027;&#x80FD;&#x3002;</p>

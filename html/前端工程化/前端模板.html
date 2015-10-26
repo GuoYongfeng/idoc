@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>MyTechBook</title>
+    <link rel="stylesheet" type="text/css" href="../../static/css/main.css">
+</head>
+<body>
+<div class="navbar navbar-line">
+    <div class="container">
+        <div class="logo">
+            
+                MyTechBook
+            
+        </div>
+        <ul><li><a href="../../index.html">关于我</a></li><li><a href="#"><span></span>前端工程化</a><ul><li class="active"><a href="../../html/前端工程化/前端模板.html">前端模板</a></li><li><a href="../../html/前端工程化/前端集成解决方案.html">前端集成解决方案</a></li></ul></li><li><a href="#"><span></span>性能优化</a><ul><li><a href="../../html/性能优化/jshint代码质量检测.html">jshint代码质量检测</a></li><li><a href="../../html/性能优化/性能优化待办事项.html">性能优化待办事项</a></li><li><a href="../../html/性能优化/性能优化点总结.html">性能优化点总结</a></li></ul></li><li><a href="#"><span></span>技术分享</a><ul><li><a href="../../html/技术分享/React技术分享.html">React技术分享</a></li></ul></li><li><a href="#"><span></span>部门工作</a><ul><li><a href="../../html/部门工作/演示.html">演示</a></li></ul></li></ul>
+        
+        
+    </div>
+    
+</div>
+
+
+
+
+<div class="container">
+
+    <div class="page-toc">
+        <ul><li><a href="#t0对前端模板的思考">对前端模板的思考</a><ul><li><a href="#t1前言">前言</a></li><li><a href="#t2模板引擎总结">模板引擎总结</a></li><li><a href="#t3对页面的快速开发的思考">对页面的快速开发的思考</a><ul><li><a href="#t4方向之一：模板引擎">方向之一：模板引擎</a></li><li><a href="#t5方向之二：示例页面">方向之二：示例页面</a></li><li><a href="#t6方向之三：UI组件">方向之三：UI组件</a></li></ul></li><li><a href="#t7对示例页面的理解">对示例页面的理解</a><ul><li><a href="#t8典型的业务相关页面">典型的业务相关页面</a></li><li><a href="#t9由UI组件组成的示例页面">由UI组件组成的示例页面</a></li></ul></li></ul></li></ul>
+    </div>
+    
+    <div class="content markdown-body">
+        <h1 id="t0&#x5BF9;&#x524D;&#x7AEF;&#x6A21;&#x677F;&#x7684;&#x601D;&#x8003;">&#x5BF9;&#x524D;&#x7AEF;&#x6A21;&#x677F;&#x7684;&#x601D;&#x8003; <a href="#t0&#x5BF9;&#x524D;&#x7AEF;&#x6A21;&#x677F;&#x7684;&#x601D;&#x8003;"> # </a></h1>
+<h2 id="t1&#x524D;&#x8A00;">&#x524D;&#x8A00; <a href="#t1&#x524D;&#x8A00;"> # </a></h2>
+<blockquote>
+<p>&#x8FD9;&#x51E0;&#x5929;&#xFF0C;&#x6211;&#x4E00;&#x76F4;&#x5BF9;&#x6A21;&#x677F;&#x8FD9;&#x4E2A;&#x8BCD;&#x803F;&#x803F;&#x4E8E;&#x6000;&#x3002;&#x6682;&#x4E14;&#x4E0D;&#x53BB;&#x601D;&#x8003;&#x540E;&#x7AEF;&#x7684;&#x5DE5;&#x7A0B;&#x6A21;&#x677F;&#x4EC0;&#x4E48;&#x7684;&#xFF0C;&#x5C31;&#x5355;&#x5355;&#x524D;&#x7AEF;&#x800C;&#x8A00;&#xFF0C;&#x6A21;&#x677F;&#x5F88;&#x5BB9;&#x6613;&#x8BA9;&#x4EBA;&#x60F3;&#x5230;&#x7684;&#x662F;&#x6A21;&#x677F;&#x5F15;&#x64CE;&#xFF0C;Underscore Templates&#x3001;Embedded JS Templates&#x3001;HandlebarsJS&#x3002;&#x5728;node&#x4E0A;&#x7528;&#x7684;&#x8FD8;&#x6709;Jade templating&#x3001;ejs&#x3001;express template....&#x3002;&#x7B49;&#x7B49;&#xFF0C;&#x4F46;&#x662F;boss&#x60F3;&#x7684;&#x4E0D;&#x662F;&#x8FD9;&#x4E2A;&#x6A21;&#x677F;&#x554A;&#xFF0C;&#x5E94;&#x8BE5;&#x662F;&#x5FEB;&#x901F;&#x5F00;&#x53D1;&#x65B9;&#x5411;&#x53BB;&#x601D;&#x8003;&#xFF0C;&#x6A21;&#x677F;&#x5E94;&#x8BE5;&#x662F;&#x9875;&#x9762;&#xFF0C;&#x5E94;&#x8BE5;&#x662F;&#x4E00;&#x770B;&#x5230;&#x5C31;&#x80FD;&#x62FF;&#x8FC7;&#x6765;&#x7528;&#x7684;&#x9875;&#x9762;&#xFF0C;&#x8FD9;&#x6837;&#x5E2E;&#x52A9;&#x7A0B;&#x5E8F;&#x733F;&#x5FEB;&#x901F;&#x5F00;&#x53D1;&#x554A;&#x3002;&#x539F;&#x6765;&#x53D1;&#x73B0;&#xFF0C;&#x8BA4;&#x77E5;&#x5C31;&#x4E0D;&#x5728;&#x4E00;&#x4E2A;&#x9891;&#x9053;&#x3002;</p>
+</blockquote>
+<h2 id="t2&#x6A21;&#x677F;&#x5F15;&#x64CE;&#x603B;&#x7ED3;">&#x6A21;&#x677F;&#x5F15;&#x64CE;&#x603B;&#x7ED3; <a href="#t2&#x6A21;&#x677F;&#x5F15;&#x64CE;&#x603B;&#x7ED3;"> # </a></h2>
+<ul>
+<li>angular</li>
+<li>&#x679C;&#x7EAF;&#x7528;&#x6A21;&#x677F;&#x7684;&#x8BDD;&#xFF0C;&#x63A8;&#x8350;doT&#xFF0C;&#x901F;&#x5EA6;&#x5FEB;&#xFF0C;&#x652F;&#x6301;&#x7F16;&#x8BD1;&#x6210;&#x51FD;&#x6570;&#x3002;</li>
+<li>react&#xFF0C;&#x6BD4;&#x6A21;&#x677F;&#x66F4;&#x9AD8;&#x7EA7;&#x70B9;&#x3002;</li>
+<li>vue.js &#x56FD;&#x4EBA;&#x505A;&#x7684;&#x6846;&#x67B6; &#x548C;angular&#x7C7B;&#x4F3C; &#x4E0D;&#x8FC7;&#x7CBE;&#x7B80;&#x4E86;&#x5F88;&#x591A;&#x3002;&#x4E2D;&#x6587;&#x6587;&#x6863;&#x975E;&#x5E38;&#x5168;&#x3002;</li>
+<li>mustcache</li>
+<li>&#x6A21;&#x677F;&#x5F15;&#x64CE;&#x770B;&#x4E00;&#x4E0B; layer&#x7684;&#x5427;</li>
+<li>&#x5982;&#x679C;&#x60F3;&#x9AD8;&#x7EA7;&#x7684;&#x63A8;&#x8350; riotjs 2.0&#xFF0C;riotjs&#xFF0C;&#x4F60;&#x770B;&#x770B;&#x5B83;1.x&#x7684;&#x7248;&#x672C;&#x91CC;&#x9762;&#x6709;&#x4E2A;&#x7B80;&#x6D01;&#x7684;&#x6A21;&#x677F;&#x5B9E;</li>
+</ul>
+<pre><code>riot.render = function(tmpl, data, escape_fn) {
+    if (escape_fn === true) escape_fn = default_escape_fn;
+    tmpl = tmpl || &apos;&apos;;
+    return (FN[tmpl] = FN[tmpl] || new Function(&quot;_&quot;, &quot;e&quot;, &quot;try { return &apos;&quot; +
+        tmpl.replace(/[\\\n\r&apos;]/g, function(char) {
+            return template_escape[char];
+        }).replace(/{\s*([\w\.]+)\s*}/g, &quot;&apos; + (e?e(_.$1,&apos;$1&apos;):_.$1||(_.$1==undefined?&apos;&apos;:_.$1)) + &apos;&quot;) + &quot;&apos; } catch(e) { return &apos;&apos; }&quot;)
+    )(data, escape_fn);
+};
+</code></pre><ul>
+<li>JADE</li>
+<li>UNDERSCOREJS</li>
+<li>HANDLEBARSJS</li>
+<li>DOTJS</li>
+</ul>
+<p><a href="http://codecall.net/2014/04/23/10-best-javascript-template-engines-for-developers/">10&#x6B3E;&#x6A21;&#x677F;&#x5F15;&#x64CE;</a></p>
+<h2 id="t3&#x5BF9;&#x9875;&#x9762;&#x7684;&#x5FEB;&#x901F;&#x5F00;&#x53D1;&#x7684;&#x601D;&#x8003;">&#x5BF9;&#x9875;&#x9762;&#x7684;&#x5FEB;&#x901F;&#x5F00;&#x53D1;&#x7684;&#x601D;&#x8003; <a href="#t3&#x5BF9;&#x9875;&#x9762;&#x7684;&#x5FEB;&#x901F;&#x5F00;&#x53D1;&#x7684;&#x601D;&#x8003;"> # </a></h2>
+<h3 id="t4&#x65B9;&#x5411;&#x4E4B;&#x4E00;&#xFF1A;&#x6A21;&#x677F;&#x5F15;&#x64CE;">&#x65B9;&#x5411;&#x4E4B;&#x4E00;&#xFF1A;&#x6A21;&#x677F;&#x5F15;&#x64CE; <a href="#t4&#x65B9;&#x5411;&#x4E4B;&#x4E00;&#xFF1A;&#x6A21;&#x677F;&#x5F15;&#x64CE;"> # </a></h3>
+<p>&#x4F7F;&#x7528;&#x6A21;&#x677F;&#x5F15;&#x64CE;&#xFF0C;&#x53EF;&#x4EE5;&#x5B9E;&#x73B0;&#x4EE3;&#x7801;&#x590D;&#x7528;&#xFF0C;&#x53EF;&#x4EE5;&#x589E;&#x5F3A;&#x6E32;&#x67D3;&#x6027;&#x80FD;&#x3002;</p>
+<h3 id="t5&#x65B9;&#x5411;&#x4E4B;&#x4E8C;&#xFF1A;&#x793A;&#x4F8B;&#x9875;&#x9762;">&#x65B9;&#x5411;&#x4E4B;&#x4E8C;&#xFF1A;&#x793A;&#x4F8B;&#x9875;&#x9762; <a href="#t5&#x65B9;&#x5411;&#x4E4B;&#x4E8C;&#xFF1A;&#x793A;&#x4F8B;&#x9875;&#x9762;"> # </a></h3>
+<p>&#x4E00;&#x4E2A;&#x793A;&#x4F8B;&#x9875;&#x9762;&#xFF0C;&#x5E94;&#x8BE5;&#x662F;&#x5BF9;&#x67D0;&#x4E2A;&#x5178;&#x578B;&#x573A;&#x666F;&#x7684;&#x5C55;&#x793A;&#x793A;&#x4F8B;&#xFF0C;&#x4E5F;&#x8BB8;&#x4E0D;&#x9700;&#x4FEE;&#x6539;&#x6216;&#x662F;&#x7B80;&#x5355;&#x4FEE;&#x6539;&#xFF0C;&#x5373;&#x53EF;&#x62FF;&#x6765;&#x5C31;&#x7528;&#x3002;</p>
+<h3 id="t6&#x65B9;&#x5411;&#x4E4B;&#x4E09;&#xFF1A;UI&#x7EC4;&#x4EF6;">&#x65B9;&#x5411;&#x4E4B;&#x4E09;&#xFF1A;UI&#x7EC4;&#x4EF6; <a href="#t6&#x65B9;&#x5411;&#x4E4B;&#x4E09;&#xFF1A;UI&#x7EC4;&#x4EF6;"> # </a></h3>
+<p>&#x8FD9;&#x662F;&#x4E00;&#x79CD;&#x7EC4;&#x4EF6;&#x5316;&#x7684;&#x65B9;&#x5F0F;&#xFF1A;&#x4E00;&#x4E2A;&#x9875;&#x9762;&#x5207;&#x5206;&#x4E3A;&#x591A;&#x4E2A;UI&#x7EC4;&#x4EF6;&#xFF0C;&#x6BCF;&#x4E2A;UI&#x7EC4;&#x4EF6;&#x529F;&#x80FD;&#x72EC;&#x7ACB;&#xFF0C;&#x53EF;&#x4EE5;&#x76F4;&#x63A5;&#x590D;&#x7528;&#x5230;&#x4EFB;&#x4F55;&#x4E00;&#x4E2A;&#x9875;&#x9762;&#xFF0C;&#x6BCF;&#x4E2A;UI&#x7EC4;&#x4EF6;&#x4F1A;&#x6709;&#x5176;&#x72EC;&#x7ACB;&#x7684;css&#x3001;js&#x3001;json&#x3001;&#x6A21;&#x677F;&#x7247;&#x6BB5;(jsx php html jsp vm...)&#x3002;</p>
+<h2 id="t7&#x5BF9;&#x793A;&#x4F8B;&#x9875;&#x9762;&#x7684;&#x7406;&#x89E3;">&#x5BF9;&#x793A;&#x4F8B;&#x9875;&#x9762;&#x7684;&#x7406;&#x89E3; <a href="#t7&#x5BF9;&#x793A;&#x4F8B;&#x9875;&#x9762;&#x7684;&#x7406;&#x89E3;"> # </a></h2>
+<blockquote>
+<p>&#x5206;&#x4E24;&#x4E2A;&#x65B9;&#x5411;&#xFF1A;&#x4E00;&#x4E2A;&#x662F;&#x62BD;&#x51FA;&#x4E00;&#x4E9B;&#x5178;&#x578B;&#x7684;&#x4E1A;&#x52A1;&#x76F8;&#x5173;&#x9875;&#x9762;&#xFF1B;&#x4E00;&#x4E2A;&#x662F;&#x793A;&#x4F8B;&#x9875;&#x9762;&#x7531;&#x6211;&#x4EEC;&#x5C01;&#x88C5;&#x7684;UI&#x7EC4;&#x4EF6;&#x7EC4;&#x6210;&#xFF0C;&#x8BF4;&#x5230;&#x5E95;&#xFF0C;&#x6211;&#x4EEC;&#x6C89;&#x6DC0;&#x7684;&#x662F;&#x7EC4;&#x4EF6;&#xFF0C;&#x793A;&#x4F8B;&#x9875;&#x9762;&#x53EA;&#x662F;&#x5448;&#x73B0;&#x7EC4;&#x4EF6;&#x7684;&#x65B9;&#x5F0F;&#x3002;</p>
+</blockquote>
+<h3 id="t8&#x5178;&#x578B;&#x7684;&#x4E1A;&#x52A1;&#x76F8;&#x5173;&#x9875;&#x9762;">&#x5178;&#x578B;&#x7684;&#x4E1A;&#x52A1;&#x76F8;&#x5173;&#x9875;&#x9762; <a href="#t8&#x5178;&#x578B;&#x7684;&#x4E1A;&#x52A1;&#x76F8;&#x5173;&#x9875;&#x9762;"> # </a></h3>
+<p>&#x8FD9;&#x91CC;&#x8BDD;&#x4E0D;&#x591A;&#x8BF4;&#xFF0C;&#x6211;&#x4EEC;&#x5DF2;&#x7ECF;&#x79EF;&#x6512;&#x4E86;&#x90E8;&#x5206;&#x9875;&#x9762;&#x3002;&#x4F46;&#x7EA0;&#x7ED3;&#x8981;&#x7ED9;&#x54EA;&#x4E9B;&#x5178;&#x578B;&#x9875;&#x9762;&#xFF0C;&#x54EA;&#x4E9B;&#x573A;&#x666F;&#x7684;&#x9875;&#x9762;&#xFF0C;&#x9875;&#x9762;&#x8981;&#x51FA;&#x5230;&#x4EC0;&#x4E48;&#x7A0B;&#x5EA6;&#xFF0C;&#x8FD9;&#x4E2A;&#x5F88;&#x96BE;&#x8BF4;&#x3002;&#x5F00;&#x53D1;&#x8005;&#x5373;&#x4F7F;&#x611F;&#x89C9;&#x4F60;&#x7684;&#x9875;&#x9762;&#x6709;&#x70B9;&#x7528;&#x6237;&#xFF0C;&#x4E5F;&#x662F;&#x8F7B;&#x6613;&#x4E0D;&#x4F1A;&#x53BB;&#x7528;&#x7684;&#xFF0C;&#x56E0;&#x4E3A;&#x62FF;&#x6765;&#x7EC8;&#x7A76;&#x662F;&#x9700;&#x8981;&#x4FEE;&#x6539;&#x7684;&#xFF0C;&#x9EBB;&#x70E6;&#x3002;&#x6216;&#x8005;&#x5F00;&#x53D1;&#x8005;&#x6240;&#x5728;&#x7684;&#x516C;&#x53F8;&#x6709;UE&#x51FA;&#x56FE;&#xFF0C;&#x90A3;&#x66F4;&#x4E0D;&#x9700;&#x8981;&#x4E86;&#xFF0C;&#x4ED6;&#x4EEC;&#x9700;&#x8981;&#x7684;&#xFF0C;&#x662F;&#x529F;&#x80FD;&#x63D2;&#x4EF6;&#xFF0C;&#x4ED6;&#x4EEC;&#x6CA1;&#x6709;&#x65F6;&#x95F4;&#x7CBE;&#x529B;&#x751A;&#x81F3;&#x662F;&#x80FD;&#x529B;&#x53BB;&#x5C01;&#x88C5;&#x7684;&#x529F;&#x80FD;&#x63D2;&#x4EF6;&#x3002;</p>
+<h3 id="t9&#x7531;UI&#x7EC4;&#x4EF6;&#x7EC4;&#x6210;&#x7684;&#x793A;&#x4F8B;&#x9875;&#x9762;">&#x7531;UI&#x7EC4;&#x4EF6;&#x7EC4;&#x6210;&#x7684;&#x793A;&#x4F8B;&#x9875;&#x9762; <a href="#t9&#x7531;UI&#x7EC4;&#x4EF6;&#x7EC4;&#x6210;&#x7684;&#x793A;&#x4F8B;&#x9875;&#x9762;"> # </a></h3>
+<p>&#x8FD9;&#x4E2A;&#x65B9;&#x5411;&#x9700;&#x8981;&#x597D;&#x597D;&#x804A;&#x4E00;&#x4E0B;&#x3002;&#x770B;&#x4E0B;&#x56FE;&#xFF1A;</p>
+<p><img src="../../../img/page.png" alt="page"></p>
+<p>&#x9875;&#x9762;&#x7684;UI&#x7EC4;&#x4EF6;&#x7EC6;&#x5206;&#xFF1A;</p>
+<p><img src="../../../img/templates.png" alt="templates"></p>
+<p>&#x5BF9;UI&#x4E2D;&#x6A21;&#x677F;&#x7247;&#x6BB5;&#x7684;&#x8BF4;&#x660E;&#xFF1A;</p>
+
+        <div class="copyright">Powered by <a href="https://github.com/jaywcjlove/idoc" target="_blank">idoc</a>. Dependence <a href="https://nodejs.org">Node.js</a> run.</div>
+    </div>
+
+</div>
+
+
+</body>
+</html>

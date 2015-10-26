@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>MyTechBook</title>
+    <link rel="stylesheet" type="text/css" href="../../static/css/main.css">
+</head>
+<body>
+<div class="navbar navbar-line">
+    <div class="container">
+        <div class="logo">
+            
+                MyTechBook
+            
+        </div>
+        <ul><li><a href="../../index.html">关于我</a></li><li><a href="#"><span></span>前端工程化</a><ul><li><a href="../../html/前端工程化/前端模板.html">前端模板</a></li><li><a href="../../html/前端工程化/前端集成解决方案.html">前端集成解决方案</a></li></ul></li><li><a href="#"><span></span>性能优化</a><ul><li class="active"><a href="../../html/性能优化/jshint代码质量检测.html">jshint代码质量检测</a></li><li><a href="../../html/性能优化/性能优化待办事项.html">性能优化待办事项</a></li><li><a href="../../html/性能优化/性能优化点总结.html">性能优化点总结</a></li></ul></li><li><a href="#"><span></span>技术分享</a><ul><li><a href="../../html/技术分享/React技术分享.html">React技术分享</a></li></ul></li><li><a href="#"><span></span>部门工作</a><ul><li><a href="../../html/部门工作/演示.html">演示</a></li></ul></li></ul>
+        
+        
+    </div>
+    
+</div>
+
+
+
+
+<div class="container">
+
+    <div class="page-toc">
+        <ul><li><a href="#t0jshint代码质量检测">jshint代码质量检测</a><ul><li><a href="#t1选型">选型</a></li><li><a href="#t2部分配置代码">部分配置代码</a></li><li><a href="#t3分析结果示例">分析结果示例</a></li></ul></li></ul>
+    </div>
+    
+    <div class="content markdown-body">
+        <h1 id="t0jshint&#x4EE3;&#x7801;&#x8D28;&#x91CF;&#x68C0;&#x6D4B;">jshint&#x4EE3;&#x7801;&#x8D28;&#x91CF;&#x68C0;&#x6D4B; <a href="#t0jshint&#x4EE3;&#x7801;&#x8D28;&#x91CF;&#x68C0;&#x6D4B;"> # </a></h1>
+<blockquote>
+<p>JSHint &#x662F;&#x4E00;&#x4E2A;&#x7528;&#x4E8E;&#x68C0;&#x6D4B;JavaScript&#x4EE3;&#x7801;&#x4E2D;&#x7684;&#x9519;&#x8BEF;&#x548C;&#x6F5C;&#x5728;&#x95EE;&#x9898;&#x7684;&#x5DE5;&#x5177;&#xFF0C;&#x4EE5;&#x89C4;&#x8303;&#x7F16;&#x7801;&#x98CE;&#x683C;&#x3001;&#x786E;&#x4FDD;&#x4EE3;&#x7801;&#x7684;&#x8D28;&#x91CF;&#x3002;</p>
+</blockquote>
+<h2 id="t1&#x9009;&#x578B;">&#x9009;&#x578B; <a href="#t1&#x9009;&#x578B;"> # </a></h2>
+<ul>
+<li>&#x57FA;&#x4E8E;Gulp&#x6784;&#x5EFA;&#x5DE5;&#x5177;&#x7BA1;&#x7406;&#x524D;&#x7AEF;&#x4EE3;&#x7801;</li>
+<li>&#x9009;&#x7528;gulp-jshint&#x5206;&#x6790;&#x524D;&#x7AEF;js&#x4EE3;&#x7801;</li>
+</ul>
+<h2 id="t2&#x90E8;&#x5206;&#x914D;&#x7F6E;&#x4EE3;&#x7801;">&#x90E8;&#x5206;&#x914D;&#x7F6E;&#x4EE3;&#x7801; <a href="#t2&#x90E8;&#x5206;&#x914D;&#x7F6E;&#x4EE3;&#x7801;"> # </a></h2>
+<pre><code>// npm i gulp-jshint --save-dev
+var jshint = require(&apos;gulp-jshint&apos;);
+
+gulp.task(&apos;jshint&apos;, function() {
+  return gulp.src([&apos;src/**/*.js&apos;])
+    .pipe(jshint())
+    .pipe(myReporter);
+});
+
+var myReporter = map(function (file, cb) {
+  if (!file.jshint.success) {
+    console.log(&apos;JSHINT fail in &apos;+file.path);
+    var data = &apos;&apos;;
+    file.jshint.results.forEach(function (err) {
+      if (err) {
+        data += &apos;- &#x884C;&#x6570;: &apos; + err.error.line + &apos;,&#x95EE;&#x9898;&#x4EE3;&#x7801;: &apos; + err.error.evidence + &apos;,&#x539F;&#x56E0;: &apos; + err.error.reason + &apos;\n&apos;;
+      }
+
+    });
+    var targetFileName = file.path.match(/(\w+)\.js$/);
+    var targetDir = &apos;d:\\website\\uui\\docs\\jshint-reporter\\&apos; + targetFileName[1] + &apos;.md&apos;;
+
+    writeFile(targetDir, data);
+    data = &apos;&apos;;
+
+  }
+  cb(null, file);
+});
+</code></pre><h2 id="t3&#x5206;&#x6790;&#x7ED3;&#x679C;&#x793A;&#x4F8B;">&#x5206;&#x6790;&#x7ED3;&#x679C;&#x793A;&#x4F8B; <a href="#t3&#x5206;&#x6790;&#x7ED3;&#x679C;&#x793A;&#x4F8B;"> # </a></h2>
+<ul>
+<li>&#x884C;&#x6570;: 24,&#x95EE;&#x9898;&#x4EE3;&#x7801;:      this.plugs || (this.plugs = {}),&#x539F;&#x56E0;: Expected an assignment or function call and instead saw an expression.</li>
+<li>&#x884C;&#x6570;: 24,&#x95EE;&#x9898;&#x4EE3;&#x7801;:      this.plugs || (this.plugs = {}),&#x539F;&#x56E0;: Missing semicolon.</li>
+<li>&#x884C;&#x6570;: 26,&#x95EE;&#x9898;&#x4EE3;&#x7801;:        throw new Error(&apos;plug has exist:&apos;+ name),&#x539F;&#x56E0;: Missing semicolon.</li>
+<li>&#x884C;&#x6570;: 28,&#x95EE;&#x9898;&#x4EE3;&#x7801;:      this.plugs[name] = plug,&#x539F;&#x56E0;: Missing semicolon.</li>
+<li>&#x884C;&#x6570;: 31,&#x95EE;&#x9898;&#x4EE3;&#x7801;:      var type = options[&apos;type&apos;],&#x539F;&#x56E0;: [&apos;type&apos;] is better written in dot notation.</li>
+<li>&#x884C;&#x6570;: 31,&#x95EE;&#x9898;&#x4EE3;&#x7801;:      var type = options[&apos;type&apos;],&#x539F;&#x56E0;: Missing semicolon.</li>
+<li>&#x884C;&#x6570;: 32,&#x95EE;&#x9898;&#x4EE3;&#x7801;:      var plug = this.plugs[type],&#x539F;&#x56E0;: Missing semicolon.</li>
+<li>&#x884C;&#x6570;: 33,&#x95EE;&#x9898;&#x4EE3;&#x7801;:      if (!plug) return null,&#x539F;&#x56E0;: Missing semicolon.</li>
+<li>&#x884C;&#x6570;: 34,&#x95EE;&#x9898;&#x4EE3;&#x7801;:      return new plug(element, options, viewModel, app),&#x539F;&#x56E0;: A constructor name should start with an uppercase letter.</li>
+<li>&#x884C;&#x6570;: 73,&#x95EE;&#x9898;&#x4EE3;&#x7801;:            if(val !=&apos;&apos; &amp;&amp; val != null){,&#x539F;&#x56E0;: Use &apos;!==&apos; to compare with &apos;&apos;.</li>
+</ul>
+
+        <div class="copyright">Powered by <a href="https://github.com/jaywcjlove/idoc" target="_blank">idoc</a>. Dependence <a href="https://nodejs.org">Node.js</a> run.</div>
+    </div>
+
+</div>
+
+
+</body>
+</html>

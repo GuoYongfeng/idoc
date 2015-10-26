@@ -71,16 +71,70 @@ react-dom.js
 react-with-addons.js
 ```
 ### React被拆分为react和react-dom两个包
-react包提供React.createElement、 .createClass、 .Component， .PropTypes， .Children等API接口，react-dom package 中包含 ReactDOM.render、 .unmountComponentAtNode、 .findDOMNode等。
+- react.js 是 React 的核心库
+
+react包提供React.createElement、 .createClass、 .Component， .PropTypes， .Children等API接口
+- react-dom.js提供与 DOM 相关的功能
+
+react-dom package 中包含 ReactDOM.render、 .unmountComponentAtNode、 .findDOMNode等。
+**其中，服务端渲染的几个 API 被独立出来了, 需要引用这个文件 react-dom/server**
 ### React.addons被拆分出若干个独立的包
-(说明下，这个是官方提供的已封装的一系列组件)下面的工具全部变成了独立的 package也变成了独立的package。
+- 说明下，这个文件是官方提供的已封装的一系列插件
+- 在0.14版本将其中的插件封装成若干个独立的 package提供使用（至少五个，之前版本是直接在一个文件中引用）。
 ### 编译器优化
 **react-tools 及 JSXTransformer.js 已弃用**
 以前是采用JSXTransformer来解析JSX语法，现在是全面拥抱Babel（可以```npm insttall babel -g```安装babel进行JSX语法解析、或是加上babel提供的browser.js库进行解析）。
 
+## 0.1 启动
+
+### 两种运行JSX的方式
+- 页面中加browser.js，script标签的type设置为text/babel(0.13版本为text/jsx)
+
+```html
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="../build/react.js"></script>
+    <script src="../build/react-dom.js"></script>
+    <script src="../build/browser.min.js"></script>
+  </head>
+  <body>
+    <script type="text/babel">
+      var MyComponent = React.createClass({
+          render: function (){
+            return (
+              <h1 className="header">我的第一个组件</h1>
+            )
+          }
+      });
+
+      ReactDOM.render(<MyComponent />, document.body);
+    </script>
+  </body>
+</html>
+```
+
+- 页面中直接运行babel解析jsx的文件。
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+      <meta charset="UTF-8">
+      <title>被解析的JSX</title>
+      <script src="../vendors/react/react.js"></script>
+      <script src="../vendors/react/react-dom.js"></script>
+  </head>
+  <body>
+      <div id="example"></div>
+      <script src="../build/jsx_compile.js"></script>
+  </body>
+</html>
+```
+
 ## 1. JSX语法
 
-先看看不用JSX语法怎么写基于React的代码：
+在学习JSX语法之前，先看看不用JSX语法怎么写基于React的代码（调用React库封装的接口）：
 ```
 // 比如我想写一个h1元素
 React.DOM.h1({"className": "header"}, "我是标题");
@@ -108,9 +162,7 @@ React.createElement('h1', {className: 'header'}, '我是标题');
 - 关注点分离
 
 ### demo示例
-### 两种运行JSX的方式
-- 页面中加browser.js，script标签的type设置为text/babel(0.13版本为text/jsx)
-- 页面中直接运行babel解析jsx的文件。
+
 ### 几个注意点
 - render的方法中return的顶级元素只能是一个
 
@@ -125,7 +177,8 @@ React.createElement('h1', {className: 'header'}, '我是标题');
 > React组件本身很简单，可以把它看成就是一个函数，而这个函数有两个传参，props和state，调用这个函数后悔返回一个虚拟的DOM。
 
 ### 定义一个组件
-```
+
+```JavaScript
 var MyTitle = React.createClass({
     // 相当于接口文档
     propTypes: {
@@ -158,8 +211,8 @@ var MyTitle = React.createClass({
         );
     }
 });
-
 ```
+
 - state
 每一个组件都有自己的state，这让我们可以将组件看成是一个状态机
 改变组件可以使用```setState```或是```replaceState```，千万不要这样类似这样写```this.state.name = ''```。

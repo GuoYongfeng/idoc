@@ -3,28 +3,40 @@
 <head>
     <meta charset="UTF-8">
     <title>MyTechBook</title>
-    <link rel="stylesheet" type="text/css" href="../css/main.css">
+    <link rel="stylesheet" type="text/css" href="../../static/css/main.css">
 </head>
 <body>
-<div class="nav">
-<div class="logo">MyTechBook</div>
-<ul><li><a href="../index.html">jshint代码质量检测</a></li><li><a href="../html/性能优化待办事项.html">性能优化待办事项</a></li><li><a href="../html/演示.html">演示</a></li><li class="active"><a href="../html/React技术分享.html">React技术分享</a></li><li><a href="../html/前端模板.html">前端模板</a></li><li><a href="../html/前端集成解决方案.html">前端集成解决方案</a></li><li><a href="../html/性能优化点总结.html">性能优化点总结</a></li></ul></div>
+<div class="navbar navbar-line">
+    <div class="container">
+        <div class="logo">
+            
+                MyTechBook
+            
+        </div>
+        <ul><li><a href="../../index.html">关于我</a></li><li><a href="#"><span></span>前端工程化</a><ul><li><a href="../../html/前端工程化/前端模板.html">前端模板</a></li><li><a href="../../html/前端工程化/前端集成解决方案.html">前端集成解决方案</a></li></ul></li><li><a href="#"><span></span>性能优化</a><ul><li><a href="../../html/性能优化/jshint代码质量检测.html">jshint代码质量检测</a></li><li><a href="../../html/性能优化/性能优化待办事项.html">性能优化待办事项</a></li><li><a href="../../html/性能优化/性能优化点总结.html">性能优化点总结</a></li></ul></li><li><a href="#"><span></span>技术分享</a><ul><li class="active"><a href="../../html/技术分享/React技术分享.html">React技术分享</a></li></ul></li><li><a href="#"><span></span>部门工作</a><ul><li><a href="../../html/部门工作/演示.html">演示</a></li></ul></li></ul>
+        
+        
+    </div>
+    
+</div>
 
 
-<div class="warpper">
+
+
+<div class="container">
 
     <div class="page-toc">
-        <ul><li><a href="#React技术学习--入门篇">React技术学习--入门篇</a><ul><li><a href="#基本认识">基本认识</a></li><li><a href="#为什么用React">为什么用React</a></li><li><a href="#React和Angular等框架的差异">React和Angular等框架的差异</a></li><li><a href="#如何从Jquery的经验中转变过来">如何从Jquery的经验中转变过来</a></li><li><a href="#你在使用之前还是需要考虑这些">你在使用之前还是需要考虑这些</a></li></ul></li><li><a href="#React技术学习--基础篇（一）">React技术学习--基础篇（一）</a><ul><li><a href="#0. 0.13版本和0.14版本的差异">0. 0.13版本和0.14版本的差异</a><ul><li><a href="#提供的文件不一样">提供的文件不一样</a></li><li><a href="#React被拆分为react和react-dom两个包">React被拆分为react和react-dom两个包</a></li><li><a href="#React.addons被拆分出若干个独立的包">React.addons被拆分出若干个独立的包</a></li><li><a href="#编译器优化">编译器优化</a></li></ul></li><li><a href="#1. JSX语法">1. JSX语法</a><ul><li><a href="#demo示例">demo示例</a></li><li><a href="#两种运行JSX的方式">两种运行JSX的方式</a></li><li><a href="#几个注意点">几个注意点</a></li></ul></li><li><a href="#2. 数据流">2. 数据流</a><ul><li><a href="#定义一个组件">定义一个组件</a></li><li><a href="#理解state和props">理解state和props</a></li></ul></li><li><a href="#3. 组件的全生命周期和对应的那些钩子函数">3. 组件的全生命周期和对应的那些钩子函数</a><ul><li><a href="#钩子函数总结">钩子函数总结</a></li></ul></li><li><a href="#复合组件">复合组件</a></li><li><a href="#DOM操作和事件处理">DOM操作和事件处理</a></li></ul></li></ul>
+        <ul><li><a href="#t0React技术学习--入门篇">React技术学习--入门篇</a><ul><li><a href="#t1基本认识">基本认识</a></li><li><a href="#t2为什么用React">为什么用React</a></li><li><a href="#t3React和Angular等框架的差异">React和Angular等框架的差异</a></li><li><a href="#t4如何从Jquery的经验中转变过来">如何从Jquery的经验中转变过来</a></li><li><a href="#t5你在使用之前还是需要考虑这些">你在使用之前还是需要考虑这些</a></li></ul></li><li><a href="#t6React技术学习--基础篇（一）">React技术学习--基础篇（一）</a><ul><li><a href="#t70. 0.13版本和0.14版本的差异">0. 0.13版本和0.14版本的差异</a><ul><li><a href="#t8提供的文件不一样">提供的文件不一样</a></li><li><a href="#t9React被拆分为react和react-dom两个包">React被拆分为react和react-dom两个包</a></li><li><a href="#t10React.addons被拆分出若干个独立的包">React.addons被拆分出若干个独立的包</a></li><li><a href="#t11编译器优化">编译器优化</a></li></ul></li><li><a href="#t121. JSX语法">1. JSX语法</a><ul><li><a href="#t13demo示例">demo示例</a></li><li><a href="#t14两种运行JSX的方式">两种运行JSX的方式</a></li><li><a href="#t15几个注意点">几个注意点</a></li></ul></li><li><a href="#t162. 数据流">2. 数据流</a><ul><li><a href="#t17定义一个组件">定义一个组件</a></li><li><a href="#t18理解state和props">理解state和props</a></li></ul></li><li><a href="#t193. 组件的全生命周期和对应的那些钩子函数">3. 组件的全生命周期和对应的那些钩子函数</a><ul><li><a href="#t20钩子函数总结">钩子函数总结</a></li></ul></li><li><a href="#t21复合组件">复合组件</a></li><li><a href="#t22DOM操作和事件处理">DOM操作和事件处理</a></li></ul></li></ul>
     </div>
     
     <div class="content markdown-body">
-        <h1 id="React&#x6280;&#x672F;&#x5B66;&#x4E60;--&#x5165;&#x95E8;&#x7BC7;">React&#x6280;&#x672F;&#x5B66;&#x4E60;--&#x5165;&#x95E8;&#x7BC7; <a href="#React&#x6280;&#x672F;&#x5B66;&#x4E60;--&#x5165;&#x95E8;&#x7BC7;"> # </a></h1>
+        <h1 id="t0React&#x6280;&#x672F;&#x5B66;&#x4E60;--&#x5165;&#x95E8;&#x7BC7;">React&#x6280;&#x672F;&#x5B66;&#x4E60;--&#x5165;&#x95E8;&#x7BC7; <a href="#t0React&#x6280;&#x672F;&#x5B66;&#x4E60;--&#x5165;&#x95E8;&#x7BC7;"> # </a></h1>
 <blockquote>
 <p>&#x81EA;ReactJS&#x5F00;&#x6E90;&#x4EE5;&#x6765;&#xFF0C;&#x524D;&#x7AEF;&#x7E41;&#x8363;&#x7684;&#x4E16;&#x754C;&#x91CC;&#x53C8;&#x591A;&#x4E86;&#x4E00;&#x4F4D;&#x91CD;&#x91CF;&#x7EA7;&#x7684;&#x6210;&#x5458;&#xFF0C;&#x5728;&#x5927;&#x5BB6;&#x4EE5;&#x62E5;&#x62B1;&#x7684;&#x5FC3;&#x6001;&#x53BB;&#x63A5;&#x89E6;&#x5B83;&#x5B66;&#x4E60;&#x5B83;&#x7684;&#x4E4B;&#x524D;&#xFF0C;&#x6211;&#x4EEC;&#x6709;&#x5FC5;&#x8981;&#x5148;&#x53BB;&#x4E86;&#x89E3;&#x5B83;&#x89E3;&#x51B3;&#x4E86;&#x4EC0;&#x4E48;&#x95EE;&#x9898;&#xFF0C;&#x5B83;&#x9002;&#x7528;&#x4E8E;&#x4EC0;&#x4E48;&#x573A;&#x666F;&#x3002;&#x8FD9;&#x662F;&#x6211;&#x5F00;&#x7BC7;&#x6700;&#x60F3;&#x548C;&#x5927;&#x5BB6;&#x4E00;&#x8D77;&#x804A;&#x7684;&#x8BDD;&#x9898;&#x3002;</p>
 </blockquote>
-<h2 id="&#x57FA;&#x672C;&#x8BA4;&#x8BC6;">&#x57FA;&#x672C;&#x8BA4;&#x8BC6; <a href="#&#x57FA;&#x672C;&#x8BA4;&#x8BC6;"> # </a></h2>
+<h2 id="t1&#x57FA;&#x672C;&#x8BA4;&#x8BC6;">&#x57FA;&#x672C;&#x8BA4;&#x8BC6; <a href="#t1&#x57FA;&#x672C;&#x8BA4;&#x8BC6;"> # </a></h2>
 <p>React&#x662F;&#x4E00;&#x4E2A;&#x7528;&#x4E8E;&#x6784;&#x5EFA;&#x7528;&#x6237;&#x754C;&#x9762;&#x7684;JAVASCRIPT&#x5E93;&#xFF0C;&#x5B83;&#x4E0D;&#x662F;&#x4E00;&#x4E2A;MVC&#x6846;&#x67B6;&#xFF0C;&#x5B83;&#x6700;&#x591A;&#x53EA;&#x662F;View&#x5C42;&#xFF0C;&#x751A;&#x81F3;React&#x7684;&#x601D;&#x60F3;&#x5E76;&#x4E0D;&#x662F;&#x975E;&#x5E38;&#x8BA4;&#x53EF;MVC&#x6A21;&#x5F0F;&#x3002;&#x8FD8;&#x6709;&#x4EBA;&#x62FF;React&#x548C;Web Component&#x76F8;&#x6BD4;&#x8F83;&#xFF0C;&#x5176;&#x5B9E;&#x4ED6;&#x4EEC;&#x4E8C;&#x8005;&#x5E76;&#x4E0D;&#x662F;&#x4E00;&#x4E2A;&#x4F60;&#x6B7B;&#x6211;&#x6D3B;&#x7684;&#x7ADE;&#x4E89;&#x5173;&#x7CFB;&#xFF0C;&#x4F60;&#x4E5F;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;React&#x6765;&#x5F00;&#x53D1;&#x51FA;&#x4E00;&#x4E2A;Web Component&#xFF1B;&#x8FD8;&#x6709;&#x4EBA;&#x8BF4;&#xFF0C;React&#x6709;jsx&#x8BED;&#x6CD5;&#xFF0C;&#x5B83;&#x662F;&#x4E0D;&#x662F;&#x4E00;&#x4E2A;&#x65B0;&#x7684;&#x6A21;&#x677F;&#x8BED;&#x8A00;&#xFF0C;&#x5176;&#x5B9E;jsx&#x53EA;&#x662F;&#x4E00;&#x4E2A;&#x5C01;&#x88C5;&#x7EC4;&#x4EF6;&#x7684;&#x8BED;&#x6CD5;&#xFF0C;&#x6CA1;&#x6709;jsx&#xFF0C;React&#x4E5F;&#x53EF;&#x4EE5;&#x6B63;&#x5E38;&#x5DE5;&#x4F5C;&#x3002;</p>
-<h2 id="&#x4E3A;&#x4EC0;&#x4E48;&#x7528;React">&#x4E3A;&#x4EC0;&#x4E48;&#x7528;React <a href="#&#x4E3A;&#x4EC0;&#x4E48;&#x7528;React"> # </a></h2>
+<h2 id="t2&#x4E3A;&#x4EC0;&#x4E48;&#x7528;React">&#x4E3A;&#x4EC0;&#x4E48;&#x7528;React <a href="#t2&#x4E3A;&#x4EC0;&#x4E48;&#x7528;React"> # </a></h2>
 <blockquote>
 <ul>
 <li>&#x9AD8;&#x6548;DOM&#x6E32;&#x67D3;</li>
@@ -55,11 +67,11 @@
 <li>&#x5927;&#x5BB6;&#x53EF;&#x80FD;&#x4F1A;&#x95EE;&#xFF0C;&#x8FD9;&#x6240;&#x5021;&#x5BFC;&#x7684;&#x5355;&#x5411;&#x6D41;&#x52A8;&#xFF0C;&#x90A3;&#x76F8;&#x5BF9;MVC&#x6216;&#x662F;MVVM&#x6846;&#x67B6;&#x7684;&#x53CC;&#x5411;&#x6570;&#x636E;&#x7ED1;&#x5B9A;&#x7B80;&#x76F4;&#x662F;&#x5F31;&#x7206;&#x4E86;&#x3002;&#x90A3;&#x4E48;&#x8FD9;&#x91CC;&#x9700;&#x8981;&#x7406;&#x89E3;&#x7684;&#x662F;&#xFF0C;&#x8FD9;&#x91CC;&#x7684;&#x5355;&#x5411;&#xFF0C;&#x662F;&#x5FAA;&#x73AF;&#x6D41;&#x52A8;&#x7684;&#x5355;&#x5411;&#xFF0C;&#x6570;&#x636E;&#x662F;&#x6301;&#x7EED;&#x66F4;&#x65B0;&#x7684;&#x3002;&#x53CC;&#x5411;&#x6570;&#x636E;&#x7ED1;&#x5B9A;&#x662F;&#x4F18;&#x79C0;&#x4FBF;&#x6377;&#x7684;&#x5B9E;&#x73B0;&#xFF0C;&#x8FD9;&#x4E2A;&#x9700;&#x8981;&#x7528;&#x5B9E;&#x73B0;&#x7684;&#x6210;&#x672C;&#x548C;&#x4E1A;&#x52A1;&#x573A;&#x666F;&#x6765;&#x8003;&#x91CF;&#x4E8C;&#x8005;&#x4E86;&#x3002;</li>
 <li>&#x5BF9;&#x4E8E;&#x5355;&#x5411;&#x6570;&#x636E;&#x6D41;&#x76EE;&#x524D;&#x5DF2;&#x7ECF;&#x6709;&#x5F88;&#x597D;&#x7684;&#x7C7B;&#x5E93;&#x5B9E;&#x73B0;&#x4E86;&#xFF0C;&#x5982;flux reflux redux&#x7B49;&#x3002;</li>
 </ul>
-<h2 id="React&#x548C;Angular&#x7B49;&#x6846;&#x67B6;&#x7684;&#x5DEE;&#x5F02;">React&#x548C;Angular&#x7B49;&#x6846;&#x67B6;&#x7684;&#x5DEE;&#x5F02; <a href="#React&#x548C;Angular&#x7B49;&#x6846;&#x67B6;&#x7684;&#x5DEE;&#x5F02;"> # </a></h2>
+<h2 id="t3React&#x548C;Angular&#x7B49;&#x6846;&#x67B6;&#x7684;&#x5DEE;&#x5F02;">React&#x548C;Angular&#x7B49;&#x6846;&#x67B6;&#x7684;&#x5DEE;&#x5F02; <a href="#t3React&#x548C;Angular&#x7B49;&#x6846;&#x67B6;&#x7684;&#x5DEE;&#x5F02;"> # </a></h2>
 <p>&#x5DF2;&#x7ECF;&#x6709;&#x65E0;&#x6570;&#x7684;&#x4EBA;&#x8FFD;&#x7740;&#x95EE;&#x8FD9;&#x6837;&#x4E00;&#x4E9B;&#x95EE;&#x9898;&#x4E86;&#xFF1A;react&#x548C;angular&#x90A3;&#x4E2A;&#x597D;&#xFF0C;&#x6211;&#x5E94;&#x8BE5;&#x5B66;&#x54EA;&#x4E2A;&#x554A;&#xFF1F;react&#x4E5F;&#x662F;&#x524D;&#x7AEF;&#x7684;mvc&#x6846;&#x67B6;&#x5417;&#xFF1F;&#x5F88;&#x591A;&#x7C7B;&#x4F3C;&#x7684;&#x95EE;&#x9898;&#xFF0C;&#x5145;&#x65A5;&#x5728;&#x521D;&#x5B66;&#x8005;&#x7684;&#x8111;&#x6D77;&#x3002;&#x5F88;&#x591A;&#x4EBA;&#x8BA4;&#x4E3A; React &#x662F; MVC &#x4E2D;&#x7684; V&#xFF08;&#x89C6;&#x56FE;&#xFF09;&#xFF0C;&#x5F53;&#x7136;&#xFF0C;&#x6211;&#x4EEC;&#x4E5F;&#x53EF;&#x4EE5;&#x8FD9;&#x4E48;&#x8BA4;&#x4E3A;&#xFF0C;&#x6B63;&#x662F;&#x56E0;&#x4E3A;&#x5B83;&#x7684;&#x8FD9;&#x79CD;&#x4F4D;&#x7F6E;&#xFF0C;&#x8BA9;React&#x53EF;&#x4EE5;&#x548C;&#x5404;&#x79CD;&#x524D;&#x7AEF;&#x6846;&#x67B6;&#x8FDB;&#x884C;&#x7ED3;&#x5408;&#x3002;&#x5982;&#x679C;&#x4F60;&#x662F;&#x7528;backbone&#x6216;&#x662F;angular&#x7B49;&#x6846;&#x67B6;&#xFF0C;&#x53EF;&#x4EE5;&#x5F88;&#x5BB9;&#x6613;&#x7684;&#x628A;react&#x7528;&#x8D77;&#x6765;&#x5B8C;&#x6210;view&#x5C42;&#x7684;&#x5C55;&#x73B0;&#x3002;</p>
-<h2 id="&#x5982;&#x4F55;&#x4ECE;Jquery&#x7684;&#x7ECF;&#x9A8C;&#x4E2D;&#x8F6C;&#x53D8;&#x8FC7;&#x6765;">&#x5982;&#x4F55;&#x4ECE;Jquery&#x7684;&#x7ECF;&#x9A8C;&#x4E2D;&#x8F6C;&#x53D8;&#x8FC7;&#x6765; <a href="#&#x5982;&#x4F55;&#x4ECE;Jquery&#x7684;&#x7ECF;&#x9A8C;&#x4E2D;&#x8F6C;&#x53D8;&#x8FC7;&#x6765;"> # </a></h2>
+<h2 id="t4&#x5982;&#x4F55;&#x4ECE;Jquery&#x7684;&#x7ECF;&#x9A8C;&#x4E2D;&#x8F6C;&#x53D8;&#x8FC7;&#x6765;">&#x5982;&#x4F55;&#x4ECE;Jquery&#x7684;&#x7ECF;&#x9A8C;&#x4E2D;&#x8F6C;&#x53D8;&#x8FC7;&#x6765; <a href="#t4&#x5982;&#x4F55;&#x4ECE;Jquery&#x7684;&#x7ECF;&#x9A8C;&#x4E2D;&#x8F6C;&#x53D8;&#x8FC7;&#x6765;"> # </a></h2>
 <p>&#x6211;&#x5DF2;&#x7ECF;&#x4E60;&#x60EF;&#x4E86;jquery&#x7684;api&#x8C03;&#x7528;&#x6765;&#x64CD;&#x4F5C;dom&#x4E66;&#x5199;&#x4E1A;&#x52A1;&#x903B;&#x8F91;&#xFF0C;&#x800C;&#x4E14;&#x57FA;&#x4E8E;jquery&#x6709;&#x975E;&#x5E38;&#x4E30;&#x5BCC;&#x7684;&#x529F;&#x80FD;&#x63D2;&#x4EF6;&#xFF0C;&#x5982;&#x679C;&#x4ECE;jquery&#x7684;&#x601D;&#x7EF4;&#x8F6C;&#x53D8;&#x8FC7;&#x6765;&#x662F;&#x5728;&#x5B66;&#x4E60;&#x7684;&#x8DEF;&#x4E0A;&#x65E0;&#x53EF;&#x907F;&#x514D;&#x7684;&#xFF0C;&#x800C;&#x4E14;&#x5F88;&#x591A;&#x4EBA;&#x5BB9;&#x6613;&#x5728;&#x8FD9;&#x91CC;&#x88AB;&#x5751;&#x5230;&#x3002;&#x6BD4;&#x5982;&#x4F7F;&#x7528;react&#x7684;&#x83B7;&#x53D6;dom&#x540E;&#x53C8;&#x8C03;&#x7528;jquery&#x7684;&#x4E00;&#x4E2A;&#x63D2;&#x4EF6;&#xFF0C;&#x8FD9;&#x4E2A;&#x65F6;&#x5019;&#x5C31;&#x5F97;&#x5F88;&#x597D;&#x7684;&#x6CE8;&#x610F;&#x5185;&#x5B58;&#x95EE;&#x9898;&#xFF0C;&#x786E;&#x4FDD;&#x5728;&#x7EC4;&#x4EF6;&#x7684;&#x751F;&#x547D;&#x5468;&#x671F;&#x7ED3;&#x675F;&#x7684;&#x65F6;&#x5019;&#xFF0C;dom&#x4E0A;&#x7ED1;&#x5B9A;&#x7684;jquery&#x63D2;&#x4EF6;&#x4E5F;&#x5F97;&#x8FDB;&#x884C;&#x89E3;&#x9664;&#x7ED1;&#x5B9A;&#x3002;</p>
-<h2 id="&#x4F60;&#x5728;&#x4F7F;&#x7528;&#x4E4B;&#x524D;&#x8FD8;&#x662F;&#x9700;&#x8981;&#x8003;&#x8651;&#x8FD9;&#x4E9B;">&#x4F60;&#x5728;&#x4F7F;&#x7528;&#x4E4B;&#x524D;&#x8FD8;&#x662F;&#x9700;&#x8981;&#x8003;&#x8651;&#x8FD9;&#x4E9B; <a href="#&#x4F60;&#x5728;&#x4F7F;&#x7528;&#x4E4B;&#x524D;&#x8FD8;&#x662F;&#x9700;&#x8981;&#x8003;&#x8651;&#x8FD9;&#x4E9B;"> # </a></h2>
+<h2 id="t5&#x4F60;&#x5728;&#x4F7F;&#x7528;&#x4E4B;&#x524D;&#x8FD8;&#x662F;&#x9700;&#x8981;&#x8003;&#x8651;&#x8FD9;&#x4E9B;">&#x4F60;&#x5728;&#x4F7F;&#x7528;&#x4E4B;&#x524D;&#x8FD8;&#x662F;&#x9700;&#x8981;&#x8003;&#x8651;&#x8FD9;&#x4E9B; <a href="#t5&#x4F60;&#x5728;&#x4F7F;&#x7528;&#x4E4B;&#x524D;&#x8FD8;&#x662F;&#x9700;&#x8981;&#x8003;&#x8651;&#x8FD9;&#x4E9B;"> # </a></h2>
 <ul>
 <li><p>&#x76F8;&#x6BD4;&#x4E8E;&#x4E4B;&#x524D;&#x7684;&#x770B;&#x4E0D;&#x61C2;&#x7684;&#x5B98;&#x65B9;&#x6587;&#x6863;&#xFF0C;&#x73B0;&#x5728;&#x7684;&#x4E2D;&#x6587;&#x8BBA;&#x575B;&#x3001;&#x6587;&#x6863;&#x3001;&#x5B66;&#x4E60;&#x4E66;&#x7C4D;&#x6162;&#x6162;&#x5B8C;&#x5584;&#x8D77;&#x6765;&#x4E86;&#xFF0C;&#x4F46;&#x8FD9;&#x8FD8;&#x4E0D;&#x591F;&#xFF0C;&#x8FD9;&#x4E5F;&#x662F;&#x4E3A;&#x4EC0;&#x4E48;&#x5199;&#x8FD9;&#x4E2A;&#x5B66;&#x4E60;&#x8D44;&#x6599;&#x7684;&#x539F;&#x56E0;&#x3002;&#x8BF4;&#x8FD9;&#x4E9B;&#x7684;&#x76EE;&#x7684;&#x662F;&#xFF0C;&#x5B66;&#x4E60;&#x4E5F;&#x9700;&#x8981;&#x8003;&#x8651;&#x5B66;&#x4E60;&#x8D44;&#x6E90;&#x7684;&#x3002;</p>
 </li>
@@ -70,12 +82,12 @@
 <li><p>&#x4EFB;&#x4F55;&#x4E00;&#x95E8;&#x65B0;&#x5174;&#x7684;&#x6280;&#x672F;&#x90FD;&#x4E0D;&#x662F;&#x5341;&#x5168;&#x5341;&#x7F8E;&#x7684;&#x51FA;&#x73B0;&#xFF0C;&#x4E00;&#x4E9B;&#x4E0D;&#x662F;&#x90A3;&#x4E48;&#x6109;&#x5FEB;&#x7684;&#x529F;&#x80FD;&#x70B9;&#x4E5F;&#x4E0D;&#x59A8;&#x788D;&#x6211;&#x4EEC;&#x5BF9;react&#x7684;&#x7EE7;&#x7EED;&#x63A2;&#x7D22;&#x3002;&#x6240;&#x4EE5;&#x6709;&#x4E86;&#x8FD9;&#x4E9B;&#x57FA;&#x672C;&#x7684;&#x50A8;&#x5907;&#xFF0C;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x5766;&#x7136;&#x7684;&#x5F00;&#x59CB;&#x4E86;&#x3002;</p>
 </li>
 </ul>
-<h1 id="React&#x6280;&#x672F;&#x5B66;&#x4E60;--&#x57FA;&#x7840;&#x7BC7;&#xFF08;&#x4E00;&#xFF09;">React&#x6280;&#x672F;&#x5B66;&#x4E60;--&#x57FA;&#x7840;&#x7BC7;&#xFF08;&#x4E00;&#xFF09; <a href="#React&#x6280;&#x672F;&#x5B66;&#x4E60;--&#x57FA;&#x7840;&#x7BC7;&#xFF08;&#x4E00;&#xFF09;"> # </a></h1>
+<h1 id="t6React&#x6280;&#x672F;&#x5B66;&#x4E60;--&#x57FA;&#x7840;&#x7BC7;&#xFF08;&#x4E00;&#xFF09;">React&#x6280;&#x672F;&#x5B66;&#x4E60;--&#x57FA;&#x7840;&#x7BC7;&#xFF08;&#x4E00;&#xFF09; <a href="#t6React&#x6280;&#x672F;&#x5B66;&#x4E60;--&#x57FA;&#x7840;&#x7BC7;&#xFF08;&#x4E00;&#xFF09;"> # </a></h1>
 <blockquote>
 <p>&#x8D8A;&#x662F;&#x57FA;&#x7840;&#x7684;&#x4E1C;&#x897F;&#xFF0C;&#x8D8A;&#x662F;&#x91CD;&#x8981;&#xFF1B;&#x8D8A;&#x662F;&#x539F;&#x7406;&#x7684;&#x5185;&#x5BB9;&#xFF0C;&#x8D8A;&#x8981;&#x53BB;&#x7406;&#x6E05;&#x695A;&#x3002;&#x4E3A;&#x4EC0;&#x4E48;&#x5728;&#x5F00;&#x7BC7;&#x56DE;&#x53BB;&#x5F3A;&#x8C03;&#x8FD9;&#x4E2A;&#x5185;&#x5BB9;&#xFF0C;&#x56E0;&#x4E3A;&#x4E5F;&#x8BB8;&#x7B49;&#x4F60;&#x5B66;&#x4E60;React&#x540E;&#x4F1A;&#x53D1;&#x73B0;&#xFF0C;&#x4F7F;&#x7528;React&#x7684;&#x4EBA;&#x6162;&#x6162;&#x7684;&#x5206;&#x6210;&#x4E86;&#x4E24;&#x6D3E;&#xFF0C;&#x4E00;&#x6D3E;&#x662F;&#x4E13;&#x95E8;&#x5C01;&#x88C5;React&#x7EC4;&#x4EF6;&#x6216;&#x7EC4;&#x4EF6;&#x5E93;&#x7684;&#xFF0C;&#x4E00;&#x6D3E;&#x662F;&#x4E13;&#x95E8;&#x4F7F;&#x7528;&#x524D;&#x8005;&#x7684;&#x3002;&#x6240;&#x4EE5;&#xFF0C;&#x5B66;&#x4E60;&#x57FA;&#x7840;&#x5C06;&#x662F;&#x8BA9;&#x81EA;&#x5DF1;&#x62E5;&#x6709;&#x5C01;&#x88C5;&#x548C;&#x8FD0;&#x7528;&#x7EC4;&#x4EF6;&#x7684;&#x57FA;&#x7840;&#x3002;</p>
 </blockquote>
-<h2 id="0. 0.13&#x7248;&#x672C;&#x548C;0.14&#x7248;&#x672C;&#x7684;&#x5DEE;&#x5F02;">0. 0.13&#x7248;&#x672C;&#x548C;0.14&#x7248;&#x672C;&#x7684;&#x5DEE;&#x5F02; <a href="#0. 0.13&#x7248;&#x672C;&#x548C;0.14&#x7248;&#x672C;&#x7684;&#x5DEE;&#x5F02;"> # </a></h2>
-<h3 id="&#x63D0;&#x4F9B;&#x7684;&#x6587;&#x4EF6;&#x4E0D;&#x4E00;&#x6837;">&#x63D0;&#x4F9B;&#x7684;&#x6587;&#x4EF6;&#x4E0D;&#x4E00;&#x6837; <a href="#&#x63D0;&#x4F9B;&#x7684;&#x6587;&#x4EF6;&#x4E0D;&#x4E00;&#x6837;"> # </a></h3>
+<h2 id="t70. 0.13&#x7248;&#x672C;&#x548C;0.14&#x7248;&#x672C;&#x7684;&#x5DEE;&#x5F02;">0. 0.13&#x7248;&#x672C;&#x548C;0.14&#x7248;&#x672C;&#x7684;&#x5DEE;&#x5F02; <a href="#t70. 0.13&#x7248;&#x672C;&#x548C;0.14&#x7248;&#x672C;&#x7684;&#x5DEE;&#x5F02;"> # </a></h2>
+<h3 id="t8&#x63D0;&#x4F9B;&#x7684;&#x6587;&#x4EF6;&#x4E0D;&#x4E00;&#x6837;">&#x63D0;&#x4F9B;&#x7684;&#x6587;&#x4EF6;&#x4E0D;&#x4E00;&#x6837; <a href="#t8&#x63D0;&#x4F9B;&#x7684;&#x6587;&#x4EF6;&#x4E0D;&#x4E00;&#x6837;"> # </a></h3>
 <p>0.13&#x7248;&#x672C;</p>
 <pre><code>react.js
 react-with-addons.js
@@ -84,14 +96,14 @@ JSXTransformer.js
 <pre><code>react.js
 react-dom.js
 react-with-addons.js
-</code></pre><h3 id="React&#x88AB;&#x62C6;&#x5206;&#x4E3A;react&#x548C;react-dom&#x4E24;&#x4E2A;&#x5305;">React&#x88AB;&#x62C6;&#x5206;&#x4E3A;react&#x548C;react-dom&#x4E24;&#x4E2A;&#x5305; <a href="#React&#x88AB;&#x62C6;&#x5206;&#x4E3A;react&#x548C;react-dom&#x4E24;&#x4E2A;&#x5305;"> # </a></h3>
+</code></pre><h3 id="t9React&#x88AB;&#x62C6;&#x5206;&#x4E3A;react&#x548C;react-dom&#x4E24;&#x4E2A;&#x5305;">React&#x88AB;&#x62C6;&#x5206;&#x4E3A;react&#x548C;react-dom&#x4E24;&#x4E2A;&#x5305; <a href="#t9React&#x88AB;&#x62C6;&#x5206;&#x4E3A;react&#x548C;react-dom&#x4E24;&#x4E2A;&#x5305;"> # </a></h3>
 <p>react&#x5305;&#x63D0;&#x4F9B;React.createElement&#x3001; .createClass&#x3001; .Component&#xFF0C; .PropTypes&#xFF0C; .Children&#x7B49;API&#x63A5;&#x53E3;&#xFF0C;react-dom package &#x4E2D;&#x5305;&#x542B; ReactDOM.render&#x3001; .unmountComponentAtNode&#x3001; .findDOMNode&#x7B49;&#x3002;</p>
-<h3 id="React.addons&#x88AB;&#x62C6;&#x5206;&#x51FA;&#x82E5;&#x5E72;&#x4E2A;&#x72EC;&#x7ACB;&#x7684;&#x5305;">React.addons&#x88AB;&#x62C6;&#x5206;&#x51FA;&#x82E5;&#x5E72;&#x4E2A;&#x72EC;&#x7ACB;&#x7684;&#x5305; <a href="#React.addons&#x88AB;&#x62C6;&#x5206;&#x51FA;&#x82E5;&#x5E72;&#x4E2A;&#x72EC;&#x7ACB;&#x7684;&#x5305;"> # </a></h3>
+<h3 id="t10React.addons&#x88AB;&#x62C6;&#x5206;&#x51FA;&#x82E5;&#x5E72;&#x4E2A;&#x72EC;&#x7ACB;&#x7684;&#x5305;">React.addons&#x88AB;&#x62C6;&#x5206;&#x51FA;&#x82E5;&#x5E72;&#x4E2A;&#x72EC;&#x7ACB;&#x7684;&#x5305; <a href="#t10React.addons&#x88AB;&#x62C6;&#x5206;&#x51FA;&#x82E5;&#x5E72;&#x4E2A;&#x72EC;&#x7ACB;&#x7684;&#x5305;"> # </a></h3>
 <p>(&#x8BF4;&#x660E;&#x4E0B;&#xFF0C;&#x8FD9;&#x4E2A;&#x662F;&#x5B98;&#x65B9;&#x63D0;&#x4F9B;&#x7684;&#x5DF2;&#x5C01;&#x88C5;&#x7684;&#x4E00;&#x7CFB;&#x5217;&#x7EC4;&#x4EF6;)&#x4E0B;&#x9762;&#x7684;&#x5DE5;&#x5177;&#x5168;&#x90E8;&#x53D8;&#x6210;&#x4E86;&#x72EC;&#x7ACB;&#x7684; package&#x4E5F;&#x53D8;&#x6210;&#x4E86;&#x72EC;&#x7ACB;&#x7684;package&#x3002;</p>
-<h3 id="&#x7F16;&#x8BD1;&#x5668;&#x4F18;&#x5316;">&#x7F16;&#x8BD1;&#x5668;&#x4F18;&#x5316; <a href="#&#x7F16;&#x8BD1;&#x5668;&#x4F18;&#x5316;"> # </a></h3>
+<h3 id="t11&#x7F16;&#x8BD1;&#x5668;&#x4F18;&#x5316;">&#x7F16;&#x8BD1;&#x5668;&#x4F18;&#x5316; <a href="#t11&#x7F16;&#x8BD1;&#x5668;&#x4F18;&#x5316;"> # </a></h3>
 <p><strong>react-tools &#x53CA; JSXTransformer.js &#x5DF2;&#x5F03;&#x7528;</strong>
 &#x4EE5;&#x524D;&#x662F;&#x91C7;&#x7528;JSXTransformer&#x6765;&#x89E3;&#x6790;JSX&#x8BED;&#x6CD5;&#xFF0C;&#x73B0;&#x5728;&#x662F;&#x5168;&#x9762;&#x62E5;&#x62B1;Babel&#xFF08;&#x53EF;&#x4EE5;<code>npm insttall babel -g</code>&#x5B89;&#x88C5;babel&#x8FDB;&#x884C;JSX&#x8BED;&#x6CD5;&#x89E3;&#x6790;&#x3001;&#x6216;&#x662F;&#x52A0;&#x4E0A;babel&#x63D0;&#x4F9B;&#x7684;browser.js&#x5E93;&#x8FDB;&#x884C;&#x89E3;&#x6790;&#xFF09;&#x3002;</p>
-<h2 id="1. JSX&#x8BED;&#x6CD5;">1. JSX&#x8BED;&#x6CD5; <a href="#1. JSX&#x8BED;&#x6CD5;"> # </a></h2>
+<h2 id="t121. JSX&#x8BED;&#x6CD5;">1. JSX&#x8BED;&#x6CD5; <a href="#t121. JSX&#x8BED;&#x6CD5;"> # </a></h2>
 <p>&#x5148;&#x770B;&#x770B;&#x4E0D;&#x7528;JSX&#x8BED;&#x6CD5;&#x600E;&#x4E48;&#x5199;&#x57FA;&#x4E8E;React&#x7684;&#x4EE3;&#x7801;&#xFF1A;</p>
 <pre><code>// &#x6BD4;&#x5982;&#x6211;&#x60F3;&#x5199;&#x4E00;&#x4E2A;h1&#x5143;&#x7D20;
 React.DOM.h1({&quot;className&quot;: &quot;header&quot;}, &quot;&#x6211;&#x662F;&#x6807;&#x9898;&quot;);
@@ -117,22 +129,22 @@ React.createElement(&apos;h1&apos;, {className: &apos;header&apos;}, &apos;&#x62
 <li>&#x5173;&#x6CE8;&#x70B9;&#x5206;&#x79BB;</li>
 </ul>
 </blockquote>
-<h3 id="demo&#x793A;&#x4F8B;">demo&#x793A;&#x4F8B; <a href="#demo&#x793A;&#x4F8B;"> # </a></h3>
-<h3 id="&#x4E24;&#x79CD;&#x8FD0;&#x884C;JSX&#x7684;&#x65B9;&#x5F0F;">&#x4E24;&#x79CD;&#x8FD0;&#x884C;JSX&#x7684;&#x65B9;&#x5F0F; <a href="#&#x4E24;&#x79CD;&#x8FD0;&#x884C;JSX&#x7684;&#x65B9;&#x5F0F;"> # </a></h3>
+<h3 id="t13demo&#x793A;&#x4F8B;">demo&#x793A;&#x4F8B; <a href="#t13demo&#x793A;&#x4F8B;"> # </a></h3>
+<h3 id="t14&#x4E24;&#x79CD;&#x8FD0;&#x884C;JSX&#x7684;&#x65B9;&#x5F0F;">&#x4E24;&#x79CD;&#x8FD0;&#x884C;JSX&#x7684;&#x65B9;&#x5F0F; <a href="#t14&#x4E24;&#x79CD;&#x8FD0;&#x884C;JSX&#x7684;&#x65B9;&#x5F0F;"> # </a></h3>
 <ul>
 <li>&#x9875;&#x9762;&#x4E2D;&#x52A0;browser.js&#xFF0C;script&#x6807;&#x7B7E;&#x7684;type&#x8BBE;&#x7F6E;&#x4E3A;text/babel(0.13&#x7248;&#x672C;&#x4E3A;text/jsx)</li>
-<li>&#x9875;&#x9762;&#x4E2D;&#x76F4;&#x63A5;&#x8FD0;&#x884C;babel&#x89E3;&#x6790;jsx&#x7684;&#x6587;&#x4EF6;&#x3002;<h3 id="&#x51E0;&#x4E2A;&#x6CE8;&#x610F;&#x70B9;">&#x51E0;&#x4E2A;&#x6CE8;&#x610F;&#x70B9; <a href="#&#x51E0;&#x4E2A;&#x6CE8;&#x610F;&#x70B9;"> # </a></h3>
+<li>&#x9875;&#x9762;&#x4E2D;&#x76F4;&#x63A5;&#x8FD0;&#x884C;babel&#x89E3;&#x6790;jsx&#x7684;&#x6587;&#x4EF6;&#x3002;<h3 id="t15&#x51E0;&#x4E2A;&#x6CE8;&#x610F;&#x70B9;">&#x51E0;&#x4E2A;&#x6CE8;&#x610F;&#x70B9; <a href="#t15&#x51E0;&#x4E2A;&#x6CE8;&#x610F;&#x70B9;"> # </a></h3>
 </li>
 <li>render&#x7684;&#x65B9;&#x6CD5;&#x4E2D;return&#x7684;&#x9876;&#x7EA7;&#x5143;&#x7D20;&#x53EA;&#x80FD;&#x662F;&#x4E00;&#x4E2A;</li>
 </ul>
-<h2 id="2. &#x6570;&#x636E;&#x6D41;">2. &#x6570;&#x636E;&#x6D41; <a href="#2. &#x6570;&#x636E;&#x6D41;"> # </a></h2>
+<h2 id="t162. &#x6570;&#x636E;&#x6D41;">2. &#x6570;&#x636E;&#x6D41; <a href="#t162. &#x6570;&#x636E;&#x6D41;"> # </a></h2>
 <p><strong>&#x4E09;&#x4E2A;&#x7EF4;&#x5EA6;&#x6765;&#x770B;&#x5F85;React&#x4E2D;&#x6570;&#x636E;&#x6D41;</strong></p>
 <blockquote>
 <p>&#x5728;React&#x4E2D;&#x6570;&#x636E;&#x7684;&#x6D41;&#x5411;&#x662F;&#x5355;&#x5411;&#x7684;&#xFF0C;&#x5373;&#x4ECE;&#x7236;&#x8282;&#x70B9;&#x6D41;&#x5411;&#x5B50;&#x8282;&#x70B9;&#xFF0C;&#x8FD9;&#x6837;&#x5C31;&#x66F4;&#x65B9;&#x4FBF;&#x7EC4;&#x4EF6;&#x7684;&#x6E32;&#x67D3;&#xFF08;&#x5B50;&#x7EC4;&#x4EF6;&#x53EA;&#x9700;&#x8981;&#x4ECE;&#x7236;&#x7EC4;&#x4EF6;&#x83B7;&#x53D6;props&#x6E32;&#x67D3;&#x5373;&#x53EF;&#xFF09;</p>
 <p>&#x7EC4;&#x4EF6;&#x5185;&#x90E8;&#x6709;&#x81EA;&#x5DF1;&#x7684;&#x72B6;&#x6001;&#xFF0C;&#x8FD9;&#x4E9B;&#x72B6;&#x6001;&#x53EA;&#x80FD;&#x7EC4;&#x4EF6;&#x5185;&#x90E8;&#x4FEE;&#x6539;&#xFF0C;&#x4FDD;&#x6301;&#x72EC;&#x7ACB;&#x6027;</p>
 <p>React&#x7EC4;&#x4EF6;&#x672C;&#x8EAB;&#x5F88;&#x7B80;&#x5355;&#xFF0C;&#x53EF;&#x4EE5;&#x628A;&#x5B83;&#x770B;&#x6210;&#x5C31;&#x662F;&#x4E00;&#x4E2A;&#x51FD;&#x6570;&#xFF0C;&#x800C;&#x8FD9;&#x4E2A;&#x51FD;&#x6570;&#x6709;&#x4E24;&#x4E2A;&#x4F20;&#x53C2;&#xFF0C;props&#x548C;state&#xFF0C;&#x8C03;&#x7528;&#x8FD9;&#x4E2A;&#x51FD;&#x6570;&#x540E;&#x6094;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;&#x865A;&#x62DF;&#x7684;DOM&#x3002;</p>
 </blockquote>
-<h3 id="&#x5B9A;&#x4E49;&#x4E00;&#x4E2A;&#x7EC4;&#x4EF6;">&#x5B9A;&#x4E49;&#x4E00;&#x4E2A;&#x7EC4;&#x4EF6; <a href="#&#x5B9A;&#x4E49;&#x4E00;&#x4E2A;&#x7EC4;&#x4EF6;"> # </a></h3>
+<h3 id="t17&#x5B9A;&#x4E49;&#x4E00;&#x4E2A;&#x7EC4;&#x4EF6;">&#x5B9A;&#x4E49;&#x4E00;&#x4E2A;&#x7EC4;&#x4EF6; <a href="#t17&#x5B9A;&#x4E49;&#x4E00;&#x4E2A;&#x7EC4;&#x4EF6;"> # </a></h3>
 <pre><code>var MyTitle = React.createClass({
     // &#x76F8;&#x5F53;&#x4E8E;&#x63A5;&#x53E3;&#x6587;&#x6863;
     propTypes: {
@@ -176,7 +188,7 @@ React.createElement(&apos;h1&apos;, {className: &apos;header&apos;}, &apos;&#x62
 <li>getDefaultProps&#x548C;getInitialState
 &#x5206;&#x522B;&#x662F;&#x5B9A;&#x4E49;&#x521D;&#x59CB;&#x5316;props&#x548C;state&#x503C;&#x7684;&#x4E24;&#x4E2A;&#x94A9;&#x5B50;&#x51FD;&#x6570;&#xFF0C;&#x4E0D;&#x4E00;&#x6837;&#x7684;&#x662F;&#xFF0C;&#x5728;&#x7EC4;&#x4EF6;&#x7684;&#x751F;&#x547D;&#x5468;&#x671F;&#x4E2D;&#xFF0C;&#x524D;&#x8005;&#x53EA;&#x4F1A;&#x6267;&#x884C;&#x4E00;&#x6B21;&#xFF0C;&#x5177;&#x4F53;&#x4E0B;&#x4E00;&#x90E8;&#x5206;&#x7EC6;&#x8BF4;&#x3002;</li>
 </ul>
-<h3 id="&#x7406;&#x89E3;state&#x548C;props">&#x7406;&#x89E3;state&#x548C;props <a href="#&#x7406;&#x89E3;state&#x548C;props"> # </a></h3>
+<h3 id="t18&#x7406;&#x89E3;state&#x548C;props">&#x7406;&#x89E3;state&#x548C;props <a href="#t18&#x7406;&#x89E3;state&#x548C;props"> # </a></h3>
 <p>&#x9700;&#x8981;&#x7406;&#x89E3;&#x6E05;&#x695A;&#x7684;&#x662F;&#xFF0C;&#x867D;&#x7136;state&#x548C;prop&#x90FD;&#x662F;&#x5B58;&#x50A8;&#x6570;&#x636E;&#x7684;&#xFF0C;&#x4F46;&#x662F;&#x8981;&#x533A;&#x5206;&#x4E8C;&#x8005;&#x7684;&#x533A;&#x522B;&#xFF1A;</p>
 <ul>
 <li>state&#x5B58;&#x653E;&#x7684;&#x662F;&#x6D41;&#x52A8;&#x7684;&#xFF0C;&#x53D8;&#x5316;&#x7684;&#x7EC4;&#x4EF6;&#x6570;&#x636E;&#xFF0C;&#x800C;&#x4E14;&#xFF0C;<strong>state&#x53EA;&#x5B58;&#x5728;&#x4E8E;&#x7EC4;&#x4EF6;&#x7684;&#x5185;&#x90E8;</strong></li>
@@ -187,7 +199,7 @@ React.createElement(&apos;h1&apos;, {className: &apos;header&apos;}, &apos;&#x62
 <li>&#x8981;&#x614E;&#x7528;replaceState</li>
 </ul>
 <p>&#x4E8C;&#x8005;&#x7684;&#x7ED3;&#x5408;&#x5219;&#x53EF;&#x5B8C;&#x6210;&#x7EC4;&#x4EF6;&#x7684;&#x5355;&#x5411;&#x6570;&#x636E;&#x6D41;&#x52A8;</p>
-<h2 id="3. &#x7EC4;&#x4EF6;&#x7684;&#x5168;&#x751F;&#x547D;&#x5468;&#x671F;&#x548C;&#x5BF9;&#x5E94;&#x7684;&#x90A3;&#x4E9B;&#x94A9;&#x5B50;&#x51FD;&#x6570;">3. &#x7EC4;&#x4EF6;&#x7684;&#x5168;&#x751F;&#x547D;&#x5468;&#x671F;&#x548C;&#x5BF9;&#x5E94;&#x7684;&#x90A3;&#x4E9B;&#x94A9;&#x5B50;&#x51FD;&#x6570; <a href="#3. &#x7EC4;&#x4EF6;&#x7684;&#x5168;&#x751F;&#x547D;&#x5468;&#x671F;&#x548C;&#x5BF9;&#x5E94;&#x7684;&#x90A3;&#x4E9B;&#x94A9;&#x5B50;&#x51FD;&#x6570;"> # </a></h2>
+<h2 id="t193. &#x7EC4;&#x4EF6;&#x7684;&#x5168;&#x751F;&#x547D;&#x5468;&#x671F;&#x548C;&#x5BF9;&#x5E94;&#x7684;&#x90A3;&#x4E9B;&#x94A9;&#x5B50;&#x51FD;&#x6570;">3. &#x7EC4;&#x4EF6;&#x7684;&#x5168;&#x751F;&#x547D;&#x5468;&#x671F;&#x548C;&#x5BF9;&#x5E94;&#x7684;&#x90A3;&#x4E9B;&#x94A9;&#x5B50;&#x51FD;&#x6570; <a href="#t193. &#x7EC4;&#x4EF6;&#x7684;&#x5168;&#x751F;&#x547D;&#x5468;&#x671F;&#x548C;&#x5BF9;&#x5E94;&#x7684;&#x90A3;&#x4E9B;&#x94A9;&#x5B50;&#x51FD;&#x6570;"> # </a></h2>
 <p>React&#x4E3A;&#x6BCF;&#x4E2A;&#x7EC4;&#x4EF6;&#x90FD;&#x63D0;&#x4F9B;&#x4E86;&#x7B80;&#x6D01;&#x7684;&#x751F;&#x547D;&#x5468;&#x671F;API&#xFF0C;&#x53BB;&#x54CD;&#x5E94;&#x7EC4;&#x4EF6;&#x5728;&#x4E0D;&#x540C;&#x9636;&#x6BB5;&#xFF08;&#x521B;&#x5EFA;&#x65F6;&#xFF0C;&#x5B58;&#x5728;&#x65F6;&#xFF0C;&#x9500;&#x6BC1;&#x65F6;&#xFF09;&#x6267;&#x884C;&#x76F8;&#x5E94;&#x7684;&#x64CD;&#x4F5C;&#xFF0C;&#x5B8C;&#x5168;&#x81EA;&#x5B9A;&#x4E49;&#x5316;&#x3002;</p>
 <blockquote>
 <p>&#x7EC4;&#x4EF6;&#x751F;&#x547D;&#x5468;&#x671F;&#x7684;&#x8BBE;&#x8BA1;&#xFF1A;</p>
@@ -196,7 +208,7 @@ React.createElement(&apos;h1&apos;, {className: &apos;header&apos;}, &apos;&#x62
 <li>&#x66F4;&#x7CBE;&#x7EC6;&#x7684;&#x638C;&#x63A7;&#x5BF9;&#x7EC4;&#x4EF6;&#x7684;&#x7BA1;&#x7406;&#xFF0C;&#x66F4;&#x5F3A;&#x7684;&#x6027;&#x80FD;&#x7BA1;&#x7406;&#x3002;</li>
 </ul>
 </blockquote>
-<h3 id="&#x94A9;&#x5B50;&#x51FD;&#x6570;&#x603B;&#x7ED3;">&#x94A9;&#x5B50;&#x51FD;&#x6570;&#x603B;&#x7ED3; <a href="#&#x94A9;&#x5B50;&#x51FD;&#x6570;&#x603B;&#x7ED3;"> # </a></h3>
+<h3 id="t20&#x94A9;&#x5B50;&#x51FD;&#x6570;&#x603B;&#x7ED3;">&#x94A9;&#x5B50;&#x51FD;&#x6570;&#x603B;&#x7ED3; <a href="#t20&#x94A9;&#x5B50;&#x51FD;&#x6570;&#x603B;&#x7ED3;"> # </a></h3>
 <p>&#x6BCF;&#x4E2A;&#x751F;&#x547D;&#x5468;&#x671F;&#x5BF9;&#x5E94;&#x7684;&#x4E00;&#x4E9B;&#x94A9;&#x5B50;&#x51FD;&#x6570;&#x603B;&#x7ED3;</p>
 <ul>
 <li>&#x5B9E;&#x4F8B;&#x5316;&#xFF08;&#x6E32;&#x67D3;&#x524D;&#xFF09;<ul>
@@ -220,13 +232,13 @@ React.createElement(&apos;h1&apos;, {className: &apos;header&apos;}, &apos;&#x62
 </ul>
 </li>
 </ul>
-<h2 id="&#x590D;&#x5408;&#x7EC4;&#x4EF6;">&#x590D;&#x5408;&#x7EC4;&#x4EF6; <a href="#&#x590D;&#x5408;&#x7EC4;&#x4EF6;"> # </a></h2>
+<h2 id="t21&#x590D;&#x5408;&#x7EC4;&#x4EF6;">&#x590D;&#x5408;&#x7EC4;&#x4EF6; <a href="#t21&#x590D;&#x5408;&#x7EC4;&#x4EF6;"> # </a></h2>
 <p>&#x591A;&#x4E2A;&#x7B80;&#x5355;&#x7684;&#x7EC4;&#x4EF6;&#x5D4C;&#x5957;&#xFF0C;&#x53EF;&#x6784;&#x6210;&#x4E00;&#x4E2A;&#x590D;&#x6742;&#x7684;&#x590D;&#x5408;&#x603B;&#x7ED3;&#xFF0C;&#x4ECE;&#x800C;&#x5B8C;&#x6210;&#x590D;&#x6742;&#x7684;&#x4EA4;&#x4E92;&#x903B;&#x8F91;</p>
-<h2 id="DOM&#x64CD;&#x4F5C;&#x548C;&#x4E8B;&#x4EF6;&#x5904;&#x7406;">DOM&#x64CD;&#x4F5C;&#x548C;&#x4E8B;&#x4EF6;&#x5904;&#x7406; <a href="#DOM&#x64CD;&#x4F5C;&#x548C;&#x4E8B;&#x4EF6;&#x5904;&#x7406;"> # </a></h2>
+<h2 id="t22DOM&#x64CD;&#x4F5C;&#x548C;&#x4E8B;&#x4EF6;&#x5904;&#x7406;">DOM&#x64CD;&#x4F5C;&#x548C;&#x4E8B;&#x4EF6;&#x5904;&#x7406; <a href="#t22DOM&#x64CD;&#x4F5C;&#x548C;&#x4E8B;&#x4EF6;&#x5904;&#x7406;"> # </a></h2>
 
         <div class="copyright">Powered by <a href="https://github.com/jaywcjlove/idoc" target="_blank">idoc</a>. Dependence <a href="https://nodejs.org">Node.js</a> run.</div>
     </div>
-    
+
 </div>
 
 

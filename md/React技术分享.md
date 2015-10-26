@@ -53,18 +53,47 @@ React认为一个组件应该具有如下的特征：
 
 > 越是基础的东西，越是重要；越是原理的内容，越要去理清楚。为什么在开篇回去强调这个内容，因为也许等你学习React后会发现，使用React的人慢慢的分成了两派，一派是专门封装React组件或组件库的，一派是专门使用前者的。所以，学习基础将是让自己拥有封装和运用组件的基础。
 
-## 1. React和JSX
+## 0. 0.13版本和0.14版本的差异
 
-React的精髓在于组件，组件的基础是jsx，所以好好学吧。先不讲道理，直接上代码：
+### 提供的文件不一样
 
-```javascript
-<script type="text/jsx">
+0.13版本
+```
+react.js
+react-with-addons.js
+JSXTransformer.js
+```
+
+0.14版本
+```
+react.js
+react-dom.js
+react-with-addons.js
+```
+### React被拆分为react和react-dom两个包
+react包提供React.createElement、 .createClass、 .Component， .PropTypes， .Children等API接口，react-dom package 中包含 ReactDOM.render、 .unmountComponentAtNode、 .findDOMNode等。
+### React.addons被拆分出若干个独立的包
+(说明下，这个是官方提供的已封装的一系列组件)下面的工具全部变成了独立的 package也变成了独立的package。
+### 编译器优化
+**react-tools 及 JSXTransformer.js 已弃用**
+以前是采用JSXTransformer来解析JSX语法，现在是全面拥抱Babel（可以```npm insttall babel -g```安装babel进行JSX语法解析、或是加上babel提供的browser.js库进行解析）。
+
+## 1. JSX语法
+
+先看看不用JSX语法怎么写基于React的代码：
+```
+// 比如我想写一个h1元素
+React.DOM.h1({"className": "header"}, "我是标题");
+// 或者是这样
+React.createElement('h1', {className: 'header'}, '我是标题');
+```
+而如果采用JSX语法的话，可以这样：
+```
+<script type="text/babel">
   var div = React.createClass({
     render: function(){
       return (
-        <div>
-          <h3>hello wold</h3>
-        </div>
+          <h1 className="header">我是标题</h3>
       );
     }
   });
@@ -72,14 +101,105 @@ React的精髓在于组件，组件的基础是jsx，所以好好学吧。先不
 </script>
 ```
 
+> 其实，一般的，在实际编码过程中很少会直接调用React的原生创建DOM的API来封装，而是采用JSX语法来封装组件，这样的好处是：
+- 更加熟悉
+- 更加语义化
+- 更加抽象且直观
+- 关注点分离
 
-## 2. 组件的生命周期和对应的那些钩子函数
+### demo示例
+### 两种运行JSX的方式
+- 页面中加browser.js，script标签的type设置为text/babel(0.13版本为text/jsx)
+- 页面中直接运行babel解析jsx的文件。
+### 几个注意点
+- render的方法中return的顶级元素只能是一个
 
-学会了编写组件，则接下来不得不学习组件的生命周期，以及每个生命周期对应的一些钩子函数：
+## 2. 数据流
+
+**三个维度来看待React中数据流**
+
+> 在React中数据的流向是单向的，即从父节点流向子节点，这样就更方便组件的渲染（子组件只需要从父组件获取props渲染即可）
+
+> 组件内部有自己的状态，这些状态只能组件内部修改，保持独立性
+
+> React组件本身很简单，可以把它看成就是一个函数，而这个函数有两个传参，props和state，调用这个函数后悔返回一个虚拟的DOM。
+
+### 定义一个组件
+```
+var MyTitle = React.createClass({
+    // 相当于接口文档
+    propTypes: {
+      title: React.PropTypes.string.isRequired,
+    },
+    // 定义初始化的props
+    getDefaultProps: function (){
+      return {
+        title: "welcome to React!"
+      }
+    },
+    // 定义初始化的state
+    getInitialState: function(){
+      return {
+        name: "Space X"
+      }
+    },
+    // 定义一个改变组件state的方法
+    changeState: function(){
+      this.setState({
+        name: "Elon Musk"
+      });
+    },
+    render: function() {
+      return (
+          <header>
+            <h1>props: {this.props.title}
+            <p onCick={this.changeState}>click me! {name}</p>
+          </header>
+        );
+    }
+});
+
+```
+- state
+每一个组件都有自己的state，这让我们可以将组件看成是一个状态机
+改变组件可以使用```setState```或是```replaceState```，千万不要这样类似这样写```this.state.name = ''```。
+- PropTypes
+这是验证props的方式，类似于约定了一个接口文档。
+- props
+通过props，可以把任意类型的数据传递给组件
+- getDefaultProps和getInitialState
+分别是定义初始化props和state值的两个钩子函数，不一样的是，在组件的生命周期中，前者只会执行一次，具体下一部分细说。
+
+### 理解state和props
+
+需要理解清楚的是，虽然state和prop都是存储数据的，但是要区分二者的区别：
+- state存放的是流动的，变化的组件数据，而且，**state只存在于组件的内部**
+- 把props当成是组件的数据源，一般用来存放组件初始后不变的数据和属性
+需要提醒的是：
+- 不要将props的数据复制到state中去
+- 不要使用setProps改变组件的属性
+- 要慎用replaceState
+
+二者的结合则可完成组件的单向数据流动
+
+## 3. 组件的全生命周期和对应的那些钩子函数
+
+React为每个组件都提供了简洁的生命周期API，去响应组件在不同阶段（创建时，存在时，销毁时）执行相应的操作，完全自定义化。
+
+> 组件生命周期的设计：
+- 组件在高内聚的同时，往往需要暴露一些接口供外界调用，从而能够适应复杂的页面需求；
+- 更精细的掌控对组件的管理，更强的性能管理。
+
+### 钩子函数总结
+
+每个生命周期对应的一些钩子函数总结
 - 实例化（渲染前）
-  * getInitialState()
   * getDefaultProps()
+  * getInitialState()
   * componentWillmount()
+  * render()
+  * componentDidMount()
+这意味着你可以在这个组件插入到DOM之前都可以调用这个API
 - 组件存在期（渲染为真实的DOM）
   * componentDidMount()
   * shouldComponentUpdate()
@@ -88,26 +208,9 @@ React的精髓在于组件，组件的基础是jsx，所以好好学吧。先不
 - 销毁期
   * componentDidUnmount()
 
-## 3. 数据流
-- state
-- PropTypes
-- props
-- getDefaultProps
-
-### state和prop为基础的单向数据流
-
-需要理解清楚的是，虽然state和prop都是存储数据的，但是要区分二者的区别：
-
-- state存放的是流动的，变化的组件数据
-- prop则一般用来存放组件初始后不变的数据和属性
-
-二者的结合则可完成组件的单向数据流动
-
 
 ## 复合组件
 
 多个简单的组件嵌套，可构成一个复杂的复合总结，从而完成复杂的交互逻辑
 
 ## DOM操作和事件处理
-
-

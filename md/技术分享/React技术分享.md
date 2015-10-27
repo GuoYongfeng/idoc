@@ -37,15 +37,27 @@ React认为一个组件应该具有如下的特征：
 
 ## 如何从Jquery的经验中转变过来
 
-我已经习惯了jquery的api调用来操作dom书写业务逻辑，而且基于jquery有非常丰富的功能插件，如果从jquery的思维转变过来是在学习的路上无可避免的，而且很多人容易在这里被坑到。比如使用react的获取dom后又调用jquery的一个插件，这个时候就得很好的注意内存问题，确保在组件的生命周期结束的时候，dom上绑定的jquery插件也得进行解除绑定。
+提两点：
+- 用组件化的思维去看待你的页面，并按此设计你的代码
+- 如果继续使用一些jquery的插件，确保在组件的生命周期结束的时候，dom上绑定的jquery插件也得进行解除绑定。
 
 ## 你在使用之前还是需要考虑这些
 
-- 相比于之前的看不懂的官方文档，现在的中文论坛、文档、学习书籍慢慢完善起来了，但这还不够，这也是为什么写这个学习资料的原因。说这些的目的是，学习也需要考虑学习资源的。
+- 版本问题
 
-- 它确实有些大，React 大小不到 144KB。通过 gzip 压缩传输后在 35KB 左右，当然，这不包括加载的jsx语法解析文件，以及其他丰富的引用资源，所以它的大小，也是选用时的考虑点。
+React还在持续的更新开发中
 
-- 我想，浏览器兼容性、周边生态、应用架构、事件系统等，也是你在使用后不得不考虑的问题。
+- 学习资料的问题
+
+相比于之前的看不懂的官方文档，现在的中文论坛、文档、学习书籍慢慢完善起来了，但这还不够，这也是为什么写这个学习资料的原因。说这些的目的是，学习也需要考虑学习资源的。
+
+- 文件大小问题
+
+它确实有些大，React 大小不到 144KB。通过 gzip 压缩传输后在 35KB 左右，当然，这不包括加载的jsx语法解析文件，以及其他丰富的引用资源，所以它的大小，也是选用时的考虑点。
+
+- 架构及周边生态
+  - 架构：和其他类库或是框架结合使用
+  - 我想，浏览器兼容性、周边生态、应用架构、事件系统等，也是你在使用后不得不考虑的问题。
 
 - 任何一门新兴的技术都不是十全十美的出现，一些不是那么愉快的功能点也不妨碍我们对react的继续探索。所以有了这些基本的储备，我们可以坦然的开始了。
 
@@ -107,7 +119,6 @@ react-dom package 中包含 ReactDOM.render、 .unmountComponentAtNode、 .findD
             )
           }
       });
-
       ReactDOM.render(<MyComponent />, document.body);
     </script>
   </body>
@@ -142,7 +153,7 @@ React.DOM.h1({"className": "header"}, "我是标题");
 React.createElement('h1', {className: 'header'}, '我是标题');
 ```
 而如果采用JSX语法的话，可以这样：
-```
+```JavaScript
 <script type="text/babel">
   var div = React.createClass({
     render: function(){
@@ -162,7 +173,67 @@ React.createElement('h1', {className: 'header'}, '我是标题');
 - 关注点分离
 
 ### demo示例
+- demo1：
+```JavaScript
+var MyList = React.createClass({
+  render: function() {
+    return (
+      <ul>
+        {
+          this.props.children.map(function (child) {
+            return <li>{child}</li>
+          })
+        }
+      </ul>
+    );
+  }
+});
 
+ReactDOM.render(
+  <MyList>
+    <a href="https://www.facebook.com/">https://www.facebook.com/
+    <a href="https://twitter.com/">https://twitter.com/</a>
+  </MyList>,
+  document.body
+);
+```
+- demo2：simple_jsx.html
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>JSX</title>
+  <script src="../vendors/react/react.js"></script>
+  <script src="../vendors/react/react-dom.js"></script>
+  <script src="../vendors/babel/browser.min.js"></script>
+</head>
+<body>
+  <div id="example"></div>
+  <script type="text/babel">
+    var MyData = ['React', 'is', 'awesome'],
+        // 不要出现类似的错误，style="opacity:{this.state.opacity};"
+        MyStyles = {
+          color: "#333",
+          fontSize: "40px",
+          fontWeight: "bold"
+        };
+
+    ReactDOM.render(
+      <div style={MyStyles}>
+      {
+        MyData.map(function (name) {
+          return <span>{name} </span>
+        })
+      }
+      </div>,
+      document.getElementById('example')
+    );
+  </script>
+</body>
+</html>
+
+```
 ### 几个注意点
 - render的方法中return的顶级元素只能是一个
 
@@ -247,12 +318,14 @@ React为每个组件都提供了简洁的生命周期API，去响应组件在不
 
 每个生命周期对应的一些钩子函数总结
 - 实例化（渲染前）
-  * getDefaultProps()
+  * getDefaultProps() **生命周期中只会执行一次**
   * getInitialState()
   * componentWillmount()
   * render()
   * componentDidMount()
-这意味着你可以在这个组件插入到DOM之前都可以调用这个API
+
+这意味着你可以在这个组件插入到DOM之前都可以调用这些API
+
 - 组件存在期（渲染为真实的DOM）
   * componentDidMount()
   * shouldComponentUpdate()
@@ -261,7 +334,134 @@ React为每个组件都提供了简洁的生命周期API，去响应组件在不
 - 销毁期
   * componentDidUnmount()
 
+### 代码示例
+```javascript
+// 定义一个按钮组件
+var BootstrapButton = React.createClass({
+  render: function() {
+    return (
+      <a {...this.props}
+        href="javascript:;"
+        role="button"
+        className={(this.props.className || '') + ' btn'} />
+    );
+  }
+});
+// 定义一个弹框组件
+var BootstrapModal = React.createClass({
+  // 节点插入到真实的DOM，使用jquery
+  componentDidMount: function() {
+    // 调用bootstrap插件
+    $(this.refs.root).modal({backdrop: 'static', keyboard: false, show: false});
+  },
+  // 在组件销毁的时候，记得把之前绑定的方法给干掉
+  componentWillUnmount: function() {
+    $(this.refs.root).off('hidden', this.handleHidden);
+  },
+  close: function() {
+    $(this.refs.root).modal('hide');
+  },
+  open: function() {
+    $(this.refs.root).modal('show');
+  },
+  render: function() {
+    var confirmButton = null;
+    var cancelButton = null;
 
+    if (this.props.confirm) {
+      confirmButton = (
+        <BootstrapButton
+          onClick={this.handleConfirm}
+          className="btn-primary">
+          {this.props.confirm}
+        </BootstrapButton>
+      );
+    }
+    if (this.props.cancel) {
+      cancelButton = (
+        <BootstrapButton onClick={this.handleCancel} className="btn-default">
+          {this.props.cancel}
+        </BootstrapButton>
+      );
+    }
+
+    return (
+      <div className="modal fade" ref="root">
+        <div className="modal-dialog">
+          <div className="modal-content">
+            <div className="modal-header">
+              <button
+                type="button"
+                className="close"
+                onClick={this.handleCancel}>
+                &times;
+              </button>
+              <h3>{this.props.title}</h3>
+            </div>
+            <div className="modal-body">
+              {this.props.children}
+            </div>
+            <div className="modal-footer">
+              {cancelButton}
+              {confirmButton}
+            </div>
+          </div>
+        </div>
+      </div>
+    );
+  },
+  handleCancel: function() {
+    if (this.props.onCancel) {
+      this.props.onCancel();
+    }
+  },
+  handleConfirm: function() {
+    if (this.props.onConfirm) {
+      this.props.onConfirm();
+    }
+  }
+});
+
+// 调用刚才咱们定义的两个组件，写咱们的业务组件
+var Example = React.createClass({
+  handleCancel: function() {
+    if (confirm('亲，确定要取消么')) {
+      this.refs.modal.close();
+    }
+  },
+  render: function() {
+    var modal = null;
+    modal = (
+      <BootstrapModal
+        ref="modal"
+        confirm="OK"
+        cancel="Cancel"
+        onCancel={this.handleCancel}
+        onConfirm={this.closeModal}
+        title="Hello, Bootstrap!">
+          这是一个结合jQuery和Bootstrap而写的组件
+      </BootstrapModal>
+    );
+    return (
+      <div className="example">
+        {modal}
+        <BootstrapButton onClick={this.openModal} className="btn-default">
+          Open modal
+        </BootstrapButton>
+      </div>
+    );
+  },
+  openModal: function() {
+    this.refs.modal.open();
+  },
+  closeModal: function() {
+    this.refs.modal.close();
+  }
+});
+
+ReactDOM.render(<Example />, document.getElementById('example'));
+
+```
 ## 复合组件
 
 多个简单的组件嵌套，可构成一个复杂的复合总结，从而完成复杂的交互逻辑

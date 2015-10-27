@@ -1,18 +1,18 @@
 {
     "name": "MyTechBook",
     "version": "0.1.1",
-    "description": "idoc techbook",
+    "description": "Welcome to my technology blog",
     "keywords": [
         "idoc",
         "react",
         "tech",
         "book"
     ],
-    "homepage": "http://JSLite.io",
+    "homepage": "http://guoyongfeng.github.io/idoc/",
     "author": "GuoYongfeng <guoyff@yonyou.com>",
     "repository": {
         "type": "git",
-        "url": ""
+        "url": "https://github.com/GuoYongfeng/idoc"
     },
     "licenses": "MIT",
     "idoc": {

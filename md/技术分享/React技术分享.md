@@ -2,7 +2,7 @@
 
 要说现在最热门的前端技术，毫无疑问是React。自2013年5月份facebook将React开源以来，由于 React 的设计思想极其独特，属于革命性创新，性能出众，代码逻辑却非常简单。所以，越来越多的人开始关注和使用，认为它可能是将来 Web 开发的主流工具，截至目前已经在github上收获了超过3万个star。
 
-那么这个项目本身也越滚越大，从最早的UI引擎变成了一整套前后端通吃的 Web App 解决方案。衍生的 React Native 项目，目标更是宏伟，希望用写 Web App 的方式去写 Native App，到今年9月份，facebook已经发布了React Native for IOS、React Native for Android以及React Canvas，这意味着一套代码多端运行已经成为了现实，这对于我们开发者来说，简直是福音啊。
+React项目也从最早的UI引擎变成了一整套前后端通吃的 Web App 解决方案。衍生的 React Native 项目也在今年9月份完成发布，这意味着一套代码多端运行已经成为了现实，这对于我们开发者来说，简直是福音啊。
 
 那么，对于一项这么热门的技术，咱们也得跟上步伐好好学习啊。
 
@@ -19,7 +19,7 @@ React是一个用于构建用户界面的JavaScript**库**，而不是一个MVC�
 时至今日，谈到前端性能优化，减少DOM元素、减少reflow和repaint、编码过程中尽量减少DOM的查询等手段是大家耳熟能详的。而页面任何UI的变化都是通过整体刷新来完成的。幸运的是，React通过自己实现的DOM Diff算法，计算出虚拟页面当前版本和新版本之间的差异，最小化重绘，避免不必要的DOM操作，解决了这两个公认的前端性能瓶颈，实现高效DOM渲染。
 
 - React之所以快，是因为它不直接操作DOM，而是将DOM结构存储在内存中，称之为虚拟DOM
-- 而对于页面的更新，React是通过(DOM Diff算法)[http://segmentfault.com/a/1190000000606216]，将当前的 virtual DOM 和新的 virtual DOM 之间对比出变化量，反映到页面上就是只重绘了更新的部分，从而减少性能消耗
+- 而对于页面的更新，React是通过[DOM Diff算法](http://segmentfault.com/a/1190000000606216)，将当前的 virtual DOM 和新的 virtual DOM 之间对比出变化量，反映到页面上就是只重绘了更新的部分，从而减少性能消耗
 
 > 组件化
 

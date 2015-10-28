@@ -74,9 +74,11 @@ React还在持续的更新开发中，截至目前React的最新版是0.14.0版�
 
 # React技术学习--基础篇（二）
 
-> 越是基础的东西，越是重要；越是原理的内容，越要去理清楚。为什么在开篇回去强调这个内容，因为也许等你学习React后会发现，使用React的人慢慢的分成了两派，一派是专门封装React组件或组件库的，一派是专门使用前者的。所以，学习基础将是让自己拥有封装和运用组件的基础。
+> 特别提示：本教程的代码示例详见[iUAP-FE/react](https://github.com/iUAP-FE/react)
 
-## 1. 0.13版本和0.14版本的差异
+越是基础的东西，越是重要；越是原理的内容，越要去理清楚。为什么在开篇回去强调这个内容，因为也许等你学习React后会发现，使用React的人慢慢的分成了两派，一派是专门封装React组件或组件库的，一派是专门使用前者的。所以，学习基础将是让自己拥有封装和运用组件的基础。
+
+## 1. React的0.13版本和0.14版本之间的差异
 
 ### 提供的文件不一样
 
@@ -96,16 +98,46 @@ react-with-addons.js
 ### React被拆分为react和react-dom两个包
 - react.js 是 React 的核心库
 
-react包提供React.createElement、 .createClass、 .Component， .PropTypes， .Children等API接口
-- react-dom.js提供与 DOM 相关的功能
+react包提供了一系列的API，以下列举几个常用的：
+```
+// This is the base class for React Components when they're defined using ES6 classes
+React.Component
+// 创建一个组件类，并作出定义
+React.createClass
+// 创建并返回一个新的指定类型的 ReactElement
+React.createElement
+React.cloneElement
+// 返回一个生成指定类型 ReactElements 的函数
+React.createFactory
+React.isValidElement
+React.DOM
+.....
+```
+- react-dom.js提供与 DOM 相关的功能，以下列举几个常用的：
 
-react-dom package 中包含 ReactDOM.render、 .unmountComponentAtNode、 .findDOMNode等。
+react包提供了一系列与DOM相关的API
+```
+// 渲染一个 ReactElement 到 DOM 中，放在 container 指定的 DOM 元素下，返回一个到该组件的引用。
+ReactDOM.render
+// 从 DOM 中移除已经挂载的 React 组件，清除相应的事件处理器和 state
+ReactDOM.unmountComponentAtNode
+ReactDOM.findDOMNode
+```
+
 **其中，服务端渲染的几个 API 被独立出来了, 需要引用这个文件 react-dom/server**
+```
+ReactDOMServer.renderToString
+ReactDOMServer.renderToStaticMarkup
+```
 ### React.addons被拆分出若干个独立的包
+
 - 说明下，这个文件是官方提供的已封装的一系列插件
 - 在0.14版本将其中的插件封装成若干个独立的 package提供使用（至少五个，之前版本是直接在一个文件中引用）。
+
 ### 编译器优化
+
 **react-tools 及 JSXTransformer.js 已弃用**
+
 以前是采用JSXTransformer来解析JSX语法，现在是全面拥抱Babel（可以```npm insttall babel -g```安装babel进行JSX语法解析、或是加上babel提供的browser.js库进行解析）。
 
 ## 2. 启动
@@ -157,13 +189,16 @@ react-dom package 中包含 ReactDOM.render、 .unmountComponentAtNode、 .findD
 ## 3. JSX语法
 
 在学习JSX语法之前，先看看不用JSX语法怎么写基于React的代码（调用React库封装的接口）：
+
 ```
 // 比如我想写一个h1元素
 React.DOM.h1({"className": "header"}, "我是标题");
 // 或者是这样
 React.createElement('h1', {className: 'header'}, '我是标题');
 ```
+
 而如果采用JSX语法的话，可以这样：
+
 ```JavaScript
 <script type="text/babel">
   var div = React.createClass({
@@ -184,7 +219,9 @@ React.createElement('h1', {className: 'header'}, '我是标题');
 - 关注点分离
 
 ### demo示例
+
 - demo1：
+
 ```JavaScript
 var MyList = React.createClass({
   render: function() {
@@ -199,7 +236,6 @@ var MyList = React.createClass({
     );
   }
 });
-
 ReactDOM.render(
   <MyList>
     <a href="https://www.facebook.com/">https://www.facebook.com/
@@ -208,7 +244,9 @@ ReactDOM.render(
   document.body
 );
 ```
+
 - demo2：simple_jsx.html
+
 ```html
 <!DOCTYPE html>
 <html lang="en">
@@ -243,8 +281,8 @@ ReactDOM.render(
   </script>
 </body>
 </html>
-
 ```
+
 ### 几个注意点
 - render的方法中return的顶级元素只能是一个
 

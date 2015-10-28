@@ -95,10 +95,12 @@ react.js
 react-dom.js
 react-with-addons.js
 ```
-### React被拆分为react和react-dom两个包
-- 1. react.js 是 React 的核心库
+### React被拆分为react和react-dom两个
+
+- react.js 是 React 的核心库
 
 react包提供了一系列的API，以下列举几个常用的：
+
 ```
 // This is the base class for React Components when they're defined using ES6 classes
 React.Component
@@ -113,7 +115,7 @@ React.isValidElement
 React.DOM
 .....
 ```
-- 2. react-dom.js提供与 DOM 相关的功能，以下列举几个常用的：
+- react-dom.js提供与 DOM 相关的功能，以下列举几个常用的：
 
 react包提供了一系列与DOM相关的API
 
@@ -125,7 +127,7 @@ ReactDOM.unmountComponentAtNode
 ReactDOM.findDOMNode
 ```
 
-- 3. 服务端渲染的几个 API 被独立出来，以下两个是常用的：
+- 服务端渲染的几个 API 被独立出来，以下两个是常用的：
 
 ```
 ReactDOMServer.renderToString

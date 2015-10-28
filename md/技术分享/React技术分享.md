@@ -47,9 +47,10 @@ React还在持续的更新开发中，截至目前React的最新版是0.14.0版�
 - 学习资料
 
 相比于之前的看不懂的官方文档，现在的中文论坛、文档、学习书籍慢慢完善起来了。可以有几个途径去获得相关的资料：
-  - github官方仓库
-  - 中文社区或论坛
-  - React官网
+  - [github官方仓库](https://github.com/facebook/react)
+  - [React官网](http://facebook.github.io/react/)
+  - [React中国官网](http://reactjs.cn/)
+  - [论坛](http://bbs.react-china.org/)
 
 - 文件大小问题
 
@@ -102,7 +103,7 @@ react-with-addons.js
 react包提供了一系列的API，以下列举几个常用的：
 
 ```
-// This is the base class for React Components when they're defined using ES6 classes
+// 使用ES6的时候可以用这个API来定义一个组件
 React.Component
 // 创建一个组件类，并作出定义
 React.createClass
@@ -111,6 +112,7 @@ React.createElement
 React.cloneElement
 // 返回一个生成指定类型 ReactElements 的函数
 React.createFactory
+// 验证一个对象是否为ReactElement，返回boolean值
 React.isValidElement
 React.DOM
 .....
@@ -142,9 +144,26 @@ ReactDOMServer.renderToStaticMarkup
 
 **react-tools 及 JSXTransformer.js 已弃用**
 
-以前是采用JSXTransformer来解析JSX语法，现在是全面拥抱Babel（可以```npm insttall babel -g```安装babel进行JSX语法解析、或是加上babel提供的browser.js库进行解析）。
+以前是采用JSXTransformer来解析JSX语法，**现在是全面拥抱Babel（可以```npm insttall babel -g```安装babel进行JSX语法解析、或是加上babel提供的browser.js库进行解析）**。
+
+> 备注：如果没接触Babel的同学，请移步这里[babeljs.io](https://babeljs.io/)，Babel是一款强大的语言解析器，目前github上已经超过一万个star了，基于babel还可以自定义封装自己的解析器插件。
 
 ## 2. 启动
+
+### 获取最新的React
+- npm下载react包
+
+```
+npm install react --save
+```
+
+- bower下载
+
+```
+bower install react --save
+```
+
+- 或者直接去官网下zip包
 
 ### 两种运行JSX的方式
 - 页面中加browser.js，script标签的type设置为text/babel(0.13版本为text/jsx)
@@ -192,31 +211,46 @@ ReactDOMServer.renderToStaticMarkup
 
 ## 3. JSX语法
 
-在学习JSX语法之前，先看看不用JSX语法怎么写基于React的代码（调用React库封装的接口）：
-
-```
-// 比如我想写一个h1元素
-React.DOM.h1({"className": "header"}, "我是标题");
-// 或者是这样
-React.createElement('h1', {className: 'header'}, '我是标题');
-```
-
-而如果采用JSX语法的话，可以这样：
+**Talk is cheap, Show me the code.**
+直接上代码，最简单的JSX
 
 ```JavaScript
 <script type="text/babel">
-  var div = React.createClass({
+  var MyHeader = React.createClass({
     render: function(){
       return (
-          <h1 className="header">我是标题</h3>
-      );
+          <h1 className="title">我是标题</h1>
+      )
     }
   });
+
+  ReactDOM.render(<MyHeader />, document.body);
 
 </script>
 ```
 
+那么这段代码在浏览器中实际是怎么运行的呢，看下面代码（下面代码是babel解析jsx之后的可执行代码）
+
+```
+"use strict";
+
+var MyHeader = React.createClass({
+  displayName: "MyHeader",
+
+  render: function render() {
+    return React.createElement(
+      "h1",
+      { className: "title" },
+      "我是标题"
+    );
+  }
+});
+
+ReactDOM.render(React.createElement(MyHeader, null), document.body);
+```
+
 > 其实，一般的，在实际编码过程中很少会直接调用React的原生创建DOM的API来封装，而是采用JSX语法来封装组件，这样的好处是：
+
 - 更加熟悉
 - 更加语义化
 - 更加抽象且直观

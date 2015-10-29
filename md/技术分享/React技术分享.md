@@ -180,12 +180,13 @@ ReactDOMServer.renderToStaticMarkup
 <!DOCTYPE html>
 <html>
   <head>
-    <script src="../build/react.js"></script>
-    <script src="../build/react-dom.js"></script>
+    <script src="../vendors/react/react.js"></script>
+    <script src="../vendors/react/react-dom.js"></script>
     <!-- browser.js 的作用是将 JSX 语法转为 JavaScript 语法 -->
-    <script src="../build/browser.min.js"></script>
+    <script src="../vendors/babel/browser.min.js"></script>
   </head>
   <body>
+    <div id="example"></div>
     <!-- JSX 语法，跟 JavaScript 不兼容。凡是使用 JSX 的地方，都要加上 type="text/babel" -->
     <script type="text/babel">
       var MyComponent = React.createClass({
@@ -195,7 +196,7 @@ ReactDOMServer.renderToStaticMarkup
             )
           }
       });
-      ReactDOM.render(<MyComponent />, document.body);
+      ReactDOM.render(<MyComponent />, document.getElementById('example'));
     </script>
   </body>
 </html>
@@ -222,53 +223,9 @@ ReactDOMServer.renderToStaticMarkup
 ## 4. JSX语法
 
 **Talk is cheap, Show me the code.**
-直接上代码，最简单的JSX
+直接上一段稍微复杂些的JSX代码
 
-```JavaScript
-<script type="text/babel">
-  var MyHeader = React.createClass({
-    render: function(){
-      return (
-          <h1 className="title">我是标题</h1>
-      )
-    }
-  });
-
-  ReactDOM.render(<MyHeader />, document.body);
-
-</script>
-```
-
-那么这段代码在浏览器中实际是怎么运行的呢，看下面代码（下面代码是babel解析jsx之后的可执行代码）
-
-```
-"use strict";
-
-var MyHeader = React.createClass({
-  displayName: "MyHeader",
-
-  render: function render() {
-    return React.createElement(
-      "h1",
-      { className: "title" },
-      "我是标题"
-    );
-  }
-});
-
-ReactDOM.render(React.createElement(MyHeader, null), document.body);
-```
-
-> 其实，一般的，在实际编码过程中很少会直接调用React的原生创建DOM的API来封装，而是采用JSX语法来封装组件，这样的好处是：
-
-- 更加熟悉
-- 更加语义化
-- 更加抽象且直观
-- 关注点分离
-
-### demo示例
-
-- demo1：
+- demo1：jsx_demo1.html
 
 ```JavaScript
 var MyList = React.createClass({
@@ -276,6 +233,7 @@ var MyList = React.createClass({
     return (
       <ul>
         {
+          /* 遍历this.props.children */
           this.props.children.map(function (child) {
             return <li>{child}</li>
           })
@@ -286,53 +244,54 @@ var MyList = React.createClass({
 });
 ReactDOM.render(
   <MyList>
-    <a href="https://www.facebook.com/">https://www.facebook.com/
+    <a href="https://www.facebook.com/">https://www.facebook.com/</a>
     <a href="https://twitter.com/">https://twitter.com/</a>
   </MyList>,
-  document.body
+  document.getElementById('example')
 );
 ```
 
 - demo2：simple_jsx.html
 
-```html
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>JSX</title>
-  <script src="../vendors/react/react.js"></script>
-  <script src="../vendors/react/react-dom.js"></script>
-  <script src="../vendors/babel/browser.min.js"></script>
-</head>
-<body>
-  <div id="example"></div>
-  <script type="text/babel">
-    var MyData = ['React', 'is', 'awesome'],
-        // 不要出现类似的错误，style="opacity:{this.state.opacity};"
-        MyStyles = {
-          color: "#333",
-          fontSize: "40px",
-          fontWeight: "bold"
-        };
+```javascript
+  var MyData = ['React', 'is', 'awesome'],
+      MyStyles = {
+        color: "#333",
+        fontSize: "40px",
+        fontWeight: "bold"
+      };
 
-    ReactDOM.render(
-      <div style={MyStyles}>
-      {
-        MyData.map(function (name) {
-          return <span>{name} </span>
-        })
-      }
-      </div>,
-      document.getElementById('example')
-    );
-  </script>
-</body>
-</html>
+  ReactDOM.render(
+    <div style={MyStyles}>
+    {
+      MyData.map(function (name) {
+        return <span>{name} </span>
+      })
+    }
+    </div>,
+    document.getElementById('example')
+  );
 ```
+> 从以上代码我们可以对JSX进行简单总结：
+
+1. 在render方法里面，把你的js代码用{}花括号包起来
+
+还有么，还有，但好像这个最关键，其他的以后边用边学。
+
+> 使用JSX语法来封装组件有什么好处
+
+- 更加熟悉
+- 更加语义化
+- 更加抽象且直观
+- 关注点分离
 
 ### 几个注意点
 - render的方法中return的顶级元素只能是一个
+- 如果要定义样式的时候，不能这样去写
+```
+// 不要出现类似的错误，style="opacity:{this.state.opacity};"
+```
+- 使用 className 和 htmlFor 来替代对应的class 和 for
 
 ## 4. 数据流
 

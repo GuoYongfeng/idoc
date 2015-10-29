@@ -83,7 +83,25 @@ React还在持续的更新开发中，截至目前React的最新版是0.14.0版�
 
 越是基础的东西，越是重要；越是原理的内容，越要去理清楚。
 
-## 1. React的0.13版本和0.14版本之间的差异
+## 1. 下载React
+
+> 有以下三种方式：
+
+- npm下载react包
+
+```
+npm install react --save
+```
+
+- bower下载
+
+```
+bower install react --save
+```
+
+- 或者直接去官网下zip包
+
+## 2. React的0.13版本和0.14版本之间的差异
 
 ### 提供的文件不一样
 
@@ -152,24 +170,10 @@ ReactDOMServer.renderToStaticMarkup
 
 > 备注：如果没接触Babel的同学，请移步这里[babeljs.io](https://babeljs.io/)，Babel是一款强大的语言解析器，目前github上已经超过一万个star了，基于babel还可以自定义封装自己的解析器插件。
 
-## 2. 启动
+## 3. 运行代码
 
-### 获取最新的React
-- npm下载react包
+> 运行的两种方式
 
-```
-npm install react --save
-```
-
-- bower下载
-
-```
-bower install react --save
-```
-
-- 或者直接去官网下zip包
-
-### 两种运行JSX的方式
 - 页面中加browser.js，script标签的type设置为text/babel(0.13版本为text/jsx)
 
 ```html
@@ -178,9 +182,11 @@ bower install react --save
   <head>
     <script src="../build/react.js"></script>
     <script src="../build/react-dom.js"></script>
+    <!-- browser.js 的作用是将 JSX 语法转为 JavaScript 语法 -->
     <script src="../build/browser.min.js"></script>
   </head>
   <body>
+    <!-- JSX 语法，跟 JavaScript 不兼容。凡是使用 JSX 的地方，都要加上 type="text/babel" -->
     <script type="text/babel">
       var MyComponent = React.createClass({
           render: function (){
@@ -213,7 +219,7 @@ bower install react --save
 </html>
 ```
 
-## 3. JSX语法
+## 4. JSX语法
 
 **Talk is cheap, Show me the code.**
 直接上代码，最简单的JSX

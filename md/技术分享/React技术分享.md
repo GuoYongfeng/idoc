@@ -223,6 +223,7 @@ ReactDOMServer.renderToStaticMarkup
 ## 4. JSX语法
 
 **Talk is cheap, Show me the code.**
+
 直接上一段稍微复杂些的JSX代码
 
 - demo1：jsx_demo1.html
@@ -297,7 +298,7 @@ ReactDOM.render(
 
 > React组件本身很简单，可以把它看成就是一个函数，而这个函数有两个传参，props和state，调用这个函数后悔返回一个虚拟的DOM。
 
-### 定义一个组件
+### 理解组件内部的数据流向
 
 demo: jsx_compile.html
 
@@ -332,6 +333,8 @@ ReactDOM.render(
 
 ```
 
+说明：
+
 - state
 每一个组件都有自己的state，这让我们可以将组件看成是一个状态机
 改变组件可以使用```setState```或是```replaceState```，千万不要这样类似这样写```this.state.name = ''```。
@@ -342,9 +345,17 @@ ReactDOM.render(
 - getDefaultProps和getInitialState
 分别是定义初始化props和state值的两个钩子函数，不一样的是，在组件的生命周期中，前者只会执行一次，具体下一部分细说。
 
+### 理解组件与组件之间的单向数据流动
+
+父组件通过props来向子组件传递数据
+
+### 组件间的通信
+
+> 后面进阶部分结合flux思想来进行分享
+
 ### 理解state和props
 
-需要理解清楚的是，虽然state和prop都是存储数据的，但是要区分二者的区别：
+虽然state和prop都是存储数据的，但是要区分二者的区别：
 
 - state存放的是流动的，变化的组件数据，而且，**state只存在于组件的内部**
 - 把props当成是组件的数据源，一般用来存放组件初始后不变的数据和属性

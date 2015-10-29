@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>MyTechBook</title>
+    <link rel="stylesheet" type="text/css" href="../../static/css/main.css">
+</head>
+<body>
+<div class="navbar navbar-line">
+    <div class="container">
+        <div class="logo">
+            
+                MyTechBook
+            
+        </div>
+        <ul><li><a href="../../index.html">首页</a></li><li><a href="#"><span></span>前端工程化</a><ul><li><a href="../../html/前端工程化/前端模板.html">前端模板</a></li><li><a href="../../html/前端工程化/前端集成解决方案.html">前端集成解决方案</a></li><li><a href="../../html/前端工程化/项目技术栈规划.html">项目技术栈规划</a></li></ul></li><li><a href="#"><span></span>性能优化</a><ul><li><a href="../../html/性能优化/jshint代码质量检测.html">jshint代码质量检测</a></li><li><a href="../../html/性能优化/性能优化待办事项.html">性能优化待办事项</a></li><li><a href="../../html/性能优化/性能优化点总结.html">性能优化点总结</a></li><li class="active"><a href="../../html/性能优化/NC性能优化.html">NC性能优化</a></li></ul></li><li><a href="#"><span></span>技术分享</a><ul><li><a href="../../html/技术分享/React技术分享.html">React技术分享</a></li><li><a href="../../html/技术分享/学习Git.html">学习Git</a></li><li><a href="../../html/技术分享/面向对象.html">面向对象</a></li></ul></li><li><a href="../../html/关于我.html">关于我</a></li></ul>
+        
+        
+        <div class="forkgithub"><a target="_blank" href="https://github.com/GuoYongfeng">fork on github</a></div>
+        
+    </div>
+    
+</div>
+
+
+
+
+<div class="container">
+
+    <div class="page-toc">
+        <ul><li><a href="#t0性能优化建议及进度汇总">性能优化建议及进度汇总</a><ul><li><a href="#t1文件合并">文件合并</a></li><li><a href="#t2JS文件放在底部加载">JS文件放在底部加载</a></li><li><a href="#t3优化META信息">优化META信息</a></li><li><a href="#t4在服务器端使用v_billform组件而不是客户端">在服务器端使用v_billform组件而不是客户端</a></li><li><a href="#t5autocomplate的优化">autocomplate的优化</a></li><li><a href="#t6workflow.js 有15个click 事件">workflow.js 有15个click 事件</a></li><li><a href="#t7改变首屏资源的渲染方式">改变首屏资源的渲染方式</a></li><li><a href="#t8精简DOM结构">精简DOM结构</a></li><li><a href="#t9信息弹框延迟加载">信息弹框延迟加载</a></li></ul></li></ul>
+    </div>
+    
+    <div class="content markdown-body">
+        <h1 id="t0&#x6027;&#x80FD;&#x4F18;&#x5316;&#x5EFA;&#x8BAE;&#x53CA;&#x8FDB;&#x5EA6;&#x6C47;&#x603B;">&#x6027;&#x80FD;&#x4F18;&#x5316;&#x5EFA;&#x8BAE;&#x53CA;&#x8FDB;&#x5EA6;&#x6C47;&#x603B; <a href="#t0&#x6027;&#x80FD;&#x4F18;&#x5316;&#x5EFA;&#x8BAE;&#x53CA;&#x8FDB;&#x5EA6;&#x6C47;&#x603B;"> # </a></h1>
+<h2 id="t1&#x6587;&#x4EF6;&#x5408;&#x5E76;">&#x6587;&#x4EF6;&#x5408;&#x5E76; <a href="#t1&#x6587;&#x4EF6;&#x5408;&#x5E76;"> # </a></h2>
+<table>
+<thead>
+<tr>
+<th>&#x8DDF;&#x8FDB;&#x4EBA;</th>
+<th>&#x5B8C;&#x6210;&#x8FDB;&#x5EA6;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>&#x674E;&#x4F20;&#x5FE0;&#xFF0C;&#x90ED;&#x6C38;&#x5CF0;&#xFF0C;&#x738B;&#x534E;</td>
+<td>&#x6682;&#x672A;&#x5B8C;&#x6210;</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>&#x65B9;&#x6848;&#x63CF;&#x8FF0;&#xFF1A;</p>
+</blockquote>
+<ul>
+<li><p>&#x6280;&#x672F;&#x5E73;&#x53F0;&#xFF1A;&#x5408;&#x5E76;&#x4EE5;&#x4E0B;js&#x6587;&#x4EF6;</p>
+<pre><code class="lang-javascript">http:<span class="hljs-comment">//20.1.85.11:8088/uui2/libs/tangram/event.js</span>
+http:<span class="hljs-comment">//20.1.85.11:8088/uui2/libs/tangram/loader.js</span>
+text.js css.js
+</code></pre>
+</li>
+<li><p>&#x5E94;&#x7528;&#x5E73;&#x53F0;&#xFF1A;&#x5408;&#x5E76;&#x4EE5;&#x4E0B;js&#x6587;&#x4EF6;</p>
+<pre><code>http://20.1.85.11:8088/iwebap/js/templetutils.js
+http://20.1.85.11:8088/iwebap/js/billmanagemodel.js
+http://20.1.85.11:8088/iwebap/js/BillFormActionUtils.js
+http://20.1.85.11:8088/iwebap/js/EventConst.js
+http://20.1.85.11:8088/iwebap/js/sys/workflow/dateutil.js
+http://20.1.85.11:8088/iwebap/js/sys/workflow/workflow.js
+http://20.1.85.11:8088/iwebap/js/ref/ncReferComp.js
+http://20.1.85.11:8088/iwebap/js/ref/refDList.js?_=1445945847436
+http://20.1.85.11:8088/iwebap/js/sys/formula.js
+http://20.1.85.11:8088/iwebap/js/ext/gridRender.js
+http://20.1.85.11:8088/iwebap/js/billform.js
+http://20.1.85.11:8088/iwebap/js/sys/webcontext.js
+http://20.1.85.11:8088/iwebap/js/ext/fullgridFormatter.js
+http://20.1.85.11:8088/iwebap/js/ext/billutil.js
+http://20.1.85.11:8088/iwebap/js/ext/fullgridRender.js
+</code></pre></li>
+<li><p>&#x4E1A;&#x52A1;&#x76F8;&#x5173;&#x4EBA;&#x5458;&#xFF1A;&#x5408;&#x5E76;&#x4EE5;&#x4E0B;js&#x548C;css&#x6587;&#x4EF6;</p>
+</li>
+</ul>
+<pre><code>// JS&#x90E8;&#x5206;
+http://20.1.85.11:8088/iwebap/arap/js/commonctrl.js
+http://20.1.85.11:8088/iwebap/arap/js/urlutil.js
+
+// css&#x90E8;&#x5206;
+http://20.1.85.11:8088/iwebap/css/style.css
+http://20.1.85.11:8088/iwebap/css/ref/ref.css
+http://20.1.85.11:8088/iwebap/page/fi/temp.css
+http://20.1.85.11:8088/iwebap/css/template/billtemplateform.css
+http://20.1.85.11:8088/iwebap/css/workflow/workflow.css
+</code></pre><h2 id="t2JS&#x6587;&#x4EF6;&#x653E;&#x5728;&#x5E95;&#x90E8;&#x52A0;&#x8F7D;">JS&#x6587;&#x4EF6;&#x653E;&#x5728;&#x5E95;&#x90E8;&#x52A0;&#x8F7D; <a href="#t2JS&#x6587;&#x4EF6;&#x653E;&#x5728;&#x5E95;&#x90E8;&#x52A0;&#x8F7D;"> # </a></h2>
+<blockquote>
+<p>&#x95EE;&#x9898;&#x63CF;&#x8FF0;&#xFF1A;&#x76EE;&#x524D;JS&#x6587;&#x4EF6;&#x5168;&#x90E8;&#x653E;&#x5728;head&#x6807;&#x7B7E;&#x5185;</p>
+</blockquote>
+<p><img src="../..//img/js.png" alt=""></p>
+<h2 id="t3&#x4F18;&#x5316;META&#x4FE1;&#x606F;">&#x4F18;&#x5316;META&#x4FE1;&#x606F; <a href="#t3&#x4F18;&#x5316;META&#x4FE1;&#x606F;"> # </a></h2>
+<table>
+<thead>
+<tr>
+<th>&#x8DDF;&#x8FDB;&#x4EBA;</th>
+<th>&#x5B8C;&#x6210;&#x8FDB;&#x5EA6;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>&#x90ED;&#x6C38;&#x5CF0;&#xFF0C;&#x674E;&#x4F20;&#x5FE0;</td>
+<td>&#x5DF2;&#x6574;&#x7406;&#x4F18;&#x5316;&#x70B9;</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>&#x65B9;&#x6848;&#x63CF;&#x8FF0;&#xFF1A;</p>
+</blockquote>
+<pre><code>&lt;meta http-equiv=&quot;Content-Type&quot; content=&quot;text/html;charset=utf-8&quot;&gt;
+&lt;!-- &#x907F;&#x514D;IE&#x4F7F;&#x7528;&#x517C;&#x5BB9;&#x6A21;&#x5F0F; --&gt;
+&lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;IE=edge,chrome=1&quot;&gt;
+&lt;!-- &#x542F;&#x7528;360&#x6D4F;&#x89C8;&#x5668;&#x7684;&#x6781;&#x901F;&#x6A21;&#x5F0F;(webkit) --&gt;
+&lt;meta name=&quot;renderer&quot; content=&quot;webkit&quot;&gt;
+&lt;!-- viewport&#x8BBE;&#x7F6E; --&gt;
+&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;&gt;
+&lt;meta name=&quot;keywords&quot; content=&quot;&#x5173;&#x952E;&#x8BCD;&quot;&gt;
+&lt;meta name=&quot;description&quot; content=&quot;&#x63CF;&#x8FF0;&#x5185;&#x5BB9;&quot;&gt;
+&lt;!-- ios&#x5728;&#x7F51;&#x9875;&#x52A0;&#x8F7D;&#x65F6;&#x9690;&#x85CF;&#x5730;&#x5740;&#x680F;&#x4E0E;&#x5BFC;&#x822A;&#x680F;&#xFF0C;&#x5982;&#x6709;ipad&#x5C55;&#x793A;&#x53EF;&#x8003;&#x8651;&#x52A0;&#x4E0A; --&gt;
+&lt;meta name=&quot;viewport&quot; content=&quot;minimal-ui&quot;&gt;
+&lt;!-- &#x4EE5;&#x4E0B;&#x51E0;&#x4E2A;&#x4E3A;&#x79FB;&#x52A8;&#x7AEF;&#x7684;meta&#x4F18;&#x5316;&#xFF0C;&#x7ED3;&#x5408;&#x4E1A;&#x52A1;&#x8003;&#x8651;&#x4F7F;&#x7528; --&gt;
+&lt;meta content=&quot;telephone=no&quot; name=&quot;format-detection&quot;&gt;
+&lt;meta content=&quot;address=no&quot; name=&quot;format-detection&quot;&gt;
+&lt;meta name=&quot;apple-mobile-web-app-status-bar-style&quot; content=&quot;black&quot;&gt;
+&lt;meta name=&quot;apple-mobile-web-app-capable&quot; content=&quot;yes&quot;&gt;
+&lt;!-- &#x662F;&#x5426;&#x542F;&#x52A8;webapp&#x529F;&#x80FD;&#xFF0C;&#x4F1A;&#x5220;&#x9664;&#x9ED8;&#x8BA4;&#x7684;&#x82F9;&#x679C;&#x5DE5;&#x5177;&#x680F;&#x548C;&#x83DC;&#x5355;&#x680F;&#x3002; --&gt;
+&lt;meta name=&quot;apple-mobile-web-app-capable&quot; content=&quot;yes&quot; /&gt;
+&lt;!-- &#x663E;&#x793A;&#x624B;&#x673A;&#x4FE1;&#x53F7;&#x3001;&#x65F6;&#x95F4;&#x3001;&#x7535;&#x6C60;&#x7684;&#x9876;&#x90E8;&#x5BFC;&#x822A;&#x680F;&#x7684;&#x989C;&#x8272;&#x3002;&#x9ED8;&#x8BA4;&#x503C;&#x4E3A;default&#xFF08;&#x767D;&#x8272;&#xFF09;&#xFF0C;&#x53EF;&#x4EE5;&#x5B9A;&#x4E3A;black&#xFF08;&#x9ED1;&#x8272;&#xFF09;&#x548C;black-translucent&#xFF08;&#x7070;&#x8272;&#x534A;&#x900F;&#x660E;&#xFF09; --&gt;
+&lt;meta name=&quot;apple-mobile-web-app-status-bar-style&quot; content=&quot;black&quot; /&gt;
+&lt;!-- &#x5FFD;&#x7565;&#x9875;&#x9762;&#x4E2D;&#x7684;&#x6570;&#x5B57;&#x8BC6;&#x522B;&#x4E3A;&#x7535;&#x8BDD;&#x53F7;&#x7801;&#x6216;&#x662F;&#x90AE;&#x7BB1; --&gt;
+&lt;meta name=&quot;format-detection&quot; content=&quot;telphone=no, email=no&quot; /&gt;
+&lt;!-- &#x9488;&#x5BF9;&#x624B;&#x6301;&#x8BBE;&#x5907;&#x4F18;&#x5316;&#xFF0C;&#x4E3B;&#x8981;&#x662F;&#x9488;&#x5BF9;&#x4E00;&#x4E9B;&#x8001;&#x7684;&#x4E0D;&#x8BC6;&#x522B;viewport&#x7684;&#x6D4F;&#x89C8;&#x5668;&#xFF0C;&#x6BD4;&#x5982;&#x9ED1;&#x8393; --&gt;
+&lt;meta name=&quot;HandheldFriendly&quot; content=&quot;true&quot;&gt;
+&lt;!-- &#x5FAE;&#x8F6F;&#x7684;&#x8001;&#x5F0F;&#x6D4F;&#x89C8;&#x5668; --&gt;
+&lt;meta name=&quot;MobileOptimized&quot; content=&quot;320&quot;&gt;
+</code></pre><h2 id="t4&#x5728;&#x670D;&#x52A1;&#x5668;&#x7AEF;&#x4F7F;&#x7528;v_billform&#x7EC4;&#x4EF6;&#x800C;&#x4E0D;&#x662F;&#x5BA2;&#x6237;&#x7AEF;">&#x5728;&#x670D;&#x52A1;&#x5668;&#x7AEF;&#x4F7F;&#x7528;v_billform&#x7EC4;&#x4EF6;&#x800C;&#x4E0D;&#x662F;&#x5BA2;&#x6237;&#x7AEF; <a href="#t4&#x5728;&#x670D;&#x52A1;&#x5668;&#x7AEF;&#x4F7F;&#x7528;v_billform&#x7EC4;&#x4EF6;&#x800C;&#x4E0D;&#x662F;&#x5BA2;&#x6237;&#x7AEF;"> # </a></h2>
+<table>
+<thead>
+<tr>
+<th>&#x8DDF;&#x8FDB;&#x4EBA;</th>
+<th>&#x5B8C;&#x6210;&#x8FDB;&#x5EA6;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>&#x738B;&#x534E;</td>
+<td>&#x6682;&#x672A;&#x5B8C;&#x6210;</td>
+</tr>
+</tbody>
+</table>
+<h2 id="t5autocomplate&#x7684;&#x4F18;&#x5316;">autocomplate&#x7684;&#x4F18;&#x5316; <a href="#t5autocomplate&#x7684;&#x4F18;&#x5316;"> # </a></h2>
+<table>
+<thead>
+<tr>
+<th>&#x8DDF;&#x8FDB;&#x4EBA;</th>
+<th>&#x5B8C;&#x6210;&#x8FDB;&#x5EA6;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>&#x4E01;&#x9510;&#x950B;</td>
+<td>&#x6682;&#x672A;&#x5B8C;&#x6210;</td>
+</tr>
+</tbody>
+</table>
+<p>&#x4ECE;DOM&#x6811;&#x4E0A;&#x770B;&#xFF0C;&#x521B;&#x5EFA;&#x4E86;&#x5927;&#x91CF;&#x7684;&#x4EE5;&#x4E0B;DOM&#x5143;&#x7D20;</p>
+<pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">&quot;ac_results&quot;</span> <span class="hljs-attribute">style</span>=<span class="hljs-value">&quot;display: none; position: absolute; width: 180px;&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
+</code></pre>
+<h2 id="t6workflow.js &#x6709;15&#x4E2A;click &#x4E8B;&#x4EF6;">workflow.js &#x6709;15&#x4E2A;click &#x4E8B;&#x4EF6; <a href="#t6workflow.js &#x6709;15&#x4E2A;click &#x4E8B;&#x4EF6;"> # </a></h2>
+<table>
+<thead>
+<tr>
+<th>&#x8DDF;&#x8FDB;&#x4EBA;</th>
+<th>&#x5B8C;&#x6210;&#x8FDB;&#x5EA6;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>chenylh</td>
+<td>&#x6682;&#x672A;&#x5B8C;&#x6210;</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>&#x9700;&#x8981;&#x6392;&#x67E5;&#x7C7B;&#x4F3C;&#x7684;&#x7ED9;DOM&#x7ED1;&#x5B9A;&#x5927;&#x91CF;&#x4E8B;&#x4EF6;&#x7684;&#x60C5;&#x51B5;</p>
+</blockquote>
+<h2 id="t7&#x6539;&#x53D8;&#x9996;&#x5C4F;&#x8D44;&#x6E90;&#x7684;&#x6E32;&#x67D3;&#x65B9;&#x5F0F;">&#x6539;&#x53D8;&#x9996;&#x5C4F;&#x8D44;&#x6E90;&#x7684;&#x6E32;&#x67D3;&#x65B9;&#x5F0F; <a href="#t7&#x6539;&#x53D8;&#x9996;&#x5C4F;&#x8D44;&#x6E90;&#x7684;&#x6E32;&#x67D3;&#x65B9;&#x5F0F;"> # </a></h2>
+<table>
+<thead>
+<tr>
+<th>&#x8DDF;&#x8FDB;&#x4EBA;</th>
+<th>&#x5B8C;&#x6210;&#x8FDB;&#x5EA6;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>&#x4F20;&#x5FE0;</td>
+<td>&#x6682;&#x672A;&#x5B8C;&#x6210;</td>
+</tr>
+</tbody>
+</table>
+<p>&#x5C31;&#x4ED8;&#x6B3E;&#x5355;&#x9875;&#x9762;&#x5206;&#x6790;&#xFF0C;&#x7531;&#x4E8E;&#x4F7F;&#x7528;requirejs&#x5C06;&#x9875;&#x9762;&#x7684;&#x4E3B;&#x4F53;&#x90E8;&#x5206;&#x5F02;&#x6B65;&#x7684;&#x6E32;&#x67D3;&#x51FA;&#x6765;&#xFF0C;&#x5BFC;&#x81F4;&#x8BBF;&#x95EE;&#x9875;&#x9762;&#x7684;&#x9996;&#x5C4F;&#x52A0;&#x8F7D;&#x65F6;&#x95F4;&#x8F83;&#x957F;</p>
+<blockquote>
+<p>&#x5EFA;&#x8BAE;&#x5C1D;&#x8BD5;&#x7531;&#x670D;&#x52A1;&#x7AEF;&#x6E32;&#x67D3;&#x9996;&#x5C4F;&#x9875;&#x9762;&#xFF0C;&#x8BA9;&#x7528;&#x6237;&#x80FD;&#x5C3D;&#x5FEB;&#x770B;&#x5230;&#x9875;&#x9762;&#x7684;&#x5448;&#x73B0;&#xFF0C;&#x4F18;&#x5316;&#x7528;&#x6237;&#x7684;&#x9996;&#x5C4F;&#x4F53;&#x9A8C;&#x3002;</p>
+</blockquote>
+<h2 id="t8&#x7CBE;&#x7B80;DOM&#x7ED3;&#x6784;">&#x7CBE;&#x7B80;DOM&#x7ED3;&#x6784; <a href="#t8&#x7CBE;&#x7B80;DOM&#x7ED3;&#x6784;"> # </a></h2>
+<p>&#x76EE;&#x524D;&#x9875;&#x9762;&#x4E2D;&#x5B58;&#x5728;&#x5927;&#x91CF;&#x7684;&#x5197;&#x4F59;DOM&#x7ED3;&#x6784;&#xFF0C;&#x9700;&#x8981;&#x5408;&#x7406;&#x5E03;&#x5C40;&#xFF0C;&#x51CF;&#x5C11;DOM&#x6570;&#x91CF;</p>
+<p><img src="../..//img/dom.png" alt=""></p>
+<h2 id="t9&#x4FE1;&#x606F;&#x5F39;&#x6846;&#x5EF6;&#x8FDF;&#x52A0;&#x8F7D;">&#x4FE1;&#x606F;&#x5F39;&#x6846;&#x5EF6;&#x8FDF;&#x52A0;&#x8F7D; <a href="#t9&#x4FE1;&#x606F;&#x5F39;&#x6846;&#x5EF6;&#x8FDF;&#x52A0;&#x8F7D;"> # </a></h2>
+<p><img src="../..//img/modal.png" alt=""></p>
+
+        <div class="copyright">Powered by <a href="https://github.com/jaywcjlove/idoc" target="_blank">idoc</a>. Dependence <a href="https://nodejs.org">Node.js</a> run.</div>
+    </div>
+
+</div>
+
+
+</body>
+</html>

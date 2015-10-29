@@ -1,14 +1,18 @@
 # React技术学习--入门篇（一）
 
-要说现在最热门的前端技术，毫无疑问是React。自2013年5月份facebook将React开源以来，由于 React 的设计思想极其独特，属于革命性创新，性能出众，代码逻辑却非常简单。所以，越来越多的人开始关注和使用，认为它可能是将来 Web 开发的主流工具，截至目前已经在github上收获了超过3万个star。
+先看一张图
 
-React项目也从最早的UI引擎变成了一整套前后端通吃的 Web App 解决方案。衍生的 React Native 项目也在今年9月份完成发布，这意味着一套代码多端运行已经成为了现实，这对于我们开发者来说，简直是福音啊。
+![](/img/percentage.jpg)
 
-那么，对于一项这么热门的技术，咱们也得跟上步伐好好学习啊。
+自2013年5月份facebook将React开源以来，截至目前已经在github上收获了超过3万个star。
+
+衍生的React Native项目（andriod和ios版本）也在今年9月份完成发布。
 
 ## 1. 基本认识
 
 React是一个用于构建用户界面的JavaScript**库**，而不是一个MVC框架，但可以使用React作为MVC架构的View层轻易地在已有项目中使用。
+
+> 如果想参与angular好还是react好的讨论大战的话，请移步[知乎](http://www.zhihu.com/topic/20013159)
 
 ## 2. 为什么用React
 

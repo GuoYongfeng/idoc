@@ -272,18 +272,12 @@ ReactDOM.render(
     document.getElementById('example')
   );
 ```
-> 从以上代码我们可以对JSX进行简单总结：
-
-1. 在render方法里面，把你的js代码用{}花括号包起来
-
-还有么，还有，但好像这个最关键，其他的以后边用边学。
 
 > 使用JSX语法来封装组件有什么好处
 
-- 更加熟悉
+- 熟悉的代码
 - 更加语义化
 - 更加抽象且直观
-- 关注点分离
 
 ### 几个注意点
 - render的方法中return的顶级元素只能是一个
@@ -305,39 +299,37 @@ ReactDOM.render(
 
 ### 定义一个组件
 
+demo: jsx_compile.html
+
 ```JavaScript
-var MyTitle = React.createClass({
-    // 相当于接口文档
-    propTypes: {
-      title: React.PropTypes.string.isRequired,
-    },
-    // 定义初始化的props
-    getDefaultProps: function (){
-      return {
-        title: "welcome to React!"
-      }
-    },
-    // 定义初始化的state
-    getInitialState: function(){
-      return {
-        name: "Space X"
-      }
-    },
-    // 定义一个改变组件state的方法
-    changeState: function(){
-      this.setState({
-        name: "Elon Musk"
-      });
-    },
-    render: function() {
-      return (
-          <header>
-            <h1>props: {this.props.title}
-            <p onCick={this.changeState}>click me! {name}</p>
-          </header>
-        );
-    }
+/*
+ * example
+ */
+var Counter = React.createClass({
+  // 相当于是规范化的接口文档
+  propTypes: {
+    name: React.PropTypes.string.isRequired,
+  },
+  // 定义初始化的state
+  getInitialState: function () {
+    return { clickCount: 0 };
+  },
+  // 定义一个处理点击的回调方法
+  handleClick: function () {
+    this.setState(function(state) {
+      return {clickCount: state.clickCount + 1};
+    });
+  },
+  render: function () {
+    return (<h2 onClick={this.handleClick}>点我点我! <br />被戳次数: {this.state.clickCount}</h2>);
+  }
 });
+
+ReactDOM.render(
+  <Counter name="myCounter" />,
+  document.getElementById('example')
+);
+
 ```
 
 - state
@@ -353,9 +345,12 @@ var MyTitle = React.createClass({
 ### 理解state和props
 
 需要理解清楚的是，虽然state和prop都是存储数据的，但是要区分二者的区别：
+
 - state存放的是流动的，变化的组件数据，而且，**state只存在于组件的内部**
 - 把props当成是组件的数据源，一般用来存放组件初始后不变的数据和属性
+
 需要提醒的是：
+
 - 不要将props的数据复制到state中去
 - 不要使用setProps改变组件的属性
 - 要慎用replaceState

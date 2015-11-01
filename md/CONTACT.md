@@ -3,9 +3,9 @@
 <img title="郭永峰" src="/img/me.jpg" style="width: 250px;">
 
 ## INTRODUCTION
-- **Name: **GuoYongfeng
-- **Mail: **296512521@qq.com
-- **Weixin: **13552329235
+- **Name: **<a href="https://github.com/GuoYongfeng">GuoYongfeng</a>
+- **Mail: **<a href="mailto:296512521@qq.com">296512521@qq.com</a>
+- **Weixin: **<a href="tel:13552329235">13552329235</a>
 
 ## TECHNOLOGY
 - HTML && HTML5

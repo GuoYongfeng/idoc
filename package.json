@@ -1,7 +1,7 @@
 {
     "name": "MyTechBook",
     "version": "0.1.1",
-    "description": "Welcome to my technology blog",
+    "description": "Welcome To My Blog",
     "keywords": [
         "idoc",
         "react",
@@ -39,7 +39,9 @@
                     "Node.js MVC框架ThinkJS.md",
                     "webpack入门及实践.md",
                     "轻型MVVM框架Vue.js.md",
-                    "ECMAScript 6入门.md"
+                    "ECMAScript 6入门.md",
+                    "Nodejs 5.0.0版本.md",
+                    "关系型数据库PostgreSQL.md"
                 ]
             },
             {
@@ -48,7 +50,13 @@
                     "性能优化待办事项.md",
                     "性能优化点总结.md",
                     "NC性能优化.md",
-                    "jshint配置说明.md"
+                    "jshint配置说明.md",
+                    "React编码规范.md"
+                ]
+            },
+            {
+                "随想笔记": [
+                    "个人网站开发技术规划.md"
                 ]
             },
             "关于我.md"

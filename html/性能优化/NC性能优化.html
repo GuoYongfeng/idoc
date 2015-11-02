@@ -29,7 +29,7 @@
 <div class="container">
 
     <div class="page-toc">
-        <ul><li><a href="#t0性能优化建议及进度汇总">性能优化建议及进度汇总</a><ul><li><a href="#t1文件合并">文件合并</a></li><li><a href="#t2JS文件放在底部加载">JS文件放在底部加载</a></li><li><a href="#t3优化META信息">优化META信息</a></li><li><a href="#t4在服务器端使用v_billform组件而不是客户端">在服务器端使用v_billform组件而不是客户端</a></li><li><a href="#t5autocomplate的优化">autocomplate的优化</a></li><li><a href="#t6workflow.js 有15个click 事件">workflow.js 有15个click 事件</a></li><li><a href="#t7改变首屏资源的渲染方式">改变首屏资源的渲染方式</a></li><li><a href="#t8精简DOM结构">精简DOM结构</a></li><li><a href="#t9信息弹框延迟加载">信息弹框延迟加载</a></li></ul></li></ul>
+        <ul><li><a href="#t0性能优化建议及进度汇总">性能优化建议及进度汇总</a><ul><li><a href="#t1文件合并">文件合并</a></li><li><a href="#t2JS文件放在底部加载">JS文件放在底部加载</a></li><li><a href="#t3优化META信息">优化META信息</a></li><li><a href="#t4在服务器端使用v_billform组件而不是客户端">在服务器端使用v_billform组件而不是客户端</a></li><li><a href="#t5autocomplate的优化">autocomplate的优化</a></li><li><a href="#t6workflow.js 有15个click 事件">workflow.js 有15个click 事件</a></li><li><a href="#t7改变首屏资源的渲染方式">改变首屏资源的渲染方式</a></li><li><a href="#t8精简DOM结构">精简DOM结构</a></li><li><a href="#t9参照延迟加载">参照延迟加载</a></li><li><a href="#t10延迟加载">延迟加载</a></li><li><a href="#t11BigPipe">BigPipe</a></li></ul></li></ul>
     </div>
     
     <div class="content markdown-body">
@@ -40,12 +40,14 @@
 <tr>
 <th>&#x8DDF;&#x8FDB;&#x4EBA;</th>
 <th>&#x5B8C;&#x6210;&#x8FDB;&#x5EA6;</th>
+<th>&#x4F18;&#x5148;&#x7EA7;</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td>&#x674E;&#x4F20;&#x5FE0;&#xFF0C;&#x90ED;&#x6C38;&#x5CF0;&#xFF0C;&#x738B;&#x534E;</td>
-<td>&#x6682;&#x672A;&#x5B8C;&#x6210;</td>
+<td>50%</td>
+<td>9</td>
 </tr>
 </tbody>
 </table>
@@ -105,7 +107,7 @@ http://20.1.85.11:8088/iwebap/css/workflow/workflow.css
 <tbody>
 <tr>
 <td>&#x90ED;&#x6C38;&#x5CF0;&#xFF0C;&#x674E;&#x4F20;&#x5FE0;</td>
-<td>&#x5DF2;&#x6574;&#x7406;&#x4F18;&#x5316;&#x70B9;</td>
+<td>&#x5F85;&#x786E;&#x8BA4;</td>
 </tr>
 </tbody>
 </table>
@@ -164,7 +166,7 @@ http://20.1.85.11:8088/iwebap/css/workflow/workflow.css
 <tbody>
 <tr>
 <td>&#x4E01;&#x9510;&#x950B;</td>
-<td>&#x6682;&#x672A;&#x5B8C;&#x6210;</td>
+<td>&#x5B8C;&#x6210;</td>
 </tr>
 </tbody>
 </table>
@@ -182,7 +184,7 @@ http://20.1.85.11:8088/iwebap/css/workflow/workflow.css
 <tbody>
 <tr>
 <td>chenylh</td>
-<td>&#x6682;&#x672A;&#x5B8C;&#x6210;</td>
+<td>&#x5F85;&#x786E;&#x8BA4;</td>
 </tr>
 </tbody>
 </table>
@@ -195,12 +197,14 @@ http://20.1.85.11:8088/iwebap/css/workflow/workflow.css
 <tr>
 <th>&#x8DDF;&#x8FDB;&#x4EBA;</th>
 <th>&#x5B8C;&#x6210;&#x8FDB;&#x5EA6;</th>
+<th>&#x4F18;&#x5148;&#x7EA7;</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td>&#x4F20;&#x5FE0;</td>
-<td>&#x6682;&#x672A;&#x5B8C;&#x6210;</td>
+<td>50%</td>
+<td>9</td>
 </tr>
 </tbody>
 </table>
@@ -211,8 +215,35 @@ http://20.1.85.11:8088/iwebap/css/workflow/workflow.css
 <h2 id="t8&#x7CBE;&#x7B80;DOM&#x7ED3;&#x6784;">&#x7CBE;&#x7B80;DOM&#x7ED3;&#x6784; <a href="#t8&#x7CBE;&#x7B80;DOM&#x7ED3;&#x6784;"> # </a></h2>
 <p>&#x76EE;&#x524D;&#x9875;&#x9762;&#x4E2D;&#x5B58;&#x5728;&#x5927;&#x91CF;&#x7684;&#x5197;&#x4F59;DOM&#x7ED3;&#x6784;&#xFF0C;&#x9700;&#x8981;&#x5408;&#x7406;&#x5E03;&#x5C40;&#xFF0C;&#x51CF;&#x5C11;DOM&#x6570;&#x91CF;</p>
 <p><img src="../..//img/dom.png" alt=""></p>
-<h2 id="t9&#x4FE1;&#x606F;&#x5F39;&#x6846;&#x5EF6;&#x8FDF;&#x52A0;&#x8F7D;">&#x4FE1;&#x606F;&#x5F39;&#x6846;&#x5EF6;&#x8FDF;&#x52A0;&#x8F7D; <a href="#t9&#x4FE1;&#x606F;&#x5F39;&#x6846;&#x5EF6;&#x8FDF;&#x52A0;&#x8F7D;"> # </a></h2>
+<h2 id="t9&#x53C2;&#x7167;&#x5EF6;&#x8FDF;&#x52A0;&#x8F7D;">&#x53C2;&#x7167;&#x5EF6;&#x8FDF;&#x52A0;&#x8F7D; <a href="#t9&#x53C2;&#x7167;&#x5EF6;&#x8FDF;&#x52A0;&#x8F7D;"> # </a></h2>
+<table>
+<thead>
+<tr>
+<th>&#x8DDF;&#x8FDB;&#x4EBA;</th>
+<th>&#x5B8C;&#x6210;&#x8FDB;&#x5EA6;</th>
+<th>&#x4F18;&#x5148;&#x7EA7;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>&#x5F85;&#x786E;&#x8BA4;</td>
+<td>&#x6682;&#x672A;&#x5B8C;&#x6210;</td>
+<td>8</td>
+</tr>
+</tbody>
+</table>
 <p><img src="../..//img/modal.png" alt=""></p>
+<h2 id="t10&#x5EF6;&#x8FDF;&#x52A0;&#x8F7D;">&#x5EF6;&#x8FDF;&#x52A0;&#x8F7D; <a href="#t10&#x5EF6;&#x8FDF;&#x52A0;&#x8F7D;"> # </a></h2>
+<p>RequireJS &#x4ECE; 2.0 &#x5F00;&#x59CB;&#xFF0C;&#x4E5F;&#x6539;&#x6210;&#x53EF;&#x4EE5;&#x5EF6;&#x8FDF;&#x6267;&#x884C;</p>
+<pre><code>if (!&apos;webkitFilter&apos; in document.createElement(&apos;div&apos;).style ) {
+    require.async(&apos;test&apos;,function(test){
+      console.log(test.fuck);
+    })
+  }
+</code></pre><h2 id="t11BigPipe">BigPipe <a href="#t11BigPipe"> # </a></h2>
+<blockquote>
+<p>&#x5206;&#x5757;&#x52A0;&#x8F7D;</p>
+</blockquote>
 
         <div class="copyright">Powered by <a href="https://github.com/jaywcjlove/idoc" target="_blank">idoc</a>. Dependence <a href="https://nodejs.org">Node.js</a> run.</div>
     </div>

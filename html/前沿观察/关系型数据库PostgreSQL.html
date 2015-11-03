@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>MyTechBook</title>
+    <link rel="stylesheet" type="text/css" href="../../static/css/main.css">
+</head>
+<body>
+<div class="navbar navbar-line">
+    <div class="container">
+        <div class="logo">
+            
+                MyTechBook
+            
+        </div>
+        <ul><li><a href="../../index.html">首页</a></li><li><a href="#"><span></span>前沿观察</a><ul><li><a href="../../html/前沿观察/ECMAScript 6入门.html">ECMAScript 6入门</a></li><li><a href="../../html/前沿观察/Immutable详解及React中实践.html">Immutable详解及React中实践</a></li><li><a href="../../html/前沿观察/Node.js MVC框架ThinkJS.html">Node.js MVC框架ThinkJS</a></li><li><a href="../../html/前沿观察/Nodejs 5.0.0版本.html">Nodejs 5.0.0版本</a></li><li><a href="../../html/前沿观察/webpack入门及实践.html">webpack入门及实践</a></li><li class="active"><a href="../../html/前沿观察/关系型数据库PostgreSQL.html">关系型数据库PostgreSQL</a></li><li><a href="../../html/前沿观察/轻型MVVM框架Vue.js.html">轻型MVVM框架Vue.js</a></li></ul></li><li><a href="#"><span></span>前端工程化</a><ul><li><a href="../../html/前端工程化/前端模板.html">前端模板</a></li><li><a href="../../html/前端工程化/前端集成解决方案.html">前端集成解决方案</a></li><li><a href="../../html/前端工程化/项目技术栈规划.html">项目技术栈规划</a></li></ul></li><li><a href="#"><span></span>性能优化</a><ul><li><a href="../../html/性能优化/jshint代码质量检测.html">jshint代码质量检测</a></li><li><a href="../../html/性能优化/jshint配置说明.html">jshint配置说明</a></li><li><a href="../../html/性能优化/NC性能优化.html">NC性能优化</a></li><li><a href="../../html/性能优化/React编码规范.html">React编码规范</a></li><li><a href="../../html/性能优化/性能优化待办事项.html">性能优化待办事项</a></li><li><a href="../../html/性能优化/性能优化点总结.html">性能优化点总结</a></li></ul></li><li><a href="#"><span></span>技术分享</a><ul><li><a href="../../html/技术分享/React技术分享.html">React技术分享</a></li><li><a href="../../html/技术分享/学习Git.html">学习Git</a></li><li><a href="../../html/技术分享/面向对象.html">面向对象</a></li></ul></li><li><a href="#"><span></span>随想笔记</a><ul><li><a href="../../html/随想笔记/个人网站开发技术规划.html">个人网站开发技术规划</a></li></ul></li><li><a href="../../html/CONTACT.html">CONTACT</a></li></ul>
+        
+        
+        <div class="forkgithub"><a target="_blank" href="https://github.com/GuoYongfeng">fork on github</a></div>
+        
+    </div>
+    
+</div>
+
+
+
+
+<div class="container">
+
+    <div class="page-toc">
+        <ul><li><a href="#t0PostgreSQL基础入门知识">PostgreSQL基础入门知识</a><ul><li><a href="#t1安装">安装</a></li></ul></li></ul>
+    </div>
+    
+    <div class="content markdown-body">
+        <h1 id="t0PostgreSQL&#x57FA;&#x7840;&#x5165;&#x95E8;&#x77E5;&#x8BC6;">PostgreSQL&#x57FA;&#x7840;&#x5165;&#x95E8;&#x77E5;&#x8BC6; <a href="#t0PostgreSQL&#x57FA;&#x7840;&#x5165;&#x95E8;&#x77E5;&#x8BC6;"> # </a></h1>
+<blockquote>
+<p>PostgreSQL&#x662F;&#x4EE5;&#x52A0;&#x5DDE;&#x5927;&#x5B66;&#x4F2F;&#x514B;&#x5229;&#x5206;&#x6821;&#x8BA1;&#x7B97;&#x673A;&#x7CFB;&#x5F00;&#x53D1;&#x7684; POSTGRES &#x7248;&#x672C; 4.2 &#x4E3A;&#x57FA;&#x7840;&#x7684;&#x5BF9;&#x8C61;&#x5173;&#x7CFB;&#x578B;&#x6570;&#x636E;&#x5E93;&#x7BA1;&#x7406;&#x7CFB;&#x7EDF;&#xFF08;ORDBMS&#xFF09;&#x3002; POSTGRES &#x9886;&#x5148;&#x7684;&#x8BB8;&#x591A;&#x6982;&#x5FF5;&#x53EA;&#x662F;&#x5728;&#x975E;&#x5E38;&#x8FDF;&#x7684;&#x65F6;&#x5019;&#x624D;&#x51FA;&#x73B0;&#x5728;&#x5546;&#x4E1A;&#x6570;&#x636E;&#x5E93;&#x4E2D;&#x3002;</p>
+</blockquote>
+<p>PostgreSQL &#x662F;&#x6700;&#x521D;&#x4F2F;&#x514B;&#x5229;&#x7684;&#x4EE3;&#x7801;&#x7684;&#x4E00;&#x4E2A;&#x5F00;&#x653E;&#x6E90;&#x7801;&#x7684;&#x7EE7;&#x627F;&#x4EBA;&#x3002; &#x5B83;&#x652F;&#x6301;&#x5927;&#x90E8;&#x5206; SQL &#x6807;&#x51C6;&#x5E76;&#x4E14;&#x63D0;&#x4F9B;&#x4E86;&#x8BB8;&#x591A;&#x5176;&#x4ED6;&#x73B0;&#x4EE3;&#x7279;&#x6027;&#xFF1A;</p>
+<ul>
+<li>&#x590D;&#x6742;&#x67E5;&#x8BE2;</li>
+<li>&#x5916;&#x952E;</li>
+<li>&#x89E6;&#x53D1;&#x5668;</li>
+<li>&#x89C6;&#x56FE;</li>
+<li>&#x4E8B;&#x52A1;&#x5B8C;&#x6574;&#x6027;</li>
+<li>&#x591A;&#x7248;&#x672C;&#x5E76;&#x53D1;&#x63A7;&#x5236;</li>
+</ul>
+<p>&#x540C;&#x6837;&#xFF0C;PostgreSQL &#x53EF;&#x4EE5;&#x7528;&#x8BB8;&#x591A;&#x65B9;&#x6CD5;&#x6269;&#x5C55;&#xFF0C;&#x6BD4;&#x5982;&#xFF0C; &#x901A;&#x8FC7;&#x589E;&#x52A0;&#x65B0;&#x7684;&#xFF1A;</p>
+<ul>
+<li>&#x6570;&#x636E;&#x7C7B;&#x578B;</li>
+<li>&#x51FD;&#x6570;</li>
+<li>&#x64CD;&#x4F5C;&#x7B26;</li>
+<li>&#x805A;&#x96C6;&#x51FD;&#x6570;</li>
+<li>&#x7D22;&#x5F15;&#x65B9;&#x6CD5;</li>
+<li>&#x8FC7;&#x7A0B;&#x8BED;&#x8A00;</li>
+</ul>
+<p>&#x5E76;&#x4E14;&#xFF0C;&#x56E0;&#x4E3A;&#x8BB8;&#x53EF;&#x8BC1;&#x7684;&#x7075;&#x6D3B;&#xFF0C;&#x4EFB;&#x4F55;&#x4EBA;&#x90FD;&#x53EF;&#x4EE5;&#x4EE5;&#x4EFB;&#x4F55;&#x76EE;&#x7684;&#x514D;&#x8D39;&#x4F7F;&#x7528;&#xFF0C;&#x4FEE;&#x6539;&#xFF0C;&#x548C;&#x5206;&#x53D1; PostgreSQL&#xFF0C; &#x4E0D;&#x7BA1;&#x662F;&#x79C1;&#x7528;&#xFF0C;&#x5546;&#x7528;&#xFF0C;&#x8FD8;&#x662F;&#x5B66;&#x672F;&#x7814;&#x7A76;&#x4F7F;&#x7528;&#x3002;</p>
+<h2 id="t1&#x5B89;&#x88C5;">&#x5B89;&#x88C5; <a href="#t1&#x5B89;&#x88C5;"> # </a></h2>
+<ul>
+<li>&#x5728;Liunux&#x670D;&#x52A1;&#x5668;&#x4E0A;&#x5B89;&#x88C5;</li>
+</ul>
+<p>&#x5B89;&#x88C5;PostgreSQL&#x5BA2;&#x6237;&#x7AEF;:</p>
+<pre><code>sudo apt-get install postgresql-client
+</code></pre><p>&#x5B89;&#x88C5;PostgreSQL&#x670D;&#x52A1;&#x5668;:</p>
+<pre><code>sudo apt-get install postgresql
+</code></pre><ul>
+<li>&#x5728;Windows&#x4E0A;&#x5B89;&#x88C5;</li>
+</ul>
+<p>&#x53BB;<a href="http://www.postgresql.org/download/windows/">postgresql</a>&#x4E0B;&#x8F7D;&#x5B89;&#x88C5;&#x5305;
+&#x518D;&#x5B89;&#x88C5;&#x4E00;&#x4E2A;&#x7BA1;&#x7406;&#x5DE5;&#x5177;<a href="www.pgadmin.org">pgadmin</a></p>
+
+        <div class="copyright">Powered by <a href="https://github.com/jaywcjlove/idoc" target="_blank">idoc</a>. Dependence <a href="https://nodejs.org">Node.js</a> run.</div>
+    </div>
+
+</div>
+
+
+</body>
+</html>

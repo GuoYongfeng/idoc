@@ -3,9 +3,15 @@
 <img title="郭永峰" src="/img/me.jpg" style="width: 250px;">
 
 ## INTRODUCTION
+<<<<<<< HEAD
+- **Name: **<a href="https://github.com/GuoYongfeng">GuoYongfeng</a>
+- **Mail: **<a href="mailto:296512521@qq.com">296512521@qq.com</a>
+- **Weixin: **<a href="tel:13552329235">13552329235</a>
+=======
 - **Name: **[GuoYongfeng](https://github.com/GuoYongfeng)
 - **Mail: **<a href="mailTo:296512521@qq.com">296512521@qq.com</a>
 - **Weixin: **13552329235
+>>>>>>> gh-pages
 
 ## TECHNOLOGY
 - HTML && HTML5

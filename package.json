@@ -23,16 +23,17 @@
                     "Immutable详解及React中实践.md",
                     "Node.js MVC框架ThinkJS.md",
                     "Nodejs 5.0.0版本.md",
-                    "webpack入门及实践.md",
                     "关系型数据库PostgreSQL.md",
-                    "轻型MVVM框架Vue.js.md"
+                    "轻型MVVM框架Vue.js.md",
+                    "基于nodejs的开发框架koa.md"
                 ]
             },
             {
                 "前端工程化": [
                     "前端模板.md",
                     "前端集成解决方案.md",
-                    "性能优化和前端工程的爱恨情仇.md"
+                    "性能优化和前端工程的爱恨情仇.md",
+                    "webpack入门及实践.md"
                 ]
             },
             {

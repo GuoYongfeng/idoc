@@ -215,6 +215,28 @@ npm config相关
 
 ## 5 学习一些API
 
+关注nodejs的版本特性，关注io.js
+可以去官网看一下nodejs的接口文档，也是可以直接学习的
+
+### url模块
+
+url和uri的区别
+url是uri的一个子集
+url有自己的属性规则，编码
+
+```
+parse
+format
+resolve
+```
+
+进入node的repl环境
+示例演示和讲解
+
+### querystring
+
+字符串解析
+
 ### 5.1 学习文件操作
 
 - buffer

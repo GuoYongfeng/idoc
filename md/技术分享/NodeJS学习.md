@@ -46,18 +46,45 @@ Nodejs的出现让js可以流畅的运行于服务器端，打破了前后端的
 ### 2.1 windows上安装
 
 - 先去下载一下git的客户端，可以运行git bash。在这里可以运行shell命令
-- 安装包下载
-去官网下载安装包，官网会根据你系统的版本给你推荐，直接点击下载，点击那个大大的install按钮下载即可
-- 安装
-一路next，或是根据你的喜好进行设置
-- 确认
-打开git bash，node -v,npm -v.进行确认
-当然，在cmd里面也可以去确认
 
-- 配置环境变量
-我的电脑-》属性-》高级设置-》环境变量-》path
-- 配置全局
-- npm说明和配置
+1. 进入nodejs官方网站下载软件(nodejs.org),
+2. 下载完成后，双击默认安装。安装程序会自动添加环境变量
+3. 检测nodejs是否安装成功。打开cmd命令行 输入 :
+```
+node - v
+```
+4. 检查npm是否安装。由于新版的NodeJS已经集成了npm，所以之前npm也一并安装好了。同样可以使用cmd命令行进行确认。
+```
+npm -v
+```
+5. npm作为一个NodeJS的模块管理，我们要先配置npm的全局模块的存放路径以及cache的路径，例如我希望将以上两个文件夹放在NodeJS的主目录下，便在NodeJs下建立**node_global**及**node_cache**两个文件夹。我们就在cmd中键入两行命令：
+```
+npm config set prefix "D:\Program Files\nodejs\node_global"
+npm config set cache "D:\Program Files\nodejs\node_cache"
+```
+6. 下面这一步非常关键，我们需要设置系统变量。进入我的电脑→属性→高级→环境变量。
+```
+在系统变量下新建“NODE_PATH”
+输入内容“D:\Program Files\nodejs\node_global\node_modules”
+```
+7. 安装bower或是gulp等常用工具
+```
+npm install bower gulp -g
+```
+这个时候，你在命令行就可以全局的使用安装的工具了，可以命令行中直接确认
+```
+gulp -v
+bower -v
+```
+8. 接下来我们可以进一步学习如何用npm发布自己的包
+```
+// 初始化一个package
+npm init
+// 添加你的包的管理用户
+npm adduser
+// 发布你的包
+npm publish --tag 0.1.0
+```
 
 ### 2.2 mac上安装
 

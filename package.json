@@ -13,6 +13,9 @@
         "url": "https://github.com/GuoYongfeng"
     },
     "licenses": "MIT",
+    "scripts":{
+        "build": "idoc build".
+        "deploy: "git push -u origin gh-pages"
     "idoc": {
         "theme": "default",
         "md": [

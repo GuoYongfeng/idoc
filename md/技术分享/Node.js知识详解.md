@@ -1,8 +1,14 @@
-# NodeJS学习
+<h1 style="text-align:center;color:blue;font-size:44px;">Node.js知识学习</h1>
 
-![node](/img/node.png)
+<img width="840" src="/img/node.png" />
 
-## 0 介绍
+# Chapter 1 -- Node.js入门知识
+
+> 导读：在这一部分的内容里，主要会简单介绍一下什么是Node.js以及为什么我们要去学习它，Nodej有哪些用武之地，我们为什么要去学习它。另外，还会和大家聊一下简单的安装过程以及跟Nodejs版本相关的故事。
+
+## 基本介绍
+
+**Node.js 是一个基于 Chrome V8 引擎的 JavaScript 运行环境。Node.js 使用了一个事件驱动、非阻塞式 I/O 的模型，使其轻量又高效。Node.js 的包管理器 npm，是全球最大的开源库生态系统。**
 
 虽然介绍性的话题往往都比较没营养，但是对于初接触Nodejs的同学或是只是听说过Nodejs的同学而言，有必要郑重其事地来说一下什么是Nodejs。
 
@@ -17,50 +23,68 @@
 
 好了，至少我们现在对Nodejs有了基本认识。
 
-## 1 为什么要学nodejs
+## 为什么要学nodejs
 
-**它很火**，`npmjs.org`社区的活跃程度可以直接访问网站即可看到，大量的第三方包，伸手党的天堂。
+### **nodejs很火**
+  - [npmjs.org](https://www.npmjs.com/)社区的活跃程度可以直接访问网站即可看到，大量的第三方包，伸手党的天堂。
+  - [github.com](https://github.com/)上搜索node相关的项目，15万个以上。
 
-**社区欣欣向荣**
+### **nodejs很强**
+我们来看使用nodejs可以做什么（整理自张仁阳老师）：
 
-**github**，node相关的项目 10万个
-
-**很强**，使用node做的产品：
-  - node-webkit等基于node的桌面开发
-  - jade和ejs等模板引擎
-  - grunt和gulp等构建工具
-  - express和koa等web框架
+- 项目管理：npm,grunt, gulp,bower, yeoman
+- 桌面应用: node-webkit
+- Web开发：express,ejs,hexo, socket.io, restify, cleaver, stylus, browserify,cheerio
+- 工具包 underscore,moment,connet,later,log4js,passport,passport(oAuth),domain,require,reap,commander,retry,PDFkit
+- 数据库：mysql,mongoose,redis,memcached
+- 异步：async,wind,eventProxy,bluebird
+- 部署：forever,pm2,nodemon
+- 测试：jasmine,karma,protractor
+- 跨平台：rio,tty
+- 内核：cluster,http,request
+- 模板: jade
+- 博客: ghost,hexo
+- 微信: weui
+- 硬件控制: NoduinoWeb
+- 操作系统: NodeOS
 
 > 其他语言能做的事情，nodejs都可以做，甚至可以做的更好，我想，对于一个前端工程师而言，我实在是找不出一个不学nodejs的理由。
 
-**推荐关注**
+### **生态完善**
+  - 社区欣欣向荣
+  - 丰富的第三方包
 
-[github](https://github.com/)在这里可以找到大量nodejs相关的项目，阅读源码源码，查看新技术的一手资料
+### **推荐关注**
 
-[nodejs官网](https://nodejs.org)关注Node版本更新，包括api功能及使用、bug修复、新增特性以及未来的发展趋势
+1. [github](https://github.com/)在这里可以找到大量nodejs相关的项目，阅读源码源码，查看新技术的一手资料
 
-[npm官网](https://www.npmjs.com/)在这里搜索你想用的包，参考别人的源代码
+2. [nodejs官网](https://nodejs.org)关注Node版本更新，包括api功能及使用、bug修复、新增特性以及未来的发展趋势
 
-[stackoverflow](http://stackoverflow.com/)问答社区，有什么疑惑直接在这开问吧，会有很多热情的好基友来帮你解答问题的，比如服务异常、配置什么的。
+3. [npm官网](https://www.npmjs.com/)在这里搜索你想用的包，参考别人的源代码
 
-## 2 安装
+4. [stackoverflow](http://stackoverflow.com/)问答社区，有什么疑惑直接在这开问吧，会有很多热情的好基友来帮你解答问题的，比如服务异常、配置什么的。
 
-### 2.1 windows上安装
+## 安装
+
+### windows上安装
 
 - 先去下载一下git的客户端，可以运行git bash，方便使用shell命令
 
-step1. 进入nodejs官方网站下载软件(nodejs.org),
-step2. 下载完成后，双击默认安装。安装程序会自动添加环境变量
-step3. 检测nodejs是否安装成功。打开cmd命令行 输入 :
+`step1.` 进入nodejs官方网站下载软件(nodejs.org),
+`step2.` 下载完成后，双击默认安装。安装程序会自动添加环境变量
+`step3.` 检测nodejs是否安装成功。打开cmd命令行 输入 :
+
 ```
 node - v
 ```
-step4. 检查npm是否安装。由于新版的NodeJS已经集成了npm，所以之前npm也一并安装好了。同样可以使用cmd命令行进行确认。
+
+`step4.` 检查npm是否安装。由于新版的NodeJS已经集成了npm，所以之前npm也一并安装好了。同样可以使用cmd命令行进行确认。
+
 ```
 npm -v
 ```
 
-### 2.2 mac上安装
+### mac上安装
 
 - 升级系统
 - 升级xcode
@@ -80,7 +104,7 @@ brew install node
 node -v
 ```
 
-### 2.3 linux上安装
+### linux上安装
 
 - 先要扫平环境问题
 也可以到官网查看
@@ -106,7 +130,7 @@ sudo make install
 node -v
 npm -v
 ```
-### 2.4 版本号管理和说明
+## 版本说明
 
 > 目前最新的都已经到`5.0.0`，这是从0.12版本后，nodejs和iojs合并了，直接从4.0版本开始发展了，到如今已经是5.0版本，当然，还在持续更新迭代中。
 
@@ -128,16 +152,42 @@ n
 - nvm
 - nvvm
 
-## 3 node初体验
+
+# Chapter 2 -- Node.js基础知识
+> 导读：在基础部分里面，我们会有很多的内容学习。
+- node初体验
+- commmonjs模块说明
+- nodejs全局对象的学习
+- nodejs的核心模块的学习
 
 
-### 3.1 在命令行中直接感受
+## Nodejs的特性和优点
 
+- 异步编程
+- 回调函数
+- 对同步和异步的说明
+- 异步IO
+	- 什么是IO
+		i就是input，表示输入，如写入一个文件；o就是outpt，表示输出，如从一个文件里读取内容
+- 单线程的
+	- 单线程和多线程的区别
+		同一个时间内只能执行一个任务
+	- 如何实现多线程
+- 非阻塞
+	- 阻塞和非阻塞
+- 基于事件驱动
+	- node里会触发很多事件
+	- 基于事件的回调
+
+## REPL环境
 在浏览器中控制台，我们可以直接编写js代码进行运行
 
-在你的shell窗口，键入node后回车，即可进入node的repl环境运行js代码
+在你的CMD窗口，键入node后回车，即可进入node的repl环境运行js代码。
 
-### 3.2 起个web服务器
+[更多关于REPL的简单说明戳这里](http://segmentfault.com/a/1190000002673137)
+## node初体验
+
+### 起个web服务器
 
 //server.js
 ```
@@ -151,7 +201,7 @@ http.createServer(function(req, res){
 
 是的，就是这样神奇，短短几行代码，就创建了一个web服务，而且，请不要轻视它，这还是一个高性能的web服务器，在某些
 
-### 3.3 commonjs代码规范说明
+## commonjs代码规范说明
 
 也许你对上面的代码有所好奇，所以我们就来简单分析下以上代码。
 
@@ -183,7 +233,7 @@ console.log(example.x); // 5
 console.log(addX(1)); // 6
 ```
 
-### 3.3.1 module对象
+### module对象
 每个模块内部，都有一个module对象，代表当前模块。它有以下属性。
 ```
 module.id 模块的识别符，通常是带有绝对路径的模块文件名。
@@ -197,7 +247,7 @@ module.exports属性表示当前模块对外输出的接口，其他文件加载
 
 - exports变量
 为了方便，Node为每个模块提供一个exports变量，指向module.exports。这等同在每个模块头部，有一行这样的命令。
-### 3.3.2 require命令的解读
+### require命令的解读
 Node.js使用CommonJS模块规范，内置的require命令用于加载模块文件。
 
 require命令的基本功能是，读入并执行一个JavaScript文件，然后返回该模块的exports对象。如果没有发现指定模块，会报错。
@@ -215,8 +265,8 @@ exports.say = function () {
 }
 ```
 
-### 3.3.3 require加载模块的规则
-require命令用于加载文件，后缀名默认为.js，比如：
+### require加载模块的规则
+require命令用于加载文件，可以加载后缀名为`.js` `.json` `.node`的文件，比如：
 ```
 var foo = require('foo');
 //  等同于
@@ -235,11 +285,15 @@ var foo = require('foo.js');
 
 如果指定的模块文件没有发现，Node会尝试为文件名添加.js、.json、.node后，再去搜索。.js件会以文本格式的JavaScript脚本文件解析，.json文件会以JSON格式的文本文件解析，.node文件会以编译后的二进制文件解析。
 
-## 4. 模块和包
+require匹配文件的流程图例
+
+![](/img/require.jpg)
+
+## 模块和包
 
 基于以上的学习，我们大体理解了node是什么，而且会基本的node程序的书写，现在来进一步理解模块和包，进入学习node的快车道。
 
-### 4.1 概念区分
+### 概念区分
 
 在node里面，单个的文件即模块，每个模块可以提供很多个API接口进行使用。
 
@@ -249,7 +303,7 @@ var foo = require('foo.js');
 1. Node.js的开放式模块登记和管理系统。
 2. Node.js默认的模块管理器，是一个命令行下的软件，用来安装和管理node模块。
 
-### 4.2 模块分类
+### 模块分类
 模块和文件是对应的
 - 核心模块fs http path
 - 文件模块
@@ -261,7 +315,7 @@ var myfile = require('./myfile.js');
 var gulp = require('gulp');
 ```
 
-### 4.3 包的概念和npm的配置
+### 包的概念和npm的配置
 
 npm不需要单独安装。在安装node的时候，会连带一起安装npm。但是，node附带的npm可能不是最新版本，最好用下面的命令，更新到最新版本。
 
@@ -294,7 +348,7 @@ npm adduser
 npm publish --tag 0.1.0
 ```
 
-### 4.3 学习封装一个包
+### 学习封装一个包
 
 学习包的封装和发布
 示例: 封装一个可以读取命令行的工具
@@ -310,22 +364,98 @@ npm publish --tag 0.1.0
 
 示例
 
-## 5 node中的全局对象
+## node中常用的全局对象
+> 浏览器中运行的js可以访问全局对象window，同样的，在node中运行的js可以访问全局对象global，下面一起了解下在nodejs中都有哪些非常有用的全局对象。
 
-### buffer对象
+### global
 
-### process对象
+`global`是全局命名空间对象。
+这里需要说明的是，在浏览器中，顶级作用域就是全局作用域。这就是说，在浏览器中，如果当前是在全局作用域内，var something将会声明一个全局变量。在Node中则不同。顶级作用域并非全局作用域，在Node模块里的var something只属于那个模块。
 
-### __dirname和__filename
+### Buffer对象
 
-### stdin和stdout
+> API说明
 
-### console对象
+```javascript
+{ [Function: Buffer]
+  poolSize: 8192,
+  isBuffer: [Function: isBuffer],
+  compare: [Function: compare],
+  isEncoding: [Function],
+  concat: [Function],
+  byteLength: [Function: byteLength] }
+```
 
-## 6 学习node中的内置模块和对象
+暂时存放的一块内存，处理二进制类型文件
+创建buffer有三种办法：
+- `new Buffer(size)`指定长度，然后fill填充内容
+- `new Buffer(['sss', 'xxx'])`传入一个数组
+- `new Buffer('郭永峰')`传入一个字符串
 
+### path对象
 
-### 6.1 Url模块
+> API接口说明
+
+```
+{ resolve: [Function],
+  normalize: [Function],
+  isAbsolute: [Function],
+  join: [Function],
+  relative: [Function],
+  _makeLong: [Function],
+  dirname: [Function],
+  basename: [Function],
+  extname: [Function],
+  format: [Function],
+  parse: [Function],
+  sep: '\\',
+  delimiter: ';',
+  posix:
+   { resolve: [Function],
+     normalize: [Function],
+     isAbsolute: [Function],
+     join: [Function],
+     relative: [Function],
+     _makeLong: [Function],
+     dirname: [Function],
+     basename: [Function],
+     extname: [Function],
+     format: [Function],
+     parse: [Function],
+     sep: '/',
+     delimiter: ':' },
+  win32: [Circular] }
+```
+
+path用于处理路径相关
+
+API接口：`normalize` `join` `resolve` `parse` `dirname` `basename` `
+
+### stream流对象
+
+在网络中传输数据的时候，总是先将对象转化为流数据，也就是字节数组，再通过流的传输，到达目的地后再转成(内容类型和编码)原始的数据
+- `stream.Readable`
+- fs文件系统对象的有`fs.createReadStream`
+
+### process
+API接口：argv pid kill stdout stderr strin console nextTick 等
+
+### require
+
+### module对象和module.exports
+
+### __filename和__dirname
+
+### console
+- console.log
+- console.info
+- console.error
+- console.timeEnd
+- console.assert
+
+## 学习node中的核心模块
+
+### Url模块
 
 url和uri的区别
 url是uri的一个子集
@@ -340,48 +470,66 @@ resolve
 进入node的repl环境
 示例演示和讲解
 
-### 6.2 Path模块
+### Path模块
 
 字符串解析
 
-### 6.3 Fs模块
+### Fs模块
 
 > 示例：遍历目录，操作文件，以前抓取数据的示例
 
-### 6.4 Http模块
+### 5.4 Http模块
 
-- http：起个服务
-- https
-- url设计
-- query string
+http原理说明：
+- 什么是http协议
+	- 交互
+	- 响应
+- 普通网站的访问过程来解析http协议
+- node里面的http模块的使用
 
-> 示例：
 
-### 6.5 Cluster模块
+### Cluster模块
 
 - process
 - cluster
 
-### 6.6 Events模块和异步编程
+### Events模块和异步编程
 
 - promise
 - 异常处理
 - 处理回调深渊
 
-## 7 使用express做个示例
+# Chapter 3 -- Nodejs进阶知识
+> 导读：通过对express、jade、angular、mongodb等技术结合的一个示例代码，和大家分享涉及的技术点。
 
-### 7.1 express简介
+## express的使用
 
+### 介绍
 基于 Node.js 平台，快速、开放、极简的 web 开发框架。
 
-### 7.2 安装
+### 安装
 
 ```
 npm install express express-generator -g
 ```
 
-### 7.3 模板jade
+### 生成项目脚手架代码
 
-### 7.4 写示例代码
+```
+express myapp
+```
 
-### 7.5 优化
+## 模板ejs
+
+jade本身是基于nodejs开发的模板引擎
+
+## angular
+
+angular是一个前端MVC框架，在这里会和大家简单介绍基于nodejs的项目对angular的使用
+
+## mongodb
+
+mongodb是目前流行的noSQL数据库，因其简单实用而流行。
+
+# Chapter 4 -- Node.js开发实战
+> 导读：本章内容将会和大家分享项目实战的一些经验和遇到的问题，内容待补充，敬请期待...

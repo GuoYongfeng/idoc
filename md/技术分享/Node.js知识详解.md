@@ -226,24 +226,29 @@ npm -v
 
 而对于node版本管理的问题，推荐几个工具：
 - osx, linux系统下
+
 推荐使用n和nvm进行node的多版本管理，n是node的一个模块，TJ大神开发的。
+
 ```
 npm install -g n
 n 5.0.0
 ```
+
 - windows系统下
-推进使用nvmw进行node的多版本管理。
+
+推荐使用nvmw进行node的多版本管理。
+
 ```
-// 1. 选择一个目录下载nvmw，比如放在C:\Program Files\nvmw
+// 选择一个目录下载nvmw，比如放在C:\Program Files\nvmw
 git clone https://github.com/hakobera/nvmw.git
-// 2. 配置环境变量，在path中增加C:\Program Files\nvmw
-// 3. 运行nvmw命令
+// 配置环境变量，在path中增加C:\Program Files\nvmw
+// 运行nvmw命令
 nvmw ls
 nvmw use v5.0.0
 nvmw install v5.0.0
-// 不过，这个比较坑，git bash下无法运行，而且，对新版node还不支持
-
 ```
+
+不过，这个比较坑，git bash下无法运行，而且，对新版node还不支持
 
 ## node初体验
 

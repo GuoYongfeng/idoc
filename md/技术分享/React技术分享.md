@@ -307,23 +307,23 @@ ReactDOM.render(
 
 // demo2：simple_jsx.html
 
-  var MyData = ['React', 'is', 'awesome'],
-      MyStyles = {
-        color: "#333",
-        fontSize: "40px",
-        fontWeight: "bold"
-      };
+var MyData = ['React', 'is', 'awesome'],
+    MyStyles = {
+      color: "#333",
+      fontSize: "40px",
+      fontWeight: "bold"
+    };
 
-  ReactDOM.render(
-    <div style={MyStyles}>
-    {
-      MyData.map(function (name) {
-        return <span>{name} </span>
-      })
-    }
-    </div>,
-    document.getElementById('example')
-  );
+ReactDOM.render(
+  <div style={MyStyles}>
+  {
+    MyData.map(function (name) {
+      return <span>{name} </span>
+    })
+  }
+  </div>,
+  document.getElementById('example')
+);
 ```
 
 ### 好处
@@ -377,6 +377,7 @@ React.render(
 或者用ES6定义一个组件
 
 ```
+// 使用React.Component来定义组件
 class Button extends React.Component {
   static displayName = 'Button'
 
@@ -459,12 +460,11 @@ export default Button
 
 ### 理解组件内部的数据流向
 
-demo: jsx_compile.html
+
 
 ```JavaScript
-/*
- * example
- */
+// demo: jsx_compile.html
+
 var Counter = React.createClass({
   // 相当于是规范化的接口文档
   propTypes: {
@@ -537,6 +537,7 @@ ReactDOM.render(
 多个简单的组件嵌套，可构成一个复杂的复合组件，从而完成复杂的交互逻辑，实现页面功能。
 
 ```
+// 定义一个头像avatar的组件
 var Avatar = React.createClass({
   render: function() {
     return (
@@ -548,6 +549,7 @@ var Avatar = React.createClass({
   }
 });
 
+// 定义一个人物图片ProfilePic组件
 var ProfilePic = React.createClass({
   render: function() {
     return (
@@ -556,6 +558,7 @@ var ProfilePic = React.createClass({
   }
 });
 
+// 定义一个人物链接ProfileLink组件
 var ProfileLink = React.createClass({
   render: function() {
     return (
@@ -566,10 +569,12 @@ var ProfileLink = React.createClass({
   }
 });
 
-React.render(
+// 渲染到容器
+ReactDOM.render(
   <Avatar username="pwh" />,
   document.getElementById('example')
 );
+
 ```
 
 # Chapter  3 --  进阶篇
@@ -614,15 +619,17 @@ var MessageBox = React.createClass({
 		}
 	},
 	getDefaultProps:function(){
+    console.log('getDefaultProps');
 	},
-	// componentWillMount:function(){
-	// },
-	// componentDidMount:function(){
-	// },
-	// componentWillUnmount: function(){
-
-	// },
-	//
+	componentWillMount:function(){
+    console.log('componentWillMount');
+	},
+	componentDidMount:function(){
+    console.log('componentDidMount');
+	},
+  componentWillUnmount: function(){
+    console.log('componentWillUnmount');
+  },
 	shouldComponentUpdate:function(nextProp,nextState){
 		console.log('shouldComponentUpdate');
 		if(nextState.count > 10) return false;
@@ -659,7 +666,6 @@ var MessageBox = React.createClass({
 var Submessage = React.createClass({
 	componentWillReceiveProps:function(nextProp){
 		console.log('子组件将要获得prop');
-
 	},
 	shouldComponentUpdate:function(nextProp,nextState){
 		if(nextProp.count> 5) return false;
@@ -673,9 +679,7 @@ var Submessage = React.createClass({
 });
 
 
-var messageBox = React.render( <MessageBox/>,
-	document.getElementById('app')
-)
+ReactDOM.render( <MessageBox/>, document.getElementById('app') );
 
 ```
 
@@ -713,7 +717,8 @@ var MarkdownEditor = React.createClass({
   }
 });
 
-React.render(<MarkdownEditor />, mountNode);
+ReactDOM.render(<MarkdownEditor />, mountNode);
+
 ```
 
 
@@ -745,15 +750,14 @@ var ClickApp = React.createClass({
 	}
 });
 
-var clickComponent = React.render(
-	<ClickApp />,
-	document.getElementById('app')
-)
+ReactDOM.render(<ClickApp />, document.getElementById('app'));
+
 ```
 
 ### 表单事件处理
 
 ```
+// 该表单组件里面用到了RadioButtons和Checkboxes
 var FormApp = React.createClass({
 	getInitialState:function(){
 		return {
@@ -827,6 +831,7 @@ var FormApp = React.createClass({
 	}
 });
 
+// 定义单选框按钮组
 var RadioButtons = React.createClass({
 	saySomething:function(){
 		alert("yo what's up man!");
@@ -861,10 +866,7 @@ var Checkboxes = React.createClass({
 })
 
 
-var formApp = React.render(
-	<FormApp />,
-	document.getElementById('app')
-);
+ReactDOM.render(<FormApp />, document.getElementById('app'));
 
 ```
 
@@ -1010,6 +1012,8 @@ mixin是解决代码重复的强大工具之一，它同时还能让组件保持
 ### 示例
 
 ```
+// 组件间都需要用到的一段逻辑
+// 经常写太麻烦，抽离出来公用
 var stateRecordMixin = {
 	componentWillMount:function(){
 		this.oldStates = [];
@@ -1023,7 +1027,9 @@ var stateRecordMixin = {
 	}
 }
 
+// 定义一个组件MessageBox
 var MessageBox = React.createClass({
+  // 在这里使用mixin
 	mixins: [stateRecordMixin],
 	getInitialState:function(){
 		return {
@@ -1038,7 +1044,7 @@ var MessageBox = React.createClass({
 		alert('上一次的计数是：'+this.previousState().count)
 	},
 	render:function(){
-		console.log('渲染')
+		console.log('渲染');
 		return (
 			<div>
 				<h1 > 计数： {this.state.count}</h1>
@@ -1069,8 +1075,8 @@ var Submessage = React.createClass({
 	}
 });
 
-
-var messageBox = React.render( <MessageBox/>,
+// 使用组件
+ReactDOM.render( <MessageBox/>,
 	document.getElementById('app')
 )
 ```

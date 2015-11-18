@@ -1098,3 +1098,12 @@ ReactDOM.render( <MessageBox/>,
 - 服务端渲染
 - 路由
 - 测试
+
+# 参考资源
+
+- [facebook.github.io](http://facebook.github.io/react)
+- [react-china](http://react-china.org/)
+- [http://reactjs.cn/](http://reactjs.cn/)
+- [github](https://github.com/facebook/react)
+- [ruanyifeng](http://www.ruanyifeng.com/blog/2015/03/react.html)
+- [zexeo](https://github.com/zexeo)

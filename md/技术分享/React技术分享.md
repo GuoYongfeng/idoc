@@ -240,17 +240,46 @@ ReactDOMServer.renderToStaticMarkup
 
 ## 4. JSX语法
 
-> 什么是JSX -- 一种在React组件内部构建标签的类XML语法。
+### 什么是JSX
 
-使用JSX语法来封装组件有什么好处：
+> 一种可以在React组件内部构建标签的**类XML语法**。
 
-- 熟悉的代码
-- 更加语义化
-- 更加抽象且直观
+为什么要发明JSX语法，如果不用JSX，我们可以怎么样定义我们的组件，举两个栗子：
 
-**demo1：jsx_demo1.html**
+- 指令封装（以Angular为例）
+
+```
+angular.module('expanderModule', []).
+  .directive('expander', function(){
+    return {
+      restrict: "EA",
+      replace: true,
+      transclude: true,
+      scope: {title: "=expanderTitle"},
+      template: '<div>' +
+              '<div class="title">{{title}}</div>' +
+              '<div class="body closed" ng-transclude></div>' +
+              '/div',
+      link: function(scope, element, attrs){
+        // TODO SOMETHING
+      }
+    }
+  })
+```
+
+- 资源重组（以FIS为例）
+
+![](/img/widget.png)
+
+AND SO ON....
+
+如果使用JSX语法，我们可以如何定义和使用组件
+
 
 ```JavaScript
+
+// demo1：jsx_demo1.html
+
 var MyList = React.createClass({
   render: function() {
     return (
@@ -274,9 +303,10 @@ ReactDOM.render(
 );
 ```
 
-**demo2：simple_jsx.html**
-
 ```javascript
+
+// demo2：simple_jsx.html
+
   var MyData = ['React', 'is', 'awesome'],
       MyStyles = {
         color: "#333",
@@ -296,6 +326,14 @@ ReactDOM.render(
   );
 ```
 
+### 好处
+
+使用JSX语法来封装组件有什么好处：
+
+- 熟悉的代码
+- 更加语义化
+- 更加抽象且直观
+
 
 ### 几个注意点
 - render的方法中return的顶级元素只能是一个
@@ -305,6 +343,7 @@ ReactDOM.render(
 ```
 - 使用 className 和 htmlFor 来替代对应的class 和 for
 
+> 感兴趣的同学请继续关注Vuejs、Web components等对组件的写法。**随着更为复杂的多端环境的出现，组件标准化还有着更大的想象空间，React的组件定义不是终点，也不一定是标准，但会在组件化的道路上留下深刻de影响。**
 
 ## 5. 编写组件
 
@@ -716,116 +755,116 @@ var clickComponent = React.render(
 
 ```
 var FormApp = React.createClass({
-			getInitialState:function(){
-				return {
-					inputValue: '请输入...',
-					selectValue: 'A',
-					radioValue:'B',
-					checkValues:[],
-					textareaValue:'请输入...'
-				}
-			},
-			handleSubmit:function(e){
-				e.preventDefault();
-				var formData = {
-					input: this.refs.goodInput.getDOMNode().value,
-					select: this.refs.goodSelect.getDOMNode().value,
-					textarea: this.refs.goodTextarea.getDOMNode().value,
-					radio: this.state.radioValue,
-					check: this.state.checkValues,
-				}
+	getInitialState:function(){
+		return {
+			inputValue: '请输入...',
+			selectValue: 'A',
+			radioValue:'B',
+			checkValues:[],
+			textareaValue:'请输入...'
+		}
+	},
+	handleSubmit:function(e){
+		e.preventDefault();
+		var formData = {
+			input: this.refs.goodInput.getDOMNode().value,
+			select: this.refs.goodSelect.getDOMNode().value,
+			textarea: this.refs.goodTextarea.getDOMNode().value,
+			radio: this.state.radioValue,
+			check: this.state.checkValues,
+		}
 
-				console.log('the form result is:')
-				console.log(formData);
+		console.log('the form result is:')
+		console.log(formData);
 
-				this.refs.goodRadio.saySomething();
+		this.refs.goodRadio.saySomething();
 
-			},
-			handleRadio:function(e){
-				this.setState({
-					radioValue: e.target.value,
-				})
-			},
-			handleCheck:function(e){
-				var checkValues = this.state.checkValues.slice();
-				var newVal = e.target.value;
-				var index = checkValues.indexOf(newVal);
-				if( index == -1 ){
-					checkValues.push( newVal )
-				}else{
-					checkValues.splice(index,1);
-				}
-
-				this.setState({
-					checkValues: checkValues,
-				})
-			},
-			render: function(){
-				return (
-					<form onSubmit={this.handleSubmit}>
-						<input ref="goodInput" type="text" defaultValue={this.state.inputValue }/>
-						<br/>
-						选项：
-						<select defaultValue={ this.state.selectValue } ref="goodSelect">
-							<option value="A">A</option>
-							<option value="B">B</option>
-							<option value="C">C</option>
-							<option value="D">D</option>
-							<option value="E">E</option>
-						</select>
-						<br/>
-						<p>radio button!</p>
-						<RadioButtons ref="goodRadio" handleRadio={this.handleRadio} />
-						<br/>
-
-						<Checkboxes handleCheck={this.handleCheck} />
-						<br/>
-						<textarea defaultValue={this.state.textareaValue} ref="goodTextarea"></textarea>
-						<button type="submit">提交</button>
-
-					</form>
-				)
-			}
-		});
-
-		var RadioButtons = React.createClass({
-			saySomething:function(){
-				alert("yo what's up man!");
-			},
-			render:function(){
-				return (
-					<span>
-						A
-						<input onChange={this.props.handleRadio} name="goodRadio" type="radio" value="A"/>
-						B
-						<input onChange={this.props.handleRadio} name="goodRadio" type="radio" defaultChecked value="B"/>
-						C
-						<input onChange={this.props.handleRadio} name="goodRadio" type="radio" value="C"/>
-					</span>
-				)
-			}
-		});
-
-		var Checkboxes = React.createClass({
-			render: function(){
-				return (
-					<span>
-						A
-						<input onChange={this.props.handleCheck}  name="goodCheckbox" type="checkbox" value="A"/>
-						B
-						<input onChange={this.props.handleCheck} name="goodCheckbox" type="checkbox" value="B" />
-						C
-						<input onChange={this.props.handleCheck} name="goodCheckbox" type="checkbox" value="C" />
-					</span>
-				)
-			}
+	},
+	handleRadio:function(e){
+		this.setState({
+			radioValue: e.target.value,
 		})
+	},
+	handleCheck:function(e){
+		var checkValues = this.state.checkValues.slice();
+		var newVal = e.target.value;
+		var index = checkValues.indexOf(newVal);
+		if( index == -1 ){
+			checkValues.push( newVal )
+		}else{
+			checkValues.splice(index,1);
+		}
 
+		this.setState({
+			checkValues: checkValues,
+		})
+	},
+	render: function(){
+		return (
+			<form onSubmit={this.handleSubmit}>
+				<input ref="goodInput" type="text" defaultValue={this.state.inputValue }/>
+				<br/>
+				选项：
+				<select defaultValue={ this.state.selectValue } ref="goodSelect">
+					<option value="A">A</option>
+					<option value="B">B</option>
+					<option value="C">C</option>
+					<option value="D">D</option>
+					<option value="E">E</option>
+				</select>
+				<br/>
+				<p>radio button!</p>
+				<RadioButtons ref="goodRadio" handleRadio={this.handleRadio} />
+				<br/>
 
-		var formApp = React.render(
-			<FormApp />,
-			document.getElementById('app')
+				<Checkboxes handleCheck={this.handleCheck} />
+				<br/>
+				<textarea defaultValue={this.state.textareaValue} ref="goodTextarea"></textarea>
+				<button type="submit">提交</button>
+
+			</form>
 		)
+	}
+});
+
+var RadioButtons = React.createClass({
+	saySomething:function(){
+		alert("yo what's up man!");
+	},
+	render:function(){
+		return (
+			<span>
+				A
+				<input onChange={this.props.handleRadio} name="goodRadio" type="radio" value="A"/>
+				B
+				<input onChange={this.props.handleRadio} name="goodRadio" type="radio" defaultChecked value="B"/>
+				C
+				<input onChange={this.props.handleRadio} name="goodRadio" type="radio" value="C"/>
+			</span>
+		)
+	}
+});
+
+var Checkboxes = React.createClass({
+	render: function(){
+		return (
+			<span>
+				A
+				<input onChange={this.props.handleCheck}  name="goodCheckbox" type="checkbox" value="A"/>
+				B
+				<input onChange={this.props.handleCheck} name="goodCheckbox" type="checkbox" value="B" />
+				C
+				<input onChange={this.props.handleCheck} name="goodCheckbox" type="checkbox" value="C" />
+			</span>
+		)
+	}
+})
+
+
+var formApp = React.render(
+	<FormApp />,
+	document.getElementById('app')
+);
 
 ```
 
@@ -966,7 +1005,7 @@ ReactDOM.render(<Example />, document.getElementById('example'));
 
 ### 什么是mixin
 
-mixin是解决代码重复的强大工具之一，它同时还能让组件保持专注于自身的业务逻辑。实际运用中的简单理解就是：她们就是混合进组建类的对象而已。
+mixin是解决代码重复的强大工具之一，它同时还能让组件保持专注于自身的业务逻辑。实际运用中的简单理解就是：她们就是混合进组建类的对象而已。（**讲人话：让不同的组件共用同一部分逻辑，实现代码重用**）
 
 ### 示例
 

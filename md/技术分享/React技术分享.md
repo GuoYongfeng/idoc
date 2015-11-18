@@ -1,6 +1,4 @@
-# React技术学习--入门篇（一）
-
-先看一张图
+<h1 style="font-size: 60px;text-align:center;color: blue;">React技术分享</h1>
 
 ![](/img/percentage.jpg)
 
@@ -8,13 +6,17 @@
 
 衍生的React Native项目（andriod和ios版本）也在今年9月份完成发布。
 
+# Chapter  1 --  入门篇
+
 ## 1. 基本认识
 
 React是一个用于构建用户界面的JavaScript**库**，而不是一个MVC框架，但可以使用React作为MVC架构的View层轻易地在已有项目中使用。
 
-> 如果想参与angular好还是react好的讨论大战的话，请移步[知乎](http://www.zhihu.com/topic/20013159)
+> 如果想参与angular大法好还是react大法好的讨论大战的话，请移步[知乎](http://www.zhihu.com/topic/20013159)
+
 
 ## 2. 为什么用React
+
 
 > 高效DOM渲染
 
@@ -53,7 +55,9 @@ React认为一个组件应该具有如下的特征：
   * 大家可能会问，这所倡导的单向流动，那相对MVC或是MVVM框架的双向数据绑定简直是弱爆了。那么这里需要理解的是，这里的单向，是循环流动的单向，数据是持续更新的。双向数据绑定是优秀便捷的实现，这个需要用实现的成本和业务场景来考量二者了。
   * 对于单向数据流目前已经有很好的类库实现了，如flux reflux redux等。
 
-## 3. 你需要持续关注这些
+
+## 3. 推荐关注
+
 
 - React的版本
 
@@ -82,13 +86,16 @@ React还在持续的更新开发中，截至目前React的最新版是0.14.0版�
     - 测试相关
   - 浏览器兼容性等问题是你在使用后不得不考虑的问题。
 
-# React技术学习--基础篇（二）
+
+# Chapter  2 --  基础篇
 
 > 特别提示：本教程的代码示例详见[iUAP-FE/react](https://github.com/iUAP-FE/react)
 
 越是基础的东西，越是重要；越是原理的内容，越要去理清楚。
 
-## 1. 下载React
+
+## 1. 获取React
+
 
 > 有以下三种方式：
 
@@ -104,9 +111,12 @@ npm install react --save
 bower install react --save
 ```
 
-- 或者直接去官网下zip包
+- 或者直接去[官网](http://facebook.github.io/react/)下载zip包。
 
-## 2. React版本和接口说明
+
+## 2. 新版本及接口说明
+目前最新版本是0.14.2，并且还在持续的更新中。先来看一下新版本的React都有哪些改变吧。
+
 
 ### 提供的文件不一样
 
@@ -175,7 +185,9 @@ ReactDOMServer.renderToStaticMarkup
 
 > 备注：如果没接触Babel的同学，请移步这里[babeljs.io](https://babeljs.io/)，Babel是一款强大的语言解析器，目前github上已经超过一万个star了，基于babel还可以自定义封装自己的解析器插件。
 
-## 3. 运行代码
+
+## 3. 代码初体验
+
 
 > 运行的两种方式
 
@@ -225,13 +237,18 @@ ReactDOMServer.renderToStaticMarkup
 </html>
 ```
 
+
 ## 4. JSX语法
 
-**Talk is cheap, Show me the code.**
+> 什么是JSX -- 一种在React组件内部构建标签的类XML语法。
 
-直接上一段稍微复杂些的JSX代码
+使用JSX语法来封装组件有什么好处：
 
-- demo1：jsx_demo1.html
+- 熟悉的代码
+- 更加语义化
+- 更加抽象且直观
+
+**demo1：jsx_demo1.html**
 
 ```JavaScript
 var MyList = React.createClass({
@@ -257,7 +274,7 @@ ReactDOM.render(
 );
 ```
 
-- demo2：simple_jsx.html
+**demo2：simple_jsx.html**
 
 ```javascript
   var MyData = ['React', 'is', 'awesome'],
@@ -279,11 +296,6 @@ ReactDOM.render(
   );
 ```
 
-> 使用JSX语法来封装组件有什么好处
-
-- 熟悉的代码
-- 更加语义化
-- 更加抽象且直观
 
 ### 几个注意点
 - render的方法中return的顶级元素只能是一个
@@ -293,7 +305,110 @@ ReactDOM.render(
 ```
 - 使用 className 和 htmlFor 来替代对应的class 和 for
 
-## 5. 数据流
+
+## 5. 编写组件
+
+看以下示例了解如何定义一个组件
+
+```
+// 定义一个组件LikeButton
+var LikeButton = React.createClass({
+  getInitialState: function() {
+    return {liked: false};
+  },
+  handleClick: function(event) {
+    this.setState({liked: !this.state.liked});
+  },
+  render: function() {
+    var text = this.state.liked ? 'like' : 'haven\'t liked';
+    return (
+      <p onClick={this.handleClick}>
+        You {text} this. Click to toggle.
+      </p>
+    );
+  }
+});
+
+React.render(
+  <LikeButton />,
+  document.getElementById('example')
+);
+```
+
+或者用ES6定义一个组件
+
+```
+class Button extends React.Component {
+  static displayName = 'Button'
+
+  static propTypes = {
+    children: React.PropTypes.any,
+    className: React.PropTypes.string,
+    disabled: React.PropTypes.bool,
+    onClick: React.PropTypes.func,
+    once: React.PropTypes.bool,
+    status: React.PropTypes.string,
+    style: React.PropTypes.object,
+    type: React.PropTypes.oneOf(['submit', 'button'])
+  }
+
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.disabled !== this.props.disabled) {
+      this.setState({ disabled: nextProps.disabled })
+    }
+  }
+
+  state = {
+    disabled: this.props.disabled,
+    show: null
+  }
+
+  disable(elem) {
+    this.setState({ disabled: true, show: elem })
+  }
+
+  enable(elem) {
+    this.setState({ disabled: false, show: elem })
+  }
+
+  handleClick() {
+    if (this.props.onClick) {
+      this.props.onClick()
+    }
+    if (this.props.once) {
+      this.disable()
+    }
+  }
+
+  render() {
+    let status = this.props.status
+    if (status) {
+      status = `rct-button-${status}`
+    }
+
+    const className = classnames(
+      this.props.className,
+      this.getGrid(),
+      'rct-button',
+      status
+    )
+
+    return (
+      <button onClick={this.handleClick.bind(this)}
+        style={this.props.style}
+        disabled={this.state.disabled}
+        className={className}
+        type={this.props.type || "button"}>
+        { this.state.show || this.props.children }
+      </button>
+    )
+  }
+}
+
+export default Button
+```
+## 6. 数据流
+
 
 **三个维度来看待React中数据流**
 
@@ -360,10 +475,6 @@ ReactDOM.render(
 
 父组件通过props来向子组件传递数据
 
-### 组件间的通信
-
-> 后面进阶部分结合flux思想来进行分享
-
 ### 理解state和props
 
 虽然state和prop都是存储数据的，但是要区分二者的区别：
@@ -379,7 +490,53 @@ ReactDOM.render(
 
 二者的结合则可完成组件的单向数据流动
 
-## 6. 组件的全生命周期和对应的那些钩子函数
+
+
+## 7. 组件的复合
+
+
+多个简单的组件嵌套，可构成一个复杂的复合组件，从而完成复杂的交互逻辑，实现页面功能。
+
+```
+var Avatar = React.createClass({
+  render: function() {
+    return (
+      <div>
+        <ProfilePic username={this.props.username} />
+        <ProfileLink username={this.props.username} />
+      </div>
+    );
+  }
+});
+
+var ProfilePic = React.createClass({
+  render: function() {
+    return (
+      <img src={'http://graph.facebook.com/' + this.props.username + '/picture'} />
+    );
+  }
+});
+
+var ProfileLink = React.createClass({
+  render: function() {
+    return (
+      <a href={'http://www.facebook.com/' + this.props.username}>
+        {this.props.username}
+      </a>
+    );
+  }
+});
+
+React.render(
+  <Avatar username="pwh" />,
+  document.getElementById('example')
+);
+```
+
+# Chapter  3 --  进阶篇
+
+## 1. 组件的生命周期
+
 
 ### 组件生命周期的设计
 
@@ -408,7 +565,272 @@ React为每个组件都提供了简洁的生命周期API，去响应组件在不
 - 销毁期
   * componentDidUnmount()
 
-### 代码示例
+### 示例
+
+```
+var MessageBox = React.createClass({
+	getInitialState:function(){
+		return {
+			count: 0,
+		}
+	},
+	getDefaultProps:function(){
+	},
+	// componentWillMount:function(){
+	// },
+	// componentDidMount:function(){
+	// },
+	// componentWillUnmount: function(){
+
+	// },
+	//
+	shouldComponentUpdate:function(nextProp,nextState){
+		console.log('shouldComponentUpdate');
+		if(nextState.count > 10) return false;
+
+		return true;
+	},
+	componentWillUpdate:function(nextProp,nextState){
+		console.log('componentWillUpdate');
+	},
+	componentDidUpdate:function(){
+		console.log('componentDidUpdate');
+	},
+	killMySelf: function(){
+		React.unmountComponentAtNode(  document.getElementById('app') );
+	},
+	doUpdate:function(){
+		this.setState({
+			count: this.state.count + 1,
+		});
+	},
+	render:function(){
+		console.log('渲染')
+		return (
+			<div>
+				<h1 > 计数： {this.state.count}</h1>
+				<button onClick={this.killMySelf}>卸载掉这个组件</button>
+				<button onClick={this.doUpdate}>手动更新一下组件（包括子组件）</button>
+				<Submessage count={this.state.count}/>
+			</div>
+		)
+	}
+});
+
+var Submessage = React.createClass({
+	componentWillReceiveProps:function(nextProp){
+		console.log('子组件将要获得prop');
+
+	},
+	shouldComponentUpdate:function(nextProp,nextState){
+		if(nextProp.count> 5) return false;
+		return true;
+	},
+	render:function(){
+		return (
+			<h3>当前计数是：{this.props.count}</h3>
+		)
+	}
+});
+
+
+var messageBox = React.render( <MessageBox/>,
+	document.getElementById('app')
+)
+
+```
+
+## 2. DOM操作
+
+> refs/getDOMNode/findDOMNode
+
+```
+var converter = new Showdown.converter();
+
+var MarkdownEditor = React.createClass({
+  getInitialState: function() {
+    return {value: 'Type some *markdown* here!'};
+  },
+  handleChange: function() {
+    this.setState({value: this.refs.textarea.getDOMNode().value});
+  },
+  render: function() {
+    return (
+      <div className="MarkdownEditor">
+        <h3>Input</h3>
+        <textarea
+          onChange={this.handleChange}
+          ref="textarea"
+          defaultValue={this.state.value} />
+        <h3>Output</h3>
+        <div
+          className="content"
+          dangerouslySetInnerHTML={{
+            __html: converter.makeHtml(this.state.value)
+          }}
+        />
+      </div>
+    );
+  }
+});
+
+React.render(<MarkdownEditor />, mountNode);
+```
+
+
+## 3. 事件处理
+
+### 简单事件
+
+```
+var ClickApp = React.createClass({
+	getInitialState:function(){
+		return {
+			clickCount: 0,				}
+	},
+	handleClick: function(e){
+		this.setState({
+			clickCount: this.state.clickCount + 1,
+		});
+		console.log(e.nativeEvent);
+
+	},
+	render: function(){
+		return (
+			<div>
+				<h2>点击下面按钮</h2>
+				<button onClick={this.handleClick}>点击我</button>
+				<p>你一共点击了：{this.state.clickCount}</p>
+			</div>
+		)
+	}
+});
+
+var clickComponent = React.render(
+	<ClickApp />,
+	document.getElementById('app')
+)
+```
+
+### 表单事件处理
+
+```
+var FormApp = React.createClass({
+			getInitialState:function(){
+				return {
+					inputValue: '请输入...',
+					selectValue: 'A',
+					radioValue:'B',
+					checkValues:[],
+					textareaValue:'请输入...'
+				}
+			},
+			handleSubmit:function(e){
+				e.preventDefault();
+				var formData = {
+					input: this.refs.goodInput.getDOMNode().value,
+					select: this.refs.goodSelect.getDOMNode().value,
+					textarea: this.refs.goodTextarea.getDOMNode().value,
+					radio: this.state.radioValue,
+					check: this.state.checkValues,
+				}
+
+				console.log('the form result is:')
+				console.log(formData);
+
+				this.refs.goodRadio.saySomething();
+
+			},
+			handleRadio:function(e){
+				this.setState({
+					radioValue: e.target.value,
+				})
+			},
+			handleCheck:function(e){
+				var checkValues = this.state.checkValues.slice();
+				var newVal = e.target.value;
+				var index = checkValues.indexOf(newVal);
+				if( index == -1 ){
+					checkValues.push( newVal )
+				}else{
+					checkValues.splice(index,1);
+				}
+
+				this.setState({
+					checkValues: checkValues,
+				})
+			},
+			render: function(){
+				return (
+					<form onSubmit={this.handleSubmit}>
+						<input ref="goodInput" type="text" defaultValue={this.state.inputValue }/>
+						<br/>
+						选项：
+						<select defaultValue={ this.state.selectValue } ref="goodSelect">
+							<option value="A">A</option>
+							<option value="B">B</option>
+							<option value="C">C</option>
+							<option value="D">D</option>
+							<option value="E">E</option>
+						</select>
+						<br/>
+						<p>radio button!</p>
+						<RadioButtons ref="goodRadio" handleRadio={this.handleRadio} />
+						<br/>
+
+						<Checkboxes handleCheck={this.handleCheck} />
+						<br/>
+						<textarea defaultValue={this.state.textareaValue} ref="goodTextarea"></textarea>
+						<button type="submit">提交</button>
+
+					</form>
+				)
+			}
+		});
+
+		var RadioButtons = React.createClass({
+			saySomething:function(){
+				alert("yo what's up man!");
+			},
+			render:function(){
+				return (
+					<span>
+						A
+						<input onChange={this.props.handleRadio} name="goodRadio" type="radio" value="A"/>
+						B
+						<input onChange={this.props.handleRadio} name="goodRadio" type="radio" defaultChecked value="B"/>
+						C
+						<input onChange={this.props.handleRadio} name="goodRadio" type="radio" value="C"/>
+					</span>
+				)
+			}
+		});
+
+		var Checkboxes = React.createClass({
+			render: function(){
+				return (
+					<span>
+						A
+						<input onChange={this.props.handleCheck}  name="goodCheckbox" type="checkbox" value="A"/>
+						B
+						<input onChange={this.props.handleCheck} name="goodCheckbox" type="checkbox" value="B" />
+						C
+						<input onChange={this.props.handleCheck} name="goodCheckbox" type="checkbox" value="C" />
+					</span>
+				)
+			}
+		})
+
+
+		var formApp = React.render(
+			<FormApp />,
+			document.getElementById('app')
+		)
+
+```
+
+
+### 一个综合示例
 
 > 结合以上知识点，来看一个基于React、jquery和bootstrap完成的一个简单的组件。
 
@@ -539,27 +961,95 @@ var Example = React.createClass({
 ReactDOM.render(<Example />, document.getElementById('example'));
 
 ```
-## 复合组件
 
-多个简单的组件嵌套，可构成一个复杂的复合组件，从而完成复杂的交互逻辑，实现页面功能。
+## 4. 理解和运用mixin
 
-# React技术学习--进阶篇（三）
+### 什么是mixin
 
-> 技术进阶，学习表单事件、封装组件
+mixin是解决代码重复的强大工具之一，它同时还能让组件保持专注于自身的业务逻辑。实际运用中的简单理解就是：她们就是混合进组建类的对象而已。
 
-## DOM操作和事件处理
+### 示例
 
-## 1. 动画
+```
+var stateRecordMixin = {
+	componentWillMount:function(){
+		this.oldStates = [];
+	},
+	componentWillUpdate: function(nextProp,nextState){
+		this.oldStates.push(nextState);
+	},
+	previousState:function(){
+		var index = this.oldStates.length -1;
+		return index == -1 ? {} : this.oldStates[index];
+	}
+}
 
-## 2. 服务端渲染
+var MessageBox = React.createClass({
+	mixins: [stateRecordMixin],
+	getInitialState:function(){
+		return {
+			count: 0,
+		}
+	},
+	doUpdate:function(){
+		this.setState({
+			count: this.state.count + 1,
+		});
 
-## 3. 开发工具
+		alert('上一次的计数是：'+this.previousState().count)
+	},
+	render:function(){
+		console.log('渲染')
+		return (
+			<div>
+				<h1 > 计数： {this.state.count}</h1>
+				<button onClick={this.doUpdate}>手动更新一下组件（包括子组件）</button>
+				<Submessage count={this.state.count}/>
+			</div>
+		)
+	}
+});
 
-- browserify
+var Submessage = React.createClass({
+	mixins: [stateRecordMixin],
+	getInitialState:function(){
+		return {
+			count: 0,
+		}
+	},
+	componentWillReceiveProps:function(nextProp){
+		this.setState({
+			count: this.props.count *2,
+		})
+	},
+	render:function(){
+		console.log('上一次子组件的计数是：'+this.previousState().count )
+		return (
+			<h3>当前子组件的计数是：{this.state.count}</h3>
+		)
+	}
+});
+
+
+var messageBox = React.render( <MessageBox/>,
+	document.getElementById('app')
+)
+```
+
+
+# Chapter  4 --  高级和应用篇
+
+## 1. 开发环境
+- gulp
 - webpack
+- babel
+- browserify
+- reactify
 
-# React技术学习--高级篇（四）
-
-## 1. 测试
-
-## 2. 架构
+## 2. 架构方案
+- 和backbone结合
+- 和flux/reflux/redux结合
+- 结合ES6语法
+- 服务端渲染
+- 路由
+- 测试

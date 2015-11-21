@@ -361,26 +361,29 @@ ReactDOM.render(
 ```
 // 定义一个组件LikeButton
 var LikeButton = React.createClass({
+  // 给state定义初始值
   getInitialState: function() {
-    return {liked: false};
+    return {liked: true};
   },
+  // click事件的处理函数
   handleClick: function(event) {
     this.setState({liked: !this.state.liked});
   },
   render: function() {
-    var text = this.state.liked ? 'like' : 'haven\'t liked';
+    var text = this.state.liked ? '稀罕' : '讨厌';
     return (
       <p onClick={this.handleClick}>
-        You {text} this. Click to toggle.
+        我{text}你.
       </p>
     );
   }
 });
 
-React.render(
+ReactDOM.render(
   <LikeButton />,
   document.getElementById('example')
 );
+
 ```
 
 或者用ES6定义一个组件
@@ -469,11 +472,14 @@ export default Button
 
 ### 理解组件内部的数据流向
 
-
-
 ```JavaScript
-// demo: jsx_compile.html
-
+/**
+ * [Counter]
+ * @param  {Boolean}                  [description]
+ * @param  {[type]}                   [description]
+ * @param  {[type]}                   [description]
+ * @return {[type]}                   [description]
+ */
 var Counter = React.createClass({
   // 相当于是规范化的接口文档
   propTypes: {
@@ -489,8 +495,17 @@ var Counter = React.createClass({
       return {clickCount: state.clickCount + 1};
     });
   },
+
   render: function () {
-    return (<h2 onClick={this.handleClick}>点我点我! <br />被戳次数: {this.state.clickCount}</h2>);
+    return (
+      <div>
+        <p>{this.props.name}</p>
+        <h2 onClick={this.handleClick}>
+        点我点我! <br />被戳次数: {this.state.clickCount}
+        </h2>
+      </div>
+
+    );
   }
 });
 
@@ -513,7 +528,7 @@ ReactDOM.render(
 
 - props
 
-通过props，可以把任意类型的数据传递给组件
+通过props，可以把任意类型的数据传递给组件，当然，`还可以使用 ... 来同时传递多个prop`
 
 - getDefaultProps和getInitialState
 
@@ -546,13 +561,14 @@ ReactDOM.render(
 多个简单的组件嵌套，可构成一个复杂的复合组件，从而完成复杂的交互逻辑，实现页面功能。
 
 ```
+
 // 定义一个头像avatar的组件
 var Avatar = React.createClass({
   render: function() {
     return (
       <div>
-        <ProfilePic username={this.props.username} />
-        <ProfileLink username={this.props.username} />
+        <ProfilePic link={this.props.link} />
+        <ProfileLink name={this.props.name} />
       </div>
     );
   }
@@ -562,7 +578,7 @@ var Avatar = React.createClass({
 var ProfilePic = React.createClass({
   render: function() {
     return (
-      <img src={'http://graph.facebook.com/' + this.props.username + '/picture'} />
+      <img src={this.props.link} />
     );
   }
 });
@@ -571,8 +587,8 @@ var ProfilePic = React.createClass({
 var ProfileLink = React.createClass({
   render: function() {
     return (
-      <a href={'http://www.facebook.com/' + this.props.username}>
-        {this.props.username}
+      <a href={'https://github.com/' + this.props.name}>
+        {this.props.name}
       </a>
     );
   }
@@ -580,7 +596,10 @@ var ProfileLink = React.createClass({
 
 // 渲染到容器
 ReactDOM.render(
-  <Avatar username="pwh" />,
+  <Avatar
+    name="GuoYongfeng"
+    link="https://avatars2.githubusercontent.com/u/8686869?v=3&s=460"
+  />,
   document.getElementById('example')
 );
 
@@ -622,71 +641,71 @@ React为每个组件都提供了简洁的生命周期API，去响应组件在不
 
 ```
 var MessageBox = React.createClass({
-	getInitialState:function(){
-		return {
-			count: 0,
-		}
-	},
-	getDefaultProps:function(){
+  getInitialState:function(){
+    return {
+        count: 0,
+    }
+  },
+  getDefaultProps:function(){
     console.log('getDefaultProps');
-	},
-	componentWillMount:function(){
+  },
+  componentWillMount:function(){
     console.log('componentWillMount');
-	},
-	componentDidMount:function(){
+  },
+  componentDidMount:function(){
     console.log('componentDidMount');
-	},
+  },
   componentWillUnmount: function(){
     console.log('componentWillUnmount');
   },
-	shouldComponentUpdate:function(nextProp,nextState){
-		console.log('shouldComponentUpdate');
-		if(nextState.count > 10) return false;
+  shouldComponentUpdate:function(nextProp,nextState){
+    console.log('shouldComponentUpdate');
+    if(nextState.count > 10) return false;
 
-		return true;
-	},
-	componentWillUpdate:function(nextProp,nextState){
-		console.log('componentWillUpdate');
-	},
-	componentDidUpdate:function(){
-		console.log('componentDidUpdate');
-	},
-	killMySelf: function(){
-		React.unmountComponentAtNode(  document.getElementById('app') );
-	},
-	doUpdate:function(){
-		this.setState({
-			count: this.state.count + 1,
-		});
-	},
-	render:function(){
-		console.log('渲染')
-		return (
-			<div>
-				<h1 > 计数： {this.state.count}</h1>
-				<button onClick={this.killMySelf}>卸载掉这个组件</button>
-				<button onClick={this.doUpdate}>手动更新一下组件（包括子组件）</button>
-				<Submessage count={this.state.count}/>
-			</div>
-		)
-	}
+    return true;
+  },
+  componentWillUpdate:function(nextProp,nextState){
+    console.log('componentWillUpdate');
+  },
+  componentDidUpdate:function(){
+    console.log('componentDidUpdate');
+  },
+  killMySelf: function(){
+      // 包括顶级容器一块干掉，当然在实际项目中可别干这样的傻事
+      React.unmountComponentAtNode(  document.getElementById('app') );
+  },
+  doUpdate:function(){
+    this.setState({
+        count: this.state.count + 1,
+    });
+  },
+  render:function(){
+    console.log('渲染')
+    return (
+        <div>
+            <h1 > 计数： {this.state.count}</h1>
+            <button onClick={this.killMySelf}>卸载掉这个组件</button>
+            <button onClick={this.doUpdate}>手动更新一下组件（包括子组件）</button>
+            <Submessage count={this.state.count}/>
+        </div>
+    )
+  }
 });
 
 var Submessage = React.createClass({
-	componentWillReceiveProps:function(nextProp){
-		console.log('子组件将要获得prop');
-	},
-	shouldComponentUpdate:function(nextProp,nextState){
-		if(nextProp.count> 5) return false;
-		return true;
-	},
-	render:function(){
-		return (
-			<h3>当前计数是：{this.props.count}</h3>
-		)
-	}
+  componentWillReceiveProps:function(nextProp){
+      console.log('子组件将要获得prop');
+  },
+  shouldComponentUpdate:function(nextProp,nextState){
+      if(nextProp.count> 5) return false;
+      return true;
+  },
+  render:function(){
+      return (
+          <h3>当前计数是：{this.props.count}</h3>
+      )
+  }
 });
-
 
 ReactDOM.render( <MessageBox/>, document.getElementById('app') );
 
@@ -694,27 +713,35 @@ ReactDOM.render( <MessageBox/>, document.getElementById('app') );
 
 ## 2. DOM操作
 
-> refs/getDOMNode/findDOMNode
+> 给元素加上`ref="xxx"`后，可直接通过`this.refs.xxx`获取该DOM元素，而不需要使用`getDOMNode/findDOMNode`。
 
 ```
-var converter = new Showdown.converter();
+var converter = new showdown.Converter();
 
 var MarkdownEditor = React.createClass({
   getInitialState: function() {
-    return {value: 'Type some *markdown* here!'};
+    return {value: '# 我是一级大标题'};
   },
   handleChange: function() {
-    this.setState({value: this.refs.textarea.getDOMNode().value});
+    this.setState({value: this.refs.textarea.value});
+  },
+  conponentDidMount: function(){
+    console.log(this.refs.textarea);
+  },
+  conponentWillMount: function(){
+    // dangerouslySetInnerHTML这种功能主要用来与 DOM 字符串操作类库一起使用，
+    // 所以提供的 HTML 必须要格式清晰
+    // console.log(converter.makeHtml(this.state.value));
   },
   render: function() {
     return (
       <div className="MarkdownEditor">
-        <h3>Input</h3>
+        <h3>输入</h3>
         <textarea
           onChange={this.handleChange}
           ref="textarea"
           defaultValue={this.state.value} />
-        <h3>Output</h3>
+        <h3>输出</h3>
         <div
           className="content"
           dangerouslySetInnerHTML={{
@@ -726,41 +753,57 @@ var MarkdownEditor = React.createClass({
   }
 });
 
-ReactDOM.render(<MarkdownEditor />, mountNode);
+ReactDOM.render(
+  <MarkdownEditor />,
+  document.getElementById('example')
+);
 
 ```
 
 
 ## 3. 事件处理
 
-### 简单事件
+> 虚拟事件对象： 事件处理器将会传入虚拟事件对象的实例，一个对浏览器本地事件的跨浏览器封装。它有和浏览器本地事件相同的属性和方法，包括 stopPropagation() 和 preventDefault()，但是没有浏览器兼容问题。
+
+### 支持的事件
+- 剪贴板事件
+```
+onCopy onCut onPaste
+```
+- 键盘事件：
 
 ```
-var ClickApp = React.createClass({
-	getInitialState:function(){
-		return {
-			clickCount: 0,				}
-	},
-	handleClick: function(e){
-		this.setState({
-			clickCount: this.state.clickCount + 1,
-		});
-		console.log(e.nativeEvent);
+onKeyDown onKeyPress onKeyUp
+```
+- 焦点事件
+```
+onFocus onBlur
+```
+- 表单事件
 
-	},
-	render: function(){
-		return (
-			<div>
-				<h2>点击下面按钮</h2>
-				<button onClick={this.handleClick}>点击我</button>
-				<p>你一共点击了：{this.state.clickCount}</p>
-			</div>
-		)
-	}
-});
+```
+onChange onInput onSubmit
+```
+- 鼠标事件
+```
+onClick onDoubleClick onDrag onDragEnd onDragEnter onDragExit onDragLeave
+onDragOver onDragStart onDrop onMouseDown onMouseEnter onMouseLeave
+onMouseMove onMouseOut onMouseOver onMouseUp
+```
+- 触摸事件
 
-ReactDOM.render(<ClickApp />, document.getElementById('app'));
+为了使触摸事件生效，在渲染所有组件之前调用 React.initializeTouchEvents(true)。
 
+```
+onTouchCancel onTouchEnd onTouchMove onTouchStart
+```
+- UI 事件
+```
+onScroll
+```
+- 鼠标滚轮滚动事件
+```
+onWheel
 ```
 
 ### 表单事件处理

@@ -152,8 +152,10 @@ NodeJS遇到I/O事件会创建一个线程去执行，然后主线程会继续�
 
 - 先去下载一下git的客户端，可以运行git bash，方便使用shell命令
 
-`step1.` 进入nodejs官方网站下载软件(nodejs.org),
+`step1.` 进入nodejs官方网站下载软件(nodejs.org)
+
 `step2.` 下载完成后，双击默认安装。安装程序会自动添加环境变量
+
 `step3.` 检测nodejs是否安装成功。打开cmd命令行 输入 :
 
 ```

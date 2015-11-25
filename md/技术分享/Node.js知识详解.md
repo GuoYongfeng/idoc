@@ -12,21 +12,35 @@
 
 以上提到的**运行环境**，我们可以这样理解：
 > JS本身是脚本语言，脚本语言都需要一个解析器才能运行。对于写在HTML页面里的JS，浏览器充当了解析器的角色。
-> 而对于需要独立运行的JS，NodeJS就是一个解析器，是JS语言的服务器运行环境，可以使JS流畅的运行于服务器端。
+> 而对于需要独立运行的JS，NodeJS就是一个解析器，是JS语言的服务器运行环境，使其流畅的运行于服务器端。
 
-1. JavaScript就好比是找到了一个宿主环境，可以通过Node在服务器端运行。
-2. Node提供大量工具模块、丰富的第三方包以及基于node的web框架，使得JavaScript语言可以实现文件的读写、进程管理以及网络通信等，在这个意义上，Node又是JavaScript的工具库。
-3. 而且，Node内部采用Google公司的V8引擎作为JavaScript语言解释器，V8引擎执行Javascript的速度非常快，性能非常好。
+**Nodejs的特点是：**
+
+1. JavaScript运行环境，相当于js在服务端的一个宿主环境
+
+2. 依赖于Chrome V8引擎进行代码解释，V8引擎执行Javascript的速度非常快，性能非常好。
+
+3. 事件驱动
+
+4. 非阻塞I/O
+
+5. 轻量、可伸缩，适于实时数据交互应用
+
+6. 单进程，单线程
+
+7. Node提供核心功能模块，使得JavaScript语言可以实现文件的读写、进程管理以及网络通信等功能，在这个意义上，Node又是JavaScript的工具库。
 
 ## 为什么要学nodejs
 
-### **nodejs很火**
-  - [npmjs.org](https://www.npmjs.com/)社区的活跃程度可以直接访问网站即可看到，大量的第三方包，每天亿级的下载量。
-  - [github.com](https://github.com/)上搜索node相关的项目，15万个以上。
-  - 它打破了前后端的语言边界，让前端程序员以在更大的舞台上施展空间，走向全栈开发之路成为可能。
+包括但不限于以下几点。
 
-### **nodejs很强**
-我们来看使用nodejs可以做什么（整理自张仁阳老师）：
+### Nodejs市场活跃
+  - 从[npmjs.org](https://www.npmjs.com/)社区可以看到，有超过20W的第三方package，每天亿级以上的下载量。
+  - [github.com](https://github.com/)上搜索node相关的项目，15万个以上。
+  - 而且社区非常活跃，参与的开发者众多
+
+### **Nodejs应用广泛**
+我们来看使用nodejs可以做什么：
 
 - 项目管理：npm,grunt, gulp,bower, yeoman
 - 桌面应用: node-webkit
@@ -44,44 +58,26 @@
 - 硬件控制: NoduinoWeb
 - 操作系统: NodeOS
 
-> 其他语言能做的事情，nodejs都可以做，甚至可以做的更好。当然，更需要结合业务具体分析进行技术选型。
-
-### **生态完善**
-  - 社区欣欣向荣
-  - 丰富的第三方资源
+> 可以这么说，其他语言能做的事情，nodejs都可以做，甚至可以做的更好（不知道这样说会被会被人喷）。当然，更需要结合业务具体分析进行技术选型。
 
 ### **推荐关注**
 
-1. [github](https://github.com/)在这里可以找到大量nodejs相关的项目，阅读源码源码，查看新技术的一手资料
+1. [github](https://github.com/)：在这里可以找到大量nodejs相关的项目，阅读源码源码，查看新技术的一手资料
 
-2. [nodejs官网](https://nodejs.org)关注Node版本更新，包括api功能及使用、bug修复、新增特性以及未来的发展趋势
+2. [nodejs官网](https://nodejs.org)：关注Node版本更新，包括api功能及使用、bug修复、新增特性以及未来的发展趋势
 
-3. [npm官网](https://www.npmjs.com/)在这里搜索你想用的包，参考别人的源代码
+3. [npm官网](https://www.npmjs.com/)：在这里搜索你想用的包，参考别人的源代码
 
-4. [stackoverflow](http://stackoverflow.com/)问答社区，有什么疑惑直接在这开问吧，会有很多热情的好基友来帮你解答问题的，比如服务异常、配置什么的。
+4. [stackoverflow问答社区](http://stackoverflow.com/)：有什么疑惑直接在这开问吧，会有很多热情的好基友来帮你解答问题的，比如服务异常、配置什么的。
 
 ## NodeJS优缺点及适用场景讨论
 
-### 特点
-1. 它是一个Javascript运行环境
+基于以上提及的Nodejs特性，我们来看在实际系统问题中是如何体现其优势的。
 
-2. 依赖于Chrome V8引擎进行代码解释
-
-3. 事件驱动
-
-4. 非阻塞I/O
-
-5. 轻量、可伸缩，适于实时数据交互应用
-
-6. 单进程，单线程
-
-下面我们看以上特性在实际系统问题中是如何体现其优势的。
-
-### Nodejs带来的对系统瓶颈的解决方案
-> Nodejs的出现为我们解决现实当中系统瓶颈提供了新的思路和方案
+Nodejs的出现为我们解决现实当中系统瓶颈提供了新的思路和方案
 
 #### 解决并发连接的问题
-在并发连接的问题讨论上，问了有更直观的理解，下面我们来看以下三个模型：
+对于并发连接的问题讨论，为了有更直观的理解，我们来看以下三个模型：
 - 系统线程模型
 
 ![](/img/model1.jpg)
@@ -92,7 +88,7 @@
 
 ![](/img/model2.jpg)
 
-这个模型已经比上一个有所进步，它调节服务端线程的数量来提高对并发请求的接收和响应，但并发量高的时候，请求仍然需要等待。它有个更严重的问题，即服务端与客户端每建立一个连接，都要为这个连接分配一套配套的资源，主要体现为系统内存资源，以PHP为例，维护一个连接可能需要20M的内存。这就是为什么一般并发量一大，就需要多开服务器。
+这个模型已经比上一个有所进步，它调节服务端线程的数量来提高对并发请求的接收和响应，但并发量高的时候，请求仍然需要等待。它有个更严重的问题，即服务端与客户端每建立一个连接，都要为这个连接分配一套配套的资源，主要体现为系统内存资源，以PHP为例，维护一个连接可能需要20M的内存。这就是为什么一般并发量一大，就需要多开服务器的原因。
 
 - 异步、事件驱动模型
 
@@ -100,9 +96,9 @@
 
 ![](/img/model3.jpg)
 
-我们同样是要发起请求，等待服务器端响应；但不同的是，我们点完餐后拿到了一个号码，拿到号码，我们往往会在位置上等待，而在我们后面的请求会继续得到处理，同样是拿了一个号码然后到一旁等待，接待员能一直进行处理。
+我们同样是要发起请求，等待服务器端响应；但不同的是，点完餐拿到号码后，我们往往会在位置上等待，而在我们后面的请求会继续得到处理，同样是拿了一个号码然后到一旁等待，接待员能一直进行处理。
 
-等到饭菜做号了，会喊号码，我们拿到了自己的饭菜，进行后续的处理（吃饭）。这个喊号码的动作在NodeJS中叫做回调（Callback），能在事件（烧菜，I/O）处理完成后继续执行后面的逻辑（吃饭），这体现了NodeJS的显著特点，异步机制、事件驱动整个过程没有阻塞新用户的连接（点餐），也不需要维护已经点餐的用户与厨师的连接。
+等到饭菜做好了，会喊号码，我们拿到了自己的饭菜，进行后续的处理（吃饭）。这个喊号码的动作在NodeJS中叫做回调（Callback），能在事件（烧菜，I/O）处理完成后继续执行后面的逻辑（吃饭），这体现了NodeJS的显著特点：异步机制、事件驱动整个过程没有阻塞新用户的连接（点餐），也不需要维护已经点餐的用户与厨师的连接。
 
 基于这样的机制，理论上陆续有用户请求连接，NodeJS都可以进行响应，因此NodeJS能支持比Java、PHP程序更高的并发量。
 
@@ -111,12 +107,17 @@
 > 总结一下NodeJS是怎么解决并发连接这个问题的：更改连接到服务器的方式，每个连接发射（emit）一个在NodeJS引擎进程中运行的事件（Event），放进事件队列当中，而不是为每个连接生成一个新的OS线程（并为其分配一些配套内存）。
 
 
-#### 解决I/O阻塞
+#### 解决I/O阻塞的问题
 
-NodeJS解决的另外一个问题是I/O阻塞，看看这样的业务场景：需要从多个数据源拉取数据，然后进行处理。
+NodeJS解决的另外一个问题是I/O阻塞，看看这样的业务场景：需要从多个数据源拉取数据，然后进行处理，处理的方式有：
 
-- 串行获取数据，这是我们一般的解决方案
-- NodeJS非阻塞I/O，发射/监听事件来控制执行过程
+1. 串行获取数据，这是我们一般的解决方案
+2. NodeJS非阻塞I/O，是通过发射/监听事件来控制执行过程
+
+
+NodeJS遇到I/O事件会创建一个线程去执行，然后主线程会继续往下执行，事件代理接收到线程后继续往下执行后面的逻辑，这就是NodeJS非阻塞I/O的特点。
+
+我们来看以下示例：
 
 ```
 /**
@@ -139,8 +140,6 @@ setTimeout(function() {
 
 ```
 
-NodeJS遇到I/O事件会创建一个线程去执行，然后主线程会继续往下执行，事件代理接收到线程后继续往下执行后面的逻辑，这就是NodeJS非阻塞I/O的特点。
-
 #### 综合对比分析
 
 1. Nodejs具有处理高并发的能力（最重要的优点）
@@ -161,20 +160,20 @@ But，现在我们都有解决方案：
 
 戳这里了解[更多](http://taobaofed.org/blog/2015/11/03/nodejs-cluster/)
 
-> 总而言之，NodeJS适合运用在高并发、I/O密集、少量业务逻辑的场景。其实NodeJS能实现几乎一切的应用，我们考虑的点只是适不适合用它来做。
+> 总而言之，NodeJS适合运用在高并发、I/O密集、少量业务逻辑的场景。
 
 
 # Chapter 2 -- Node.js基础知识
 
-> 导读：在这一部分的基础内容中，可以简单安装体验Nodejs，了解Nojde里面的模块以及相关的代码规范，同时，还可以学习npm包管理器的使用。
+> 导读：在这一部分的基础内容中，将会学习如何安装并体验Nodejs，了解Nodejs里面的模块以及相关的代码规范。同时，还可以学习npm包管理器的使用。
 
 ## 安装
 
 ### windows上安装
 
-- 先去下载一下git的客户端，可以运行git bash，方便使用shell命令
+- 先去下载一下[git](http://git-scm.com/download/)的客户端，可以运行git bash，方便使用shell命令
 
-`step1.` 进入nodejs官方网站下载软件(nodejs.org)
+`step1.` 进入[nodejs.org](https://nodejs.org/)下载
 
 `step2.` 下载完成后，双击默认安装。安装程序会自动添加环境变量
 
@@ -238,15 +237,13 @@ npm -v
 ```
 ### 版本说明
 
-> 目前最新的都已经到`5.1.0 `，这是从0.12版本后，nodejs和iojs合并了，直接从4.0版本开始发展了，到如今已经是5.1版本，当然，还在持续更新迭代中。
+> 目前最新的都已经到`5.1.0 `，这是从0.12版本后，nodejs和iojs(由于部分开发者对管理模式的不满，便fork了nodejs后创建了io.js，采用独立的社区驱动模式运营这个开源项目，每周一个版本迭代)合并了，直接从4.0版本开始发展了，到如今已经是5.1版本。当然，还在持续更新迭代中。
 
 **关于nodejs版本号的说明**
 
-偶尔位的版本是稳定版本，而一般奇数位的就是非稳定版本，这几乎是在业界大家都达成共识了。比如0.6.x就是稳定版本，而0.11.x就是新功能测试的非稳定版本
+偶数位的版本是稳定版本，而一般奇数位的就是非稳定版本，这几乎是在业界大家都达成共识了。比如0.6.x就是稳定版本，而0.11.x就是新功能测试的非稳定版本
 
-建议选择最新的稳定版本进行使用
-
-而对于node版本管理的问题，推荐几个工具：
+建议选择最新的稳定版本进行使用。由于版本较多，为了方便node版本管理，推荐几个工具：
 
 - osx, linux系统下
 
@@ -284,225 +281,7 @@ nvmw install v5.0.0
 
 ### 写个脚本
 
-```
-var http = require('http');
-var qs = require('querystring');
-var iconv = require('iconv-lite');
-var fs = require('fs');
-var async = require("async");
-
-//url
-var host_name = 'http://www.autohome.com.cn';
-var car_brand_url = '/Ashx/HCarLinkage.ashx?OperType=GetCarLinkage&ApiUrl=http%3A%2F%2Fcar.api.autohome.com.cn%2Fv1%2Fjavascript%2Fbrand.ashx%3F_appid%3Dcms%26state%3D0X000C%26typeid%3D1';
-//后面拼接车辆品牌的ID，以获取车辆型号
-var car_model_url = '/Ashx/HCarLinkage.ashx?OperType=GetCarLinkage&ApiUrl=http%3A%2F%2Fcar.api.autohome.com.cn%2Fv1%2Fjavascript%2Fseriesbybrand.ashx%3F_appid%3Dcms%26typeid%3D1%26state%3D0X000C%26brandid%3D';
-//后面拼接车辆型号的ID，以获取车辆款式
-var car_type_url = '/Ashx/HCarLinkage.ashx?OperType=GetCarLinkage&ApiUrl=http%3A%2F%2Fcar.api.autohome.com.cn%2Fv1%2Fjavascript%2Fspecbyseries.ashx%3F_appid%3Dcms%26typeid%3D1%26state%3D0X000C%26seriesid%3D';
-//后面拼接车辆款式的ID，获取该款车的所有信息，提取出车辆指导价格
-var car_price_url = '/buycar/GetSpecDetail.ashx?id=';
-
-
-    function get_car_brand(){
-
-        var car_arr = [],   //存储车辆品牌
-            _this = this;
-
-        http.get(host_name + car_brand_url, function(res) {
-
-            var body = '';
-
-            res.setEncoding('binary');
-            res.on('data', function(chunk){
-                body += chunk;
-            });
-
-            res.on('end', function(){
-
-                var buf = new Buffer(body,'binary');
-                var str = iconv.decode(buf,'gbk');
-
-                /**
-                 *  [{
-                 *      id : "fjsfjdks",
-                 *      name : "fsjflkdsjflds" 奥迪
-                 *  },
-                 *  {
-                 *      id : "fjsfjdks",
-                 *      name : "fsjflkdsjflds" 奥迪
-                 *  }]
-                 */
-
-                var obj = JSON.parse(str),
-                    data = obj.result.branditems;
-
-                var urls = [];
-                var carInfos = [];
-                for(var i=0, len=data.length; i<len; i++){
-
-                    carInfos.push({
-                        id : data[i].id,
-                        name : data[i].name
-                    });
-                }
-                var testCarInfo = [carInfos[0]];
-                async.map(carInfos, get_car_model, function(error, model_arrs){
-                    var module_array = [];
-                    for(var i=0; i<model_arrs.length; i++){
-                        module_array = module_array.concat(model_arrs[i]);
-                    }
-                    async.map(module_array, get_car_type, function(error, finalResults){
-//                        console.log(finalResults);
-
-                        var str = '';
-                        for(var i= 0,len=finalResults.length; i<len; i++){
-                            str += "\r\n" + finalResults[i].join("\r\n");
-                        }
-
-//                        console.log(str);
-                        wirte_price_file('cars.csv', str);
-
-                    });
-                });
-
-            });
-
-        });
-    }
-
-
-    /**
-     * 获取车辆的模型
-     * @param data
-     */
-    function get_car_model(carInfo, callback){
-
-        var car_brand_id = carInfo.id,
-            url = host_name + car_model_url + car_brand_id,
-            car_brand_name = carInfo.name;
-
-        var model_arr = [];     //存储车辆型号
-
-        http.get( url, function(res){
-            var body = '';
-
-            res.setEncoding('binary');
-            res.on('data', function(chunk){
-                body += chunk;
-            });
-            res.on('end', function(){
-
-                var buf = new Buffer(body,'binary');
-                var str = iconv.decode(buf,'gbk');
-
-
-
-                var obj = JSON.parse(str),
-                    data = obj.result.seriesitems;
-
-                /**
-                 *  [{
-                 *      id : "fjsfjdks",
-                 *      name : "fsjflkdsjflds" 奥迪A6
-                 *  },
-                 *  {
-                 *      id : "fjsfjdks",
-                 *      name : "fsjflkdsjflds" 奥迪Q7
-                 *  }]
-                 */
-
-                for(var j=0, datalen=data.length; j<datalen; j++){
-                    data[j].brand_model = car_brand_name + ',' + data[j].name;
-
-                    model_arr.push(data[j]);
-
-                }
-
-                callback(null, model_arr);
-
-
-            });
-        });
-
-    }
-
-    /**
-     * 获取车辆的款式
-     * @param data
-     */
-    function get_car_type(car_type_info, callback) {
-
-        var type_arr = [],     //存储车辆款式
-            _this = this,
-            index = 0;
-        var car_type_id = car_type_info.id,
-            url = host_name + car_type_url + car_type_id,
-            brand_model_type = car_type_info.brand_model,
-            successStr = [];
-
-        http.get( url, function(res){
-            var body = '';
-
-            res.setEncoding('binary');
-            res.on('data', function(chunk){
-                body += chunk;
-            });
-
-            res.on('end', function(){
-
-                var buf = new Buffer(body,'binary');
-                var str = iconv.decode(buf,'gbk');
-
-                var obj = JSON.parse(str),
-                    type = obj.result.specitems,
-                    success = [];
-
-                /**
-                 *  [{
-                         *      id : "fjsfjdks",
-                         *      name : "fsjflkdsjflds" 奥迪A6,
-                         *      maxprice : jfjslf
-                         *      minprice : jflsjflkd
-                         *  },
-                 *  {
-                         *      id : "fjsfjdks",
-                         *      name : "fsjflkdsjflds" 奥迪Q7
-                         *  }]
-                 */
-
-                for(var j=0, typeLen=type.length; j<typeLen; j++){
-                    success.push(brand_model_type + ',' + type[j].name + ',' + type[j].maxprice + '元');
-
-                }
-
-                callback(null, success);
-
-            });
-
-            res.on('error', function (e) {
-                callback(e, null);
-            })
-
-        });
-
-    }
-
-    /**
-     * 把数据写入文件
-     * @param fileName
-     * @param data
-     */
-    function wirte_price_file(fileName, data) {
-
-        //write file
-        fs.writeFile(fileName, data, function(err){
-            console.log(err);
-        });
-    }
-
-    get_car_brand();
-
-
-```
+代码参见[git仓库](https://github.com/iUAP-FE/nodejs)。
 
 ### 起个web服务器
 

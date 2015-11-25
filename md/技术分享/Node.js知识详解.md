@@ -283,15 +283,19 @@ nvmw install v5.0.0
 
 代码参见[git仓库](https://github.com/iUAP-FE/nodejs)。
 
-### 起个web服务器
+### 起个web服务
 
-//server.js
 ```
-var http = require('http')
-http.createServer(function(req, res){
+//http.js
+
+var http = require('http');
+
+var app = http.createServer(function(req, res){
   res.writeHead(200, {"Content-Type": "text/plain"});
   res.end("Hello world");
-  }).listen(1337, "127.0.0.1");
+});
+
+app.listen(1337);
 
 ```
 

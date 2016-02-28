@@ -12,8 +12,9 @@
 ## TECHNOLOGY
 - HTML && HTML5
 - CSS && CSS3
-- javascript && es6
-- Nodejs
-- React
+- JavaScript && ES6
+- React && React-router && Redux 
+- Webpack && Gulp && FIS3 && Jello
+- Nodejs && Express && Koa
 - 前端性能优化
 - 前端工程化实现

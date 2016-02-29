@@ -1133,24 +1133,6 @@ ReactDOM.render( <MessageBox/>,
 )
 ```
 
-
-# Chapter  4 --  高级和应用篇
-
-## 1. 开发环境
-- gulp
-- webpack
-- babel
-- browserify
-- reactify
-
-## 2. 架构方案
-- 和backbone结合
-- 和flux/reflux/redux结合
-- 结合ES6语法
-- 服务端渲染
-- 路由
-- 测试
-
 # 参考资源
 
 - [facebook.github.io](http://facebook.github.io/react)

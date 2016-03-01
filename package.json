@@ -23,9 +23,10 @@
             "首页.md",
             {
                 "React课程专题": [
+                    "React学习指南.md",
                     "搭建基本环境.md",
-                    "ES6语法快餐.md",
                     "增强Webpack配置.md",
+                    "ES6语法快餐.md",
                     "React技术分享.md",
                     "React编码规范.md"
                 ]

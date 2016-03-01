@@ -215,7 +215,7 @@ module.exports = {
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>珠峰React Demo</title>
+  <title>React Demo</title>
   <link rel="stylesheet" href="bundle.css">
 </head>
 <body>
@@ -389,7 +389,7 @@ plugins: [
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>珠峰React Demo</title>
+  <title>React Demo</title>
   <link rel="stylesheet" href="bundle.css">
 </head>
 <body>

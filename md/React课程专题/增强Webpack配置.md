@@ -401,15 +401,133 @@ plugins: [
 
 ```
 
-## 8 最后加上一个小小的调试工具
+## 8 加上一个小小的调试工具
 
 我们在配置中新增devtool字段，并设置值为source-map，这样我们就可以在浏览器中直接调试我们的源码，在控制台的sources下，点开可以看到`webpack://`目录，点开有惊喜哦。
 
 代码清单：`webpack.config.js`
 ```
-devtool: 'source-map'
+devtool: 'cheap-module-source-map'
+```
+
+## 9 将html也进行统一产出
+
+前面我们还是先在public目录手动加上的index.html，这样在项目中不是很适用，因为我们希望public产出的资源应该是通过工具来统一产出并发布上线，这样质量和工程化角度来思考是更合适的。下面我们来实现。
+
+在app目录下新建一个index.html文件，并写上简单的代码。
+```
+$ cd app && touch index.html
+```
+代码清单：`app/index.html`
+```
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>React课堂demo</title>
+</head>
+<body>
+  <div id="app"></div>
+</body>
+</html>
+```
+
+接下来需要下载一个webpack的插件html-webpack-plugin。
+```
+$ npm install --save-dev html-webpack-plugin
+```
+
+修改webpack配置。
+代码清单：`webpack.config.js`
+```
+// 引用这个plugin
+var HtmlWebpackPlugin = require('html-webpack-plugin');
+
+// 这里省略其他配置代码
+
+plugins: [
+	  // 使用这个plugin，这是最简单的一个配置，更多资料可到github查看
+      new HtmlWebpackPlugin({
+        title: 'zhufeng-react',
+        template: './app/index.html',
+      })
+]
+```
+
+ok，运行`npm run dev`跑一遍，效果正常。
+
+
+## 10 添加文件的hash
+
+我们的开发的产品最终是要上线的，添加文件hash可以解决由于缓存带来的问题，所以我们需要试着给文件加上hash。其实很简单，在文件的后面加上`?[hash]`就行，当然，这也是简单的写法。
+
+照例贴着到这个阶段的配置代码吧。
+```
+var path = require('path');
+var webpack = require('webpack');
+var ExtractTextPlugin = require("extract-text-webpack-plugin");
+var publicPath = path.resolve(__dirname, 'public');
+var HtmlWebpackPlugin = require('html-webpack-plugin');
+
+module.exports = {
+    entry: {
+      index: [
+        'webpack/hot/dev-server',
+        'webpack-dev-server/client?http://localhost:8080',
+        path.resolve(__dirname, 'app/index.js')
+      ],
+      vendor: ['react', 'react-dom']
+    },
+    output: {
+        path: publicPath,
+        filename: '[name].js?[hash]'
+    },
+    resolve: {
+      extension: ['', '.js', '.jsx', '.json']
+    },
+    module: {
+      loaders: [
+        {
+          test: /\.js$/,
+          loaders: ['react-hot', 'babel'],
+          exclude: path.resolve(__dirname, 'node_modules')
+        },
+        {
+          test: /\.css/,
+          loader: ExtractTextPlugin.extract("style-loader", "css-loader")
+        },
+        {
+          test: /\.less/,
+          loader: ExtractTextPlugin.extract("style-loader", "css-loader!less-loader")
+        },
+        {
+          test: /\.(png|jpg)$/,
+          loader: 'url?limit=8192'
+        },
+        {
+          test: /\.(woff|woff2|ttf|svg|eot)(\?v=\d+\.\d+\.\d+)?$/,
+          loader: "url?limit=10000"
+        }
+      ]
+    },
+    plugins: [
+      new webpack.HotModuleReplacementPlugin(),
+      new webpack.NoErrorsPlugin(),
+      new webpack.optimize.CommonsChunkPlugin('vendor', 'vendor.js?[hash]'),
+      new ExtractTextPlugin("[name].css?[hash]", {
+          allChunks: true,
+          disable: false
+      }),
+      new HtmlWebpackPlugin({
+        title: 'zhufeng-react',
+        template: './app/index.html',
+      })
+    ],
+    devtool: 'cheap-module-source-map'
+};
+
 ```
 
 ## 结语
 
-这些webpack可以让我们初期的开发游刃有余，但是实际项目开发的时候，需要增添很多功能，比如开发环境和生产环境的不同配置；对文件hash的设置；打包的优化配置；让运行时的解析更快；配合测试框架。但一口吃不成胖子，先把这些掌握了再思改进。
+这些webpack可以让我们初期的开发游刃有余，但是实际项目开发的时候，需要增添很多功能，比如开发环境和生产环境的不同配置；打包的优化配置；让运行时的解析更快；配合测试框架...

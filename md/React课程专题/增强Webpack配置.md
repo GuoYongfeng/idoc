@@ -1,7 +1,6 @@
 <h1 style="font-size: 40px;text-align:center;color: blue;">增强Webpack配置，让开发赢在起点</h1>
 
-> **丰富webpack的配置**
-> 我们暂且先不着急写React的代码，先花点时间把webpack的配置完善起来，让我们候选的项目开发可以更轻松自如。
+> 花点时间熟悉webpack的配置，可以让开发的工作更加轻松。
 
 ## 1 实现代码热替换
 

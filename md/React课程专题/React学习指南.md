@@ -1,5 +1,7 @@
 # React学习指南
 
+> 文章主要内容转载自[petehunt](https://github.com/petehunt/react-howto).
+
 如果你是一个 React (或者前端) 新手, 出于以下的原因, 你可能会对这个生态圈感到困惑:
 
 * React 的目标群体历来是喜欢尝试新事物的开发者和前端专家.

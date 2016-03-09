@@ -1,0 +1,1054 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>MyTechBook</title>
+        
+    <link rel="stylesheet" type="text/css" href="../../static/css/main.css">
+</head>
+<body>
+<div class="navbar navbar-line">
+    <div class="container">
+        <div class="logo">
+            
+                MyTechBook
+            
+        </div>
+        <input type="checkbox" id="idoc_nav" />
+        <div class="menu_tree">
+        <ul><li><a href="../../index.html">首页</a></li><li><a href="#"><span></span>React课程专题</a><ul><li><a href="../../index.html">React学习指南</a></li><li><a href="../../index.html">搭建基本环境</a></li><li><a href="../../index.html">增强Webpack配置</a></li><li><a href="../../index.html">ES6语法快餐</a></li><li><a href="../../index.html">React技术分享</a></li><li><a href="../../index.html">React编码规范</a></li><li><a href="../../index.html">Webpack配置详细指南</a></li><li><a href="../../index.html">React基础知识详解</a></li></ul></li><li><a href="#"><span></span>前沿观察</a><ul><li><a href="../../index.html">ECMAScript 6入门</a></li><li><a href="../../index.html">Immutable详解及React中实践</a></li><li><a href="../../index.html">Node.js MVC框架ThinkJS</a></li><li><a href="../../index.html">Nodejs 5.0.0版本</a></li><li><a href="../../index.html">关系型数据库PostgreSQL</a></li><li><a href="../../index.html">轻型MVVM框架Vue.js</a></li><li><a href="../../index.html">基于nodejs的开发框架koa</a></li></ul></li><li><a href="#"><span></span>前端工程化</a><ul><li><a href="../../index.html">前端模板</a></li><li><a href="../../index.html">性能优化和前端工程的爱恨情仇</a></li><li><a href="../../index.html">webpack入门及实践</a></li><li><a href="../../index.html">前端工程化不完全装逼指南</a></li></ul></li><li><a href="#"><span></span>性能优化</a><ul><li><a href="../../index.html">jshint代码质量检测</a></li><li><a href="../../index.html">jshint配置说明</a></li><li><a href="../../index.html">NC性能优化</a></li><li><a href="../../index.html">性能优化待办事项</a></li><li><a href="../../index.html">性能优化点总结</a></li></ul></li><li><a href="#"><span></span>技术分享</a><ul><li><a href="../../index.html">学习Git</a></li><li><a href="../../index.html">面向对象</a></li><li><a href="../../index.html">Node.js知识详解</a></li><li><a href="../../index.html">2015年大前端技术年终总结</a></li></ul></li><li><a href="#"><span></span>团队</a><ul><li><a href="../../index.html">新员工入职指南</a></li><li><a href="../../index.html">笔试面试大纲</a></li><li><a href="../../index.html">项目技术栈规划</a></li></ul></li><li><a href="../../index.html">CONTACT</a></li></ul>    
+        </div>
+        
+        
+        <div class="forkgithub"><a target="_blank" href="https://github.com/GuoYongfeng">fork on github</a></div>
+        
+
+        <section class="idoc_nav_btn">
+            <label for="idoc_nav"><span></span></label>
+        </section>
+    </div>
+    
+</div>
+
+
+
+
+<div class="container">
+
+    <div class="page-toc">
+        <ul><li><a href="#t0React基础知识详解">React基础知识详解</a><ul><li><a href="#t10. 本次课程大纲">0. 本次课程大纲</a></li><li><a href="#t21. React相关文件顶层api的介绍">1. React相关文件顶层api的介绍</a><ul><li><a href="#t3react.js">react.js</a></li><li><a href="#t4react-dom.js">react-dom.js</a></li><li><a href="#t5react-dom-server.js">react-dom-server.js</a></li></ul></li><li><a href="#t62. jsx语法">2. jsx语法</a><ul><li><a href="#t72.1 注释">2.1 注释</a></li><li><a href="#t82.2 styles">2.2 styles</a></li><li><a href="#t92.3 顶层一个根元素">2.3 顶层一个根元素</a></li><li><a href="#t102.4 组件名按驼峰命名">2.4 组件名按驼峰命名</a></li><li><a href="#t112.5 属性名不能和 js 关键字冲突">2.5 属性名不能和 js 关键字冲突</a></li><li><a href="#t122.6  JSX 嵌入变量">2.6  JSX 嵌入变量</a></li><li><a href="#t132.7  JSX SPREAD">2.7  JSX SPREAD</a></li></ul></li><li><a href="#t143. 数据流：state props propType">3. 数据流：state props propType</a><ul><li><a href="#t153.1 state">3.1 state</a></li><li><a href="#t163.2 props">3.2 props</a></li><li><a href="#t173.3 propTypes">3.3 propTypes</a></li></ul></li><li><a href="#t184. 调用API定义组件">4. 调用API定义组件</a><ul><li><a href="#t194.1 组件初始定义">4.1 组件初始定义</a></li><li><a href="#t204.2 初次创建组件时调用">4.2 初次创建组件时调用</a></li><li><a href="#t214.3 组件的属性值改变时调用">4.3 组件的属性值改变时调用</a></li><li><a href="#t224.4 销毁组件">4.4 销毁组件</a></li><li><a href="#t234.5 示例诠释组件全生命周期">4.5 示例诠释组件全生命周期</a></li><li><a href="#t244.6 回顾组件的渲染过程">4.6 回顾组件的渲染过程</a></li></ul></li><li><a href="#t255. 使用ref对操作DOM">5. 使用ref对操作DOM</a></li><li><a href="#t266. 事件event">6. 事件event</a></li><li><a href="#t277. 组件的组合">7. 组件的组合</a><ul><li><a href="#t287.1 使用自定义的组件">7.1 使用自定义的组件</a></li><li><a href="#t297.2 组合 CHILDREN">7.2 组合 CHILDREN</a></li></ul></li><li><a href="#t308. form表单操作">8. form表单操作</a></li><li><a href="#t319. mixin共享">9. mixin共享</a></li><li><a href="#t3210. 一步步搭建一个评论的应用">10. 一步步搭建一个评论的应用</a><ul><li><a href="#t3310.1 功能描述">10.1 功能描述</a></li><li><a href="#t3410.2 组件分解">10.2 组件分解</a></li><li><a href="#t3510.3 最简单的外层组件">10.3 最简单的外层组件</a></li><li><a href="#t3610.4 组合组件">10.4 组合组件</a></li><li><a href="#t3710.5 属性传递">10.5 属性传递</a></li><li><a href="#t3810.6 使用 DOM 库 MARKED">10.6 使用 DOM 库 MARKED</a></li><li><a href="#t3910.7 数据分离">10.7 数据分离</a></li><li><a href="#t4010.8 从服务器取得数据">10.8 从服务器取得数据</a></li><li><a href="#t4110.9 评论表单">10.9 评论表单</a></li><li><a href="#t4210.10 最后：通知重新渲染">10.10 最后：通知重新渲染</a></li></ul></li><li><a href="#t43基础部分完结寄语">基础部分完结寄语</a></li></ul></li></ul>
+    </div>
+    
+    <div class="content markdown-body">
+        <h1 style="font-size: 40px;text-align:center;color: blue;" id="t0React&#x57FA;&#x7840;&#x77E5;&#x8BC6;&#x8BE6;&#x89E3;">React&#x57FA;&#x7840;&#x77E5;&#x8BC6;&#x8BE6;&#x89E3; <a href="#t0React&#x57FA;&#x7840;&#x77E5;&#x8BC6;&#x8BE6;&#x89E3;"> # </a></h1>
+
+<blockquote>
+<p><strong>&#x7F16;&#x8005;&#x6309;&#xFF1A;</strong>&#x9664;&#x7EC4;&#x4EF6;&#x5316;&#x3001;&#x865A;&#x62DF;DOM&#x5728;&#x590D;&#x7528;&#x4EE5;&#x53CA;&#x6027;&#x80FD;&#x4E0A;&#x5E26;&#x6765;&#x7684;&#x4E00;&#x822C;&#x597D;&#x5904;&#x5916;&#xFF0C;React&#x601D;&#x60F3;&#x4F7F;&#x5F97;&#x5F00;&#x53D1;&#x8005;&#x4E4B;&#x95F4;&#x66F4;&#x597D;&#x7684;&#x5206;&#x5DE5;&#x4E0E;&#x5408;&#x4F5C;&#xFF0C;&#x5728;&#x914D;&#x5408;&#x4E0A;&#x975E;&#x5E38;&#x987A;&#x7545;&#xFF0C;&#x89C4;&#x8303;&#x7684;&#x63A5;&#x53E3;&#x4EE5;&#x53CA;&#x6781;&#x5F3A;&#x7684;&#x7EA6;&#x675F;&#xFF0C;&#x4F7F;&#x5F97;&#x6574;&#x4E2A;&#x4EE3;&#x7801;&#x7ED3;&#x6784;&#x6E05;&#x6670;&#xFF0C;&#x4E0D;&#x540C;&#x5F00;&#x53D1;&#x8005;&#x7684;&#x4EE3;&#x7801;&#x9AD8;&#x5EA6;&#x4E00;&#x81F4;&#x3002;</p>
+</blockquote>
+<h2 id="t10. &#x672C;&#x6B21;&#x8BFE;&#x7A0B;&#x5927;&#x7EB2;">0. &#x672C;&#x6B21;&#x8BFE;&#x7A0B;&#x5927;&#x7EB2; <a href="#t10. &#x672C;&#x6B21;&#x8BFE;&#x7A0B;&#x5927;&#x7EB2;"> # </a></h2>
+<blockquote>
+<p><strong>&#x8BFE;&#x7A0B;&#x4E3B;&#x7EBF;&#x5982;&#x4E0B;&#xFF1A;</strong></p>
+</blockquote>
+<ul>
+<li>React&#x662F;&#x4EC0;&#x4E48;
+react &#x662F;&#x4E00;&#x4E2A;&#x505A; UI &#x7684;&#x5E93;&#xFF0C;&#x5177;&#x4F53;&#x6765;&#x8BF4;&#x662F;&#x505A; UI &#x7EC4;&#x4EF6;&#x7684;&#x5E93;&#xFF0C;&#x4E13;&#x6CE8;&#x4E8E;&#x505A; mvc &#x4E2D;&#x7684; v.</li>
+<li>&#x4E3A;&#x4EC0;&#x4E48;&#x5B66;React
+api &#x5C11;&#xFF0C;&#x7C7B;&#x5E93;&#x6613;&#x5B66;
+&#x7EC4;&#x4EF6;&#x5185;&#x805A;&#xFF0C;&#x6613;&#x4E8E;&#x7EC4;&#x5408;
+&#x539F;&#x751F;&#x7EC4;&#x4EF6;&#x548C;&#x81EA;&#x5B9A;&#x4E49;&#x7EC4;&#x4EF6;&#x878D;&#x5408;&#x6E32;&#x67D3;
+&#x72B6;&#x6001;/&#x5C5E;&#x6027;&#x9A71;&#x52A8;&#x5168;&#x5C40;&#x66F4;&#x65B0;&#xFF0C;&#x4E0D;&#x7528;&#x5173;&#x6CE8;&#x7EC6;&#x8282;&#x66F4;&#x65B0;
+ES6 webpack ... &#x751F;&#x6001;&#x5708;/&#x5DE5;&#x5177;&#x94FE;&#x5B8C;&#x5584;</li>
+<li>&#x600E;&#x4E48;&#x7528;React&#xFF08;<code>&#x7B2C;1-9&#x90E8;&#x5206;&#x5185;&#x5BB9;</code>&#xFF09;</li>
+<li>&#x642D;&#x5EFA;&#x793A;&#x4F8B;&#x5E94;&#x7528;&#xFF08;<code>&#x7B2C;10&#x90E8;&#x5206;&#x5185;&#x5BB9;</code>&#xFF09;</li>
+</ul>
+<h2 id="t21. React&#x76F8;&#x5173;&#x6587;&#x4EF6;&#x9876;&#x5C42;api&#x7684;&#x4ECB;&#x7ECD;">1. React&#x76F8;&#x5173;&#x6587;&#x4EF6;&#x9876;&#x5C42;api&#x7684;&#x4ECB;&#x7ECD; <a href="#t21. React&#x76F8;&#x5173;&#x6587;&#x4EF6;&#x9876;&#x5C42;api&#x7684;&#x4ECB;&#x7ECD;"> # </a></h2>
+<p>&#x6700;&#x7B80;&#x5355;&#x7684;React&#x7EC4;&#x4EF6;&#x53CA;&#x5176;&#x6E32;&#x67D3;</p>
+<pre><code>import React, {Component} from &apos;react&apos;;
+import ReactDOM from &apos;react-dom&apos;;
+
+class Hello extends Component {
+    render() {
+        return &lt;div&gt;Hello {this.props.name}&lt;/div&gt;;
+    }
+}
+
+ReactDOM.render(&lt;Hello name=&quot;World&quot; /&gt;, document.getElementById(&apos;container&apos;));
+</code></pre><h3 id="t3react.js">react.js <a href="#t3react.js"> # </a></h3>
+<p>React.Component &#x4F7F;&#x7528;ES6&#x7684;class&#x521B;&#x5EFA;&#x7EC4;&#x4EF6;&#x7528;&#x7684;API
+React.createClass &#x4F7F;&#x7528;ES5&#x7684;class&#x521B;&#x5EFA;&#x7EC4;&#x4EF6;&#x7528;&#x7684;API
+React.PropTypes
+React.Children &#x64CD;&#x4F5C; map/forEach children &#x5DE5;&#x5177;&#x7C7B;</p>
+<p>&#x8FD8;&#x6709;&#x51E0;&#x4E2A;&#x4E0D;&#x662F;&#x5F88;&#x5E38;&#x7528;&#x7684;
+React.createElement
+React.cloneElement
+React.createFactory
+React.DOM</p>
+<h3 id="t4react-dom.js">react-dom.js <a href="#t4react-dom.js"> # </a></h3>
+<p>ReactDOM.render &#x6E32;&#x67D3;&#x7EC4;&#x4EF6;&#x5230; dom
+ReactDOM.unmountComponentAtNode
+ReactDOM.findDOMNode</p>
+<h3 id="t5react-dom-server.js">react-dom-server.js <a href="#t5react-dom-server.js"> # </a></h3>
+<p>ReactDOMServer.renderToString
+ReactDOMServer.renderToStaticMarkup</p>
+<h2 id="t62. jsx&#x8BED;&#x6CD5;">2. jsx&#x8BED;&#x6CD5; <a href="#t62. jsx&#x8BED;&#x6CD5;"> # </a></h2>
+<hr>
+<p>&#x7C7B;&#x4F3C; xml &#x7684;&#x8BED;&#x6CD5;&#xFF0C;&#x7528;&#x6765;&#x63CF;&#x8FF0;&#x7EC4;&#x4EF6;&#x6811;</p>
+<pre><code>&lt;div classname=&quot;x&quot;&gt;
+  &lt;a href=&quot;#&quot;&gt;#&lt;/a&gt;
+    &lt;component x=&quot;y&quot;&gt;1&lt;/component&gt;
+&lt;/div&gt;
+</code></pre><p>&#x4E0D;&#x7528;JSX&#xFF0C;&#x7528;React&#x63D0;&#x4F9B;&#x7684;API&#x5199;&#x7684;&#x8BDD;</p>
+<pre><code>React.createElement(&apos;div&apos;,{
+  className:&apos;x&apos;
+    },[
+    React.createElement(&apos;a&apos;,{href:&apos;#&apos;},&apos;#&apos;),
+    React.createElement(Component,{x:&apos;y&apos;},1);
+]);
+</code></pre><p>&#x6CE8;&#x610F;&#x70B9;</p>
+<h3 id="t72.1 &#x6CE8;&#x91CA;">2.1 &#x6CE8;&#x91CA; <a href="#t72.1 &#x6CE8;&#x91CA;"> # </a></h3>
+<pre><code>var content = (
+  &lt;Nav&gt;
+    {/* &#x4E00;&#x822C;&#x6CE8;&#x91CA;, &#x7528; {} &#x5305;&#x56F4; */}
+    &lt;Person
+      /* &#x591A;
+         &#x884C;
+         &#x6CE8;&#x91CA; */
+      name={window.isLoggedIn ? window.name : &apos;&apos;} // &#x884C;&#x5C3E;&#x6CE8;&#x91CA;
+    /&gt;
+  &lt;/Nav&gt;
+);
+</code></pre><h3 id="t82.2 styles">2.2 styles <a href="#t82.2 styles"> # </a></h3>
+<pre><code>var styles = {
+    borderColor: &apos;#ccc&apos;,
+    fontSize: &apos;18px&apos;
+};
+
+ReactDOM.render(&lt;div style={styles}&gt;&lt;/div&gt;, container);
+</code></pre><h3 id="t92.3 &#x9876;&#x5C42;&#x4E00;&#x4E2A;&#x6839;&#x5143;&#x7D20;">2.3 &#x9876;&#x5C42;&#x4E00;&#x4E2A;&#x6839;&#x5143;&#x7D20; <a href="#t92.3 &#x9876;&#x5C42;&#x4E00;&#x4E2A;&#x6839;&#x5143;&#x7D20;"> # </a></h3>
+<pre><code>// &#x8FD9;&#x6837;&#x4F1A;&#x62A5;&#x9519;
+render(){
+    return (
+        &lt;h2&gt;nn&lt;/h2&gt;
+    );
+}
+// &#x5E94;&#x8BE5;&#x9876;&#x5C42;&#x53EA;&#x6709;&#x4E00;&#x4E2A;&#x5143;&#x7D20;
+render(){
+    return (
+        &lt;h1&gt;hah&lt;/h1&gt;
+    );
+}
+</code></pre><h3 id="t102.4 &#x7EC4;&#x4EF6;&#x540D;&#x6309;&#x9A7C;&#x5CF0;&#x547D;&#x540D;">2.4 &#x7EC4;&#x4EF6;&#x540D;&#x6309;&#x9A7C;&#x5CF0;&#x547D;&#x540D; <a href="#t102.4 &#x7EC4;&#x4EF6;&#x540D;&#x6309;&#x9A7C;&#x5CF0;&#x547D;&#x540D;"> # </a></h3>
+<pre><code>import Button from &apos;./Button.js&apos;;
+
+...
+render(){
+    return &lt;Button /&gt;
+}
+...
+</code></pre><p><button></button></p>
+<h3 id="t112.5 &#x5C5E;&#x6027;&#x540D;&#x4E0D;&#x80FD;&#x548C; js &#x5173;&#x952E;&#x5B57;&#x51B2;&#x7A81;">2.5 &#x5C5E;&#x6027;&#x540D;&#x4E0D;&#x80FD;&#x548C; js &#x5173;&#x952E;&#x5B57;&#x51B2;&#x7A81; <a href="#t112.5 &#x5C5E;&#x6027;&#x540D;&#x4E0D;&#x80FD;&#x548C; js &#x5173;&#x952E;&#x5B57;&#x51B2;&#x7A81;"> # </a></h3>
+<p>&#x4F8B;&#x5982;&#xFF1A;className, readOnly, htmlfor</p>
+<h3 id="t122.6  JSX &#x5D4C;&#x5165;&#x53D8;&#x91CF;">2.6  JSX &#x5D4C;&#x5165;&#x53D8;&#x91CF; <a href="#t122.6  JSX &#x5D4C;&#x5165;&#x53D8;&#x91CF;"> # </a></h3>
+<p>&#x53EF;&#x4EE5;&#x901A;&#x8FC7; {&#x53D8;&#x91CF;&#x540D;} &#x6765;&#x5C06;&#x53D8;&#x91CF;&#x7684;&#x503C;&#x4F5C;&#x4E3A;&#x5C5E;&#x6027;&#x503C;</p>
+<pre><code>render(){
+    return &lt;div className={this.state.isComplete ? &apos;is-complete&apos; : &apos;&apos;}&gt;
+        hello world
+    &lt;/div&gt;
+}
+</code></pre><h3 id="t132.7  JSX SPREAD">2.7  JSX SPREAD <a href="#t132.7  JSX SPREAD"> # </a></h3>
+<p>&#x53EF;&#x4EE5;&#x7528;&#x901A;&#x8FC7; {...obj} &#x6765;&#x6279;&#x91CF;&#x8BBE;&#x7F6E;&#x4E00;&#x4E2A;&#x5BF9;&#x8C61;&#x7684;&#x952E;&#x503C;&#x5BF9;&#x5230;&#x7EC4;&#x4EF6;&#x7684;&#x5C5E;&#x6027;&#xFF0C;&#x6CE8;&#x610F;&#x987A;&#x5E8F;</p>
+<pre><code>  var props = {};
+  props.foo = x;
+  props.bar = y;
+  var component = &lt;Component {...props} /&gt;;
+</code></pre><h2 id="t143. &#x6570;&#x636E;&#x6D41;&#xFF1A;state props propType">3. &#x6570;&#x636E;&#x6D41;&#xFF1A;state props propType <a href="#t143. &#x6570;&#x636E;&#x6D41;&#xFF1A;state props propType"> # </a></h2>
+<h3 id="t153.1 state">3.1 state <a href="#t153.1 state"> # </a></h3>
+<p>&#x7528;&#x72B6;&#x6001;&#x63A7;&#x5236;&#x7EC4;&#x4EF6;&#x53D8;&#x5316;
+&#x53EF;&#x4EE5;&#x628A;&#x4E00;&#x4E2A;&#x7EC4;&#x4EF6;&#x770B;&#x505A;&#x4E00;&#x4E2A;&#x72B6;&#x6001;&#x673A;, &#x6BCF;&#x4E00;&#x6B21;&#x72B6;&#x6001;&#x5BF9;&#x5E94;&#x4E8E;&#x7EC4;&#x4EF6;&#x7684;&#x4E00;&#x4E2A; ui</p>
+<p><strong>&#x7EC4;&#x4EF6;&#x5185;&#x90E8;&#x7684;&#x72B6;&#x6001;&#xFF0C;&#x53EF;&#x4EE5;&#x4F7F;&#x7528; state</strong></p>
+<pre><code>var Timer = React.createClass({
+  getInitialState: function() {
+    return {secondsElapsed: 0};
+  },
+  tick: function() {
+    this.setState({secondsElapsed: this.state.secondsElapsed + 1});
+  },
+  componentDidMount: function() {
+    this.interval = setInterval(this.tick, 1000);
+  },
+  componentWillUnmount: function() {
+    clearInterval(this.interval);
+  },
+  render: function() {
+    return (
+      &lt;div&gt;Seconds Elapsed: {this.state.secondsElapsed}&lt;/div&gt;
+    );
+  }
+});
+
+React.render(&lt;Timer /&gt;, document.getElementById(&apos;container&apos;));
+</code></pre><p>setstate &#x54EA;&#x4E9B;&#x5E94;&#x8BE5;&#x4F5C;&#x4E3A;state</p>
+<h3 id="t163.2 props">3.2 props <a href="#t163.2 props"> # </a></h3>
+<p>&#x901A;&#x8FC7; this.props &#x53EF;&#x4EE5;&#x83B7;&#x53D6;&#x4F20;&#x9012;&#x7ED9;&#x8BE5;&#x7EC4;&#x4EF6;&#x7684;&#x5C5E;&#x6027;&#x503C;&#xFF0C;&#x8FD8;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x5B9A;&#x4E49; getDefaultProps &#x6765;&#x6307;&#x5B9A;&#x9ED8;&#x8BA4;&#x5C5E;&#x6027;&#x503C;</p>
+<p>&#x6CE8;&#x610F;&#xFF1A;&#x9ED8;&#x8BA4;&#x503C;getDefaultProps&#x4E3A;&#x6240;&#x6709;&#x7EC4;&#x4EF6;&#x5B9E;&#x4F8B;&#x5171;&#x4EAB;&#x7684;</p>
+<p>props.children
+props.map/filter
+&#x4F20;&#x9012;&#x8FDB;&#x53BB;&#x7684;
+&#x533A;&#x522B;&#xFF0C;&#x4F20;&#x9012;&#x6570;&#x636E;&#x7684;&#x4F8B;&#x5B50;&#xFF0C;&#x5C01;&#x88C5;APi
+&#x7EC4;&#x4EF6;&#x6811;&#x6570;&#x636E;&#x4F20;&#x9012;</p>
+<pre><code>var B = React.createClass({
+    getDefaultProps(){
+        return {
+            title:&apos;default&apos;
+        };
+    },
+    render(){
+        return &lt;b&gt;{this.props.title}&lt;/b&gt;
+    }
+});
+
+React.render(&lt;div&gt;
+&lt;B title=&quot;&#x6307;&#x5B9A;  &quot;/&gt; &lt;B/&gt;
+&lt;/div&gt;,document.getElementById(&apos;container&apos;));
+</code></pre><h3 id="t173.3 propTypes">3.3 propTypes <a href="#t173.3 propTypes"> # </a></h3>
+<p>&#x901A;&#x8FC7;&#x6307;&#x5B9A; propTypes &#x53EF;&#x4EE5;&#x6821;&#x9A8C;&#x5C5E;&#x6027;&#x503C;&#x7684;&#x7C7B;&#x578B;
+&#x6CE8;&#x610F;&#xFF1A;&#x6821;&#x9A8C;&#x4EC5;&#x4E3A;&#x63D0;&#x5347;&#x5F00;&#x53D1;&#x8005;&#x4F53;&#x9A8C;</p>
+<pre><code>var B = React.createClass({
+    propTypes: {
+        title: React.PropTypes.string,
+    },
+
+    getDefaultProps(){
+        return {
+            title:&apos;default&apos;
+        };
+    },
+    render(){
+        return &lt;b&gt;{this.props.title}&lt;/b&gt;
+    }
+});
+
+React.render(&lt;div&gt;
+&lt;B title=&quot;&#x6307;&#x5B9A;  &quot;/&gt; &lt;B title={2}/&gt;
+&lt;/div&gt;,document.getElementById(&apos;container&apos;));
+</code></pre><h2 id="t184. &#x8C03;&#x7528;API&#x5B9A;&#x4E49;&#x7EC4;&#x4EF6;">4. &#x8C03;&#x7528;API&#x5B9A;&#x4E49;&#x7EC4;&#x4EF6; <a href="#t184. &#x8C03;&#x7528;API&#x5B9A;&#x4E49;&#x7EC4;&#x4EF6;"> # </a></h2>
+<p>&#x7528; React.createClass &#x5B9A;&#x4E49;&#x7EC4;&#x4EF6;&#x65F6;&#x5141;&#x8BB8;&#x4F20;&#x5165;&#x76F8;&#x5E94;&#x7684;&#x914D;&#x7F6E;&#xFF0C;&#x5305;&#x62EC;&#x7EC4;&#x4EF6;&#x751F;&#x547D;&#x5468;&#x671F;&#x63D0;&#x4F9B;&#x7684;&#x4E00;&#x7CFB;&#x5217;&#x94A9;&#x5B50;&#x51FD;&#x6570;&#x3002;</p>
+<h3 id="t194.1 &#x7EC4;&#x4EF6;&#x521D;&#x59CB;&#x5B9A;&#x4E49;">4.1 &#x7EC4;&#x4EF6;&#x521D;&#x59CB;&#x5B9A;&#x4E49; <a href="#t194.1 &#x7EC4;&#x4EF6;&#x521D;&#x59CB;&#x5B9A;&#x4E49;"> # </a></h3>
+<p>getDefaultProps &#x5F97;&#x5230;&#x9ED8;&#x8BA4;&#x5C5E;&#x6027;&#x5BF9;&#x8C61;&#xFF0C;&#x8FD9;&#x4E2A;&#x5728;ES6&#x7684;&#x65F6;&#x5019;&#x4E0D;&#x9700;&#x8981;&#x8FD9;&#x6837;&#x5B9A;&#x4E49;
+propTypes &#x5C5E;&#x6027;&#x68C0;&#x9A8C;&#x89C4;&#x5219;
+mixins &#x7EC4;&#x4EF6;&#x95F4;&#x516C;&#x7528;&#x65B9;&#x6CD5;</p>
+<h3 id="t204.2 &#x521D;&#x6B21;&#x521B;&#x5EFA;&#x7EC4;&#x4EF6;&#x65F6;&#x8C03;&#x7528;">4.2 &#x521D;&#x6B21;&#x521B;&#x5EFA;&#x7EC4;&#x4EF6;&#x65F6;&#x8C03;&#x7528; <a href="#t204.2 &#x521D;&#x6B21;&#x521B;&#x5EFA;&#x7EC4;&#x4EF6;&#x65F6;&#x8C03;&#x7528;"> # </a></h3>
+<p>getInitialState &#x5F97;&#x5230;&#x521D;&#x59CB;&#x72B6;&#x6001;&#x5BF9;&#x8C61;
+render &#x8FD4;&#x56DE;&#x7EC4;&#x4EF6;&#x6811;. &#x5FC5;&#x987B;&#x8BBE;&#x7F6E;
+componentDidMount &#x6E32;&#x67D3;&#x5230; dom &#x6811;&#x4E2D;&#x662F;&#x8C03;&#x7528;&#xFF0C;&#x53EA;&#x5728;&#x5BA2;&#x6237;&#x7AEF;&#x8C03;&#x7528;&#xFF0C;&#x53EF;&#x7528;&#x4E8E;&#x83B7;&#x53D6;&#x539F;&#x751F;&#x8282;&#x70B9;</p>
+<h3 id="t214.3 &#x7EC4;&#x4EF6;&#x7684;&#x5C5E;&#x6027;&#x503C;&#x6539;&#x53D8;&#x65F6;&#x8C03;&#x7528;">4.3 &#x7EC4;&#x4EF6;&#x7684;&#x5C5E;&#x6027;&#x503C;&#x6539;&#x53D8;&#x65F6;&#x8C03;&#x7528; <a href="#t214.3 &#x7EC4;&#x4EF6;&#x7684;&#x5C5E;&#x6027;&#x503C;&#x6539;&#x53D8;&#x65F6;&#x8C03;&#x7528;"> # </a></h3>
+<p>componentWillReceiveProps &#x5C5E;&#x6027;&#x6539;&#x53D8;&#x8C03;&#x7528;
+shouldComponentUpdate &#x5224;&#x65AD;&#x662F;&#x5426;&#x9700;&#x8981;&#x91CD;&#x65B0;&#x6E32;&#x67D3;
+render &#x8FD4;&#x56DE;&#x7EC4;&#x4EF6;&#x6811;. &#x5FC5;&#x987B;&#x8BBE;&#x7F6E;
+componentDidUpdate &#x6E32;&#x67D3;&#x5230; dom &#x6811;&#x4E2D;&#x662F;&#x8C03;&#x7528;, &#x53EF;&#x7528;&#x4E8E;&#x83B7;&#x53D6;&#x539F;&#x751F;&#x8282;&#x70B9;</p>
+<h3 id="t224.4 &#x9500;&#x6BC1;&#x7EC4;&#x4EF6;">4.4 &#x9500;&#x6BC1;&#x7EC4;&#x4EF6; <a href="#t224.4 &#x9500;&#x6BC1;&#x7EC4;&#x4EF6;"> # </a></h3>
+<p>&#x6700;&#x540E;&#x662F; componentWillUnmount &#x7EC4;&#x4EF6;&#x4ECE; dom &#x9500;&#x6BC1;&#x524D;&#x8C03;&#x7528;</p>
+<h3 id="t234.5 &#x793A;&#x4F8B;&#x8BE0;&#x91CA;&#x7EC4;&#x4EF6;&#x5168;&#x751F;&#x547D;&#x5468;&#x671F;">4.5 &#x793A;&#x4F8B;&#x8BE0;&#x91CA;&#x7EC4;&#x4EF6;&#x5168;&#x751F;&#x547D;&#x5468;&#x671F; <a href="#t234.5 &#x793A;&#x4F8B;&#x8BE0;&#x91CA;&#x7EC4;&#x4EF6;&#x5168;&#x751F;&#x547D;&#x5468;&#x671F;"> # </a></h3>
+<pre><code>function log(str){
+  document.getElementById(&apos;log&apos;).innerHTML+=&apos;&lt;p&gt;&apos;+str+&apos;&lt;/p&gt;&apos;;;
+}
+document.getElementById(&apos;clear&apos;).onclick=function(){
+document.getElementById(&apos;log&apos;).innerHTML=&apos;&apos;;
+};
+var Test = React.createClass({
+  getInitialState() {
+    log(&apos;getInitialState&apos;);
+    return {
+      value: this.props.value
+    };
+  },
+
+  componentWillReceiveProps(nextProps){
+    log(&apos;componentWillReceiveProps&apos;);
+    this.setState({
+        value: nextProps.value
+    });
+  },
+
+  shouldComponentUpdate(nextProps,nextState){
+    log(&apos;shouldComponentUpdate&apos;);
+    return true;
+  },
+
+  componentWillUpdate(nextProps,nextState){
+    log(&apos;componentWillUpdate&apos;);
+  },
+
+  componentWillMount(){
+    log(&apos;componentWillMount&apos;);
+  },
+
+  render() {
+    log(&apos;render&apos;);
+    return &lt;span&gt;{this.props.value}&lt;/span&gt;
+  },
+
+  componentDidMount() {
+      log(&apos;componentDidMount&apos;);
+  },
+
+  componentDidUpdate(prevProps,prevState) {
+      log(&apos;componentDidUpdate&apos;);
+  },
+
+  componentWillUnmount(prevProps,prevState) {
+      log(&apos;componentWillUnmount&apos;);
+  }
+});
+
+
+var Hello = React.createClass({
+    getInitialState() {
+      return {
+        value:1,
+        destroyed:false
+      };
+    },
+    increase() {
+        this.setState({
+            value: this.state.value+1
+        });
+    },
+    destroy() {
+        this.setState({
+            destroyed: true
+        });
+    },
+    render: function() {
+        if(this.state.destroyed){
+            return null;
+        }
+        return &lt;div&gt;
+        &lt;p&gt;
+          &lt;button onClick={this.increase}&gt;increase&lt;/button&gt;
+          &lt;button onClick={this.destroy}&gt;destroy&lt;/button&gt;
+        &lt;/p&gt;
+        &lt;Test value={this.state.value}/&gt;
+        &lt;/div&gt;;
+    }
+});
+
+React.render(&lt;Hello /&gt;, document.getElementById(&apos;container&apos;));
+</code></pre><h3 id="t244.6 &#x56DE;&#x987E;&#x7EC4;&#x4EF6;&#x7684;&#x6E32;&#x67D3;&#x8FC7;&#x7A0B;">4.6 &#x56DE;&#x987E;&#x7EC4;&#x4EF6;&#x7684;&#x6E32;&#x67D3;&#x8FC7;&#x7A0B; <a href="#t244.6 &#x56DE;&#x987E;&#x7EC4;&#x4EF6;&#x7684;&#x6E32;&#x67D3;&#x8FC7;&#x7A0B;"> # </a></h3>
+<pre><code># &#x521B;&#x5EFA;-&#x300B;&#x6E32;&#x67D3;-&#x300B;&#x9500;&#x6BC1;
+
+getDefaultProps()
+getInitialState()
+componentWillMount()
+render()
+componentDidMount()
+componentWillUnmount()
+
+# &#x66F4;&#x65B0;&#x7EC4;&#x4EF6;
+
+componentWillReceiveProps()
+shouldComponentUpdate()
+componentWillUpdate()
+render()
+componentDidUpdate()
+</code></pre><h2 id="t255. &#x4F7F;&#x7528;ref&#x5BF9;&#x64CD;&#x4F5C;DOM">5. &#x4F7F;&#x7528;ref&#x5BF9;&#x64CD;&#x4F5C;DOM <a href="#t255. &#x4F7F;&#x7528;ref&#x5BF9;&#x64CD;&#x4F5C;DOM"> # </a></h2>
+<p>&#x8BE5;&#x529F;&#x80FD;&#x662F;&#x4E3A;&#x4E86;&#x7ED3;&#x5408;&#x73B0;&#x6709;&#x975E; react &#x7C7B;&#x5E93;&#xFF0C;&#x901A;&#x8FC7; ref/refs &#x53EF;&#x4EE5;&#x53D6;&#x5F97;&#x7EC4;&#x4EF6;&#x5B9E;&#x4F8B;&#xFF0C;&#x8FDB;&#x800C;&#x53D6;&#x5F97;&#x539F;&#x751F;&#x8282;&#x70B9;
+&#x6CE8;&#x610F;&#xFF1A;&#x5C3D;&#x91CF;&#x901A;&#x8FC7; state/props &#x66F4;&#x65B0;&#x7EC4;&#x4EF6;&#xFF0C;&#x4E0D;&#x8981;&#x4F7F;&#x7528;&#x8BE5;&#x529F;&#x80FD;</p>
+<pre><code>var Test = React.createClass({
+    componentDidMount(){
+      alert(React.findDOMNode(this.refs.content).innerHTML);
+    },
+    render(){
+        return &lt;div&gt;
+            &lt;h3&gt;header&lt;/h3&gt;
+            &lt;div ref=&apos;content&apos;&gt;content&lt;/div&gt;
+        &lt;/div&gt;;
+    }
+});
+
+React.render(&lt;Test /&gt;,document.getElementById(&apos;container&apos;));
+</code></pre><h2 id="t266. &#x4E8B;&#x4EF6;event">6. &#x4E8B;&#x4EF6;event <a href="#t266. &#x4E8B;&#x4EF6;event"> # </a></h2>
+<p>&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x8BBE;&#x7F6E;&#x539F;&#x751F; dom &#x7EC4;&#x4EF6;&#x7684; onEventType &#x5C5E;&#x6027;&#x6765;&#x76D1;&#x542C; dom &#x4E8B;&#x4EF6;&#xFF0C;&#x4F8B;&#x5982; onClick, onMouseDown&#xFF0C;&#x5728;&#x52A0;&#x5F3A;&#x7EC4;&#x4EF6;&#x5185;&#x805A;&#x6027;&#x7684;&#x540C;&#x65F6;&#xFF0C;&#x907F;&#x514D;&#x4E86;&#x4F20;&#x7EDF; html &#x7684;&#x5168;&#x5C40;&#x53D8;&#x91CF;&#x6C61;&#x67D3;</p>
+<pre><code>var LikeButton = React.createClass({
+  getInitialState: function() {
+    return {liked: false};
+  },
+  handleClick: function(event) {
+    this.setState({liked: !this.state.liked});
+  },
+  render: function() {
+    var text = this.state.liked ? &apos;like&apos; : &apos;haven\&apos;t liked&apos;;
+    return (
+      &lt;p onClick={this.handleClick}&gt;
+        You {text} this. Click to toggle.
+      &lt;/p&gt;
+    );
+  }
+});
+
+React.render(
+  &lt;LikeButton /&gt;,
+  document.getElementById(&apos;container&apos;)
+);
+</code></pre><p>&#x6CE8;&#x610F;&#xFF1A;&#x4E8B;&#x4EF6;&#x56DE;&#x8C03;&#x51FD;&#x6570;&#x53C2;&#x6570;&#x4E3A;&#x6807;&#x51C6;&#x5316;&#x7684;&#x4E8B;&#x4EF6;&#x5BF9;&#x8C61;&#xFF0C;&#x53EF;&#x4EE5;&#x4E0D;&#x7528;&#x8003;&#x8651; ie</p>
+<h2 id="t277. &#x7EC4;&#x4EF6;&#x7684;&#x7EC4;&#x5408;">7. &#x7EC4;&#x4EF6;&#x7684;&#x7EC4;&#x5408; <a href="#t277. &#x7EC4;&#x4EF6;&#x7684;&#x7EC4;&#x5408;"> # </a></h2>
+<h3 id="t287.1 &#x4F7F;&#x7528;&#x81EA;&#x5B9A;&#x4E49;&#x7684;&#x7EC4;&#x4EF6;">7.1 &#x4F7F;&#x7528;&#x81EA;&#x5B9A;&#x4E49;&#x7684;&#x7EC4;&#x4EF6; <a href="#t287.1 &#x4F7F;&#x7528;&#x81EA;&#x5B9A;&#x4E49;&#x7684;&#x7EC4;&#x4EF6;"> # </a></h3>
+<pre><code>var A = React.createClass({
+    render(){
+        return &lt;a href=&apos;#&apos;&gt;a&lt;/a&gt;
+    }
+});
+
+var B = React.createClass({
+    render(){
+        return &lt;i&gt;&lt;A /&gt; !&lt;/i&gt;;
+    }
+});
+
+React.render(&lt;B /&gt;,document.getElementById(&apos;container&apos;));
+</code></pre><h3 id="t297.2 &#x7EC4;&#x5408; CHILDREN">7.2 &#x7EC4;&#x5408; CHILDREN <a href="#t297.2 &#x7EC4;&#x5408; CHILDREN"> # </a></h3>
+<p>&#x81EA;&#x5B9A;&#x4E49;&#x7EC4;&#x4EF6;&#x4E2D;&#x53EF;&#x4EE5;&#x901A;&#x8FC7; this.props.children &#x8BBF;&#x95EE;&#x81EA;&#x5B9A;&#x4E49;&#x7EC4;&#x4EF6;&#x7684;&#x5B50;&#x8282;&#x70B9;</p>
+<pre><code>var B = React.createClass({
+    render(){
+        return &lt;ul&gt;
+            {React.Children.map(this.props.children,function(c){
+                return &lt;li&gt;{c}&lt;/li&gt;;
+            })}
+        &lt;/ul&gt;;
+    }
+});
+
+React.render(&lt;B&gt;
+&lt;a href=&quot;#&quot;&gt;1&lt;/a&gt;
+2
+&lt;/B&gt;,document.getElementById(&apos;container&apos;));
+</code></pre><h2 id="t308. form&#x8868;&#x5355;&#x64CD;&#x4F5C;">8. form&#x8868;&#x5355;&#x64CD;&#x4F5C; <a href="#t308. form&#x8868;&#x5355;&#x64CD;&#x4F5C;"> # </a></h2>
+<p>&#x548C; html &#x7684;&#x4E0D;&#x540C;&#x70B9;&#xFF1A;</p>
+<p>value/checked &#x5C5E;&#x6027;&#x8BBE;&#x7F6E;&#x540E;&#xFF0C;&#x7528;&#x6237;&#x8F93;&#x5165;&#x65E0;&#x6548;
+textarea &#x7684;&#x503C;&#x8981;&#x8BBE;&#x7F6E;&#x5728; value &#x5C5E;&#x6027;
+select &#x7684; value &#x5C5E;&#x6027;&#x53EF;&#x4EE5;&#x662F;&#x6570;&#x7EC4;&#xFF0C;&#x4E0D;&#x5EFA;&#x8BAE;&#x4F7F;&#x7528; option &#x7684; selected &#x5C5E;&#x6027;
+input/textarea &#x7684; onChange &#x7528;&#x6237;&#x6BCF;&#x6B21;&#x8F93;&#x5165;&#x90FD;&#x4F1A;&#x89E6;&#x53D1;&#xFF08;&#x5373;&#x4F7F;&#x4E0D;&#x5931;&#x53BB;&#x7126;&#x70B9;&#xFF09;
+radio/checkbox &#x70B9;&#x51FB;&#x540E;&#x89E6;&#x53D1; onChange</p>
+<ul>
+<li>&#x53D7;&#x63A7;&#x7EC4;&#x4EF6;
+&#x5982;&#x679C;&#x8BBE;&#x7F6E;&#x4E86; value &#x5C5E;&#x6027;&#xFF0C;&#x90A3;&#x4E48;&#x6539;&#x7EC4;&#x4EF6;&#x53D8;&#x4E3A;&#x53D7;&#x63A7;&#x7EC4;&#x4EF6;&#xFF0C;&#x7528;&#x6237;&#x65E0;&#x6CD5;&#x8F93;&#x5165;&#xFF0C;&#x9664;&#x975E;&#x7A0B;&#x5E8F;&#x6539;&#x53D8; value &#x5C5E;&#x6027;</li>
+</ul>
+<pre><code>var Test = React.createClass({
+    render(){
+        return &lt;input value=&quot;x&quot; /&gt;
+    }
+});
+
+React.render(&lt;Test /&gt;,document.getElementById(&apos;container&apos;));
+</code></pre><p>&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x76D1;&#x542C; onChange &#x4E8B;&#x4EF6;&#x7ED3;&#x5408; state &#x6765;&#x6539;&#x53D8; input &#x7684;&#x503C;</p>
+<pre><code>
+</code></pre><ul>
+<li>&#x4E0D;&#x53D7;&#x63A7;&#x7EC4;&#x4EF6;
+&#x8BBE;&#x7F6E; defaultValue &#x4E3A;&#x8BBE;&#x7F6E; input &#x7684;&#x521D;&#x59CB;&#x503C;&#xFF0C;&#x4E4B;&#x540E; input &#x7684;&#x503C;&#x7531;&#x7528;&#x6237;&#x8F93;&#x5165;</li>
+</ul>
+<pre><code>var Test = React.createClass({
+    render(){
+        return &lt;input defaultValue=&quot;xyz&quot; /&gt;
+    }
+});
+
+React.render(&lt;Test /&gt;,document.getElementById(&apos;container&apos;));
+</code></pre><h2 id="t319. mixin&#x5171;&#x4EAB;">9. mixin&#x5171;&#x4EAB; <a href="#t319. mixin&#x5171;&#x4EAB;"> # </a></h2>
+<p>mixin &#x662F;&#x4E00;&#x4E2A;&#x666E;&#x901A;&#x5BF9;&#x8C61;&#xFF0C;&#x901A;&#x8FC7; mixin &#x53EF;&#x4EE5;&#x5728;&#x4E0D;&#x540C;&#x7EC4;&#x4EF6;&#x95F4;&#x5171;&#x4EAB;&#x4EE3;&#x7801;</p>
+<pre><code>var mixin = {
+    propTypes: {
+        title: React.PropTypes.string,
+    },
+
+    getDefaultProps(){
+        return {
+            title:&apos;default&apos;
+        };
+    },
+};
+
+var A = React.createClass({
+    mixins: [mixin],
+    render(){
+        return &lt;i&gt;{this.props.title}&lt;/i&gt;
+    }
+});
+
+var B = React.createClass({
+    mixins: [mixin],
+    render(){
+        return &lt;b&gt;{this.props.title}&lt;/b&gt;
+    }
+});
+
+React.render(&lt;div&gt;
+&lt;B/&gt; &lt;A title={2}/&gt;
+&lt;A/&gt;
+&lt;/div&gt;,document.getElementById(&apos;container&apos;));
+</code></pre><h2 id="t3210. &#x4E00;&#x6B65;&#x6B65;&#x642D;&#x5EFA;&#x4E00;&#x4E2A;&#x8BC4;&#x8BBA;&#x7684;&#x5E94;&#x7528;">10. &#x4E00;&#x6B65;&#x6B65;&#x642D;&#x5EFA;&#x4E00;&#x4E2A;&#x8BC4;&#x8BBA;&#x7684;&#x5E94;&#x7528; <a href="#t3210. &#x4E00;&#x6B65;&#x6B65;&#x642D;&#x5EFA;&#x4E00;&#x4E2A;&#x8BC4;&#x8BBA;&#x7684;&#x5E94;&#x7528;"> # </a></h2>
+<h3 id="t3310.1 &#x529F;&#x80FD;&#x63CF;&#x8FF0;">10.1 &#x529F;&#x80FD;&#x63CF;&#x8FF0; <a href="#t3310.1 &#x529F;&#x80FD;&#x63CF;&#x8FF0;"> # </a></h3>
+<p>&#x8BC4;&#x8BBA;&#x7684;&#x5217;&#x8868;
+&#x63D0;&#x4EA4;&#x8868;&#x5355;
+&#x540E;&#x7AEF;&#x7ED3;&#x5408;</p>
+<h3 id="t3410.2 &#x7EC4;&#x4EF6;&#x5206;&#x89E3;">10.2 &#x7EC4;&#x4EF6;&#x5206;&#x89E3; <a href="#t3410.2 &#x7EC4;&#x4EF6;&#x5206;&#x89E3;"> # </a></h3>
+<p>&#x9876;&#x5C42; CommentBox
+&#x8BC4;&#x8BBA;&#x5217;&#x8868; CommentList
+&#x5355;&#x6761;&#x8BC4;&#x8BBA; Comment
+&#x8BC4;&#x8BBA;&#x8868;&#x5355; CommentForm</p>
+<h3 id="t3510.3 &#x6700;&#x7B80;&#x5355;&#x7684;&#x5916;&#x5C42;&#x7EC4;&#x4EF6;">10.3 &#x6700;&#x7B80;&#x5355;&#x7684;&#x5916;&#x5C42;&#x7EC4;&#x4EF6; <a href="#t3510.3 &#x6700;&#x7B80;&#x5355;&#x7684;&#x5916;&#x5C42;&#x7EC4;&#x4EF6;"> # </a></h3>
+<pre><code>var CommentBox = React.createClass({
+  render: function() {
+    return (
+      &lt;div className=&quot;commentBox&quot;&gt;
+        Hello, world! I am a CommentBox.
+      &lt;/div&gt;
+    );
+  }
+});
+React.render(
+  &lt;CommentBox /&gt;,
+  document.getElementById(&apos;container&apos;)
+);
+</code></pre><h3 id="t3610.4 &#x7EC4;&#x5408;&#x7EC4;&#x4EF6;">10.4 &#x7EC4;&#x5408;&#x7EC4;&#x4EF6; <a href="#t3610.4 &#x7EC4;&#x5408;&#x7EC4;&#x4EF6;"> # </a></h3>
+<pre><code>var CommentList = React.createClass({
+  render: function() {
+    return (
+      &lt;div className=&quot;commentList&quot;&gt;
+        Hello, world! I am a CommentList.
+      &lt;/div&gt;
+    );
+  }
+});
+
+var CommentForm = React.createClass({
+  render: function() {
+    return (
+      &lt;div className=&quot;commentForm&quot;&gt;
+        Hello, world! I am a CommentForm.
+      &lt;/div&gt;
+    );
+  }
+});
+var CommentBox = React.createClass({
+  render: function() {
+    return (
+      &lt;div className=&quot;commentBox&quot;&gt;
+        &lt;h1&gt;Comments&lt;/h1&gt;
+        &lt;CommentList /&gt;
+        &lt;CommentForm /&gt;
+      &lt;/div&gt;
+    );
+  }
+});
+React.render(
+  &lt;CommentBox /&gt;,
+  document.getElementById(&apos;container&apos;)
+);
+</code></pre><h3 id="t3710.5 &#x5C5E;&#x6027;&#x4F20;&#x9012;">10.5 &#x5C5E;&#x6027;&#x4F20;&#x9012; <a href="#t3710.5 &#x5C5E;&#x6027;&#x4F20;&#x9012;"> # </a></h3>
+<pre><code>var Comment = React.createClass({
+  render: function() {
+    return (
+      &lt;div className=&quot;comment&quot;&gt;
+        &lt;h2 className=&quot;commentAuthor&quot;&gt;
+          {this.props.author}
+        &lt;/h2&gt;
+        {this.props.children}
+      &lt;/div&gt;
+    );
+  }
+});
+
+var CommentList = React.createClass({
+  render: function() {
+    return (
+      &lt;div className=&quot;commentList&quot;&gt;
+        &lt;Comment author=&quot;&#x4F5C;&#x8005; 1&quot;&gt;&#x8BC4;&#x8BBA; 1&lt;/Comment&gt;
+        &lt;Comment author=&quot;&#x4F5C;&#x8005; 2&quot;&gt;&#x8BC4;&#x8BBA; 2&lt;/Comment&gt;
+      &lt;/div&gt;
+    );
+  }
+});
+
+var CommentForm = React.createClass({
+  render: function() {
+    return (
+      &lt;div className=&quot;commentForm&quot;&gt;
+        Hello, world! I am a CommentForm.
+      &lt;/div&gt;
+    );
+  }
+});
+var CommentBox = React.createClass({
+  render: function() {
+    return (
+      &lt;div className=&quot;commentBox&quot;&gt;
+        &lt;h1&gt;Comments&lt;/h1&gt;
+        &lt;CommentList /&gt;
+        &lt;CommentForm /&gt;
+      &lt;/div&gt;
+    );
+  }
+});
+React.render(
+  &lt;CommentBox /&gt;,
+  document.getElementById(&apos;container&apos;)
+);
+</code></pre><h3 id="t3810.6 &#x4F7F;&#x7528; DOM &#x5E93; MARKED">10.6 &#x4F7F;&#x7528; DOM &#x5E93; MARKED <a href="#t3810.6 &#x4F7F;&#x7528; DOM &#x5E93; MARKED"> # </a></h3>
+<pre><code>var Comment = React.createClass({
+  render: function() {
+  var rawMarkup = marked(this.props.children.toString(), {sanitize: true});
+    return (
+      &lt;div className=&quot;comment&quot;&gt;
+        &lt;h2 className=&quot;commentAuthor&quot;&gt;
+          {this.props.author}
+        &lt;/h2&gt;
+        &lt;span dangerouslySetInnerHTML={{__html: rawMarkup}} /&gt;
+      &lt;/div&gt;
+    );
+  }
+});
+
+var CommentList = React.createClass({
+  render: function() {
+    return (
+      &lt;div className=&quot;commentList&quot;&gt;
+        &lt;Comment author=&quot;&#x4F5C;&#x8005; 1&quot;&gt;&#x8BC4;&#x8BBA; 1&lt;/Comment&gt;
+        &lt;Comment author=&quot;&#x4F5C;&#x8005; 2&quot;&gt; *&#x8BC4;&#x8BBA; 2* &lt;/Comment&gt;
+      &lt;/div&gt;
+    );
+  }
+});
+
+var CommentForm = React.createClass({
+  render: function() {
+    return (
+      &lt;div className=&quot;commentForm&quot;&gt;
+        Hello, world! I am a CommentForm.
+      &lt;/div&gt;
+    );
+  }
+});
+var CommentBox = React.createClass({
+  render: function() {
+    return (
+      &lt;div className=&quot;commentBox&quot;&gt;
+        &lt;h1&gt;Comments&lt;/h1&gt;
+        &lt;CommentList /&gt;
+        &lt;CommentForm /&gt;
+      &lt;/div&gt;
+    );
+  }
+});
+React.render(
+  &lt;CommentBox /&gt;,
+  document.getElementById(&apos;container&apos;)
+);
+</code></pre><h3 id="t3910.7 &#x6570;&#x636E;&#x5206;&#x79BB;">10.7 &#x6570;&#x636E;&#x5206;&#x79BB; <a href="#t3910.7 &#x6570;&#x636E;&#x5206;&#x79BB;"> # </a></h3>
+<pre><code>var data = [
+  {author: &quot;&#x4F5C;&#x8005; 1&quot;, text: &quot;&#x8BC4;&#x8BBA; 1&quot;},
+  {author: &quot;&#x4F5C;&#x8005; 2&quot;, text: &quot;*&#x8BC4;&#x8BBA; 2*&quot;}
+];
+
+var Comment = React.createClass({
+  render: function() {
+  var rawMarkup = marked(this.props.children.toString(), {sanitize: true});
+    return (
+      &lt;div className=&quot;comment&quot;&gt;
+        &lt;h2 className=&quot;commentAuthor&quot;&gt;
+          {this.props.author}
+        &lt;/h2&gt;
+        &lt;span dangerouslySetInnerHTML={{__html: rawMarkup}} /&gt;
+      &lt;/div&gt;
+    );
+  }
+});
+
+var CommentList = React.createClass({
+  render: function() {
+    var commentNodes = this.props.data.map(function (comment) {
+      return (
+        &lt;Comment author={comment.author}&gt;
+          {comment.text}
+        &lt;/Comment&gt;
+      );
+    });
+    return (
+      &lt;div className=&quot;commentList&quot;&gt;
+        {commentNodes}
+      &lt;/div&gt;
+    );
+  }
+});
+
+var CommentForm = React.createClass({
+  render: function() {
+    return (
+      &lt;div className=&quot;commentForm&quot;&gt;
+        Hello, world! I am a CommentForm.
+      &lt;/div&gt;
+    );
+  }
+});
+var CommentBox = React.createClass({
+  render: function() {
+    return (
+      &lt;div className=&quot;commentBox&quot;&gt;
+        &lt;h1&gt;Comments&lt;/h1&gt;
+        &lt;CommentList data={data}/&gt;
+        &lt;CommentForm /&gt;
+      &lt;/div&gt;
+    );
+  }
+});
+React.render(
+  &lt;CommentBox /&gt;,
+  document.getElementById(&apos;container&apos;)
+);
+</code></pre><h3 id="t4010.8 &#x4ECE;&#x670D;&#x52A1;&#x5668;&#x53D6;&#x5F97;&#x6570;&#x636E;">10.8 &#x4ECE;&#x670D;&#x52A1;&#x5668;&#x53D6;&#x5F97;&#x6570;&#x636E; <a href="#t4010.8 &#x4ECE;&#x670D;&#x52A1;&#x5668;&#x53D6;&#x5F97;&#x6570;&#x636E;"> # </a></h3>
+<pre><code>var Comment = React.createClass({
+  render: function () {
+    var rawMarkup = marked(this.props.children.toString(), {sanitize: true});
+    return (
+      &lt;div className=&quot;comment&quot;&gt;
+        &lt;h2 className=&quot;commentAuthor&quot;&gt;
+          {this.props.author}
+        &lt;/h2&gt;
+        &lt;span dangerouslySetInnerHTML={{__html: rawMarkup}} /&gt;
+      &lt;/div&gt;
+    );
+  }
+});
+
+var CommentList = React.createClass({
+  render: function () {
+    var commentNodes = this.props.data.map(function (comment) {
+      return (
+        &lt;Comment author={comment.author}&gt;
+          {comment.text}
+        &lt;/Comment&gt;
+      );
+    });
+    return (
+      &lt;div className=&quot;commentList&quot;&gt;
+        {commentNodes}
+      &lt;/div&gt;
+    );
+  }
+});
+
+var CommentForm = React.createClass({
+  render: function () {
+    return (
+      &lt;div className=&quot;commentForm&quot;&gt;
+        Hello, world! I am a CommentForm.
+      &lt;/div&gt;
+    );
+  }
+});
+
+var CommentBox = React.createClass({
+  loadCommentsFromServer: function () {
+    var self = this;
+    new Request.JSON({
+      url: this.props.url,
+      data: {
+        json: JSON.encode({
+          data: [
+            {
+              author: &apos;&#x4F5C;&#x8005; 1&apos;,
+              text: &apos;&#x8BC4;&#x8BBA; 1,&apos; +Date.now()
+            },
+            {
+              author: &apos;&#x4F5C;&#x8005; 2&apos;,
+              text: &apos; *&#x8BC4;&#x8BBA; 2,&apos;+Date.now()+&apos;* &apos;
+            }
+          ]
+        }),
+        delay:1
+      },
+      onSuccess(res) {
+        self.setState({data: res.data})
+      }
+    }).send();
+  },
+  getInitialState: function () {
+    return {data: []};
+  },
+  componentDidMount: function () {
+    this.loadCommentsFromServer();
+    setInterval(this.loadCommentsFromServer, this.props.pollInterval);
+  },
+  render: function () {
+    return (
+      &lt;div className=&quot;commentBox&quot;&gt;
+        &lt;h1&gt;Comments&lt;/h1&gt;
+        &lt;CommentList data={this.state.data} /&gt;
+        &lt;CommentForm /&gt;
+      &lt;/div&gt;
+    );
+  }
+});
+
+React.render(
+  &lt;CommentBox url=&quot;/echo/json/&quot; pollInterval={2000} /&gt;,
+  document.getElementById(&apos;container&apos;)
+);
+</code></pre><h3 id="t4110.9 &#x8BC4;&#x8BBA;&#x8868;&#x5355;">10.9 &#x8BC4;&#x8BBA;&#x8868;&#x5355; <a href="#t4110.9 &#x8BC4;&#x8BBA;&#x8868;&#x5355;"> # </a></h3>
+<pre><code>var Comment = React.createClass({
+  render: function () {
+    var rawMarkup = marked(this.props.children.toString(), {sanitize: true});
+    return (
+      &lt;div className=&quot;comment&quot;&gt;
+        &lt;h2 className=&quot;commentAuthor&quot;&gt;
+          {this.props.author}
+        &lt;/h2&gt;
+        &lt;span dangerouslySetInnerHTML={{__html: rawMarkup}} /&gt;
+      &lt;/div&gt;
+    );
+  }
+});
+
+var CommentList = React.createClass({
+  render: function () {
+    var commentNodes = this.props.data.map(function (comment) {
+      return (
+        &lt;Comment author={comment.author}&gt;
+          {comment.text}
+        &lt;/Comment&gt;
+      );
+    });
+    return (
+      &lt;div className=&quot;commentList&quot;&gt;
+        {commentNodes}
+      &lt;/div&gt;
+    );
+  }
+});
+
+var CommentForm = React.createClass({
+  getInitialState() {
+    return {
+      name: &apos;&apos;,
+      text: &apos;&apos;
+    }
+  },
+  updateField(field, e) {
+  console.log(e);
+    var state = {};
+    state[field] = e.target.value;
+    this.setState(state);
+  },
+  handleSubmit(e){
+    e.preventDefault();
+    this.props.onPost({
+      name:this.state.name,
+      text:this.state.text
+    });
+    this.setState({
+      name:&apos;&apos;,
+      text:&apos;&apos;
+    });
+  },
+  render: function () {
+    return (
+      &lt;form className=&quot;commentForm&quot; onSubmit={this.handleSubmit}&gt;
+        &lt;input placeholder=&quot;Your name&quot; value={this.state.name} onChange={this.updateField.bind(this, &apos;name&apos;)}/&gt;
+        &lt;input placeholder=&quot;Say something...&quot;
+          value={this.state.text} onChange={this.updateField.bind(this, &apos;text&apos;)}
+        /&gt;
+        &lt;input type=&quot;submit&quot; value=&quot;Post&quot; /&gt;
+      &lt;/form&gt;
+    );
+  }
+});
+
+var database=[
+  {
+    author: &apos;&#x4F5C;&#x8005; 1&apos;,
+    text: &apos;&#x8BC4;&#x8BBA; 1,&apos; + Date.now()
+  },
+  {
+    author: &apos;&#x4F5C;&#x8005; 2&apos;,
+    text: &apos; *&#x8BC4;&#x8BBA; 2,&apos; + Date.now() + &apos;* &apos;
+  }
+];
+
+var CommentBox = React.createClass({
+  loadCommentsFromServer: function () {
+    var self = this;
+    $.ajax({
+      url: this.props.url,
+      method:&apos;post&apos;,
+      dataType:&apos;json&apos;,
+      data: {
+        json:JSON.stringify({
+          data:database
+        })
+      },
+      success(res) {
+      console.log(res)
+        self.setState({data: res.data})
+      }
+    });
+  },
+  getInitialState: function () {
+    return {data: []};
+  },
+  handlePost(){
+
+  },
+  componentDidMount: function () {
+    this.loadCommentsFromServer();
+  },
+  render: function () {
+    return (
+      &lt;div className=&quot;commentBox&quot;&gt;
+        &lt;h1&gt;Comments&lt;/h1&gt;
+        &lt;CommentList data={this.state.data} /&gt;
+        &lt;CommentForm onPost={this.handlePost}/&gt;
+      &lt;/div&gt;
+    );
+  }
+});
+
+
+
+React.render(
+  &lt;CommentBox url=&quot;/echo/json/&quot; /&gt;,
+  document.getElementById(&apos;container&apos;)
+);
+</code></pre><h3 id="t4210.10 &#x6700;&#x540E;&#xFF1A;&#x901A;&#x77E5;&#x91CD;&#x65B0;&#x6E32;&#x67D3;">10.10 &#x6700;&#x540E;&#xFF1A;&#x901A;&#x77E5;&#x91CD;&#x65B0;&#x6E32;&#x67D3; <a href="#t4210.10 &#x6700;&#x540E;&#xFF1A;&#x901A;&#x77E5;&#x91CD;&#x65B0;&#x6E32;&#x67D3;"> # </a></h3>
+<pre><code>var Comment = React.createClass({
+  render: function () {
+    var rawMarkup = marked(this.props.children.toString(), {sanitize: true});
+    return (
+      &lt;div className=&quot;comment&quot;&gt;
+        &lt;h2 className=&quot;commentAuthor&quot;&gt;
+          {this.props.author}
+        &lt;/h2&gt;
+        &lt;span dangerouslySetInnerHTML={{__html: rawMarkup}} /&gt;
+      &lt;/div&gt;
+    );
+  }
+});
+
+var CommentList = React.createClass({
+  render: function () {
+    var commentNodes = this.props.data.map(function (comment) {
+      return (
+        &lt;Comment author={comment.author}&gt;
+          {comment.text}
+        &lt;/Comment&gt;
+      );
+    });
+    return (
+      &lt;div className=&quot;commentList&quot;&gt;
+        {commentNodes}
+      &lt;/div&gt;
+    );
+  }
+});
+
+var CommentForm = React.createClass({
+  getInitialState() {
+    return {
+      name: &apos;&apos;,
+      text: &apos;&apos;
+    }
+  },
+  updateField(field, e) {
+    var state = {};
+    state[field] = e.target.value;
+    this.setState(state);
+  },
+  handleSubmit(e){
+    e.preventDefault();
+    this.props.onPost({
+      author:this.state.name,
+      text:this.state.text
+    });
+    this.setState({
+      name:&apos;&apos;,
+      text:&apos;&apos;
+    });
+  },
+  render: function () {
+    return (
+      &lt;form className=&quot;commentForm&quot; onSubmit={this.handleSubmit}&gt;
+        &lt;input placeholder=&quot;Your name&quot; value={this.state.name} onChange={this.updateField.bind(this, &apos;name&apos;)}/&gt;
+        &lt;input placeholder=&quot;Say something...&quot;
+          value={this.state.text} onChange={this.updateField.bind(this, &apos;text&apos;)}
+        /&gt;
+        &lt;input type=&quot;submit&quot; value=&quot;Post&quot; /&gt;
+      &lt;/form&gt;
+    );
+  }
+});
+
+var database=[
+  {
+    author: &apos;&#x4F5C;&#x8005; 1&apos;,
+    text: &apos;&#x8BC4;&#x8BBA; 1,&apos; + Date.now()
+  },
+  {
+    author: &apos;&#x4F5C;&#x8005; 2&apos;,
+    text: &apos; *&#x8BC4;&#x8BBA; 2,&apos; + Date.now() + &apos;* &apos;
+  }
+];
+
+var CommentBox = React.createClass({
+  loadCommentsFromServer: function () {
+    var self = this;
+    $.ajax({
+      url: this.props.url,
+      method:&apos;post&apos;,
+      dataType:&apos;json&apos;,
+      data: {
+        json:JSON.stringify({
+          data:database
+        })
+      },
+      success(res) {
+        self.setState({data: res.data})
+      }
+    });
+  },
+  getInitialState: function () {
+    return {data: []};
+  },
+  handlePost(post){
+    database.push(post);
+    this.loadCommentsFromServer();
+  },
+  componentDidMount: function () {
+    this.loadCommentsFromServer();
+  },
+  render: function () {
+    return (
+      &lt;div className=&quot;commentBox&quot;&gt;
+        &lt;h1&gt;Comments&lt;/h1&gt;
+        &lt;CommentList data={this.state.data} /&gt;
+        &lt;CommentForm onPost={this.handlePost}/&gt;
+      &lt;/div&gt;
+    );
+  }
+});
+
+
+
+React.render(
+  &lt;CommentBox url=&quot;/echo/json/&quot; /&gt;,
+  document.getElementById(&apos;container&apos;)
+);
+</code></pre><h2 id="t43&#x57FA;&#x7840;&#x90E8;&#x5206;&#x5B8C;&#x7ED3;&#x5BC4;&#x8BED;">&#x57FA;&#x7840;&#x90E8;&#x5206;&#x5B8C;&#x7ED3;&#x5BC4;&#x8BED; <a href="#t43&#x57FA;&#x7840;&#x90E8;&#x5206;&#x5B8C;&#x7ED3;&#x5BC4;&#x8BED;"> # </a></h2>
+<p>&#x603B;&#x7ED3;&#x8D77;&#x6765;&#xFF0C;&#x5B66;&#x4E60;&#x7684;&#x96BE;&#x5EA6;&#x4E0D;&#x9AD8;&#xFF0C;&#x4EE5;&#x4E0A;&#x5185;&#x5BB9;&#x638C;&#x63E1;&#x540E;&#xFF0C;&#x57FA;&#x672C;&#x80FD;&#x591F;&#x8FDB;&#x884C;React&#x7684;&#x5F00;&#x53D1;&#xFF0C;&#x540E;&#x7EED;&#x6211;&#x4EEC;&#x7EE7;&#x7EED;&#x76F8;&#x5173;&#x5185;&#x5BB9;&#x7684;&#x8BB2;&#x89E3;&#x3002;</p>
+
+        <div class="copyright">Powered by <a href="https://github.com/jaywcjlove/idoc" target="_blank">idoc</a>. Dependence <a href="https://nodejs.org">Node.js</a> run.</div>
+    </div>
+
+</div>
+
+
+</body>
+</html>

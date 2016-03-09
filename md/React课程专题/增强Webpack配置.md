@@ -527,6 +527,43 @@ module.exports = {
 
 ```
 
+11. 区分环境的标识
+
+项目中有些代码我们只为在开发环境（例如日志）或者是内部测试环境（例如那些没有发布的新功能）中使用，那就需要引入下面这些魔法全局变量（magic globals）：
+
+```js
+if (__DEV__) {
+  console.warn('Extra logging');
+}
+// ...
+if (__PRERELEASE__) {
+  showSecretFeature();
+}
+```
+
+同时还要在webpack.config.js中配置这些变量，使得webpack能够识别他们。
+
+```js
+// webpack.config.js
+
+// definePlugin 会把定义的string 变量插入到Js代码中。
+var definePlugin = new webpack.DefinePlugin({
+  __DEV__: JSON.stringify(JSON.parse(process.env.BUILD_DEV || 'true')),
+  __PRERELEASE__: JSON.stringify(JSON.parse(process.env.BUILD_PRERELEASE || 'false'))
+});
+
+module.exports = {
+  entry: './main.js',
+  output: {
+    filename: 'bundle.js'
+  },
+  plugins: [definePlugin]
+};
+```
+
+配置完成后，就可以使用 `BUILD_DEV=1 BUILD_PRERELEASE=1 webpack`来打包代码了。
+值得注意的是，`webpack -p` 会删除所有无作用代码，也就是说那些包裹在这些全局变量下的代码块都会被删除，这样就能保证这些代码不会因发布上线而泄露。
+
 ## 结语
 
 这些webpack可以让我们初期的开发游刃有余，但是实际项目开发的时候，需要增添很多功能，比如开发环境和生产环境的不同配置；打包的优化配置；让运行时的解析更快；配合测试框架...

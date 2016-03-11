@@ -3,6 +3,7 @@
 
 > **编者按：**除组件化、虚拟DOM在复用以及性能上带来的一般好处外，React思想使得开发者之间更好的分工与合作，在配合上非常顺畅，规范的接口以及极强的约束，使得整个代码结构清晰，不同开发者的代码高度一致。
 
+课程示例代码请前往：https://github.com/zhufengreact/zhufeng-react-tutorial
 
 ## 0. 本次课程大纲
 
@@ -17,9 +18,13 @@ api 少，类库易学
 原生组件和自定义组件融合渲染
 状态/属性驱动全局更新，不用关注细节更新
 ES6 webpack ... 生态圈/工具链完善
-- 怎么用React（`第1-9部分内容`）
-- 搭建示例应用（`第10部分内容`）
+- 怎么用React（`本次课程的核心内容，分9个部分`）
 
+**提前告知，本次课程的示例采用ES6来写React组件代码，需要明确以下几点：**
+
+- 不支持getInitialState，如需在constructor通过this.state={}赋值，也可直接作为properties定义
+- propTypes、defaultProps 作为properties定义。
+- 不支持mixins，可以使用decorator
 
 ## 1. React相关文件顶层api的介绍
 
@@ -81,7 +86,6 @@ React.createElement('div',{
     React.createElement(Component,{x:'y'},1);
 ]);
 ```
-注意点
 
 ### 2.1 注释、命名、根元素个数、JSX 嵌入变量
 ```
@@ -110,6 +114,8 @@ class ComponentDemo extends Component {
 
 export default ComponentDemo;
 ```
+
+- React只有一个限制， 组件只能渲染单个根节点。如果你想要返回多个节点，它们必须被包含在同一个节点里。
 
 ### 2.2 styles
 ```
@@ -465,9 +471,25 @@ export default HandleEvent;
 
 **注意：事件回调函数参数为标准化的事件对象，可以不用考虑 IE**
 
+更多事件我们可以一起看[这里](http://reactjs.cn/react/docs/events.html#form-events)
+
 ## 7. 组件的组合
 
-### 7.1 使用自定义的组件
+### 7.1 受限组件 && 非受限组件
+
+受限组件示例：
+```
+render() {
+  return <input type="text" value="Hello!" />;
+}
+```
+非受限组件示例：
+```
+render() {
+  return <input type="text" />;
+}
+```
+### 7.2 使用自定义的组件
 ```
 'use strict';
 
@@ -500,7 +522,7 @@ class SelfCreateComponent extends Component {
 export default SelfCreateComponent;
 
 ```
-### 7.2 组合 CHILDREN
+### 7.3 组合 CHILDREN
 自定义组件中可以通过 this.props.children 访问自定义组件的子节点
 ```
 'use strict';
@@ -537,15 +559,27 @@ export default UseChildrenComponent;
 ```
 ## 8. form表单操作
 
-和 html 的不同点：
+### 8.1 React表单组件和 html 的不同点
 - value/checked 属性设置后，用户输入无效
 - textarea 的值要设置在 value 属性
-- select 的 value 属性可以是数组，不建议使用 option 的 selected 属性
-- input/textarea 的 onChange 用户每次输入都会触发（即使不失去焦点）
-- radio/checkbox 点击后触发 onChange
-
 ```
+<textarea name="description" value="This is a description." />
+```
+- select 的 value 属性可以是数组，不建议使用 option 的 selected 属性
+```
+<select multiple={true} value={['B', 'C']}>
+   <option value="A">Apple</option>
+   <option value="B">Banana</option>
+   <option value="C">Cranberry</option>
+ </select>
+```
+- input/textarea 的 onChange 用户每次输入都会触发（即使不失去焦点）
+- radio/checkbox/option 点击后触发 onChange
 
+### 8.2 综合表达组件示例
+
+1.定义复选框组件Checkboxes
+```
 import React, { Component } from 'react';
 
 class Checkboxes extends Component {
@@ -565,11 +599,12 @@ export default Checkboxes;
 
 ```
 
+
+2.定义单选框按钮组RadioButtons
 ```
 
 import React, { Component } from 'react';
 
-// 定义单选框按钮组
 class RadioButtons extends Component {
   saySomething(){
       alert("我是一个很棒的单选框按钮组");
@@ -590,6 +625,7 @@ export default RadioButtons;
 
 ```
 
+3.FormApp组件集成两个组件并处理表单逻辑
 ```
 'use strict';
 
@@ -685,7 +721,7 @@ export default FormApp;
 
 ## 9. mixin共享
 
-mixin 是一个普通对象，通过 mixin 可以在不同组件间共享代码
+mixin 是一个普通对象，通过 mixin 可以在不同组件间共享代码，使你的React程序变得更为可重用。注意，ES6语法不支持mixin写法，而是可以通过decorator去实现代码共享，这里使用ES5语法做示例说明。
 ```
 
 import React from 'react';
@@ -730,4 +766,4 @@ export default MixinDemo;
 
 ## 基础部分完结寄语
 
-总结起来，学习的难度不高，以上内容掌握后，基本能够进行React的开发，后续我们继续相关内容的讲解。
+总结起来，学习的难度不高，以上内容掌握后，基本能够进行React的开发，后续我们继续相关内容的讲解，内容预告：一步步教你如何用React写一个简单完整的应用功能。

@@ -25,42 +25,46 @@ ES6 webpack ... 生态圈/工具链完善
 
 最简单的React组件及其渲染
 ```
-import React, {Component} from 'react';
-import ReactDOM from 'react-dom';
+import React, { Component } from 'react';
 
-class Hello extends Component {
-    render() {
-        return <div>Hello {this.props.name}</div>;
-    }
+/**
+ * 最简单的一个组件
+ */
+class SimpleComponent extends Component {
+  render(){
+    return <div> here we go </div>;
+  }
 }
 
-ReactDOM.render(<Hello name="World" />, document.getElementById('container'));
+// 我们可以看看React给我们提供了哪些顶层组件
+console.log( React );
 
+export default SimpleComponent;
 ```
 
 ### react.js
-React.Component 使用ES6的class创建组件用的API
-React.createClass 使用ES5的class创建组件用的API
-React.PropTypes
-React.Children 操作 map/forEach children 工具类
+React.Component 使用ES6的class创建组件用的API<br>
+React.createClass 使用ES5的class创建组件用的API<br>
+React.PropTypes<br>
+React.Children 操作 map/forEach children 工具类<br>
 
-还有几个不是很常用的
-React.createElement
-React.cloneElement
-React.createFactory
+还有几个不是很常用的<br>
+React.createElement<br>
+React.cloneElement<br>
+React.createFactory<br>
 React.DOM
 
 ### react-dom.js
-ReactDOM.render 渲染组件到 dom
-ReactDOM.unmountComponentAtNode
-ReactDOM.findDOMNode
+ReactDOM.render 渲染组件到 dom<br>
+ReactDOM.unmountComponentAtNode<br>
+ReactDOM.findDOMNode<br>
 
 ### react-dom-server.js
-ReactDOMServer.renderToString
-ReactDOMServer.renderToStaticMarkup
+ReactDOMServer.renderToString<br>
+ReactDOMServer.renderToStaticMarkup<br>
 
 ## 2. jsx语法
----
+
 类似 xml 的语法，用来描述组件树
 ```
 <div classname="x">
@@ -79,275 +83,295 @@ React.createElement('div',{
 ```
 注意点
 
-### 2.1 注释
+### 2.1 注释、命名、根元素个数、JSX 嵌入变量
 ```
-var content = (
-  <Nav>
-    {/* 一般注释, 用 {} 包围 */}
-    <Person
-      /* 多
-         行
-         注释 */
-      name={window.isLoggedIn ? window.name : ''} // 行尾注释
-    />
-  </Nav>
-);
+import React, { Component } from 'react';
+
+// 1. 组件命名遵循驼峰命名，首字母大写
+class ComponentDemo extends Component {
+  render(){
+    {
+      /*
+      2. 这是代码注释
+      也可以是多行
+      */
+    }
+    const name = this.props.name;
+
+    // 3. render 方法 return 回来的根元素只能是一个，超过会报错
+    // 4. { } 里面可以写JS代码
+    return (
+      <div>
+        hello, {name ? name : "我是默认的"}
+      </div>
+    );
+  }
+}
+
+export default ComponentDemo;
 ```
+
 ### 2.2 styles
 ```
-var styles = {
-	borderColor: '#ccc',
-	fontSize: '18px'
-};
+import React, { Component } from 'react';
 
-ReactDOM.render(<div style={styles}></div>, container);
-```
-### 2.3 顶层一个根元素
-```
-// 这样会报错
-render(){
-	return (
-		<h2>nn</h2>
-	);
-}
-// 应该顶层只有一个元素
-render(){
-	return (
-		<h1>hah</h1>
-	);
-}
-```
-### 2.4 组件名按驼峰命名
-```
-import Button from './Button.js';
+class StyleDemo extends Component {
+  render(){
+    // 5. 在JS文件里面给组件定义样式
+    var MyComponentStyles = {
+        color: 'blue',
+        fontSize: '28px'
+    };
 
-...
-render(){
-	return <Button />
+    return (
+      <div style={MyComponentStyles}>
+          可以直接这样写行内样式
+      </div>
+    )
+  }
 }
-...
-```
-<Button />
-### 2.5 属性名不能和 js 关键字冲突
 
-例如：className, readOnly, htmlfor
-### 2.6  JSX 嵌入变量
-可以通过 {变量名} 来将变量的值作为属性值
+export default StyleDemo;
 ```
-render(){
-	return <div className={this.state.isComplete ? 'is-complete' : ''}>
-		hello world
-	</div>
-}
-```
-### 2.7  JSX SPREAD
+### 2.3  JSX SPREAD
 可以用通过 {...obj} 来批量设置一个对象的键值对到组件的属性，注意顺序
 ```
-  var props = {};
-  props.foo = x;
-  props.bar = y;
-  var component = <Component {...props} />;
+import React, { Component } from 'react';
+
+class SpreadDemo extends Component {
+  componentWillMount(){
+    console.log(this.props);
+  }
+  render(){
+    return <h1> {this.props.name} is a {this.props.type} </h1>;
+  }
+}
+
+export default SpreadDemo;
+
 ```
+### 2.4 属性名不能和 js 关键字冲突
+
+例如：className, readOnly, htmlfor
+
+
 ## 3. 数据流：state props propType
 
-### 3.1 state
+### 3.1 state && setState
 用状态控制组件变化
 可以把一个组件看做一个状态机, 每一次状态对应于组件的一个 ui
 
 **组件内部的状态，可以使用 state**
 
 ```
-var Timer = React.createClass({
-  getInitialState: function() {
-    return {secondsElapsed: 0};
-  },
-  tick: function() {
-    this.setState({secondsElapsed: this.state.secondsElapsed + 1});
-  },
-  componentDidMount: function() {
-    this.interval = setInterval(this.tick, 1000);
-  },
-  componentWillUnmount: function() {
-    clearInterval(this.interval);
-  },
-  render: function() {
-    return (
-      <div>Seconds Elapsed: {this.state.secondsElapsed}</div>
-    );
-  }
-});
+import React, { Component } from 'react';
 
-React.render(<Timer />, document.getElementById('container'));
+class StateDemo extends Component {
+
+  state = {
+    secondsElapsed: 0
+  }
+
+  tick(){
+    this.setState({ secondsElapsed: this.state.secondsElapsed + 1 });
+  }
+
+  componentDidMount(){
+    this.interval = setInterval( this.tick.bind(this), 1000 );
+  }
+
+  componentWillUnmount(){
+    clearInterval(this.interval);
+  }
+
+  render(){
+    return (
+      <div>目前已经计时：{this.state.secondsElapsed}秒</div>
+    )
+  }
+}
+
+export default StateDemo;
+
 ```
-setstate 哪些应该作为state
+
 
 ### 3.2 props
-通过 this.props 可以获取传递给该组件的属性值，还可以通过定义 getDefaultProps 来指定默认属性值
+通过 this.props 可以获取传递给该组件的属性值，还可以通过定义 getDefaultProps 来指定默认属性值（这是ES5的写法，ES6定义组件的默认props可以直接写props）
 
-注意：默认值getDefaultProps为所有组件实例共享的
+下面几个是props的常用API：
+- `this.props.children`
+- `this.props.map`
+- `this.props.filter`
 
-props.children
-props.map/filter
-传递进去的
-区别，传递数据的例子，封装APi
-组件树数据传递
+**props是调用组件的时候传递进去的数据，一般用于组件树数据传递**
 
 ```
-var B = React.createClass({
-    getDefaultProps(){
-        return {
-            title:'default'
-        };
-    },
-    render(){
-        return <b>{this.props.title}</b>
-    }
-});
+import React, { Component } from 'react';
 
-React.render(<div>
-<B title="指定  "/> <B/>
-</div>,document.getElementById('container'));
+class PropsDemo extends Component {
+  props = {
+    title: '这是默认的title属性值'
+  }
+  render(){
+    console.log(this.props);
+
+    return <b>{this.props.title}</b>
+  }
+}
+
+export default PropsDemo;
+
+
+// 组件调用方式
+// <PropsDemo title="设置的标题" />
 ```
 
 ### 3.3 propTypes
-通过指定 propTypes 可以校验属性值的类型
-注意：校验仅为提升开发者体验
+通过指定 propTypes 可以校验props属性值的类型，校验可提升开发者体验，用于约定统一的接口规范。
+
 ```
-var B = React.createClass({
-    propTypes: {
-        title: React.PropTypes.string,
-    },
+import React, { Component, PropTypes } from 'react';
 
-    getDefaultProps(){
-        return {
-            title:'default'
-        };
-    },
-    render(){
-        return <b>{this.props.title}</b>
-    }
-});
+class PropTypesDemo extends Component {
 
-React.render(<div>
-<B title="指定  "/> <B title={2}/>
-</div>,document.getElementById('container'));
+  static propTypes = {
+    title: PropTypes.string.isRequired
+  }
+
+  props = {
+      title: '默认的title'
+  }
+
+  render(){
+    return <b>{this.props.title}</b>
+  }
+}
+
+export default PropTypesDemo;
+
 ```
 
 ## 4. 调用API定义组件
 
-用 React.createClass 定义组件时允许传入相应的配置，包括组件生命周期提供的一系列钩子函数。
+用 React.createClass或者React.Component 定义组件时允许传入相应的配置及组件API的使用，包括组件生命周期提供的一系列钩子函数。
 
 ### 4.1 组件初始定义
 
-getDefaultProps 得到默认属性对象，这个在ES6的时候不需要这样定义
-propTypes 属性检验规则
-mixins 组件间公用方法
+- getDefaultProps 得到默认属性对象，这个在ES6的时候不需要这样定义
+- propTypes 属性检验规则
+- mixins 组件间公用方法
 
 
 ### 4.2 初次创建组件时调用
 
-getInitialState 得到初始状态对象
-render 返回组件树. 必须设置
-componentDidMount 渲染到 dom 树中是调用，只在客户端调用，可用于获取原生节点
+- getInitialState 得到初始状态对象
+- render 返回组件树. 必须设置
+- componentDidMount 渲染到 dom 树中是调用，只在客户端调用，可用于获取原生节点
 
 ### 4.3 组件的属性值改变时调用
 
-componentWillReceiveProps 属性改变调用
-shouldComponentUpdate 判断是否需要重新渲染
-render 返回组件树. 必须设置
-componentDidUpdate 渲染到 dom 树中是调用, 可用于获取原生节点
+- componentWillReceiveProps 属性改变调用
+- shouldComponentUpdate 判断是否需要重新渲染
+- render 返回组件树. 必须设置
+- componentDidUpdate 渲染到 dom 树中是调用, 可用于获取原生节点
 
 ### 4.4 销毁组件
-最后是 componentWillUnmount 组件从 dom 销毁前调用
+- componentWillUnmount 组件从 dom 销毁前调用
 
 ### 4.5 示例诠释组件全生命周期
 
 ```
-function log(str){
-  document.getElementById('log').innerHTML+='<p>'+str+'</p>';;
-}
-document.getElementById('clear').onclick=function(){
-document.getElementById('log').innerHTML='';
-};
-var Test = React.createClass({
-  getInitialState() {
-    log('getInitialState');
-    return {
-      value: this.props.value
-    };
-  },
+import React, { Component } from 'react';
+
+class LifeCycle extends Component {
+
+  props = {
+    value: '开始渲染'
+  }
 
   componentWillReceiveProps(nextProps){
-    log('componentWillReceiveProps');
+    console.log('componentWillReceiveProps');
     this.setState({
-    	value: nextProps.value
+        value: nextProps.value
     });
-  },
+  }
 
   shouldComponentUpdate(nextProps,nextState){
-    log('shouldComponentUpdate');
+    console.log('shouldComponentUpdate');
     return true;
-  },
+  }
 
   componentWillUpdate(nextProps,nextState){
-    log('componentWillUpdate');
-  },
+    console.log('componentWillUpdate');
+  }
 
   componentWillMount(){
-    log('componentWillMount');
-  },
+    console.log('componentWillMount');
+  }
 
   render() {
-    log('render');
+    console.log('render');
     return <span>{this.props.value}</span>
-  },
+  }
 
   componentDidMount() {
-  	log('componentDidMount');
-  },
+      console.log('componentDidMount');
+  }
 
   componentDidUpdate(prevProps,prevState) {
-  	log('componentDidUpdate');
-  },
+      console.log('componentDidUpdate');
+  }
 
   componentWillUnmount(prevProps,prevState) {
-  	log('componentWillUnmount');
+      console.log('componentWillUnmount');
   }
-});
+}
 
+export default LifeCycle;
 
-var Hello = React.createClass({
-    getInitialState() {
-      return {
-        value:1,
-        destroyed:false
-      };
-    },
-    increase() {
-    	this.setState({
-        	value: this.state.value+1
-        });
-    },
-    destroy() {
-    	this.setState({
-        	destroyed: true
-        });
-    },
-    render: function() {
-    	if(this.state.destroyed){
-        	return null;
-        }
-        return <div>
-        <p>
-          <button onClick={this.increase}>increase</button>
-          <button onClick={this.destroy}>destroy</button>
-        </p>
-        <Test value={this.state.value}/>
-        </div>;
+```
+
+调用组件并销毁组件示例
+```
+import React, { Component } from 'react';
+import LifeCycleDemo from './LifeCycleDemo';
+
+class DestroyComponent extends Component {
+
+  state = {
+    value:1,
+    destroyed:false
+  }
+
+  increase = () => {
+    this.setState({
+      value: this.state.value + 1
+    });
+  }
+
+  destroy = () => {
+    this.setState({
+      destroyed: true
+    });
+  }
+
+  render() {
+    if(this.state.destroyed){
+        return null;
     }
-});
 
-React.render(<Hello />, document.getElementById('container'));
+    return <div>
+      <p>
+        <button onClick={this.increase}>每次加1</button>
+        <button onClick={this.destroy}>干掉这两个按钮</button>
+      </p>
+      <LifeCycleDemo value={this.state.value}/>
+    </div>;
+  }
+}
+
+export default DestroyComponent;
 
 ```
 
@@ -372,739 +396,336 @@ componentDidUpdate()
 ```
 ## 5. 使用ref对操作DOM
 
-该功能是为了结合现有非 react 类库，通过 ref/refs 可以取得组件实例，进而取得原生节点
-注意：尽量通过 state/props 更新组件，不要使用该功能
+- React.findDOMNode
+- this.refs.xxx
+
+获取DOM后可以方便结合现有非 react 类库的使用，通过 ref/refs 可以取得组件实例，进而取得原生节点，不过尽量通过 state/props 更新组件，不要使用该功能去更新组件的DOM。
 
 ```
-var Test = React.createClass({
-    componentDidMount(){
-      alert(React.findDOMNode(this.refs.content).innerHTML);
-    },
-    render(){
-        return <div>
-            <h3>header</h3>
-            <div ref='content'>content</div>
-        </div>;
-    }
-});
+import React, { Component } from 'react';
+import ReactDOM, { findDOMNode } from 'react-dom';
 
-React.render(<Test />,document.getElementById('container'));
+class HandleDOMComponent extends Component {
+  componentDidMount(){
+    // 两种方式都可以获取到元素
+    let ele = findDOMNode(this.refs.content);
+    let ele2 = this.refs.content;
+
+    // 如果想用 jquery，那么这是个好时机
+    console.log( ele );
+    console.log( ele.innerHTML );
+    console.log( ele2.innerHTML );
+
+  }
+
+  render(){
+    return (
+      <div>
+        <h3>来吧，一起操作DOM</h3>
+        <div ref='content'>这是我DOM元素里面的内容</div>
+      </div>
+    );
+  }
+}
+
+export default HandleDOMComponent;
+
 ```
 ## 6. 事件event
 
 可以通过设置原生 dom 组件的 onEventType 属性来监听 dom 事件，例如 onClick, onMouseDown，在加强组件内聚性的同时，避免了传统 html 的全局变量污染
+
 ```
-var LikeButton = React.createClass({
-  getInitialState: function() {
-    return {liked: false};
-  },
-  handleClick: function(event) {
+'use strict';
+
+import React, { Component } from 'react';
+
+class HandleEvent extends Component {
+
+  state = { liked: false }
+
+  handleClick = (event) => {
     this.setState({liked: !this.state.liked});
-  },
-  render: function() {
-    var text = this.state.liked ? 'like' : 'haven\'t liked';
+  }
+
+  render() {
+    let text = this.state.liked ? '喜欢' : '不喜欢';
+
     return (
       <p onClick={this.handleClick}>
-        You {text} this. Click to toggle.
+        我 {text} 你.
       </p>
     );
   }
-});
+}
 
-React.render(
-  <LikeButton />,
-  document.getElementById('container')
-);
+export default HandleEvent;
+
 ```
 
-注意：事件回调函数参数为标准化的事件对象，可以不用考虑 ie
+**注意：事件回调函数参数为标准化的事件对象，可以不用考虑 IE**
 
 ## 7. 组件的组合
 
 ### 7.1 使用自定义的组件
 ```
-var A = React.createClass({
-    render(){
-        return <a href='#'>a</a>
-    }
-});
+'use strict';
 
-var B = React.createClass({
-    render(){
-        return <i><A /> !</i>;
-    }
-});
+import React, { Component } from 'react';
 
-React.render(<B />,document.getElementById('container'));
+class ComponentA extends Component {
+  render() {
+    return <a href='#'>我是组件A<br/></a>
+  }
+}
+
+class ComponentB extends Component {
+  render() {
+    return <a href='#'>我是组件B</a>
+  }
+}
+
+
+class SelfCreateComponent extends Component {
+  render() {
+    return (
+      <i>
+        <ComponentA />
+        <ComponentB />
+      </i>
+    );
+  }
+}
+
+export default SelfCreateComponent;
+
 ```
 ### 7.2 组合 CHILDREN
 自定义组件中可以通过 this.props.children 访问自定义组件的子节点
 ```
-var B = React.createClass({
-    render(){
-        return <ul>
-            {React.Children.map(this.props.children,function(c){
-                return <li>{c}</li>;
-            })}
-        </ul>;
-    }
-});
+'use strict';
 
-React.render(<B>
-<a href="#">1</a>
-2
-</B>,document.getElementById('container'));
+import React, { Component } from 'react';
+
+// 定义一个组件，通过React.Children 拿到组件里面的子元素
+class ListComponent extends Component {
+  render(){
+    return <ul>
+      {
+        React.Children.map( this.props.children, function(c){
+          return <li>{c}</li>;
+        })
+      }
+    </ul>
+  }
+}
+
+class UseChildrenComponent extends Component {
+  render(){
+    return (
+      <ListComponent>
+        <a href="#">Facebook</a>
+        <a href="#">Google</a>
+        <a href="#">SpaceX</a>
+      </ListComponent>
+    )
+  }
+}
+
+export default UseChildrenComponent;
+
 ```
 ## 8. form表单操作
 
 和 html 的不同点：
-
-value/checked 属性设置后，用户输入无效
-textarea 的值要设置在 value 属性
-select 的 value 属性可以是数组，不建议使用 option 的 selected 属性
-input/textarea 的 onChange 用户每次输入都会触发（即使不失去焦点）
-radio/checkbox 点击后触发 onChange
-
-- 受控组件
-如果设置了 value 属性，那么改组件变为受控组件，用户无法输入，除非程序改变 value 属性
-
-```
-var Test = React.createClass({
-    render(){
-        return <input value="x" />
-    }
-});
-
-React.render(<Test />,document.getElementById('container'));
-```
-
-可以通过监听 onChange 事件结合 state 来改变 input 的值
+- value/checked 属性设置后，用户输入无效
+- textarea 的值要设置在 value 属性
+- select 的 value 属性可以是数组，不建议使用 option 的 selected 属性
+- input/textarea 的 onChange 用户每次输入都会触发（即使不失去焦点）
+- radio/checkbox 点击后触发 onChange
 
 ```
 
-```
-- 不受控组件
-设置 defaultValue 为设置 input 的初始值，之后 input 的值由用户输入
+import React, { Component } from 'react';
+
+class Checkboxes extends Component {
+  render(){
+      return <span>
+          A
+          <input onChange={this.props.handleCheck}  name="goodCheckbox" type="checkbox" value="A"/>
+          B
+          <input onChange={this.props.handleCheck} name="goodCheckbox" type="checkbox" value="B" />
+          C
+          <input onChange={this.props.handleCheck} name="goodCheckbox" type="checkbox" value="C" />
+      </span>
+  }
+}
+
+export default Checkboxes;
 
 ```
-var Test = React.createClass({
-    render(){
-        return <input defaultValue="xyz" />
-    }
-});
 
-React.render(<Test />,document.getElementById('container'));
+```
+
+import React, { Component } from 'react';
+
+// 定义单选框按钮组
+class RadioButtons extends Component {
+  saySomething(){
+      alert("我是一个很棒的单选框按钮组");
+  }
+  render(){
+      return <span>
+          A
+          <input onChange={this.props.handleRadio} name="goodRadio" type="radio" value="A"/>
+          B
+          <input onChange={this.props.handleRadio} name="goodRadio" type="radio" defaultChecked value="B"/>
+          C
+          <input onChange={this.props.handleRadio} name="goodRadio" type="radio" value="C"/>
+      </span>
+  }
+}
+
+export default RadioButtons;
+
+```
+
+```
+'use strict';
+
+import React, { Component } from 'react';
+import Checkboxes from './Checkboxes';
+import RadioButtons from './RadioButtons';
+
+class FormApp extends Component {
+
+  state = {
+      inputValue: '请输入...',
+      selectValue: 'A',
+      radioValue:'B',
+      checkValues:[],
+      textareaValue:'请输入...'
+  }
+
+  handleSubmit = (e) => {
+      e.preventDefault();
+
+      let formData = {
+          input: this.refs.goodInput.value,
+          select: this.refs.goodSelect.value,
+          textarea: this.refs.goodTextarea.value,
+          radio: this.state.radioValue,
+          check: this.state.checkValues,
+      }
+
+      alert('您即将提交表单')
+      console.log('你提交的数据是:')
+      console.log(formData);
+
+  }
+
+  handleRadio = (e) => {
+      this.setState({
+          radioValue: e.target.value,
+      })
+  }
+
+  handleCheck = (e) => {
+      let checkValues = this.state.checkValues.slice();
+      let newVal = e.target.value;
+      let index = checkValues.indexOf(newVal);
+
+      if( index == -1 ){
+          checkValues.push( newVal )
+      }else{
+          checkValues.splice(index,1);
+      }
+
+      this.setState({
+          checkValues: checkValues,
+      })
+  }
+
+  render(){
+      return <form onSubmit={this.handleSubmit}>
+          <h3> 请输入内容 </h3>
+          <input ref="goodInput" type="text" defaultValue={this.state.inputValue }/>
+          <br/>
+
+          <h3> 请选择 </h3>
+          <select defaultValue={ this.state.selectValue } ref="goodSelect">
+              <option value="A">A</option>
+              <option value="B">B</option>
+              <option value="C">C</option>
+              <option value="D">D</option>
+              <option value="E">E</option>
+          </select>
+          <br/>
+
+          <h3> 单项选择 </h3>
+          <RadioButtons ref="goodRadio" handleRadio={this.handleRadio} />
+          <br/>
+
+          <h3> 多选按钮 </h3>
+          <Checkboxes handleCheck={this.handleCheck} />
+          <br/>
+
+          <h3> 反馈建议 </h3>
+          <textarea defaultValue={this.state.textareaValue} ref="goodTextarea"></textarea>
+          <br/>
+
+          <button type="submit">确认提交</button>
+      </form>
+  }
+}
+
+export default FormApp;
+
 ```
 
 ## 9. mixin共享
 
 mixin 是一个普通对象，通过 mixin 可以在不同组件间共享代码
 ```
-var mixin = {
-    propTypes: {
-        title: React.PropTypes.string,
-    },
 
-    getDefaultProps(){
-        return {
-            title:'default'
-        };
-    },
+import React from 'react';
+
+var SetIntervalMixin = {
+  componentWillMount: function() {
+    this.intervals = [];
+  },
+  setInterval: function() {
+    this.intervals.push(setInterval.apply(null, arguments));
+  },
+  componentWillUnmount: function() {
+    this.intervals.forEach(clearInterval);
+  }
 };
 
-var A = React.createClass({
-    mixins: [mixin],
-    render(){
-        return <i>{this.props.title}</i>
-    }
-});
-
-var B = React.createClass({
-    mixins: [mixin],
-    render(){
-        return <b>{this.props.title}</b>
-    }
-});
-
-React.render(<div>
-<B/> <A title={2}/>
-<A/>
-</div>,document.getElementById('container'));
-```
-
-## 10. 一步步搭建一个评论的应用
-
-### 10.1 功能描述
-评论的列表
-提交表单
-后端结合
-
-### 10.2 组件分解
-顶层 CommentBox
-评论列表 CommentList
-单条评论 Comment
-评论表单 CommentForm
-
-### 10.3 最简单的外层组件
-```
-var CommentBox = React.createClass({
+var MixinDemo = React.createClass({
+  // Use the mixin
+  mixins: [SetIntervalMixin],
+  getInitialState: function() {
+    return {seconds: 0};
+  },
+  componentDidMount: function() {
+    // Call a method on the mixin
+    this.setInterval(this.tick, 1000);
+  },
+  tick: function() {
+    this.setState({seconds: this.state.seconds + 1});
+  },
   render: function() {
     return (
-      <div className="commentBox">
-        Hello, world! I am a CommentBox.
-      </div>
-    );
-  }
-});
-React.render(
-  <CommentBox />,
-  document.getElementById('container')
-);
-```
-### 10.4 组合组件
-```
-var CommentList = React.createClass({
-  render: function() {
-    return (
-      <div className="commentList">
-        Hello, world! I am a CommentList.
-      </div>
+      <p>
+        计时器已经运行了： {this.state.seconds} 秒.
+      </p>
     );
   }
 });
 
-var CommentForm = React.createClass({
-  render: function() {
-    return (
-      <div className="commentForm">
-        Hello, world! I am a CommentForm.
-      </div>
-    );
-  }
-});
-var CommentBox = React.createClass({
-  render: function() {
-    return (
-      <div className="commentBox">
-        <h1>Comments</h1>
-        <CommentList />
-        <CommentForm />
-      </div>
-    );
-  }
-});
-React.render(
-  <CommentBox />,
-  document.getElementById('container')
-);
-```
-### 10.5 属性传递
-```
-var Comment = React.createClass({
-  render: function() {
-    return (
-      <div className="comment">
-        <h2 className="commentAuthor">
-          {this.props.author}
-        </h2>
-        {this.props.children}
-      </div>
-    );
-  }
-});
+export default MixinDemo;
 
-var CommentList = React.createClass({
-  render: function() {
-    return (
-      <div className="commentList">
-        <Comment author="作者 1">评论 1</Comment>
-        <Comment author="作者 2">评论 2</Comment>
-      </div>
-    );
-  }
-});
-
-var CommentForm = React.createClass({
-  render: function() {
-    return (
-      <div className="commentForm">
-        Hello, world! I am a CommentForm.
-      </div>
-    );
-  }
-});
-var CommentBox = React.createClass({
-  render: function() {
-    return (
-      <div className="commentBox">
-        <h1>Comments</h1>
-        <CommentList />
-        <CommentForm />
-      </div>
-    );
-  }
-});
-React.render(
-  <CommentBox />,
-  document.getElementById('container')
-);
-```
-### 10.6 使用 DOM 库 MARKED
-```
-var Comment = React.createClass({
-  render: function() {
-  var rawMarkup = marked(this.props.children.toString(), {sanitize: true});
-    return (
-      <div className="comment">
-        <h2 className="commentAuthor">
-          {this.props.author}
-        </h2>
-        <span dangerouslySetInnerHTML={{__html: rawMarkup}} />
-      </div>
-    );
-  }
-});
-
-var CommentList = React.createClass({
-  render: function() {
-    return (
-      <div className="commentList">
-        <Comment author="作者 1">评论 1</Comment>
-        <Comment author="作者 2"> *评论 2* </Comment>
-      </div>
-    );
-  }
-});
-
-var CommentForm = React.createClass({
-  render: function() {
-    return (
-      <div className="commentForm">
-        Hello, world! I am a CommentForm.
-      </div>
-    );
-  }
-});
-var CommentBox = React.createClass({
-  render: function() {
-    return (
-      <div className="commentBox">
-        <h1>Comments</h1>
-        <CommentList />
-        <CommentForm />
-      </div>
-    );
-  }
-});
-React.render(
-  <CommentBox />,
-  document.getElementById('container')
-);
-```
-### 10.7 数据分离
-```
-var data = [
-  {author: "作者 1", text: "评论 1"},
-  {author: "作者 2", text: "*评论 2*"}
-];
-
-var Comment = React.createClass({
-  render: function() {
-  var rawMarkup = marked(this.props.children.toString(), {sanitize: true});
-    return (
-      <div className="comment">
-        <h2 className="commentAuthor">
-          {this.props.author}
-        </h2>
-        <span dangerouslySetInnerHTML={{__html: rawMarkup}} />
-      </div>
-    );
-  }
-});
-
-var CommentList = React.createClass({
-  render: function() {
-    var commentNodes = this.props.data.map(function (comment) {
-      return (
-        <Comment author={comment.author}>
-          {comment.text}
-        </Comment>
-      );
-    });
-    return (
-      <div className="commentList">
-        {commentNodes}
-      </div>
-    );
-  }
-});
-
-var CommentForm = React.createClass({
-  render: function() {
-    return (
-      <div className="commentForm">
-        Hello, world! I am a CommentForm.
-      </div>
-    );
-  }
-});
-var CommentBox = React.createClass({
-  render: function() {
-    return (
-      <div className="commentBox">
-        <h1>Comments</h1>
-        <CommentList data={data}/>
-        <CommentForm />
-      </div>
-    );
-  }
-});
-React.render(
-  <CommentBox />,
-  document.getElementById('container')
-);
-```
-### 10.8 从服务器取得数据
-```
-var Comment = React.createClass({
-  render: function () {
-    var rawMarkup = marked(this.props.children.toString(), {sanitize: true});
-    return (
-      <div className="comment">
-        <h2 className="commentAuthor">
-          {this.props.author}
-        </h2>
-        <span dangerouslySetInnerHTML={{__html: rawMarkup}} />
-      </div>
-    );
-  }
-});
-
-var CommentList = React.createClass({
-  render: function () {
-    var commentNodes = this.props.data.map(function (comment) {
-      return (
-        <Comment author={comment.author}>
-          {comment.text}
-        </Comment>
-      );
-    });
-    return (
-      <div className="commentList">
-        {commentNodes}
-      </div>
-    );
-  }
-});
-
-var CommentForm = React.createClass({
-  render: function () {
-    return (
-      <div className="commentForm">
-        Hello, world! I am a CommentForm.
-      </div>
-    );
-  }
-});
-
-var CommentBox = React.createClass({
-  loadCommentsFromServer: function () {
-    var self = this;
-    new Request.JSON({
-      url: this.props.url,
-      data: {
-        json: JSON.encode({
-          data: [
-            {
-              author: '作者 1',
-              text: '评论 1,' +Date.now()
-            },
-            {
-              author: '作者 2',
-              text: ' *评论 2,'+Date.now()+'* '
-            }
-          ]
-        }),
-        delay:1
-      },
-      onSuccess(res) {
-        self.setState({data: res.data})
-      }
-    }).send();
-  },
-  getInitialState: function () {
-    return {data: []};
-  },
-  componentDidMount: function () {
-    this.loadCommentsFromServer();
-    setInterval(this.loadCommentsFromServer, this.props.pollInterval);
-  },
-  render: function () {
-    return (
-      <div className="commentBox">
-        <h1>Comments</h1>
-        <CommentList data={this.state.data} />
-        <CommentForm />
-      </div>
-    );
-  }
-});
-
-React.render(
-  <CommentBox url="/echo/json/" pollInterval={2000} />,
-  document.getElementById('container')
-);
-```
-### 10.9 评论表单
-```
-var Comment = React.createClass({
-  render: function () {
-    var rawMarkup = marked(this.props.children.toString(), {sanitize: true});
-    return (
-      <div className="comment">
-        <h2 className="commentAuthor">
-          {this.props.author}
-        </h2>
-        <span dangerouslySetInnerHTML={{__html: rawMarkup}} />
-      </div>
-    );
-  }
-});
-
-var CommentList = React.createClass({
-  render: function () {
-    var commentNodes = this.props.data.map(function (comment) {
-      return (
-        <Comment author={comment.author}>
-          {comment.text}
-        </Comment>
-      );
-    });
-    return (
-      <div className="commentList">
-        {commentNodes}
-      </div>
-    );
-  }
-});
-
-var CommentForm = React.createClass({
-  getInitialState() {
-    return {
-      name: '',
-      text: ''
-    }
-  },
-  updateField(field, e) {
-  console.log(e);
-    var state = {};
-    state[field] = e.target.value;
-    this.setState(state);
-  },
-  handleSubmit(e){
-    e.preventDefault();
-    this.props.onPost({
-      name:this.state.name,
-      text:this.state.text
-    });
-    this.setState({
-      name:'',
-      text:''
-    });
-  },
-  render: function () {
-    return (
-      <form className="commentForm" onSubmit={this.handleSubmit}>
-        <input placeholder="Your name" value={this.state.name} onChange={this.updateField.bind(this, 'name')}/>
-        <input placeholder="Say something..."
-          value={this.state.text} onChange={this.updateField.bind(this, 'text')}
-        />
-        <input type="submit" value="Post" />
-      </form>
-    );
-  }
-});
-
-var database=[
-  {
-    author: '作者 1',
-    text: '评论 1,' + Date.now()
-  },
-  {
-    author: '作者 2',
-    text: ' *评论 2,' + Date.now() + '* '
-  }
-];
-
-var CommentBox = React.createClass({
-  loadCommentsFromServer: function () {
-    var self = this;
-    $.ajax({
-      url: this.props.url,
-      method:'post',
-      dataType:'json',
-      data: {
-        json:JSON.stringify({
-          data:database
-        })
-      },
-      success(res) {
-      console.log(res)
-        self.setState({data: res.data})
-      }
-    });
-  },
-  getInitialState: function () {
-    return {data: []};
-  },
-  handlePost(){
-
-  },
-  componentDidMount: function () {
-    this.loadCommentsFromServer();
-  },
-  render: function () {
-    return (
-      <div className="commentBox">
-        <h1>Comments</h1>
-        <CommentList data={this.state.data} />
-        <CommentForm onPost={this.handlePost}/>
-      </div>
-    );
-  }
-});
-
-
-
-React.render(
-  <CommentBox url="/echo/json/" />,
-  document.getElementById('container')
-);
-```
-### 10.10 最后：通知重新渲染
-```
-var Comment = React.createClass({
-  render: function () {
-    var rawMarkup = marked(this.props.children.toString(), {sanitize: true});
-    return (
-      <div className="comment">
-        <h2 className="commentAuthor">
-          {this.props.author}
-        </h2>
-        <span dangerouslySetInnerHTML={{__html: rawMarkup}} />
-      </div>
-    );
-  }
-});
-
-var CommentList = React.createClass({
-  render: function () {
-    var commentNodes = this.props.data.map(function (comment) {
-      return (
-        <Comment author={comment.author}>
-          {comment.text}
-        </Comment>
-      );
-    });
-    return (
-      <div className="commentList">
-        {commentNodes}
-      </div>
-    );
-  }
-});
-
-var CommentForm = React.createClass({
-  getInitialState() {
-    return {
-      name: '',
-      text: ''
-    }
-  },
-  updateField(field, e) {
-    var state = {};
-    state[field] = e.target.value;
-    this.setState(state);
-  },
-  handleSubmit(e){
-    e.preventDefault();
-    this.props.onPost({
-      author:this.state.name,
-      text:this.state.text
-    });
-    this.setState({
-      name:'',
-      text:''
-    });
-  },
-  render: function () {
-    return (
-      <form className="commentForm" onSubmit={this.handleSubmit}>
-        <input placeholder="Your name" value={this.state.name} onChange={this.updateField.bind(this, 'name')}/>
-        <input placeholder="Say something..."
-          value={this.state.text} onChange={this.updateField.bind(this, 'text')}
-        />
-        <input type="submit" value="Post" />
-      </form>
-    );
-  }
-});
-
-var database=[
-  {
-    author: '作者 1',
-    text: '评论 1,' + Date.now()
-  },
-  {
-    author: '作者 2',
-    text: ' *评论 2,' + Date.now() + '* '
-  }
-];
-
-var CommentBox = React.createClass({
-  loadCommentsFromServer: function () {
-    var self = this;
-    $.ajax({
-      url: this.props.url,
-      method:'post',
-      dataType:'json',
-      data: {
-        json:JSON.stringify({
-          data:database
-        })
-      },
-      success(res) {
-        self.setState({data: res.data})
-      }
-    });
-  },
-  getInitialState: function () {
-    return {data: []};
-  },
-  handlePost(post){
-    database.push(post);
-    this.loadCommentsFromServer();
-  },
-  componentDidMount: function () {
-    this.loadCommentsFromServer();
-  },
-  render: function () {
-    return (
-      <div className="commentBox">
-        <h1>Comments</h1>
-        <CommentList data={this.state.data} />
-        <CommentForm onPost={this.handlePost}/>
-      </div>
-    );
-  }
-});
-
-
-
-React.render(
-  <CommentBox url="/echo/json/" />,
-  document.getElementById('container')
-);
 ```
 
 ## 基础部分完结寄语

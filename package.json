@@ -1,5 +1,5 @@
 {
-    "name": "MyTechBook",
+    "name": "YOFFE",
     "version": "0.3.1",
     "description": "Welcome To GuoYongfeng's Blog",
     "keywords": [
@@ -30,7 +30,8 @@
                     "React技术分享.md",
                     "React编码规范.md",
                     "Webpack配置详细指南.md",
-                    "React基础知识详解.md"
+                    "React基础知识详解.md",
+                    "一步步搭建一个评论应用.md"
                 ]
             },
             {

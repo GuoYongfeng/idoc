@@ -1,5 +1,7 @@
 ## Webpack配置详细指南
 
+> 强力推荐的基于Webpack的脚手架项目：https://github.com/GuoYongfeng/webpack-dev-boilerplate
+
 这是一本教你如何应用webpack到你的项目中的工具书。它包含了实际项目中用到的绝大多数的内容。
 
 我的建议：这个教程作为你第一个`webpack`的文档，学习完以后去看它的官方文档，了解更详细的说明。
@@ -47,7 +49,7 @@ module.exports = {
   * `webpack --watch` 开发环境下持续的监听文件变动来进行编译(非常快!)
   * `webpack -d` 引入 source maps
   * `webpack --progress` 显示构建进度
-  * `webpack --display-error-details` 这个很有用，显示打包过程中的出错信息 
+  * `webpack --display-error-details` 这个很有用，显示打包过程中的出错信息
 
 ## 4. 编译js
 

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>YOFFE</title>
+        
+    <link rel="stylesheet" type="text/css" href="../../static/css/main.css">
+</head>
+<body>
+<div class="navbar navbar-line">
+    <div class="container">
+        <div class="logo">
+            
+                YOFFE
+            
+        </div>
+        <input type="checkbox" id="idoc_nav" />
+        <div class="menu_tree">
+        <ul><li><a href="../../index.html">首页</a></li><li><a href="#"><span></span>React课程专题</a><ul><li><a href="../../html/React课程专题/React学习指南.html">React学习指南</a></li><li><a href="../../html/React课程专题/搭建基本环境.html">搭建基本环境</a></li><li><a href="../../html/React课程专题/增强Webpack配置.html">增强Webpack配置</a></li><li><a href="../../html/React课程专题/ES6语法快餐.html">ES6语法快餐</a></li><li><a href="../../html/React课程专题/React技术分享.html">React技术分享</a></li><li><a href="../../html/React课程专题/React编码规范.html">React编码规范</a></li><li><a href="../../html/React课程专题/Webpack配置详细指南.html">Webpack配置详细指南</a></li><li><a href="../../html/React课程专题/React基础知识详解.html">React基础知识详解</a></li><li><a href="../../html/React课程专题/一步步搭建一个评论应用.html">一步步搭建一个评论应用</a></li><li><a href="../../html/React课程专题/github-notetaker应用开发.html">github-notetaker应用开发</a></li><li class="active"><a href="../../html/React课程专题/React-AJAX的最佳实践.html">React-AJAX的最佳实践</a></li></ul></li><li><a href="#"><span></span>前沿观察</a><ul><li><a href="../../html/前沿观察/ECMAScript 6入门.html">ECMAScript 6入门</a></li><li><a href="../../html/前沿观察/Immutable详解及React中实践.html">Immutable详解及React中实践</a></li><li><a href="../../html/前沿观察/Node.js MVC框架ThinkJS.html">Node.js MVC框架ThinkJS</a></li><li><a href="../../html/前沿观察/Nodejs 5.0.0版本.html">Nodejs 5.0.0版本</a></li><li><a href="../../html/前沿观察/关系型数据库PostgreSQL.html">关系型数据库PostgreSQL</a></li><li><a href="../../html/前沿观察/轻型MVVM框架Vue.js.html">轻型MVVM框架Vue.js</a></li><li><a href="../../html/前沿观察/基于nodejs的开发框架koa.html">基于nodejs的开发框架koa</a></li></ul></li><li><a href="#"><span></span>前端工程化</a><ul><li><a href="../../html/前端工程化/前端模板.html">前端模板</a></li><li><a href="../../html/前端工程化/性能优化和前端工程的爱恨情仇.html">性能优化和前端工程的爱恨情仇</a></li><li><a href="../../html/前端工程化/webpack入门及实践.html">webpack入门及实践</a></li><li><a href="../../html/前端工程化/前端工程化不完全装逼指南.html">前端工程化不完全装逼指南</a></li></ul></li><li><a href="#"><span></span>性能优化</a><ul><li><a href="../../html/性能优化/jshint代码质量检测.html">jshint代码质量检测</a></li><li><a href="../../html/性能优化/jshint配置说明.html">jshint配置说明</a></li><li><a href="../../html/性能优化/NC性能优化.html">NC性能优化</a></li><li><a href="../../html/性能优化/性能优化待办事项.html">性能优化待办事项</a></li><li><a href="../../html/性能优化/性能优化点总结.html">性能优化点总结</a></li></ul></li><li><a href="#"><span></span>技术分享</a><ul><li><a href="../../html/技术分享/学习Git.html">学习Git</a></li><li><a href="../../html/技术分享/面向对象.html">面向对象</a></li><li><a href="../../html/技术分享/Node.js知识详解.html">Node.js知识详解</a></li><li><a href="../../html/技术分享/2015年大前端技术年终总结.html">2015年大前端技术年终总结</a></li><li><a href="../../html/技术分享/Nodejs环境配置和Git基本配置.html">Nodejs环境配置和Git基本配置</a></li></ul></li><li><a href="#"><span></span>团队</a><ul><li><a href="../../html/团队/新员工入职指南.html">新员工入职指南</a></li><li><a href="../../html/团队/笔试面试大纲.html">笔试面试大纲</a></li><li><a href="../../html/团队/项目技术栈规划.html">项目技术栈规划</a></li></ul></li><li><a href="../../html/CONTACT.html">CONTACT</a></li></ul>    
+        </div>
+        
+        
+        <div class="forkgithub"><a target="_blank" href="https://github.com/GuoYongfeng">fork on github</a></div>
+        
+
+        <section class="idoc_nav_btn">
+            <label for="idoc_nav"><span></span></label>
+        </section>
+    </div>
+    
+</div>
+
+
+
+
+<div class="container">
+
+    <div class="page-toc">
+        <ul><li><a href="#t0React-AJAX的最佳实践">React-AJAX的最佳实践</a><ul><li><a href="#t11.四种方式">1.四种方式</a><ul><li><a href="#t21.1 Root Component">1.1 Root Component</a></li><li><a href="#t31.2 Container Component">1.2 Container Component</a></li><li><a href="#t41.3 Redux Async Actions">1.3 Redux Async Actions</a></li><li><a href="#t51.4 Relay">1.4 Relay</a></li></ul></li></ul></li></ul>
+    </div>
+    
+    <div class="content markdown-body">
+        <h1 id="t0React-AJAX&#x7684;&#x6700;&#x4F73;&#x5B9E;&#x8DF5;">React-AJAX&#x7684;&#x6700;&#x4F73;&#x5B9E;&#x8DF5; <a href="#t0React-AJAX&#x7684;&#x6700;&#x4F73;&#x5B9E;&#x8DF5;"> # </a></h1>
+<p>&#x5F53;&#x4F60;&#x95EE;&#x5173;&#x4E8E;React&#x548C;AJAX&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x4E13;&#x5BB6;&#x4EEC;&#x544A;&#x8BC9;&#x4F60;&#x7684;&#x7B2C;&#x4E00;&#x4EF6;&#x4E8B;&#x5C31;&#x662F;React&#x53EA;&#x662F;&#x4E00;&#x4E2A;view library&#xFF0C;&#x800C;&#x4E14;React&#x6CA1;&#x6709;networking/AJAX&#x7684;&#x7279;&#x6027;&#x3002;</p>
+<p>&#x6211;&#x4EEC;&#x90FD;&#x77E5;&#x9053;&#x4F46;&#x4E0D;&#x662F;&#x7279;&#x522B;&#x6709;&#x5E2E;&#x52A9;&#x7684;&#x662F;&#xFF0C;&#x5F53;&#x6211;&#x4EEC;&#x53EA;&#x60F3;&#x4ECE;&#x670D;&#x52A1;&#x7AEF;&#x62FF;&#x5230;&#x6570;&#x636E;&#x4F20;&#x9012;&#x7ED9;React Components&#x3002;</p>
+<p>&#x4E8B;&#x5B9E;&#x662F;&#xFF0C;&#x6211;&#x4EEC;&#x4F1A;&#x6709;&#x5F88;&#x591A;&#x65B9;&#x6CD5;&#x6765;&#x5B9E;&#x73B0;&#x3002;&#x4F60;&#x81EA;&#x5DF1;&#x53EF;&#x80FD;&#x5DF2;&#x7ECF;&#x6709;&#x5F88;&#x591A;&#x79CD;&#x65B9;&#x6CD5;&#x4E86;&#xFF0C;&#x4F46;&#x5982;&#x679C;&#x4F60;&#x9009;&#x62E9;&#x4E86;&#x4E00;&#x79CD;&#x9519;&#x8BEF;&#x7684;&#x65B9;&#x5F0F;&#xFF0C;&#x4F60;&#x7684;&#x4EE3;&#x7801;&#x4F1A;&#x53D8;&#x5F97;&#x5F88;&#x6DF7;&#x4E71;&#x3002;</p>
+<p>&#x6240;&#x4EE5;&#x4F60;&#x662F;&#x60F3;&#x77E5;&#x9053;&#xFF1A;&#x6B63;&#x786E;&#x7684;&#x6216;&#x662F;&#x6700;&#x4F73;&#x7684;&#x5B9E;&#x73B0;&#x65B9;&#x5F0F;&#x662F;&#x4EC0;&#x4E48;&#x5462;&#xFF1F;</p>
+<blockquote>
+<p>&#x4ECE;&#x670D;&#x52A1;&#x7AEF;&#x83B7;&#x53D6;&#x6570;&#x636E;&#x4F20;&#x9012;&#x7ED9;React components&#x7684;&#x6700;&#x4F73;&#x5B9E;&#x8DF5;&#x662F;&#x4EC0;&#x4E48;&#x5462;&#xFF1F;</p>
+</blockquote>
+<p>&#x7B54;&#x6848;&#x662F;&#xFF0C;&#x53D6;&#x51B3;&#x4E8E;&#x4EE5;&#x4E0B;&#x51E0;&#x70B9;&#xFF1A;</p>
+<h2 id="t11.&#x56DB;&#x79CD;&#x65B9;&#x5F0F;">1.&#x56DB;&#x79CD;&#x65B9;&#x5F0F; <a href="#t11.&#x56DB;&#x79CD;&#x65B9;&#x5F0F;"> # </a></h2>
+<p>&#x6211;&#x8FD9;&#x79CD;&#x6536;&#x96C6;&#x6574;&#x7406;&#x4E86;&#x56DB;&#x79CD;&#x4F7F;&#x7528;AJAX&#x548C;React&#x7684;&#x65B9;&#x6CD5;&#x3002;</p>
+<p>&#x6BCF;&#x4E00;&#x79CD;&#x65B9;&#x5F0F;&#x90FD;&#x53D6;&#x51B3;&#x4E8E;&#x4F60;&#x76EE;&#x524D;&#x6240;&#x5F00;&#x53D1;&#x5E94;&#x7528;&#x7684;&#x89C4;&#x6A21;&#x548C;&#x590D;&#x6742;&#x5EA6;&#xFF0C;&#x540C;&#x65F6;&#x4E5F;&#x53D6;&#x51B3;&#x4E8E;&#x4F60;&#x76EE;&#x524D;&#x5DF2;&#x7ECF;&#x4F7F;&#x7528;&#x7684;&#x7C7B;&#x5E93;&#x6216;&#x6280;&#x672F;&#x3002;</p>
+<ol>
+<li>Root Component</li>
+<li>Container Component</li>
+<li>Redux Async Actions</li>
+<li>Relay</li>
+</ol>
+<h3 id="t21.1 Root Component">1.1 Root Component <a href="#t21.1 Root Component"> # </a></h3>
+<p>&#x8FD9;&#x662F;&#x6700;&#x7B80;&#x5355;&#x7684;&#x65B9;&#x6CD5;&#xFF0C;&#x9002;&#x7528;&#x4E8E;&#x539F;&#x578B;&#x793A;&#x4F8B;&#x9879;&#x76EE;&#x6216;&#x662F;&#x5C0F;&#x578B;&#x7684;&#x5E94;&#x7528;&#x3002;</p>
+<h3 id="t31.2 Container Component">1.2 Container Component <a href="#t31.2 Container Component"> # </a></h3>
+<h3 id="t41.3 Redux Async Actions">1.3 Redux Async Actions <a href="#t41.3 Redux Async Actions"> # </a></h3>
+<h3 id="t51.4 Relay">1.4 Relay <a href="#t51.4 Relay"> # </a></h3>
+
+        <div class="copyright">Powered by <a href="https://github.com/jaywcjlove/idoc" target="_blank">idoc</a>. Dependence <a href="https://nodejs.org">Node.js</a> run.</div>
+    </div>
+
+</div>
+
+
+</body>
+</html>

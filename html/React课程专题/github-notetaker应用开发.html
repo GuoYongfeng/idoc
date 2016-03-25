@@ -425,9 +425,93 @@ export default class Notes extends Component {
 </code></pre><h2 id="t87.&#x63A5;&#x5165;&#x771F;&#x5B9E;&#x7684;&#x6570;&#x636E;">7.&#x63A5;&#x5165;&#x771F;&#x5B9E;&#x7684;&#x6570;&#x636E; <a href="#t87.&#x63A5;&#x5165;&#x771F;&#x5B9E;&#x7684;&#x6570;&#x636E;"> # </a></h2>
 <p>&#x4E3A;&#x4E86;&#x63A5;&#x5165;&#x771F;&#x5B9E;&#x7684;&#x6570;&#x636E;&#xFF0C;&#x8FD9;&#x91CC;&#x6211;&#x4EEC;&#x5C06;&#x7528;&#x5230;&#x51E0;&#x4E2A;&#x65B0;&#x7684;&#x77E5;&#x8BC6;&#x70B9;&#xFF1A;</p>
 <ul>
-<li>reactfire:</li>
+<li><a href="https://www.firebase.com/docs/web/quickstart.html">firebase</a>&#xFF1A;&#x662F;&#x4E00;&#x4E2A;&#x6570;&#x636E;&#x540C;&#x6B65;&#x7684;&#x4E91;&#x670D;&#x52A1;&#xFF0C;&#x5E2E;&#x52A9;&#x5F00;&#x53D1;&#x8005;&#x5F00;&#x53D1;&#x5177;&#x6709;&#x300C;&#x5B9E;&#x65F6;&#x300D;&#xFF08;Real-Time&#xFF09;&#x7279;&#x6027;&#x7684;&#x5E94;&#x7528;&#xFF0C;&#x8BA9;&#x6211;&#x4EEC;&#x5B9E;&#x73B0;&#x771F;&#x6B63;&#x7684;&#x65E0;&#x540E;&#x7AEF;&#x7F16;&#x7A0B;&#xFF0C;&#x6709;&#x6728;&#x6709;&#x5F88;&#x5389;&#x5BB3;&#xFF0C;&#x554A;&#x54C8;&#x54C8;...</li>
+<li>reactfire: &#x4E00;&#x4E2A;react&#x7684;mixin&#x5E93;&#xFF0C;&#x5C01;&#x88C5;&#x4E86;&#x516D;&#x4E2A;&#x7EC4;&#x4EF6;&#x516C;&#x5171;&#x7684;&#x65B9;&#x6CD5;(bindAsArray,unbind,bindAsObject...)&#xFF0C;&#x4E13;&#x95E8;&#x7528;&#x4E8E;&#x5904;&#x7406;React&#x548C;Firebase&#x96C6;&#x6210;&#x7684;mixin&#x65B9;&#x6CD5;&#xFF0C;&#x51E0;&#x884C;&#x4EE3;&#x7801;&#x8F7B;&#x677E;&#x83B7;&#x53D6;&#x6570;&#x636E;&#xFF0C;&#x53FC;&#x70B8;&#x5929;...</li>
 </ul>
+<p>&#x9996;&#x5148;&#x4E0B;&#x8F7D;&#x8FD9;&#x4E24;&#x4E2A;&#x5E93;</p>
+<pre><code>$ npm install --save reactfire firebase
+</code></pre><p>&#x7136;&#x540E;&#x5728;&#x4EE3;&#x7801;&#x4E2D;&#x5F15;&#x5165;&#xFF1A;</p>
+<pre><code>import ReactFireMixin from &apos;reactfire&apos;;
+import Firebase from &apos;firebase&apos;;
+</code></pre><p>&#x5176;&#x4E2D;&#x63D0;&#x5230;reactfire&#x662F;&#x4E00;&#x4E2A;mixin&#x5E93;&#xFF0C;&#x4F46;&#x662F;&#x6211;&#x4EEC;&#x76EE;&#x524D;&#x4F7F;&#x7528;&#x7684;&#x662F;ES6&#x8BED;&#x6CD5;&#x5199;&#x7684;&#xFF0C;&#x800C;&#x4E0D;&#x5E78;&#x7684;&#x662F;&#xFF0C;ES6&#x4E0D;&#x652F;&#x6301;mixin&#x7684;&#x5199;&#x6CD5;&#xFF0C;&#x6240;&#x4EE5;&#xFF0C;&#x6211;&#x4EEC;&#x53EA;&#x80FD;&#x60F3;&#x5176;&#x4ED6;&#x7684;&#x529E;&#x6CD5;&#xFF0C;&#x60F3;&#x77E5;&#x9053;&#x66F4;&#x591A;&#x8BF7;&#x770B;<a href="http://zhuanlan.zhihu.com/purerender/20361937">&#x8FD9;&#x91CC;</a>.</p>
+<p>&#x770B;&#x5B8C;&#x8FD9;&#x7BC7;&#x6587;&#x7AE0;&#x540E;&#xFF0C;&#x6211;&#x89C9;&#x5F97;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x7528;decorator&#x6765;&#x5B9E;&#x73B0;mixin&#x7684;&#x5199;&#x6CD5;&#xFF0C;&#x6BD4;&#x5982;&#x5728;&#x4EE3;&#x7801;&#x4E2D;&#x8FD9;&#x6837;&#x5199;&#xFF1A;</p>
+<pre><code>function testable(target) {
+  target.isTestable = true;
+}
 
+@testable
+class MyTestableClass {}
+
+console.log(MyTestableClass.isTestable) // true
+</code></pre><p>&#x6211;&#x4EEC;&#x63A5;&#x7740;&#x4F7F;&#x7528;core-decorators&#x63D0;&#x4F9B;&#x7684;mixin&#x6765;&#x505A;&#x91CD;&#x7528;&#x6A21;&#x5757;&#x7684;&#x53E0;&#x52A0;&#xFF0C;&#x9996;&#x5148;&#x4E0B;&#x8F7D;&#xFF1A;</p>
+<pre><code>$ npm install --save core-decorators
+</code></pre><p>&#x7136;&#x540E;&#x5728;&#x4EE3;&#x7801;&#x4E2D;&#x5F15;&#x5165;&#x8FD9;&#x6837;&#x5C31;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;&#x4E86;</p>
+<pre><code>import { mixin } from &apos;core-decorators&apos;;
+
+@mixin(ReactFireMixin)
+class Profile extends Component {
+ ...
+}
+</code></pre><p>&#x8FD9;&#x8FD8;&#x6CA1;&#x5B8C;&#x6210;&#xFF0C;&#x6211;&#x4EEC;&#x76EE;&#x524D;&#x4F7F;&#x7528;&#x7684;&#x662F;decorator&#xFF0C;&#x4F46;&#x662F;&#x6D4F;&#x89C8;&#x5668;&#x4E0D;&#x652F;&#x6301;&#x8FD9;&#x4E2A;&#x5199;&#x6CD5;&#x554A;&#xFF0C;&#x600E;&#x4E48;&#x529E;&#xFF0C;&#x6211;&#x4EEC;&#x8BA9;babel&#x6765;&#x7F16;&#x8BD1;&#x89E3;&#x51B3;&#x8FD9;&#x4E2A;&#x95EE;&#x9898;&#x5427;&#x3002;&#x9996;&#x5148;&#x9700;&#x8981;&#x4E0B;&#x8F7D;&#x4E00;&#x4E2A;&#x80FD;&#x89E3;&#x6790;decorator&#x7684;babel&#x63D2;&#x4EF6;&#xFF0C;&#x7136;&#x540E;&#x5728;.babelrc&#x91CC;&#x9762;&#x914D;&#x7F6E;&#xFF1A;</p>
+<pre><code>$ npm install babel-plugin-transform-decorators-legacy --save-dev
+</code></pre><p>&#x914D;&#x7F6E;.babrelrc</p>
+<pre><code>{
+  &quot;presets&quot;: [&quot;es2015&quot;, &quot;stage-0&quot;, &quot;react&quot;],
+  &quot;plugins&quot;: [&quot;transform-runtime&quot;, &quot;transform-decorators-legacy&quot;]
+}
+</code></pre><p>so&#xFF0C;&#x76EE;&#x524D;&#x4E3A;&#x6B62;&#xFF0C;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x5728;&#x4EE3;&#x7801;&#x4E2D;&#x4F7F;&#x7528;reactfire&#x8FD9;&#x4E2A;mixin&#x7C7B;&#x5E93;&#x4EE5;&#x53CA;decorator&#x8BED;&#x6CD5;&#x3002;</p>
+<p>&#x73B0;&#x5728;&#x8D34;&#x51FA;Profile&#x7EC4;&#x4EF6;&#x5B8C;&#x6574;&#x7684;&#x4EE3;&#x7801;&#xFF1A;</p>
+<pre><code>import React, { Component } from &apos;react&apos;;
+import { UserProfile, UserRepos, Notes } from &apos;../../components&apos;;
+import { mixin } from &apos;core-decorators&apos;;
+import ReactFireMixin from &apos;reactfire&apos;;
+import Firebase from &apos;firebase&apos;;
+
+@mixin(ReactFireMixin)
+class Profile extends Component {
+  state = {
+    notes: [&apos;1&apos;, &apos;2&apos;, &apos;3&apos;],
+    bio: {
+      name: &apos;guoyongfeng&apos;
+    },
+    repos: [&apos;a&apos;, &apos;b&apos;, &apos;c&apos;]
+  }
+  componentDidMount(){
+    // &#x4E3A;&#x4E86;&#x8BFB;&#x5199;&#x6570;&#x636E;&#xFF0C;&#x6211;&#x4EEC;&#x9996;&#x5148;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;firebase&#x6570;&#x636E;&#x5E93;&#x7684;&#x5F15;&#x7528;
+    this.ref = new Firebase(&apos;https://github-note-taker.firebaseio.com/&apos;);
+    // &#x8C03;&#x7528;child&#x6765;&#x5F80;&#x5F15;&#x7528;&#x5730;&#x5740;&#x540E;&#x9762;&#x8FFD;&#x52A0;&#x8BF7;&#x6C42;&#xFF0C;&#x83B7;&#x53D6;&#x6570;&#x636E;
+    var childRef = this.ref.child(this.props.params.username);
+    // &#x5C06;&#x83B7;&#x53D6;&#x7684;&#x6570;&#x636E;&#x8F6C;&#x6362;&#x6210;&#x6570;&#x7EC4;&#x5E76;&#x4E14;&#x8D4B;&#x7ED9;this.state.notes
+    this.bindAsArray(childRef, &apos;notes&apos;);
+  }
+  componentWillUnMount(){
+    this.unbind(&apos;notes&apos;);
+  }
+  render(){
+    return (
+      &lt;div className=&quot;row&quot;&gt;
+        &lt;div className=&quot;col-md-4&quot;&gt;
+          &lt;UserProfile
+            username={this.props.params.username}
+            bio={this.state.bio} /&gt;
+        &lt;/div&gt;
+        &lt;div className=&quot;col-md-4&quot;&gt;
+          &lt;UserRepos
+            username={this.props.params.username}
+            repos={this.state.repos} /&gt;
+        &lt;/div&gt;
+        &lt;div className=&quot;col-md-4&quot;&gt;
+          &lt;Notes
+            username={this.props.params.username}
+            notes={this.state.notes} /&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    )
+  }
+}
+
+export default Profile
+</code></pre>
         <div class="copyright">Powered by <a href="https://github.com/jaywcjlove/idoc" target="_blank">idoc</a>. Dependence <a href="https://nodejs.org">Node.js</a> run.</div>
     </div>
 

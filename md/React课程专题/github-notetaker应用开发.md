@@ -1,5 +1,7 @@
 # github-notetaker应用开发
 
+> 本次课程的完整代码在这里：https://github.com/GuoYongfeng/github-notetaker-app
+
 ## 0.介绍 INTRODUCTION
 
 我们计划用最近所学的技术知识来完成一个完整且实用的功能应用，这个应用具有以下功能：

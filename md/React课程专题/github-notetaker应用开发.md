@@ -590,7 +590,7 @@ $ npm install babel-plugin-transform-decorators-legacy --save-dev
 
 so，目前为止，我们可以在代码中使用reactfire这个mixin类库以及decorator语法。
 
-现在贴出Profile组件完整的代码：
+现在贴出Profile组件完整的代码：`app/containers/Profile/Profile.jsx`
 ```
 import React, { Component } from 'react';
 import { UserProfile, UserRepos, Notes } from '../../components';
@@ -644,3 +644,361 @@ class Profile extends Component {
 export default Profile
 
 ```
+
+现在通过firebase获取的是notes的数据，我们到Notes组件来看一下传过来的是什么数据.
+代码清单：`app/components/Notes/Notes.jsx`
+
+```
+import React, { Component } from 'react';
+
+export default class Notes extends Component {
+  render(){
+    console.log('notes:', this.props.notes);
+
+    return (
+      <div>
+        <p> 评论 </p>
+      </div>
+    )
+  }
+}
+
+```
+
+数据是长这样子的：
+
+<img src="/img/notetaker/firebase.png" />
+
+## 8.评论列表组件NoteList
+
+评论的数据拿到了，我们创建一个展示评论数据的组件NoteList，并且在Notes组件中调用
+```
+$ cd app/components/Notes && touch NoteList.jsx
+```
+
+ok，我们在Notes组件中使用NoteList，并将获取的notes数据传给它；
+```
+import React, { Component } from 'react';
+import NoteList from './NoteList.jsx';
+
+export default class Notes extends Component {
+  render(){
+    console.log('notes:', this.props.notes);
+
+    return (
+      <div>
+        <p> 对{this.props.username}评论： </p>
+        <NoteList notes={this.props.notes} />
+      </div>
+    )
+  }
+}
+
+```
+
+然后封装NoteList组件
+```
+import React, { Component } from 'react';
+
+export default class NoteList extends Component {
+  render(){
+    let notes = this.props.notes.map((note, index) => {
+      return <li className="list-group-item" key={index}>{note['.value']}</li>
+    })
+    return (
+      <ul className="list-group">
+        {notes}
+      </ul>
+    )
+  }
+}
+
+```
+
+现在，我们可以在浏览器中看到展示真实数据的Notes组件
+
+<img src="/img/notetaker/notelist.png" />
+
+## 9.为组件添加PropTypes接口约束
+
+代码清单；`app/components/Notes/Notes.jsx`
+
+```
+import React, { Component, PropTypes } from 'react';
+import NoteList from './NoteList.jsx';
+
+export default class Notes extends Component {
+  static propTypes = {
+    username: PropTypes.string.isRequired,
+    notes: PropTypes.array.isRequired
+  }
+  render(){
+    console.log('notes:', this.props.notes);
+
+    return (
+      <div>
+        <p> 对{this.props.username}评论： </p>
+        <NoteList notes={this.props.notes} />
+      </div>
+    )
+  }
+}
+
+```
+
+代码清单；`app/components/UserRepos/UserRepos.jsx`
+
+```
+import React, { Component, PropTypes } from 'react';
+
+export default class UserRepos extends Component {
+  static propTypes = {
+    username: PropTypes.string.isRequired,
+    repos: PropTypes.array.isRequired
+  }
+  render(){
+    return (
+      <div>
+        <p> GIT仓库 </p>
+        <p> REPOS: {this.props.repos}</p>
+      </div>
+    )
+  }
+}
+
+```
+
+代码清单；`app/components/UserProfile/UserProfile.jsx`
+
+```
+import React, { Component, PropTypes } from 'react';
+
+export default class UserProfile extends Component {
+  static propTypes = {
+    username: PropTypes.string.isRequired,
+    bio: PropTypes.object.isRequired
+  }
+  render(){
+    return (
+      <div>
+        <p> 基本信息 </p>
+        <p> 姓名: {this.props.username} </p>
+        <p> 介绍：{this.props.bio.name}</p>
+      </div>
+    )
+  }
+}
+
+```
+
+## 10.使用axios请求github API的数据
+
+> [axios](https://github.com/mzabriskie/axios): Promise based HTTP client for the browser and node.js
+> axios是一个能同时运行于浏览器端和nodejs的AJAX/HTTP方法/库
+
+
+我们将用axios来请求github API的接口数据，用于组件的展示。下载：
+```
+$ npm install --save axios
+```
+
+首先写一个公共的工具函数来请求github上用户信息和仓库信息相关的数据。
+
+```
+$ cd app && mdkir util
+$ cd util && touch helpers.js
+```
+
+代码清单：`app/util/helper.js`
+```
+import axios from 'axios'
+
+// axios用法很简单，请参考这里：https://github.com/mzabriskie/axios
+
+/**
+ * 传入用户名，获取用户的github上仓库信息
+ * @param  {[type]} username [description]
+ * @return {[type]}          [description]
+ */
+function getRepos(username){
+  // 这里使用了 ES6 的字符串模板
+  return axios.get(`https://api.github.com/users/${username}/repos`);
+}
+
+/**
+ * 传入用户名，获取用户github上的基本信息
+ * @param  {[type]} username [description]
+ * @return {[type]}          [description]
+ */
+function getUserInfo(username){
+  return axios.get(`https://api.github.com/users/${username}`);
+}
+
+export default function getGithubInfo(username){
+  // 将请求回来的数据做了一个 merge 操作
+  return axios.all([
+    getRepos(username),
+    getUserInfo(username)
+  ])
+  .then((arr) => ({
+      repos: arr[0].data,
+      bio: arr[1].data}
+  ));
+}
+```
+
+现在我们在Profile组件中引入这个工具函数，并且传入用户名，查看返回的数据。
+```
+import React, { Component } from 'react';
+import { UserProfile, UserRepos, Notes } from '../../components';
+import { mixin } from 'core-decorators';
+import ReactFireMixin from 'reactfire';
+import Firebase from 'firebase';
+import getGithubInfo from '../../util/helper';
+
+@mixin(ReactFireMixin)
+class Profile extends Component {
+  state = {
+    notes: ['1', '2', '3'],
+    bio: {
+      name: 'guoyongfeng'
+    },
+    repos: ['a', 'b', 'c']
+  }
+  componentDidMount(){
+    // 为了读写数据，我们首先创建一个firebase数据库的引用
+    this.ref = new Firebase('https://github-note-taker.firebaseio.com/');
+    // 调用child来往引用地址后面追加请求，获取数据
+    var childRef = this.ref.child(this.props.params.username);
+    // 将获取的数据转换成数组并且赋给this.state.notes
+    this.bindAsArray(childRef, 'notes');
+
+    getGithubInfo( this.props.params.username )
+      .then( ( data ) => {
+        // 测试一下传入用户名后返回的数据
+        console.log( data );
+        // 更新state数据
+        this.setState({
+          bio: data.bio,
+          repos: data.repos
+        })
+      });
+  }
+  componentWillUnMount(){
+    this.unbind('notes');
+  }
+  render(){
+    return (
+      <div className="row">
+        <div className="col-md-4">
+          <UserProfile
+            username={this.props.params.username}
+            bio={this.state.bio} />
+        </div>
+        <div className="col-md-4">
+          <UserRepos
+            username={this.props.params.username}
+            repos={this.state.repos} />
+        </div>
+        <div className="col-md-4">
+          <Notes
+            username={this.props.params.username}
+            notes={this.state.notes} />
+        </div>
+      </div>
+    )
+  }
+}
+
+export default Profile
+
+```
+
+这里运行的时候会有个报错，以为之前在UserRepos组件中有这样一行代码：
+```
+<p> REPOS: {this.props.repos}</p>
+```
+repos是一个对象数组，直接展示会报错，暂时先去掉这行代码。
+
+然后看浏览器返回的数据。
+
+<img src="/img/notetaker/github-data.png" />
+
+## 11.将数据传入组件进行展示
+
+从第10步我们已经妥妥的把数据取回来了，那么接下来的事情将变得轻松，我们这需要将数据传入组件，修改组件的UI进行展示即可。甚至，你完全可以做个和github官网一样漂亮的首页。let's do it....
+
+首先，来完善一下UserRepos组件吧
+代码清单：`app/components/UserRepos/UserRepos.jsx`
+```
+import React, { Component, PropTypes } from 'react';
+
+export default class UserRepos extends Component {
+  static propTypes = {
+    username: PropTypes.string.isRequired,
+    repos: PropTypes.array.isRequired
+  }
+  render(){
+    console.log('repos:', this.props.repos);
+
+    let repos = this.props.repos.map( (repo, index ) => {
+      return (
+        <li className="list-group-item" key={index}>
+          {repo.html_url && <h4><a href={repo.html_url}>{repo.name}</a></h4>}
+          {repo.description && <p>{repo.description}</p>}
+        </li>
+      )
+    });
+
+    return <div>
+      <h3> 用户的 Git 仓库 </h3>
+      <ul className="list-group">
+        {repos}
+      </ul>
+    </div>
+  }
+}
+
+```
+
+然后，完善一下UserProfile组件，代码清单：`app/components/UserProfile/UserProfile.jsx`
+
+```
+import React, { Component, PropTypes } from 'react';
+
+export default class UserProfile extends Component {
+  static propTypes = {
+    username: PropTypes.string.isRequired,
+    bio: PropTypes.object.isRequired
+  }
+  render(){
+    let bio = this.props.bio;
+    return (
+      <div>
+        <h3> 用户信息 </h3>
+          {bio.avatar_url && <li className="list-group-item"> <img src={bio.avatar_url} className="img-rounded img-responsive"/></li>}
+          {bio.name && <li className="list-group-item">Name: {bio.name}</li>}
+          {bio.login && <li className="list-group-item">Username: {bio.login}</li>}
+          {bio.email && <li className="list-group-item">Email: {bio.email}</li>}
+          {bio.location && <li className="list-group-item">Location: {bio.location}</li>}
+          {bio.company && <li className="list-group-item">Company: {bio.company}</li>}
+          {bio.followers && <li className="list-group-item">Followers: {bio.followers}</li>}
+          {bio.following && <li className="list-group-item">Following: {bio.following}</li>}
+          {bio.public_repos && <li className="list-group-item">Public Repos: {bio.public_repos}</li>}
+          {bio.blog && <li className="list-group-item">Blog: <a href={bio.blog}> {bio.blog}</a></li>}
+      </div>
+    )
+  }
+}
+
+```
+
+查看一下效果吧
+
+<img src="/img/notetaker/last.png" />
+
+## 结语
+
+完整的示例代码在这里：https://github.com/GuoYongfeng/github-notetaker-app
+
+本次课程内容比较丰富，请按课程步骤执行操作，遇到问题请请issue：https://github.com/GuoYongfeng/github-notetaker-app/issues

@@ -15,11 +15,17 @@
 
 <img src="/img/notetaker/demo.png" />
 
+在看到了这个原型图之后，我们来做一件很重要的事情，使用组件化的思维来解析这个应用需求。
+
+<h3 style="text-align: center;">github-notetaker-app整体组件划分示意图</h3>
+
+<img src="/img/notetaker/notetaker.png" />
+
 ## 1.启动
 首先我们把脚手架项目下载下来并且安装启动
 ```
 $ git clone git@github.com:GuoYongfeng/webpack-dev-boilerplate.git github-notetaker-app
-$ cd github-note-app && npm install
+$ cd github-notetaker-app && npm install
 $ npm run dev
 ```
 
@@ -37,7 +43,8 @@ $ npm run dev
 $ npm install react-router history --save
 ```
 
-简单说一下react-router和history都是用来干嘛的：
+简单说一下react-router和history分别是什么：
+
 - react-router is a complete routing library for React. react-router是一个专为react提供的完整路由库。
 - history is a JavaScript library that lets you easily manage session history anywhere JavaScript runs. history是一个js库，可以让您轻松地管理会话历史。
 
@@ -47,7 +54,6 @@ $ npm install react-router history --save
 ```
 import React from 'react';
 import ReactDOM from 'react-dom';
-// 注意：这里使用的是browserHistory，需要在webpack-dev-server启动的时候加上参数 --history-api-fallback
 import { Router, browserHistory  } from 'react-router';
 import routes from './routes/index.jsx';
 
@@ -70,11 +76,12 @@ $ cd routes && touch index.jsx
 ```
 import React from 'react';
 import { Route, IndexRoute } from 'react-router';
-import { App, Home } from '../containers';
+import { App, Home, About } from '../containers';
 
 export default (
   <Route path="/" component={App}>
     <IndexRoute component={Home} />
+    <Route path="about" component={About} />
   </Route>
 )
 ```
@@ -108,8 +115,9 @@ export default App;
 
 同时，新增一个容器组件Home。
 ```
-$ cd app/containers && mkdir Home
+$ cd app/containers && mkdir Home About
 $ cd Home && touch Home.jsx
+$ cd ../About && touch About.jsx
 ```
 
 代码清单：`app/containers/Home/Home.jsx`
@@ -128,6 +136,22 @@ export default Home;
 
 ```
 
+代码清单：`app/containers/Home/Home.jsx`
+```
+import React, { Component } from 'react';
+
+class About extends Component {
+  render() {
+    return (
+      <h2>content from About Component</h2>
+    );
+  }
+}
+
+export default About;
+
+```
+
 这里我们新增了组件，同时在containers下面的组件索引文件中进行更新。
 代码清单：`app/containers/index.js`
 ```
@@ -135,15 +159,23 @@ export default Home;
 
 export App from './App/App.jsx';
 export Home from './Home/Home.jsx';
+export About from './About/About.jsx';
 ```
 
-初步完成路由的管理，我们接下来在浏览器中查看效果
+初步完成路由的管理，我们先在命令行窗口停止服务，需要修改`package.json`文件，在启动webpack-dev-server的时候加上参数`--history-api-fallback`
+
+> 因为我们这里用的是browserHistory，启动服务的时候加上history-api-fallback用于`enables support for history API fallback.`
+
+好了，重新运行`npm run dev`，我们接下来在浏览器中查看效果.
 
 <img src="/img/notetaker/router1.png" />
 
+
 ## 3.新增头部搜索组件
 
-在新增组件开始，有这么个打算----为了省点懒，也为了快速的写出好看的页面，我们可以把bootstrap用起来。
+在新增组件之前，为了快速的写出好看的页面，我们考虑把bootstrap引入使用。
+
+下载bootstrap
 
 ```
 $ npm install bootstrap --save
@@ -808,7 +840,7 @@ $ npm install --save axios
 
 ```
 $ cd app && mdkir util
-$ cd util && touch helpers.js
+$ cd util && touch helper.js
 ```
 
 代码清单：`app/util/helper.js`
@@ -849,7 +881,10 @@ export default function getGithubInfo(username){
 }
 ```
 
+> 上面的代码中，我们使用axios发送请求到`https://api.github.com`，如果不太清楚通过github API获取数据的话，没关系，请到这里看一下：`https://developer.github.com/v3`。同时访问链接感受下：`https://api.github.com/users/guoyongfeng`。
+
 现在我们在Profile组件中引入这个工具函数，并且传入用户名，查看返回的数据。
+
 ```
 import React, { Component } from 'react';
 import { UserProfile, UserRepos, Notes } from '../../components';

@@ -33,7 +33,9 @@
                     "React基础知识详解.md",
                     "一步步搭建一个评论应用.md",
                     "github-notetaker应用开发.md",
-                    "React-AJAX的最佳实践.md"
+                    "React-AJAX的最佳实践.md",
+                    "React-router路由实践.md",
+                    "理解Flux和Redux等单向数据流实现.md"
                 ]
             },
             {

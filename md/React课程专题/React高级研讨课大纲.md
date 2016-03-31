@@ -15,7 +15,7 @@
 
 ## 5. 课程大纲
 
-<img src="/img/course/react.png" />
+<img src="/img/course/dagang.png" />
 
 ## 6. 学习环境
 
@@ -29,7 +29,7 @@
 
 课程每期收费300元，扫码加入支付宝付费群
 
-<img src="/img/course/zhifubao.jpg" />
+<img src="/img/course/zhifubao.png" />
 
 ## 9. 课程报名
 

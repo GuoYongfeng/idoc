@@ -15,7 +15,9 @@
     "licenses": "MIT",
     "scripts": {
         "build": "idoc build",
-        "deploy": "git push -u origin gh-pages"
+        "ci": "git commit -m 'update'",
+        "push": "git push origin gh-pages",
+        "deploy": "npm run build && npm run commit && npm run push"
     },
     "idoc": {
         "theme": "default",

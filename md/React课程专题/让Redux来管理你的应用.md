@@ -51,18 +51,191 @@ document.addEventListener('click', function( e ){
 
 ```
 
-## 1.掌握 Redux 核心概念
+## 1. reducer
 
-### 01
-- 单一不变的状态树
-- 用action描述你的应用state的改变
-- 只写纯函数pure function
-- Reducer来封装改变state的逻辑
+reducer是一个纯函数，传入state和action，返回一个新的state tree，简单而纯粹的完成某一件具体的事情，没有依赖，简约大气。
 
-### 02
-- 用Reducer写一个counter计数器
-- store提供的API：getState、dispatch、subscribe
+```
+const counter = (state = 0, action) => {
+  switch (action.type) {
+      case 'INCREMENT':
+        return state + 1;
+      case 'DECREMENT':
+        return state - 1;
+      default:
+        return state;
+  }
+}
+```
 
+## 2. store
+
+```
+/* app/index.js */
+// reducer 纯函数，具体的action执行逻辑
+const counter = (state = 0, action) => {
+  switch (action.type) {
+      case 'INCREMENT':
+        return state + 1;
+      case 'DECREMENT':
+        return state - 1;
+      default:
+        return state;
+  }
+}
+
+// 模拟create store，了解其原理
+const createStore = (reducer) => {
+  let state;
+  let listeners = [];
+
+  const getState = () => state;
+
+  const dispatch = (action) => {
+    state = reducer(state, action);
+    listeners.forEach(listener => listener());
+  }
+
+  const subscribe = (listener) => {
+      listeners.push(listener);
+      return () => {
+        listeners = listeners.filter(item => item !== listener);
+      }
+  }
+
+  dispatch({});
+
+  return { getState, dispatch, subscribe };
+}
+
+const store = createStore(counter);
+
+// view 对应到React里面的component
+const PureRender = () => {
+  document.body.innerText = store.getState();
+}
+
+// store subscribe 订阅或是监听view（on）
+store.subscribe(PureRender);
+PureRender();
+
+document.addEventListener('click', function( e ){
+  // store dispatch 调度分发一个 action（fire）
+  store.dispatch({ type: 'DECREMENT'});
+})
+
+```
+
+## 3. Redux 和 React Component的基本结合
+
+使用react-dom进行简单的渲染
+```
+import { createStore } from 'redux';
+import React from 'react';
+import { render } from 'react-dom';
+
+// reducer 纯函数，具体的action执行逻辑
+const counter = (state = 0, action) => {
+  switch (action.type) {
+      case 'INCREMENT':
+        return state + 1;
+      case 'DECREMENT':
+        return state - 1;
+      default:
+        return state;
+  }
+}
+
+const store = createStore(counter);
+
+const Counter = ({value}) => (
+  <h1>{value}</h1>
+)
+
+const PureRender = () => {
+  render(
+      <Counter value={store.getState()} />,
+      document.getElementById('app')
+  )
+}
+
+// store subscribe 订阅或是监听view（on）
+store.subscribe(PureRender);
+PureRender();
+
+```
+
+封装一个组件，将组件和Redux做基本的组合
+```
+import { createStore } from 'redux';
+import React, { Component } from 'react';
+import ReactDOM from 'react-dom';
+
+// reducer 纯函数，具体的action执行逻辑
+const counter = (state = 0, action) => {
+  switch (action.type) {
+      case 'INCREMENT':
+        return state + 1;
+      case 'DECREMENT':
+        return state - 1;
+      default:
+        return state;
+  }
+}
+
+const store = createStore(counter);
+
+// Counter 组件
+class Counter extends Component {
+  render(){
+    return (
+      <div>
+        <h1>{this.props.value}</h1>
+        <button onClick={this.props.onIncrement}>点击加1</button>
+        <button onClick={this.props.onDecrement}>点击减1</button>
+      </div>
+    )
+  }
+}
+
+const PureRender = () => {
+  ReactDOM.render(
+      <Counter
+        value={store.getState()}
+        onIncrement={ () => store.dispatch({type: "INCREMENT"}) }
+        onDecrement={ () => store.dispatch({type: "DECREMENT"}) }
+      />, document.getElementById('app')
+  );
+}
+
+// store subscribe 订阅或是监听view（on）
+store.subscribe(PureRender)
+PureRender()
+
+```
+
+## 4. action && action creator
+
+## 5. Provider
+
+## 6. combineReducers
+
+模拟这个方法
+```
+const combineReducers = (reducers) => {
+  return (state = {}, action) => {
+      return Object.keys(reducers).reduce(
+        (nextState, key) => {
+          nextState,[key] = reducers[key](
+            state[key],
+            action
+          );
+          return nextState;
+        },{}
+      )
+  }
+}
+```
 
 
 ## 参考资料

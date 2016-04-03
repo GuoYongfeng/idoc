@@ -1,4 +1,4 @@
-# 让Redux来管理你的应用
+<h1 style="font-size: 40px;text-align:center;color: blue;">让Redux来管理你的应用（一）</h1>
 
 > [Redux 中文文档](http://camsong.github.io/redux-in-chinese/index.html)中的内容特别详细，本文部分内容参考自该文档。
 
@@ -420,26 +420,6 @@ ReactDOM.render(
 - mapStateToProps & mapDispatchToProps
 
 ### 5.4 一步步开发一个 TODO 应用
-
-
-## 6. 超酷的开发工具 Redux-devtools
-
-## 7.中间件的高级应用
-
-- redux-thunk 实现异步action
-- Middleware
-
-## 8.结合路由的开发过程
-
-- react-router
-- react-redux-router
-
-##  9.高级开发技巧
-
-- 测试
-- 服务端同构渲染
-- 减少样板代码
-
 
 ## 参考资料
 

@@ -1,21 +1,98 @@
 # 让Redux来管理你的应用
 
+> [Redux 中文文档](http://camsong.github.io/redux-in-chinese/index.html)中的内容特别详细，本文部分内容参考自该文档。
+
 在开始往下阅读之前，我默认你已经学习了前面的课程，并且掌握了Webpack、ES6、React等知识的应用。
 
-在前面的课程，我们已经使用React创建了一个应用，但是在实际项目中，复杂的业务逻辑，如何清晰高效的管理应用内的state成为关键。
+在前面的课程，我们已经使用React创建了一个应用，但是在实际项目中，面对复杂业务逻辑的挑战，如何清晰高效的管理应用内的数据流动成为了关键。
 
-Flux思想已经在这两年甚嚣尘上，facebook的flux实现，开源社区的reflux、redux等类库开始涌现并得到了广大开发者的认同和使用。
+Flux思想已经在提出后得到逐步推广，并广泛应用到实际的项目中。facebook的flux实现，开源社区的reflux、redux等类库开始涌现并得到了广大开发者的认同和使用。
 
 Redux以其简单易用、文档齐全易懂等优点在开源社区得到开发者的一致好评，所以接下来让我们一起走进Redux，学习并将其使用到我们实际的项目开发中。
 
-## 0. 示例体验
-- 下载[项目脚手架](https://github.com/GuoYongfeng/webpack-dev-boilerplate)，并将其跑通运行起来，这是我们的约定。
-- 下载`redux`
+## 1. 重要的开始
+
+React 已经帮我们在视图层解决了禁止异步和直接操作 DOM 等问题，让页面的高效渲染和组件化开发成为了可能。**美中不足的是，React 依旧把处理 state 中数据的问题留给了你，那么，Redux的出现就是为了帮你解决这个问题。**
+
+### 1.1 对 Redux 的介绍
+
+> - Redux 是 JavaScript 状态容器，提供可预测化的状态管理
+- 它可以让你构建一致化的应用，运行于不同的环境（客户端、服务器、原生应用），并且易于测试
+- 还提供 redux-devtools 让开发者享受超爽的开发体验
+- 体小精悍（只有2kB）且没有任何依赖
+- 拥有丰富的生态圈：教程、开发者工具、路由、组件、中间件、工具集...
+
+
+### 1.2 Flux 和 Redux的对比
+
+开始之前，我们不妨对比下flux的实现逻辑和redux的实现逻辑
+
+<img src="/img/redux/flux.jpg" />
+
+<p style="text-align:center;color:blue;">Flux实现原理</p>
+
+<img src="/img/redux/redux.jpg" />
+
+<p style="text-align:center;color:blue;">Redux实现原理</p>
+
+### 1.3 快速上手
+
+我们约定，后续内容的操作练习都基于[项目脚手架](https://github.com/GuoYongfeng/webpack-dev-boilerplate)，首先将该项目下载并跑通运行。
+```
+$ git clone git@github.com:GuoYongfeng/webpack-dev-boilerplate.git my-redux-demo
+$ cd my-redux-demo
+$ npm install
+$ npm run dev
+```
+
+下载安装 `redux`
+
 ```
 $ npm install redux --save
 ```
 
-暂不介绍Redux的概念和API，先上示例代码。
+示例代码快速体验：
+
+```
+/* app/index.js */
+import { createStore } from 'redux';
+
+// 这是一个 reducer，形式为 (state, action) => state 的纯函数。描述了 action 如何把 state 转变成下一个 state。
+
+// state 的形式取决于你，可以是基本类型、数组、对象、
+ * 甚至是 Immutable.js 生成的数据结构。惟一的要点是
+ * 当 state 变化时需要返回全新的对象，而不是修改传入的参数。
+ */
+function counter(state = 0, action) {
+  switch (action.type) {
+  case 'INCREMENT':
+    return state + 1;
+  case 'DECREMENT':
+    return state - 1;
+  default:
+    return state;
+  }
+}
+
+// 创建 Redux store 来存放应用的状态。
+// API 是 { subscribe, dispatch, getState }。
+let store = createStore(counter);
+
+// 可以手动订阅更新，也可以事件绑定到视图层。
+store.subscribe(() =>
+  console.log(store.getState())
+);
+
+// 改变内部 state 惟一方法是 dispatch 一个 action。
+// action 可以被序列化，用日记记录和储存下来，后期还可以以回放的方式执行
+store.dispatch({ type: 'INCREMENT' });
+// 1
+store.dispatch({ type: 'INCREMENT' });
+// 2
+store.dispatch({ type: 'DECREMENT' });
+// 1
+```
+
 ```
 /* app/index.js */
 import { createStore } from 'redux';
@@ -51,9 +128,20 @@ document.addEventListener('click', function( e ){
 
 ```
 
-## 1. reducer
+## 2. 理解 Redux 的核心概念
+### 2.1 reducer
 
-reducer是一个纯函数，传入state和action，返回一个新的state tree，简单而纯粹的完成某一件具体的事情，没有依赖，简约大气。
+我们先来看一下 Javascript 中 Array.prototype.reduce 的用法：
+```
+const initState = '';
+const actions = ['a', 'b', 'c'];
+const newState = actions.reduce(
+    ( (prevState, action) => prevState + action ),
+    initState
+);
+```
+
+对应的理解，Redux 中的 reducer 是一个纯函数，传入state和action，返回一个新的state tree，简单而纯粹的完成某一件具体的事情，没有依赖，**简单而纯粹是它的标签**。
 
 ```
 const counter = (state = 0, action) => {
@@ -68,7 +156,7 @@ const counter = (state = 0, action) => {
 }
 ```
 
-## 2. store
+### 2.2 store
 
 ```
 /* app/index.js */
@@ -126,7 +214,7 @@ document.addEventListener('click', function( e ){
 
 ```
 
-## 3. Redux 和 React Component的基本结合
+### 2.3 Redux 和 React Component的基本结合
 
 使用react-dom进行简单的渲染
 ```
@@ -214,11 +302,11 @@ PureRender()
 
 ```
 
-## 4. action && action creator
+### 2.4 action
 
-## 5. Provider
+Action 是把数据从应用传到 store 的有效载荷。它是 store 数据的唯一来源。一般来说你会通过 store.dispatch() 将 action 传到 store。
 
-## 6. combineReducers
+### 2.5 combineReducers
 
 模拟这个方法
 ```
@@ -236,6 +324,90 @@ const combineReducers = (reducers) => {
   }
 }
 ```
+
+## 3. 使用 React-redux 连接 react 和 redux
+
+
+### 3.1 一个最简单的完整示例
+
+```
+import React, { Component, PropTypes } from 'react'
+import ReactDOM from 'react-dom'
+import { createStore } from 'redux'
+import { Provider, connect } from 'react-redux'
+
+// React component
+class Counter extends Component {
+  render() {
+    const { value, onIncreaseClick } = this.props
+    return (
+      <div>
+        <span>{value}</span>
+        <button onClick={onIncreaseClick}>Increase</button>
+      </div>
+    )
+  }
+}
+
+Counter.propTypes = {
+  value: PropTypes.number.isRequired,
+  onIncreaseClick: PropTypes.func.isRequired
+}
+
+// Action
+const increaseAction = { type: 'increase' }
+
+// Reducer
+function counter(state = { count: 0 }, action) {
+  let count = state.count
+  switch (action.type) {
+    case 'increase':
+      return { count: count + 1 }
+    default:
+      return state
+  }
+}
+
+// Store
+let store = createStore(counter)
+
+// Map Redux state to component props
+function mapStateToProps(state) {
+  return {
+    value: state.count
+  }
+}
+
+// Map Redux actions to component props
+function mapDispatchToProps(dispatch) {
+  return {
+    onIncreaseClick: () => dispatch(increaseAction)
+  }
+}
+
+// Connected Component
+let App = connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Counter)
+
+ReactDOM.render(
+  <Provider store={store}>
+    <App />
+  </Provider>,
+  document.getElementById('root')
+)
+
+```
+
+### 3.2 一步步开发一个 TODO 应用
+
+
+## 4. 开发工具 Redux-devtools 的使用
+
+## 5. Redux 的高级运用
+
+## 6. 一些重要而实用的开发技巧
 
 
 ## 参考资料

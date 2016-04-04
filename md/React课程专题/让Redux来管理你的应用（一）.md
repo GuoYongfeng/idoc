@@ -1,6 +1,6 @@
 <h1 style="font-size: 40px;text-align:center;color: blue;">让Redux来管理你的应用（一）</h1>
 
-> **重要提示：** 本教程配套示例代码请前往[redux-complete-sample](https://github.com/GuoYongfeng/redux-complete-sample)。
+> **重要提示：** 本教程配套示例代码请前往[redux-complete-sample](https://github.com/GuoYongfeng/redux-complete-sample)下载，课程中会有大量的示例操作，操作说明均基于这个配套的示例代码仓库，所以为了方便学习，请务必下载安装并启动。
 
 
 在开始往下阅读之前，我默认你已经学习了前面的课程，并且掌握了Webpack、ES6、React等知识的应用。
@@ -419,7 +419,7 @@ console.log('改变后的 state :', store.getState())
 
 调用方式：compose(...functions)
 
-用来实现从右到左来组合传入的多个函数。
+compose 用来实现从右到左来组合传入的多个函数，它做的只是让你不使用深度右括号的情况下来写深度嵌套的函数，仅此而已。
 
 ## 5. 使用 React-redux 连接 react 和 redux
 

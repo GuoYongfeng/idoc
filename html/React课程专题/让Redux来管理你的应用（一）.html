@@ -37,7 +37,7 @@
 <div class="container">
 
     <div class="page-toc">
-        <ul><li><a href="#t0让Redux来管理你的应用（一）">让Redux来管理你的应用（一）</a><ul><li><a href="#t11. 基本介绍">1. 基本介绍</a><ul><li><a href="#t21.1 对 Redux 的介绍">1.1 对 Redux 的介绍</a></li><li><a href="#t31.2 Flux 和 Redux的对比">1.2 Flux 和 Redux的对比</a></li></ul></li><li><a href="#t42. 快速上手">2. 快速上手</a></li><li><a href="#t53. 理解 Redux 的核心概念">3. 理解 Redux 的核心概念</a><ul><li><a href="#t63.1 Action & Action Creator">3.1 Action & Action Creator</a></li><li><a href="#t73.2 Reducer">3.2 Reducer</a></li><li><a href="#t83.3 Store">3.3 Store</a><ul><li><a href="#t93.3.1 getState()">3.3.1 getState()</a></li><li><a href="#t103.3.2 dispatch(action)">3.3.2 dispatch(action)</a></li><li><a href="#t113.3.3 subscribe(listener)">3.3.3 subscribe(listener)</a></li></ul></li></ul></li><li><a href="#t124. Redux 的顶层 API 介绍">4. Redux 的顶层 API 介绍</a><ul><li><a href="#t134.1 createStore">4.1 createStore</a></li><li><a href="#t144.2 combineReducers">4.2 combineReducers</a></li><li><a href="#t154.3 applyMiddleware">4.3 applyMiddleware</a></li><li><a href="#t164.4 bindActionCreators">4.4 bindActionCreators</a></li><li><a href="#t174.5 compose">4.5 compose</a></li></ul></li><li><a href="#t185. 使用 React-redux 连接 react 和 redux">5. 使用 React-redux 连接 react 和 redux</a><ul><li><a href="#t195.1 没有react-redux的写法">5.1 没有react-redux的写法</a></li><li><a href="#t205.2 React-redux 提供的 connect 和 Provider">5.2 React-redux 提供的 connect 和 Provider</a></li></ul></li><li><a href="#t216. 一步步开发一个 TODO 应用">6. 一步步开发一个 TODO 应用</a><ul><li><a href="#t226.1 入口文件">6.1 入口文件</a></li><li><a href="#t236.2 Action 创建函数和常量">6.2 Action 创建函数和常量</a></li><li><a href="#t246.3 Reducers">6.3 Reducers</a></li><li><a href="#t256.4 容器组件">6.4 容器组件</a></li><li><a href="#t266.5 展示组件">6.5 展示组件</a></li></ul></li><li><a href="#t27完结寄语">完结寄语</a></li><li><a href="#t28参考资料">参考资料</a></li></ul></li></ul>
+        <ul><li><a href="#t0让Redux来管理你的应用（一）">让Redux来管理你的应用（一）</a><ul><li><a href="#t11. 基本介绍">1. 基本介绍</a><ul><li><a href="#t21.1 Flux & Redux">1.1 Flux & Redux</a></li><li><a href="#t31.2 对 Redux 的介绍">1.2 对 Redux 的介绍</a></li></ul></li><li><a href="#t42. 快速上手">2. 快速上手</a></li><li><a href="#t53. 理解 Redux 的核心概念">3. 理解 Redux 的核心概念</a><ul><li><a href="#t63.1 Action & Action Creator">3.1 Action & Action Creator</a></li><li><a href="#t73.2 Reducer">3.2 Reducer</a></li><li><a href="#t83.3 Store">3.3 Store</a><ul><li><a href="#t93.3.1 getState()">3.3.1 getState()</a></li><li><a href="#t103.3.2 dispatch(action)">3.3.2 dispatch(action)</a></li><li><a href="#t113.3.3 subscribe(listener)">3.3.3 subscribe(listener)</a></li></ul></li></ul></li><li><a href="#t124. Redux 的顶层 API 介绍">4. Redux 的顶层 API 介绍</a><ul><li><a href="#t134.1 createStore">4.1 createStore</a></li><li><a href="#t144.2 combineReducers">4.2 combineReducers</a></li><li><a href="#t154.3 applyMiddleware">4.3 applyMiddleware</a></li><li><a href="#t164.4 bindActionCreators">4.4 bindActionCreators</a></li><li><a href="#t174.5 compose">4.5 compose</a></li></ul></li><li><a href="#t185. 使用 React-redux 连接 react 和 redux">5. 使用 React-redux 连接 react 和 redux</a><ul><li><a href="#t195.1 没有react-redux的写法">5.1 没有react-redux的写法</a></li><li><a href="#t205.2 React-redux 提供的 connect 和 Provider">5.2 React-redux 提供的 connect 和 Provider</a></li></ul></li><li><a href="#t216. 一步步开发一个 TODO 应用">6. 一步步开发一个 TODO 应用</a><ul><li><a href="#t226.1 入口文件">6.1 入口文件</a></li><li><a href="#t236.2 Action 创建函数和常量">6.2 Action 创建函数和常量</a></li><li><a href="#t246.3 Reducers">6.3 Reducers</a></li><li><a href="#t256.4 容器组件">6.4 容器组件</a></li><li><a href="#t266.5 展示组件">6.5 展示组件</a></li></ul></li><li><a href="#t27完结寄语">完结寄语</a></li><li><a href="#t28参考资料">参考资料</a></li></ul></li></ul>
     </div>
     
     <div class="content markdown-body">
@@ -52,22 +52,30 @@
 <p>Redux&#x4EE5;&#x5176;&#x7B80;&#x5355;&#x6613;&#x7528;&#x3001;&#x6587;&#x6863;&#x9F50;&#x5168;&#x6613;&#x61C2;&#x7B49;&#x4F18;&#x70B9;&#x5728;&#x5F00;&#x6E90;&#x793E;&#x533A;&#x5F97;&#x5230;&#x5F00;&#x53D1;&#x8005;&#x7684;&#x4E00;&#x81F4;&#x597D;&#x8BC4;&#xFF0C;&#x6240;&#x4EE5;&#x63A5;&#x4E0B;&#x6765;&#x8BA9;&#x6211;&#x4EEC;&#x4E00;&#x8D77;&#x8D70;&#x8FDB;Redux&#xFF0C;&#x5B66;&#x4E60;&#x5E76;&#x5C06;&#x5176;&#x4F7F;&#x7528;&#x5230;&#x6211;&#x4EEC;&#x5B9E;&#x9645;&#x7684;&#x9879;&#x76EE;&#x5F00;&#x53D1;&#x4E2D;&#x3002;</p>
 <h2 id="t11. &#x57FA;&#x672C;&#x4ECB;&#x7ECD;">1. &#x57FA;&#x672C;&#x4ECB;&#x7ECD; <a href="#t11. &#x57FA;&#x672C;&#x4ECB;&#x7ECD;"> # </a></h2>
 <p>React &#x5DF2;&#x7ECF;&#x5E2E;&#x6211;&#x4EEC;&#x5728;&#x89C6;&#x56FE;&#x5C42;&#x89E3;&#x51B3;&#x4E86;&#x7981;&#x6B62;&#x5F02;&#x6B65;&#x548C;&#x76F4;&#x63A5;&#x64CD;&#x4F5C; DOM &#x7B49;&#x95EE;&#x9898;&#xFF0C;&#x8BA9;&#x9875;&#x9762;&#x7684;&#x9AD8;&#x6548;&#x6E32;&#x67D3;&#x548C;&#x7EC4;&#x4EF6;&#x5316;&#x5F00;&#x53D1;&#x6210;&#x4E3A;&#x4E86;&#x53EF;&#x80FD;&#x3002;&#x7F8E;&#x4E2D;&#x4E0D;&#x8DB3;&#x7684;&#x662F;&#xFF0C;React &#x4F9D;&#x65E7;&#x628A;&#x5904;&#x7406; state &#x4E2D;&#x6570;&#x636E;&#x7684;&#x95EE;&#x9898;&#x7559;&#x7ED9;&#x4E86;&#x4F60;&#xFF0C;&#x90A3;&#x4E48;&#xFF0C;Redux&#x7684;&#x51FA;&#x73B0;&#x5C31;&#x662F;&#x4E3A;&#x4E86;&#x5E2E;&#x4F60;&#x89E3;&#x51B3;&#x8FD9;&#x4E2A;&#x95EE;&#x9898;&#x3002;</p>
-<h3 id="t21.1 &#x5BF9; Redux &#x7684;&#x4ECB;&#x7ECD;">1.1 &#x5BF9; Redux &#x7684;&#x4ECB;&#x7ECD; <a href="#t21.1 &#x5BF9; Redux &#x7684;&#x4ECB;&#x7ECD;"> # </a></h3>
+<h3 id="t21.1 Flux &amp; Redux">1.1 Flux &amp; Redux <a href="#t21.1 Flux &amp; Redux"> # </a></h3>
+<p>&#x6700;&#x521D;&#xFF0C;Facebook&#x5B98;&#x65B9;&#x63D0;&#x51FA;&#x4E86;FLUX&#x601D;&#x60F3;&#x7BA1;&#x7406;&#x6570;&#x636E;&#x6D41;&#xFF0C;&#x540C;&#x65F6;&#x4E5F;&#x7ED9;&#x51FA;&#x4E86;&#x81EA;&#x5DF1;&#x7684;&#x5B9E;&#x73B0;&#x65B9;&#x6848;<a href="https://github.com/facebook/flux">flux</a>&#x6765;&#x7BA1;&#x7406;React&#x5E94;&#x7528;&#x3002;</p>
+<p><img src="../..//img/redux/flux.jpg"></p>
+<p><strong>&#x770B;&#x56FE;&#x8BF4;&#x8BDD;&#xFF1A;</strong><br>
+1.&#x5728;view&#x4E2D;&#x89E6;&#x53D1;action&#x4E2D;&#x7684;&#x65B9;&#x6CD5;&#x540E;<br>
+2.action&#x53D1;&#x9001;dispatch<br>
+3.store&#x63A5;&#x6536;&#x65B0;&#x7684;&#x6570;&#x636E;&#x8FDB;&#x884C;&#x5408;&#x5E76;&#xFF0C;&#x7136;&#x540E;&#x89E6;&#x53D1;View&#x4E2D;&#x7ED1;&#x5B9A;&#x5728;store&#x4E0A;&#x7684;&#x65B9;&#x6CD5;<br>
+4.&#x6700;&#x540E;&#x901A;&#x8FC7;&#x4FEE;&#x6539;&#x5C40;&#x90E8;state&#x6765;&#x6539;&#x53D8;view&#x7684;&#x5C55;&#x793A;<br></p>
+<p><img src="../..//img/redux/redux.jpg"></p>
+<p><strong>&#x770B;&#x56FE;&#x8BF4;&#x8BDD;&#xFF1A;</strong><br>
+1.view&#x76F4;&#x63A5;&#x89E6;&#x53D1;dispatch<br>
+2.dispatch&#x5C06;action&#x53D1;&#x9001;&#x5230;reducer&#x4E2D;&#x540E;&#xFF0C;&#x6839;&#x8282;&#x70B9;&#x4E0A;&#x4F1A;&#x66F4;&#x65B0;props&#xFF0C;&#x6539;&#x53D8;&#x5168;&#x5C40;view&#x3002;<br>
+3.redux&#x5C06;view&#x548C;store&#x7684;&#x7ED1;&#x5B9A;&#x4ECE;&#x624B;&#x52A8;&#x7F16;&#x7801;&#x4E2D;&#x63D0;&#x53D6;&#x51FA;&#x6765;&#xFF0C;&#x653E;&#x5728;&#x4E86;&#x7EDF;&#x4E00;&#x89C4;&#x8303;&#x653E;&#x5728;&#x4E86;&#x81EA;&#x5DF1;&#x7684;&#x4F53;&#x7CFB;&#x4E2D;&#x3002;<br></p>
+<blockquote>
+<p>&#x76F8;&#x5BF9;&#x4E8E;Flux&#x800C;&#x8A00;&#xFF0C;Redux&#x7684;&#x5B9E;&#x73B0;&#x66F4;&#x7B80;&#x5355;&#xFF0C;&#x601D;&#x8DEF;&#x66F4;&#x6E05;&#x6670;&#xFF0C;&#x5199;&#x7684;&#x4EE3;&#x7801;&#x4E5F;&#x76F8;&#x5BF9;&#x66F4;&#x5C11;&#xFF1B;&#x53EA;&#x7EF4;&#x62A4;&#x5355;&#x4E00;&#x7684; store&#xFF1B;&#x5728;github&#x4E0A;&#x6536;&#x8D27;&#x4E86;16000+&#x7684;star&#xFF0C;&#x5E7F;&#x53D7;&#x6B22;&#x8FCE;...</p>
+</blockquote>
+<h3 id="t31.2 &#x5BF9; Redux &#x7684;&#x4ECB;&#x7ECD;">1.2 &#x5BF9; Redux &#x7684;&#x4ECB;&#x7ECD; <a href="#t31.2 &#x5BF9; Redux &#x7684;&#x4ECB;&#x7ECD;"> # </a></h3>
 <ul>
-<li>Redux &#x662F; JavaScript &#x72B6;&#x6001;&#x5BB9;&#x5668;&#xFF0C;&#x63D0;&#x4F9B;&#x53EF;&#x9884;&#x6D4B;&#x5316;&#x7684;&#x72B6;&#x6001;&#x7BA1;&#x7406;</li>
+<li>Redux &#x662F; State &#x5BB9;&#x5668;&#xFF0C;&#x63D0;&#x4F9B;&#x53EF;&#x9884;&#x6D4B;&#x5316;&#x7684;&#x72B6;&#x6001;&#x7BA1;&#x7406;</li>
 <li>&#x5B83;&#x53EF;&#x4EE5;&#x8BA9;&#x4F60;&#x6784;&#x5EFA;&#x4E00;&#x81F4;&#x5316;&#x7684;&#x5E94;&#x7528;&#xFF0C;&#x8FD0;&#x884C;&#x4E8E;&#x4E0D;&#x540C;&#x7684;&#x73AF;&#x5883;&#xFF08;&#x5BA2;&#x6237;&#x7AEF;&#x3001;&#x670D;&#x52A1;&#x5668;&#x3001;&#x539F;&#x751F;&#x5E94;&#x7528;&#xFF09;&#xFF0C;&#x5E76;&#x4E14;&#x6613;&#x4E8E;&#x6D4B;&#x8BD5;</li>
 <li>&#x8FD8;&#x63D0;&#x4F9B; redux-devtools &#x8BA9;&#x5F00;&#x53D1;&#x8005;&#x4EAB;&#x53D7;&#x8D85;&#x723D;&#x7684;&#x5F00;&#x53D1;&#x4F53;&#x9A8C;</li>
 <li>&#x4F53;&#x5C0F;&#x7CBE;&#x608D;&#xFF08;&#x53EA;&#x6709;2kB&#xFF09;&#x4E14;&#x6CA1;&#x6709;&#x4EFB;&#x4F55;&#x4F9D;&#x8D56;</li>
 <li>&#x62E5;&#x6709;&#x4E30;&#x5BCC;&#x7684;&#x751F;&#x6001;&#x5708;&#xFF1A;&#x6559;&#x7A0B;&#x3001;&#x5F00;&#x53D1;&#x8005;&#x5DE5;&#x5177;&#x3001;&#x8DEF;&#x7531;&#x3001;&#x7EC4;&#x4EF6;&#x3001;&#x4E2D;&#x95F4;&#x4EF6;&#x3001;&#x5DE5;&#x5177;&#x96C6;...</li>
 </ul>
-<h3 id="t31.2 Flux &#x548C; Redux&#x7684;&#x5BF9;&#x6BD4;">1.2 Flux &#x548C; Redux&#x7684;&#x5BF9;&#x6BD4; <a href="#t31.2 Flux &#x548C; Redux&#x7684;&#x5BF9;&#x6BD4;"> # </a></h3>
-<p>&#x5F00;&#x59CB;&#x4E4B;&#x524D;&#xFF0C;&#x6211;&#x4EEC;&#x4E0D;&#x59A8;&#x5BF9;&#x6BD4;&#x4E0B;flux&#x7684;&#x5B9E;&#x73B0;&#x903B;&#x8F91;&#x548C;redux&#x7684;&#x5B9E;&#x73B0;&#x903B;&#x8F91;</p>
-<p><img src="../..//img/redux/flux.jpg"></p>
-<p style="text-align:center;color:blue;">Flux&#x5B9E;&#x73B0;&#x539F;&#x7406;</p>
-
-<p><img src="../..//img/redux/redux.jpg"></p>
-<p style="text-align:center;color:blue;">Redux&#x5B9E;&#x73B0;&#x539F;&#x7406;</p>
-
 <h2 id="t42. &#x5FEB;&#x901F;&#x4E0A;&#x624B;">2. &#x5FEB;&#x901F;&#x4E0A;&#x624B; <a href="#t42. &#x5FEB;&#x901F;&#x4E0A;&#x624B;"> # </a></h2>
 <p>&#x672C;&#x6B21;&#x6559;&#x7A0B;&#x5185;&#x5BB9;&#x7684;&#x6240;&#x6709;&#x793A;&#x4F8B;&#x53EF;&#x4EE5;&#x5728;<a href="https://github.com/GuoYongfeng/redux-complete-sample"></a></p>
 <pre><code>$ git clone git@github.com:GuoYongfeng/redux-complete-sample.git

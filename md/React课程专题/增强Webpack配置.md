@@ -1,6 +1,6 @@
 <h1 style="font-size: 40px;text-align:center;color: blue;">增强Webpack配置，让开发赢在起点</h1>
 
-> 花点时间熟悉webpack的配置，可以让开发的工作更加轻松。
+> 花点时间熟悉webpack的配置，可以让开发的工作更加轻松。而且，完成本次练习后，我们可以搭建一个基于webpack的项目脚手架，方便以后项目的快速开发使用。这里有一个我写的[项目脚手架](https://github.com/GuoYongfeng/webpack-dev-boilerplate)。
 
 ## 1 实现代码热替换
 
@@ -527,7 +527,7 @@ module.exports = {
 
 ```
 
-11. 区分环境的标识
+## 11 区分环境的标识
 
 项目中有些代码我们只为在开发环境（例如日志）或者是内部测试环境（例如那些没有发布的新功能）中使用，那就需要引入下面这些魔法全局变量（magic globals）：
 

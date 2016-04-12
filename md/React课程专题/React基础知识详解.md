@@ -3,30 +3,15 @@
 
 > **编者按：**除组件化、虚拟DOM在复用以及性能上带来的一般好处外，React思想使得开发者之间更好的分工与合作，在配合上非常顺畅，规范的接口以及极强的约束，使得整个代码结构清晰，不同开发者的代码高度一致。
 
-课程示例代码请前往：https://github.com/zhufengreact/zhufeng-react-tutorial
+本次课程示例代码请前往[react-tutorial](https://github.com/zhufengreact/zhufeng-react-tutorial)。
+示例中采用ES6语法来写React组件代码，提前明确以下几点：
 
-## 0. 本次课程大纲
+- 不支持 `getInitialState` 在设置组件初始的 `state` ，可在组件的 `constructor` 中通过 `this.state` 设置，也可直接作为 `properties` 定义
+- `propTypes、defaultProps` 作为 `properties` 定义，也可在组件外部通过键值对方式设置。
+- 不支持 `mixins`，可以使用*高阶组件*写法，或者 `decorator`。
 
 
-> **课程主线如下：**
-
-- React是什么
-react 是一个做 UI 的库，具体来说是做 UI 组件的库，专注于做 mvc 中的 v.
-- 为什么学React
-api 少，类库易学
-组件内聚，易于组合
-原生组件和自定义组件融合渲染
-状态/属性驱动全局更新，不用关注细节更新
-ES6 webpack ... 生态圈/工具链完善
-- 怎么用React（`本次课程的核心内容，分9个部分`）
-
-**提前告知，本次课程的示例采用ES6来写React组件代码，需要明确以下几点：**
-
-- 不支持getInitialState，如需在constructor通过this.state={}赋值，也可直接作为properties定义
-- propTypes、defaultProps 作为properties定义。
-- 不支持mixins，可以使用decorator
-
-## 1. React相关文件顶层api的介绍
+## 1. 顶层API
 
 最简单的React组件及其渲染
 ```
@@ -47,26 +32,44 @@ console.log( React );
 export default SimpleComponent;
 ```
 
-### react.js
-React.Component 使用ES6的class创建组件用的API<br>
-React.createClass 使用ES5的class创建组件用的API<br>
-React.PropTypes<br>
-React.Children 操作 map/forEach children 工具类<br>
+### `react.js`
+```
+React.Children: Object
+React.Component: ReactComponent(props, context, updater)
+React.DOM: Object
+React.PropTypes: Object
+React.cloneElement: (element, props, children)
+React.createClass: (spec)
+React.createElement: (type, props, children)
+React.createFactory: (type)
+React.createMixin: (mixin)
+React.isValidElement: (object)
+```
 
-还有几个不是很常用的<br>
-React.createElement<br>
-React.cloneElement<br>
-React.createFactory<br>
-React.DOM
+<img src="/img/react/react-api.png" />
 
-### react-dom.js
-ReactDOM.render 渲染组件到 dom<br>
-ReactDOM.unmountComponentAtNode<br>
-ReactDOM.findDOMNode<br>
+Component API
+```
+this.context: Object
+this.props: Object
+this.refs: Object
+this.state: Object
+this.setState: Object
+```
+### `react-dom.js`
 
-### react-dom-server.js
-ReactDOMServer.renderToString<br>
-ReactDOMServer.renderToStaticMarkup<br>
+```
+ReactDOM.findDOMNode: findDOMNode(componentOrElement)
+ReactDOM.render: ()
+ReactDOM.unmountComponentAtNode: (container)
+```
+
+### `react-dom-server.js`
+
+```
+ReactDOMServer.renderToString
+ReactDOMServer.renderToStaticMarkup
+```
 
 ## 2. jsx语法
 
@@ -402,7 +405,7 @@ componentDidUpdate()
 ```
 ## 5. 使用ref对操作DOM
 
-- React.findDOMNode
+- ReactDOM.findDOMNode
 - this.refs.xxx
 
 获取DOM后可以方便结合现有非 react 类库的使用，通过 ref/refs 可以取得组件实例，进而取得原生节点，不过尽量通过 state/props 更新组件，不要使用该功能去更新组件的DOM。
@@ -437,6 +440,57 @@ class HandleDOMComponent extends Component {
 export default HandleDOMComponent;
 
 ```
+
+再看一个有趣的例子
+```
+import React, { Component } from 'react';
+import { findDOMNode } from 'react-dom';
+
+class Refs extends Component {
+  state = {
+    red: 0,
+    green: 0,
+    pink: 0
+  }
+  update = (e) => {
+    this.setState({
+      red: findDOMNode(this.refs.red).value,
+      green: findDOMNode(this.refs.green).value,
+      pink: findDOMNode(this.refs.pink).value
+    })
+  }
+  render(){
+    return (
+      <div>
+        <Slider ref="red" update={this.update} />
+        {this.state.red}
+        <br />
+        <Slider ref="green" update={this.update} />
+        {this.state.green}
+        <br />
+        <Slider ref="pink" update={this.update} />
+        {this.state.pink}
+      </div>
+    )
+  }
+}
+
+class Slider extends Component {
+  render(){
+    return (
+        <input type="range"
+          min="0"
+          max="255"
+          onChange={this.props.update} />
+    )
+  }
+
+}
+
+export default Refs;
+
+```
+
 ## 6. 事件event
 
 可以通过设置原生 dom 组件的 onEventType 属性来监听 dom 事件，例如 onClick, onMouseDown，在加强组件内聚性的同时，避免了传统 html 的全局变量污染
@@ -721,7 +775,9 @@ export default FormApp;
 
 ## 9. mixin共享
 
-mixin 是一个普通对象，通过 mixin 可以在不同组件间共享代码，使你的React程序变得更为可重用。注意，ES6语法不支持mixin写法，而是可以通过decorator去实现代码共享，这里使用ES5语法做示例说明。
+mixin 是一个普通对象，通过 mixin 可以在不同组件间共享代码，使你的React程序变得更为可重用。
+
+注意，ES6语法不支持mixin写法，而是可以通过decorator去实现代码共享，这里使用ES5语法做示例说明。
 ```
 
 import React from 'react';
@@ -762,6 +818,69 @@ var MixinDemo = React.createClass({
 
 export default MixinDemo;
 
+```
+
+那么，接下来，我们用high-order component的方式来实现mixin：
+```
+import React, { Component } from 'react';
+
+let Mixin = MixinComponent => class extends Component {
+  constructor() {
+    super();
+    this.state = { val: 0 };
+    this.update = this.update.bind(this);
+  }
+  update(){
+    this.setState({val: this.state.val + 1});
+  }
+  componentWillMount(){
+    console.log('will mount...')
+  }
+  render(){
+    return (
+      <MixinComponent
+        update={this.update}
+        {...this.state}
+        {...this.props}
+       />
+    )
+  }
+  componentDidMount(){
+    console.log('mounted...')
+  }
+}
+
+const Button = (props) => {
+  return (
+    <button onClick={props.update}>
+      {props.txt} - {props.val}
+    </button>
+  )
+}
+
+const Label = (props) => {
+  return (
+    <label onMouseMove={props.update}>
+      {props.txt} - {props.val}
+    </label>
+  )
+}
+
+let ButtonMixed = Mixin(Button);
+let LabelMixed = Mixin(Label);
+
+class Mixins extends Component {
+  render(){
+    return (
+      <div>
+        <ButtonMixed txt="button" />
+        <LabelMixed txt="label" />
+      </div>
+    )
+  }
+}
+
+export default Mixins;
 ```
 
 ## 基础部分完结寄语

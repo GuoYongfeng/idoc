@@ -589,13 +589,6 @@ $ webpack-dev-server --progress --colors
 
 <img src="/img/redux/middleware.png" />
 
-## 4.结合路由react-redux-router的应用开发
-
-敬请期待...
-
-## 5.服务端同构渲染
-
-敬请期待...
 
 ## 参考资料
 

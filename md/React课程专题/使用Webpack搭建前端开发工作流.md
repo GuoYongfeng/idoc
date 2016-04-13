@@ -205,7 +205,28 @@ $ npm run dev
 
 在浏览器中访问：`http://localhost:8080/`
 
-## 4.实现代码热替换
+
+## 4.多个入口文件
+
+如果你有两个页面：profile和feed。如果你希望用户访问profile页面时不加载feed页面的代码，那就需要生成多个bundles文件：为每个页面创建自己的“main module”（入口文件）。
+
+```js
+// webpack.config.js
+module.exports = {
+  entry: {
+    Profile: './profile.js',
+    Feed: './feed.js'
+  },
+  output: {
+    path: 'build',
+    filename: '[name].js' // name是基于上边entry中定义的key
+  }
+};
+```
+
+在profile页面中插入`<script src="build/Profile.js"></script>`。feed也一样。
+
+## 5.实现代码热替换
 
 在webpack.config.js更新一下入口文件配置即可实现编辑器中保存代码就可在浏览器中实现刷新的效果，棒棒哒。
 代码清单：`webpack.config.js`
@@ -218,7 +239,7 @@ entry: [
 
 顺便说一句，如果你是gulp的使用者，推荐结合`browser-sync`的reload接口和gulp的watch功能结合，也可以很轻松的实现这样的功能。
 
-## 5.使用react-hot-loader实现组件级的hot reload
+## 6.使用react-hot-loader实现组件级的hot reload
 
 虽然实现了代码的热替换，只要在编辑器中保存我们编辑的代码，浏览器即可实时刷新。但同时也有一个烦恼，如果我们的项目开发中用到了几十个组件，为了测试某个组件我们需要一步步操作到固定的步骤去实现，一旦保存编辑器中修改的一行代码，从入口文件开始的所有代码都全部刷新了一次，这样很不利于调试。
 
@@ -265,7 +286,7 @@ module.exports = {
 
 更多资料请参考[这里](http://gaearon.github.io/react-hot-loader/getstarted/)
 
-## 6.加载并解析你的样式文件
+## 7.加载并解析你的样式文件
 
 前面的大部分工作都在处理JS逻辑的解析和加载，但是我们还一直没有提我们的样式文件应该如何去处理。
 
@@ -356,7 +377,7 @@ $ npm run dev
 ```
 修改一下less文件，浏览器会自动刷新，DONE，看起来还是很不错的样子。
 
-## 7.css文件单独加载
+## 8.css文件单独加载
 
 通过上面的例子，css文件的引入、解析、运行已经跑通，BUT，目前我们的css文件全部被打包在bundle.js一个文件里面。这可不是一件好事，后续代码量一上来，文件越来越胖，我想老板一定会抓你去做性能优化的，所以，我们需要把css文件单独打包出来。
 
@@ -431,7 +452,7 @@ module.exports = {
 
 另外这里手动去修改index.html是一个不是很友好的体验，这里暂且按下不表，后续我们会通过插件来统一生成public下的资源，这样让调试和部署更加便捷。
 
-## 8.图片资源的加载
+## 9.图片资源的加载
 
 图片资源的加载相对简单，代码的写法都可以就近依赖require，通过url-loader来解析加载。先进行下载：
 ```
@@ -517,7 +538,7 @@ export default App;
 
 执行`npm run dev`跑一次代码，正常展示后我们可以看到控制台的信息，2k的图片被base64，19k的图片正常加载。
 
-## 9.图标字体的加载
+## 10.图标字体的加载
 
 图标字体的加载可以选择file-loader 或 url-loader 进行加载，配置如下（示例配置，大家在项目中最好还是按实际情况配置）
 ```
@@ -562,7 +583,7 @@ export default App;
 
 跑一下代码，一切正常，有没有感觉webpack果然是前端开发神器。
 
-## 10.将js文件的应用和第三方分开打包
+## 11.将js文件的应用和第三方分开打包
 
 修改webpack配置中的entry入口，并且添加CommonsChunkPlugin插件抽取出第三方资源。
 
@@ -603,7 +624,7 @@ plugins: [
 
 ```
 
-## 11.加上一个小小的调试工具
+## 12.调试工具
 
 我们在配置中新增devtool字段，并设置值为source-map，这样我们就可以在浏览器中直接调试我们的源码，在控制台的sources下，点开可以看到`webpack://`目录，点开有惊喜哦。
 
@@ -612,7 +633,7 @@ plugins: [
 devtool: 'cheap-module-source-map'
 ```
 
-## 12.将html也进行统一产出
+## 13.将html也进行统一产出
 
 前面我们还是先在public目录手动加上的index.html，这样在项目中不是很适用，因为我们希望public产出的资源应该是通过工具来统一产出并发布上线，这样质量和工程化角度来思考是更合适的。下面我们来实现。
 
@@ -659,7 +680,7 @@ plugins: [
 ok，运行`npm run dev`跑一遍，效果正常。
 
 
-## 13.添加文件的hash
+## 14.给文件添加hash
 
 我们的开发的产品最终是要上线的，添加文件hash可以解决由于缓存带来的问题，所以我们需要试着给文件加上hash。其实很简单，在文件的后面加上`?[hash]`就行，当然，这也是简单的写法。
 
@@ -730,7 +751,7 @@ module.exports = {
 
 ```
 
-## 14.区分环境的标识
+## 15.区分环境的标识
 
 项目中有些代码我们只为在开发环境（例如日志）或者是内部测试环境（例如那些没有发布的新功能）中使用，那就需要引入下面这些魔法全局变量（magic globals）：
 
@@ -767,29 +788,7 @@ module.exports = {
 配置完成后，就可以使用 `BUILD_DEV=1 BUILD_PRERELEASE=1 webpack`来打包代码了。
 值得注意的是，`webpack -p` 会删除所有无作用代码，也就是说那些包裹在这些全局变量下的代码块都会被删除，这样就能保证这些代码不会因发布上线而泄露。
 
-
-## 多个入口文件
-
-如果你有两个页面：profile和feed。如果你希望用户访问profile页面时不加载feed页面的代码，那就需要生成多个bundles文件：为每个页面创建自己的“main module”（入口文件）。
-
-```js
-// webpack.config.js
-module.exports = {
-  entry: {
-    Profile: './profile.js',
-    Feed: './feed.js'
-  },
-  output: {
-    path: 'build',
-    filename: '[name].js' // name是基于上边entry中定义的key
-  }
-};
-```
-
-在profile页面中插入`<script src="build/Profile.js"></script>`。feed也一样。
-
-
-## 异步加载（实现资源加载的性能优化）
+## 16.异步加载（实现资源加载的性能优化）
 
 虽然CommonJS是同步加载的，但是webpack也提供了异步加载的方式。这对于单页应用中使用的客户端路由非常有用。当真正路由到了某个页面的时候，它的代码才会被加载下来。
 

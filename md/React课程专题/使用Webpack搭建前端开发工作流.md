@@ -767,6 +767,62 @@ module.exports = {
 配置完成后，就可以使用 `BUILD_DEV=1 BUILD_PRERELEASE=1 webpack`来打包代码了。
 值得注意的是，`webpack -p` 会删除所有无作用代码，也就是说那些包裹在这些全局变量下的代码块都会被删除，这样就能保证这些代码不会因发布上线而泄露。
 
+
+## 多个入口文件
+
+如果你有两个页面：profile和feed。如果你希望用户访问profile页面时不加载feed页面的代码，那就需要生成多个bundles文件：为每个页面创建自己的“main module”（入口文件）。
+
+```js
+// webpack.config.js
+module.exports = {
+  entry: {
+    Profile: './profile.js',
+    Feed: './feed.js'
+  },
+  output: {
+    path: 'build',
+    filename: '[name].js' // name是基于上边entry中定义的key
+  }
+};
+```
+
+在profile页面中插入`<script src="build/Profile.js"></script>`。feed也一样。
+
+
+## 异步加载（实现资源加载的性能优化）
+
+虽然CommonJS是同步加载的，但是webpack也提供了异步加载的方式。这对于单页应用中使用的客户端路由非常有用。当真正路由到了某个页面的时候，它的代码才会被加载下来。
+
+指定你要异步加载的 **拆分点**。看下面的例子
+
+```js
+if (window.location.pathname === '/feed') {
+  showLoadingState();
+  require.ensure([], function() { // 这个语法痕奇怪，但是还是可以起作用的
+    hideLoadingState();
+    require('./feed').show(); // 当这个函数被调用的时候，此模块是一定已经被同步加载下来了
+  });
+} else if (window.location.pathname === '/profile') {
+  showLoadingState();
+  require.ensure([], function() {
+    hideLoadingState();
+    require('./profile').show();
+  });
+}
+```
+
+剩下的事就可以交给webpack，它会为你生成并加载这些额外的 **chunk** 文件。
+
+webpack 默认会从项目的根目录下引入这些chunk文件。你也可以通过 `output.publicPath`来配置chunk文件的引入路径
+
+```js
+// webpack.config.js
+output: {
+    path: "/home/proj/public/assets", // webpack的build路径
+    publicPath: "/assets/" // 你require的路径
+}
+```
+
 ## 结语
 
 这些webpack可以让我们初期的开发游刃有余，但是实际项目开发的时候，需要增添很多功能，比如开发环境和生产环境的不同配置；打包的优化配置；让运行时的解析更快；配合测试框架...

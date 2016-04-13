@@ -1,8 +1,211 @@
-<h1 style="font-size: 40px;text-align:center;color: blue;">增强Webpack配置，让开发赢在起点</h1>
+<h1 style="font-size: 40px;text-align:center;color: blue;">使用Webpack搭建前端开发工作流</h1>
 
-> 花点时间熟悉webpack的配置，可以让开发的工作更加轻松。而且，完成本次练习后，我们可以搭建一个基于webpack的项目脚手架，方便以后项目的快速开发使用。这里有一个我写的[项目脚手架](https://github.com/GuoYongfeng/webpack-dev-boilerplate)。
+webpack是一款强大的模块加载器兼打包工具，它能把各种资源，例如JS（含JSX）、coffee、样式（含less/sass）、图片等都作为模块来使用和处理。
 
-## 1 实现代码热替换
+<img src="/img/webpack/what-is-webpack.png" />
+
+> 完整进行本次练习后，你将具备独立搭建一个基于webpack的项目脚手架，方便以后项目的快速开发使用。这里有一个我写的[项目脚手架](https://github.com/GuoYongfeng/webpack-dev-boilerplate)，欢迎一起交流改进。
+
+## 1.创建项目
+
+```
+$ mkdir webpack-project && cd webpack-project
+$ git init
+$ touch .gitignore
+```
+
+现在我们新建了一个项目目录并且使用git管理起来了，需要编辑一下.gitignore来忽略掉我们不想管理的一些文件
+
+代码清单：`.gitignore`
+```
+node_modules/
+.idea/
+.project
+*.log*
+```
+
+使用npm来初始化项目
+```
+$ npm init
+```
+
+并且创建两个基本的工程目录
+```
+$ mkdir app public
+```
+
+给项目添加基本代码
+
+代码清单：`app/index.js`
+```
+alert('hello world!');
+```
+
+代码清单：`public/index.html`
+```
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>React Demo</title>
+</head>
+<body>
+  <div id="app"></div>
+  <script src="./bundle.js"></script>
+</body>
+</html>
+
+```
+
+## 2.安装webpack和webpack-dev-server
+
+```
+// 给项目添加工具依赖，后面把命名行配置在scripts中
+$ npm install webpack webpack-dev-server --save-dev
+// 全局安装可以直接使用命令行编译
+$ npm install webpack webpack-dev-server -g
+```
+
+> webpack-dev-server是一个小型的node.js Express服务器,它使用webpack-dev-middleware中间件来为通过webpack打包生成的资源文件提供Web服务。
+
+安装后我们需要在项目根目录下创建webpack.config.js文件：
+```
+$ touch webpack.config.js
+```
+
+代码清单：`webpack.config.js`
+```
+var path = require('path');
+
+module.exports = {
+    entry: path.resolve(__dirname, 'app/index.js'),
+    output: {
+        path: path.resolve(__dirname, 'public'),
+        filename: 'bundle.js',
+    }
+};
+```
+
+然后运行下面的命令:
+
+* `webpack` 开发环境下编译
+* `webpack -p` 产品编译及压缩
+* `webpack --watch` 开发环境下持续的监听文件变动来进行编译(非常快!)
+* `webpack -d` 引入 source maps
+* `webpack --progress` 显示构建进度
+* `webpack --display-error-details` 这个很有用，显示打包过程中的出错信息
+
+另外，让我们用webpack-dev-server来起一个本地服务进行调试：
+```
+$ webpack-dev-server --progress --colors --content-base public
+```
+
+打开`localhost:8080`，回车即可。
+
+## 3.基于React + ES6的基本代码体验
+
+我们在app/index.js里面尝试写一个最基本的组件代码，暂时不用理会代码为什么要这么写，这里先把ES6语法和JSX语法加进来，用于跑通我们的开发环境，后续会有专题内容来详细讲述。
+
+代码清单：`app/index.js`
+```
+'use strict';
+
+import React, { Component } from 'react';
+import ReactDOM from 'react-dom';
+
+class HelloWorld extends Component {
+  render(){
+    return (
+      <h1>Hello world</h1>
+    )
+  }
+}
+
+ReactDOM.render(<HelloWorld />, document.getElementById('app'));
+```
+
+ok，我们看到，我们的代码用到了基本的react.js和react-dom.js，而且使用的是ES6的语法来封装的组件和应用模块。
+
+所以接下来我们要做两件事：
+1. 下载相应的模块：
+```
+$ npm install --save react react-dom
+```
+2. 下载并配置babel，以解析ES6语法和JSX语法。
+
+babel是一款强大的解析器，拥有活跃而且完善的生态，不仅可以做JS相关的各种语法的解析，还提供丰富的插件功能。
+
+```
+// 先全局安装babel-cli以方便运行babel命令和babel-node命令
+$ npm install babel-cli -g
+$ npm install babel-loader babel-core --save-dev
+```
+
+安装后我们需要配置webapck.config.js文件
+
+代码清单：`webpack.config.js`
+```
+var path = require('path');
+
+module.exports = {
+    entry: path.resolve(__dirname, 'app/index.js'),
+    output: {
+        path: path.resolve(__dirname, 'public'),
+        filename: 'bundle.js',
+    },
+    module: {
+      loaders: [
+        {
+          test: /\.js$/,
+          loader: 'babel-loader'
+        }
+      ]
+    }
+};
+```
+
+这里指定了使用babel-loader来解析js文件，但是并没有告诉babel应该如何来解析，所以我们需要创建一个babelrc配置文件
+
+```
+$ touch .babelrc
+```
+
+然后编辑babelrc
+代码清单：`.babelrc`
+```
+{
+  "presets": ["es2015", "react", "stage-0"],
+  "plugins": []
+}
+```
+
+为什么配置的是这两个参数，解释一下，配置的preset字段是在为babel解析做预设，告诉babel需要使用相关的预设插件来解析代码，plugins字段，顾名思义，就是用来配置使用babel相关的插件的，这里暂且按下不表。
+
+这里使用到了三个预设需要下载安装
+```
+$ npm install --save-dev babel-preset-es2015 babel-preset-react babel-preset-stage-0
+// 其中stage-0预设是用来说明解析ES7其中一个阶段语法提案的转码规则
+```
+
+到这里我们可以重新来运行一次webpack以查看效果，为方便运行，我们把webpack-dev-server的相关代码放到package.json的script里面去
+
+代码清单：`package.json`
+
+```
+"scripts": {
+    "dev": "webpack-dev-server --progress --colors --content-base public"
+}
+```
+
+好了，开始运行试一下吧
+
+```
+$ npm run dev
+```
+
+在浏览器中访问：`http://localhost:8080/`
+
+## 4.实现代码热替换
 
 在webpack.config.js更新一下入口文件配置即可实现编辑器中保存代码就可在浏览器中实现刷新的效果，棒棒哒。
 代码清单：`webpack.config.js`
@@ -15,7 +218,7 @@ entry: [
 
 顺便说一句，如果你是gulp的使用者，推荐结合`browser-sync`的reload接口和gulp的watch功能结合，也可以很轻松的实现这样的功能。
 
-## 2 使用react-hot-loader实现组件级的hot reload
+## 5.使用react-hot-loader实现组件级的hot reload
 
 虽然实现了代码的热替换，只要在编辑器中保存我们编辑的代码，浏览器即可实时刷新。但同时也有一个烦恼，如果我们的项目开发中用到了几十个组件，为了测试某个组件我们需要一步步操作到固定的步骤去实现，一旦保存编辑器中修改的一行代码，从入口文件开始的所有代码都全部刷新了一次，这样很不利于调试。
 
@@ -62,7 +265,7 @@ module.exports = {
 
 更多资料请参考[这里](http://gaearon.github.io/react-hot-loader/getstarted/)
 
-## 3 加载并解析你的样式文件
+## 6.加载并解析你的样式文件
 
 前面的大部分工作都在处理JS逻辑的解析和加载，但是我们还一直没有提我们的样式文件应该如何去处理。
 
@@ -153,7 +356,7 @@ $ npm run dev
 ```
 修改一下less文件，浏览器会自动刷新，DONE，看起来还是很不错的样子。
 
-## 4 css文件单独加载
+## 7.css文件单独加载
 
 通过上面的例子，css文件的引入、解析、运行已经跑通，BUT，目前我们的css文件全部被打包在bundle.js一个文件里面。这可不是一件好事，后续代码量一上来，文件越来越胖，我想老板一定会抓你去做性能优化的，所以，我们需要把css文件单独打包出来。
 
@@ -228,7 +431,7 @@ module.exports = {
 
 另外这里手动去修改index.html是一个不是很友好的体验，这里暂且按下不表，后续我们会通过插件来统一生成public下的资源，这样让调试和部署更加便捷。
 
-## 5 图片资源的加载
+## 8.图片资源的加载
 
 图片资源的加载相对简单，代码的写法都可以就近依赖require，通过url-loader来解析加载。先进行下载：
 ```
@@ -314,7 +517,7 @@ export default App;
 
 执行`npm run dev`跑一次代码，正常展示后我们可以看到控制台的信息，2k的图片被base64，19k的图片正常加载。
 
-## 6 图标字体的加载
+## 9.图标字体的加载
 
 图标字体的加载可以选择file-loader 或 url-loader 进行加载，配置如下（示例配置，大家在项目中最好还是按实际情况配置）
 ```
@@ -359,7 +562,7 @@ export default App;
 
 跑一下代码，一切正常，有没有感觉webpack果然是前端开发神器。
 
-## 7 将js文件的应用和第三方分开打包
+## 10.将js文件的应用和第三方分开打包
 
 修改webpack配置中的entry入口，并且添加CommonsChunkPlugin插件抽取出第三方资源。
 
@@ -400,7 +603,7 @@ plugins: [
 
 ```
 
-## 8 加上一个小小的调试工具
+## 11.加上一个小小的调试工具
 
 我们在配置中新增devtool字段，并设置值为source-map，这样我们就可以在浏览器中直接调试我们的源码，在控制台的sources下，点开可以看到`webpack://`目录，点开有惊喜哦。
 
@@ -409,7 +612,7 @@ plugins: [
 devtool: 'cheap-module-source-map'
 ```
 
-## 9 将html也进行统一产出
+## 12.将html也进行统一产出
 
 前面我们还是先在public目录手动加上的index.html，这样在项目中不是很适用，因为我们希望public产出的资源应该是通过工具来统一产出并发布上线，这样质量和工程化角度来思考是更合适的。下面我们来实现。
 
@@ -456,7 +659,7 @@ plugins: [
 ok，运行`npm run dev`跑一遍，效果正常。
 
 
-## 10 添加文件的hash
+## 13.添加文件的hash
 
 我们的开发的产品最终是要上线的，添加文件hash可以解决由于缓存带来的问题，所以我们需要试着给文件加上hash。其实很简单，在文件的后面加上`?[hash]`就行，当然，这也是简单的写法。
 
@@ -527,7 +730,7 @@ module.exports = {
 
 ```
 
-## 11 区分环境的标识
+## 14.区分环境的标识
 
 项目中有些代码我们只为在开发环境（例如日志）或者是内部测试环境（例如那些没有发布的新功能）中使用，那就需要引入下面这些魔法全局变量（magic globals）：
 

@@ -1,16 +1,24 @@
-# React学习指南
+# React高级研讨课程
 
-> 文章主要内容转载自[petehunt](https://github.com/petehunt/react-howto).
+在本次课程面向初中级前端开发人员，以及感兴趣的开发者，你需要具备 HTML, CSS 和 JavaScript 开发网页的基础。在对课程介绍之前，希望你有以下的基本开发环境配置以及基本知识储备。
 
-如果你是一个 React (或者前端) 新手, 出于以下的原因, 你可能会对这个生态圈感到困惑:
+**环境配置**
 
-* React 的目标群体历来是喜欢尝试新事物的开发者和前端专家.
-* Facebook 只开源了他们在实际使用的, 因此他们没有关注那些比 Facebook 小的工程需求.
-* 现有的 React 指引水平参差不齐.
+- 编辑器：Atom / Sublime Text 3 / Webstorm
+- Chrome浏览器调试
+- 安装Nodejs全局环境 && npm
+- 基本命令行环境，windows用户可以使用Git Bash || CMD命令行窗口
 
-在本文中, 我会假设你已有使用 HTML, CSS 和 JavaScript 开发网页的基础.
+**基本知识储备**
 
-## 0. 为什么去学习React
+- 里哦阿姐React相关的基本思想
+- 阅读过ES6/ES7相关的基本语法
+- 对新型构建工具webpack有所了解
+- 知道Babel是干什么用的
+- 会基本的git操作命令
+
+
+## 0. Why React
 
 - 基于reactjs实现，除**组件化**、**虚拟DOM**在**复用**以及**性能**上带来的一般好处外，reactjs思想使得开发者之间更好的**分工与合作**，在**配合上非常顺畅**。
 - react+redux，**规范的接口**以及极强的约束，使得整个**代码结构清晰**，不同开发者的代码高度一致。
@@ -26,8 +34,8 @@
 你应该按照以下的顺序进行学习, **而不是跳着学或者同时学习**:
 
 * [React](#user-content-学习-react-本身)
-* [`npm`](#user-content-学习-npm)
-* [JavaScript “打包工具”](#user-content-学习-javascript-打包工具)
+* [npm](#user-content-学习-npm)
+* [构建工具](#user-content-学习-javascript-打包工具)
 * [ES6](#user-content-学习-es6)
 * [Routing](#user-content-学习路由-routing)
 * [Flux](#user-content-学习-flux)

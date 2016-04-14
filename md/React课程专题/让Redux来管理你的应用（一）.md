@@ -1,4 +1,4 @@
-<h1 style="font-size: 40px;text-align:center;color: blue;">让Redux来管理你的应用（一）</h1>
+<h1 style="font-size: 40px;text-align:center;color: #019fde;">让Redux来管理你的应用（一）</h1>
 
 > **重要提示：** 本教程配套示例代码请前往[redux-complete-sample](https://github.com/GuoYongfeng/redux-complete-sample)下载，课程中会有大量的示例操作，操作说明均基于这个配套的示例代码仓库，所以为了方便学习，请务必下载安装并启动。
 

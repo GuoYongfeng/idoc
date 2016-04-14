@@ -1,4 +1,4 @@
-<h1 style="font-size: 40px;text-align:center;color: blue;">使用Webpack搭建前端开发工作流</h1>
+<h1 style="font-size: 40px;text-align:center;color: #019fde;">使用Webpack搭建前端开发工作流</h1>
 
 webpack是一款强大的模块加载器兼打包工具，它能把各种资源，例如JS（含JSX）、coffee、样式（含less/sass）、图片等都作为模块来使用和处理。
 

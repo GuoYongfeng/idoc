@@ -1,5 +1,5 @@
 
-<h1 style="font-size: 40px;text-align:center;color: blue;">React基础知识详解</h1>
+<h1 style="font-size: 40px;text-align:center;color: #019fde;">React基础知识详解</h1>
 
 > **编者按：**除组件化、虚拟DOM在复用以及性能上带来的一般好处外，React思想使得开发者之间更好的分工与合作，在配合上非常顺畅，规范的接口以及极强的约束，使得整个代码结构清晰，不同开发者的代码高度一致。
 

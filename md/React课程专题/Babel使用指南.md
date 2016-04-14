@@ -1,4 +1,5 @@
-<h1 style="font-size: 40px;text-align:center;color: #019fde;">Babel 使用指南</h1>
+<h1 style="font-size: 40px;text-align:center;color: #007cdc;">Babel 使用指南</h1>
+
 
 <img src="/img/babel.jpg" />
 

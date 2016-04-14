@@ -1,4 +1,4 @@
-<h1 style="font-size: 40px;text-align:center;color: #019fde;">React技术分享</h1>
+<h1 style="font-size: 40px;text-align:center;color: #007cdc;">React技术分享</h1>
 
 ![](/img/percentage.jpg)
 

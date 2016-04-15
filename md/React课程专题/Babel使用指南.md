@@ -35,8 +35,6 @@ const square = function square(n) {
 
 已经有很多人都这样做了，围绕着 Babel 涌现出了非常大规模和多样化的生态系统。 在这本手册中，我将介绍如何使用 Babel 的内建工具以及一些来自于社区的非常有用的东西。
 
-> ***在 Twitter 上关注 [@thejameskyle](https://twitter.com/thejameskyle)，第一时间获取更新。***
-
 * * *
 
 # <a id="toc-setting-up-babel"></a>安装 Babel
@@ -171,9 +169,9 @@ $ npm install --save-dev babel-cli
 
 ## <a id="toc-babel-core"></a>`babel-core`
 
-如果你需要以编程的方式来使用 Babel，可以使用 `babel-core` 这个包。
+如果你需要以编程的方式来调用Babel的API进行转码，就可以使用 `babel-core` 这个模块。
 
-首先安装 `babel-core`。.
+我们首先来安装 `babel-core`。
 
 ```sh
 $ npm install babel-core
@@ -299,6 +297,34 @@ JavaScript 还有一些提案，正在积极通过 TC39（ECMAScript 标准背�
 
 以上每种预设都依赖于紧随的后期阶段预设。例如，`babel-preset-stage-1` 依赖 `babel-preset-stage-2`，后者又依赖 `babel-preset-stage-3`。.
 
+
+`Stage 0：`
+
+Function Bind Syntax：函数的绑定运算符
+String.prototype.at：字符串的静态方法at
+`Stage 1：`
+
+Class and Property Decorators：Class的修饰器
+Class Property Declarations：Class的属性声明
+Additional export-from Statements：export的写法改进
+String.prototype.{trimLeft,trimRight}：字符串删除头尾空格的方法
+`Stage 2：`
+
+Rest/Spread Properties：对象的Rest参数和扩展运算符
+`Stage 3`
+
+SIMD API：“单指令，多数据”命令集
+Async Functions：async函数
+Object.values/Object.entries：Object的静态方法values()和entries()
+String padding：字符串长度补全
+Trailing commas in function parameter lists and calls：函数参数的尾逗号
+Object.getOwnPropertyDescriptors：Object的静态方法getOwnPropertyDescriptors
+`Stage 4：`
+
+Array.prototype.includes：数组实例的includes方法
+Exponentiation Operator：指数运算符
+
+
 使用的时候只需要安装你想要的阶段就可以了：
 
 ```sh
@@ -326,9 +352,11 @@ $ npm install --save-dev babel-preset-stage-2
 
 ## <a id="toc-babel-polyfill"></a>`babel-polyfill`
 
-Babel 几乎可以编译所有时新的 JavaScript 语法，但对于 APIs 来说却并非如此。
+Babel默认只转换新的JavaScript句法（syntax），而不转换新的API，比如Iterator、Generator、Set、Maps、Proxy、Reflect、Symbol、Promise等全局对象，以及一些定义在全局对象上的方法（比如Object.assign）都不会转码。Babel默认不转码的API非常多，详细清单可以查看[definitions.js文件](https://github.com/babel/babel/blob/master/packages/babel-plugin-transform-runtime/src/definitions.js)。
 
-比方说，下列含有箭头函数的需要编译的代码：
+举例来说，ES6在Array对象上新增了Array.from方法。Babel就不会转码这个方法。如果想让这个方法运行，必须使用babel-polyfill，为当前环境提供一个垫片。
+
+比方说，我们需要编译以下代码：
 
 ```js
 function addAll() {
@@ -467,8 +495,6 @@ $ npm install --save-dev babel-plugin-transform-es2015-classes
     ]
   }
 ```
-
-> 接下来几周内我会更新插件文档来详细介绍每一个选项。[关注我以获知更新](https://twitter.com/thejameskyle)。.
 
 ## <a id="toc-customizing-babel-based-on-environment"></a>基于环境自定义 Babel
 

@@ -1,4 +1,4 @@
-# github-notetaker应用开发
+<h1 style="font-size: 40px;text-align:center;color: #007cdc;">github-notetaker应用开发</h1>
 
 > 本次课程的完整代码在这里：https://github.com/GuoYongfeng/github-notetaker-app
 

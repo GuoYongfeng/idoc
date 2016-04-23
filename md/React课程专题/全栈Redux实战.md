@@ -12,17 +12,17 @@
 
 你需要安装Node和NPM，并且下载一款你喜欢的编辑器。
 
-- [x] [环境安装](/html/团队/新员工入职指南.html)
-- [x] [Nodejs环境配置和Git基本配置](/html/技术分享/Nodejs环境配置和Git基本配置.html)
+- [x] [环境安装](/idoc/html/团队/新员工入职指南.html)
+- [x] [Nodejs环境配置和Git基本配置](/idoc/html/技术分享/Nodejs环境配置和Git基本配置.html)
 
 这篇文章需要读者具备开发js应用的能力，我们将使用如下技术：
 
-- [x] [Node](/html/技术分享/Node.js知识详解.html)
-- [x] [ES6](/html/React课程专题/快速搞定ES6基本语法.html)
-- [x] [React](/html/React课程专题/React基础知识详解.html)
-- [x] [Babel](/html/React课程专题/Babel使用指南.html)
-- [x] [Webpack](/html/React课程专题/使用Webpack搭建前端开发工作流.html)
-- [x] [Redux](/html/React课程专题/让Redux来管理你的应用（一）.html)
+- [x] [Node](/idoc/html/技术分享/Node.js知识详解.html)
+- [x] [ES6](/idoc/html/React课程专题/快速搞定ES6基本语法.html)
+- [x] [React](/idoc/html/React课程专题/React基础知识详解.html)
+- [x] [Babel](/idoc/html/React课程专题/Babel使用指南.html)
+- [x] [Webpack](/idoc/html/React课程专题/使用Webpack搭建前端开发工作流.html)
+- [x] [Redux](/idoc/html/React课程专题/让Redux来管理你的应用（一）.html)
 
 所以你最好能了解这些工具，这样你才不会掉队，跟上大家的节奏。
 

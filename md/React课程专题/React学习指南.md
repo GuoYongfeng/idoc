@@ -1,23 +1,30 @@
 <h1 style="font-size: 40px;text-align:center;color: #007cdc;">React 学习指南</h1>
 
+<h1 style="font-size: 30px;text-align:center;color: #ff8345;">
+  谁能做到真正的跨平台，谁就能笼络更多的人心
+</h1>
+
 <div style="text-align: center;display:block;margin-bottom: 20px;">
   <img src="/img/react/react.png" />
 </div>
-
-> # 谁能做到真正的跨平台，谁就能笼络更多的人心。
 
 ## 介绍
 
 React 学习课程面向初中级前端开发人员以及感兴趣的开发者，我们希望你具备 HTML, CSS 和 JavaScript 的Web 开发的基础，同时希望你具有以下的基本开发环境配置以及基本知识储备。
 
-`环境`
+### 开发环境
 
 - 编辑器：Atom / Sublime Text 3 / Webstorm
 - Chrome浏览器调试
 - 安装Nodejs全局环境 && npm
 - 基本命令行环境，windows用户可以使用Git Bash || CMD命令行窗口
 
-`基本知识储备`
+如果你还没有这些，你可以在这里学习基本的安装和配置：
+
+- [x] [环境安装](/idoc/html/团队/新员工入职指南.html)
+- [x] [Nodejs环境配置和Git基本配置](/idoc/html/技术分享/Nodejs环境配置和Git基本配置.html)
+
+### 基本知识储备
 
 - 了解React相关的基本概念和简单写法
 - 阅读过ES6/ES7相关的基本语法
@@ -42,26 +49,32 @@ React 学习课程面向初中级前端开发人员以及感兴趣的开发者�
 
 你应该按照以下的顺序进行学习:
 
-* [Babel]()
-* [React](#user-content-学习-react-本身)
-* [npm](#user-content-学习-npm)
-* [构建工具](#user-content-学习-javascript-打包工具)
-* [ES6](#user-content-学习-es6)
-* [Routing](#user-content-学习路由-routing)
-* [Flux](#user-content-学习-flux)
+- [x] [Node](/idoc/html/技术分享/Node.js知识详解.html)
+- [x] [Babel](/idoc/html/React课程专题/Babel使用指南.html)
+- [x] [ES6](/idoc/html/React课程专题/快速搞定ES6基本语法.html)
+- [x] [Webpack](/idoc/html/React课程专题/使用Webpack搭建前端开发工作流.html)
+- [x] [React](/idoc/html/React课程专题/React基础知识详解.html)
+- [x] [Router](/idoc/html/React课程专题/React-router路由实践.html)
+- [x] [Redux](/idoc/html/React课程专题/Redux快速上手.html)
 
-另外, 在 React 社区中, 有一些前沿主题是经常被提及到的, 以下的这些主题很有意思, 但也很难弄懂, 所以它们远没有上面的主题流行, **大多数应用也不需要用到这些.**
+另外, 在 React 社区中, 有一些前沿主题是经常被提及到的, 以下的这些主题很有意思, 你可以在完成上面技术学习之后去持续关注它们：
 
-* [内联样式](#user-content-学习内联样式)
+* [关于CSS样式](#user-content-关于CSS样式)
 * [服务器端渲染](#user-content-学习服务器端渲染)
 * [Immutable.js](#user-content-学习-immutablejs)
 * [Relay, Falcor 等](#user-content-学习-relay-falcor-等)
 
 ## 学习 React 本身
 
-有一种常见的误解是: 你需要花费大量时间在配置工具上, 然后才开始学习 React. 在官方文档里, 你可以找到 [copy-paste HTML template](https://facebook.github.io/react/docs/getting-started.html#quick-start-without-npm). 只需要保存为 `.html` 文件, 你就可以马上开始学习了. **这个步骤不需要任何工具, 你也无需额外学习工具使用, 直到你能熟练掌握 React 基础.**
+有一种常见的误解是: 你需要花费大量时间在配置工具上, 然后才开始学习 React. 在官方文档里, 你可以找到 [copy-paste HTML template](https://facebook.github.io/react/docs/getting-started.html#quick-start-without-npm). 只需要保存为 `.html` 文件, 你就可以马上开始学习了. 这个步骤不需要任何工具, 你也无需额外学习工具使用, 直到你能熟练掌握 React 基础.
 
-我依然觉得, 学习 React 最简单的方法是通过官方教程 [the official tutorial](https://facebook.github.io/react/docs/tutorial.html).
+我依然觉得, 学习 React 最简单的方法是通过官方教程 [the official tutorial](https://facebook.github.io/react/docs/tutorial.html)。
+
+另外，我也为你精心准备了学习React的资料，手把手教你从基础入门到实战应用，从ES5写法到ES6写法的升级。
+
+- [React基础知识详解（ES6版本）](/idoc/html/React课程专题/React基础知识详解.html)
+- [React技术分享（ES5版本）](/idoc/html/React课程专题/React技术分享.html)
+- [github-notetaker应用开发](/idoc/html/React课程专题/github-notetaker应用开发.html)
 
 ## 学习 `npm`
 
@@ -73,13 +86,13 @@ React 学习课程面向初中级前端开发人员以及感兴趣的开发者�
 
 出于若干技术原因, `CommonJS` 模块 (也就是 `npm` 里的所有内容) 不能直接用到浏览器. 你需要一个 JavaScript “打包工具(bundler)” 来把这些模块打包成 `.js` 文件, 使你可以在网页中通过 `<script>` 标签引入它们.
 
-JavaScript 打包工具包括有 `webpack` 和 `browserify`. 它们都是好的选择, 但我个人更喜欢 `webpack` , 因为它有许多功能简化大型应用开发. 鉴于 webpack 文档可能令人感到困惑, 我也写了两篇文章: [plug-and-play template for getting started](https://github.com/petehunt/react-webpack-template) 和针对更复杂用例的 [how-to guide for webpack](https://github.com/petehunt/webpack-howto).
+JavaScript 打包工具包括有 `webpack` 和 `browserify`. 它们都是好的选择, 但我个人更喜欢 `webpack` , 因为它有许多功能简化大型应用开发. 鉴于 webpack 文档可能令人感到困惑, 我也写了详细的教程：[使用Webpack搭建前端开发工作流](/idoc/html/React课程专题/使用Webpack搭建前端开发工作流.html)
 
 要记住的一点: `CommonJS` 使用了 `require()` 函数来引入模块, 因此许多人对此感到疑惑, 并认为需要导入 `require.js` 到工程里. 出于若干技术原因, 我建议你避免使用 `require.js`. 它在 React 生态圈并不流行.
 
 ## 学习 ES6
 
-在 JSX (你会在 React tutorial 中学习到) 以外, 你可能会注意到 React 例子中一些有趣的语法. 这被称为 ECMAScript6, 是 JavaScript 的最新版本. 由于 ES6 很新, 你可能还没学习到, 浏览器也可能尚未兼容, 但别担心, 通过合适的配置, 你的打包工具会为你自动转换成兼容代码.
+在 JSX (你会在 React tutorial 中学习到) 以外, 你可能会注意到 React 例子中一些有趣的语法. 这被称为 ECMAScript6, 是 JavaScript 的最新版本. 由于 ES6 很新, 你可能还没学习到, 浏览器也可能尚未兼容, 但别担心, 通过Babel的配置, 你的打包工具会为你自动转换成兼容代码.
 
 如果你只想要使用 React 来把事情做完, **你可以跳过 ES6 的学习,** 或者留到以后再学习.
 

@@ -22,7 +22,7 @@
 - [x] [React](/idoc/html/React课程专题/React基础知识详解.html)
 - [x] [Babel](/idoc/html/React课程专题/Babel使用指南.html)
 - [x] [Webpack](/idoc/html/React课程专题/使用Webpack搭建前端开发工作流.html)
-- [x] [Redux](/idoc/html/React课程专题/让Redux来管理你的应用（一）.html)
+- [x] [Redux](/idoc/html/React课程专题/Redux快速上手.html)
 
 所以你最好能了解这些工具，这样你才不会掉队，跟上大家的节奏。
 

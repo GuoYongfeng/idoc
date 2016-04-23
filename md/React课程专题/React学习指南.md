@@ -1,22 +1,13 @@
 <h1 style="font-size: 40px;text-align:center;color: #007cdc;">React 学习指南</h1>
 
-<h1 style="font-size: 30px;text-align:center;color: #ff8345;">
-  谁能做到真正的跨平台，谁就能笼络更多的人心
-</h1>
-
-
 > 本文基于以下两篇Github上的博文进行内容整理，加上了我的部分观点和内容阐述，仅供学习交流。
 > 1. 《[展望 Javascript 2016年的趋势和生态发展](https://github.com/gaohailang/blog/issues/12)》，gaohailang同学译著，英文原文为《[State of the Art JavaScript in 2016](https://medium.com/javascript-and-opinions/state-of-the-art-javascript-in-2016-ab67fc68eb0b)》
 > 2. 《[如何学习React](https://github.com/petehunt/react-howto/blob/master/README-zh.md)》，Zhangjd同学译著，原文为《[react-howto](https://github.com/petehunt/react-howto)》
-
-<br />
 
 React 系列课程面向初中级前端开发人员以及感兴趣的开发者，我们希望你具备 HTML, CSS 和 JavaScript 的Web 开发的基础，同时希望你具有以下的基本开发环境配置以及基本知识储备。如果对课程及内容有任何反馈，请到[这里](https://github.com/GuoYongfeng/idoc/issues/3)。
 
 
 接下来，我们将从语言特性、代码风格、构建工具、依赖管理、路由管理、核心类库、状态管理、CSS预处理、API 工具库、测试工具等前端开发的方方面面进行技术梳理，为你挑出这些最佳实践并规划面向未来的技术学习之路。但同时，面对剧烈变革同时又日趋稳定的前端新技术，有两句话和大家共享：`1. 对于新技术，请确保你需要，再去使用；2. 保持简单，每次学一样，深入理解和使用。`
-
-
 
 ## 语言：ES6特性 + Babel编译器
 
@@ -77,7 +68,7 @@ Webpack目前也是处理大型SPA应用项目的最好方案，利用它的代�
 
 ![](https://raw.githubusercontent.com/gaohailang/blog/master/source/images/14595750418996.jpg)￼
 
-React在目前前端技术所表现出的亮点吸引了大批的开发者：
+谁能做到真正的跨平台，谁就能笼络更多的人心。React在目前前端技术所表现出的亮点吸引了大批的开发者：
 - 从顶到底都是组件，你的应用程序代码非常容易理解
 - 学习曲线非常平缓，要知道罗列它所有关键的API都不会超过一页A4纸张。
 - JSX非常棒，你可以用获得JavaScript编程语言的能力和工具链来描述页面

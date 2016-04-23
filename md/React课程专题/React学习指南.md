@@ -4,6 +4,8 @@
   <img src="/img/react/react.png" />
 </div>
 
+> # 谁能做到真正的跨平台，谁就能笼络更多的人心。
+
 ## 介绍
 
 React 学习课程面向初中级前端开发人员以及感兴趣的开发者，我们希望你具备 HTML, CSS 和 JavaScript 的Web 开发的基础，同时希望你具有以下的基本开发环境配置以及基本知识储备。
@@ -40,6 +42,7 @@ React 学习课程面向初中级前端开发人员以及感兴趣的开发者�
 
 你应该按照以下的顺序进行学习:
 
+* [Babel]()
 * [React](#user-content-学习-react-本身)
 * [npm](#user-content-学习-npm)
 * [构建工具](#user-content-学习-javascript-打包工具)

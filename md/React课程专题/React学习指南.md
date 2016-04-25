@@ -1,25 +1,16 @@
 <h1 style="font-size: 40px;text-align:center;color: #007cdc;">React 学习指南</h1>
 
-> 本文基于以下两篇Github上的博文进行内容整理，加上了我的部分观点和内容阐述，仅供学习交流。
-> 1. 《[展望 Javascript 2016年的趋势和生态发展](https://github.com/gaohailang/blog/issues/12)》，gaohailang同学译著，英文原文为《[State of the Art JavaScript in 2016](https://medium.com/javascript-and-opinions/state-of-the-art-javascript-in-2016-ab67fc68eb0b)》
-> 2. 《[如何学习React](https://github.com/petehunt/react-howto/blob/master/README-zh.md)》，Zhangjd同学译著，原文为《[react-howto](https://github.com/petehunt/react-howto)》
+**React 系列课程**面向初中级前端开发人员以及感兴趣的开发者，我们希望你具备 HTML, CSS 和 JavaScript 的Web 开发的基础，同时希望你具有以下的基本开发环境配置以及基本知识储备。如果对课程及内容有任何反馈，请到[这里](https://github.com/GuoYongfeng/idoc/issues/3)。
 
-React 系列课程面向初中级前端开发人员以及感兴趣的开发者，我们希望你具备 HTML, CSS 和 JavaScript 的Web 开发的基础，同时希望你具有以下的基本开发环境配置以及基本知识储备。如果对课程及内容有任何反馈，请到[这里](https://github.com/GuoYongfeng/idoc/issues/3)。
+接下来，我们将从语言特性、代码风格、构建工具、依赖管理、路由管理、核心类库、状态管理、CSS预处理、API 工具库、测试工具等前端开发的方方面面进行技术梳理，为你挑出这些最佳实践并规划面向未来的技术学习之路。但同时，面对剧烈变革同时又日趋稳定的前端新技术，有两句话和大家共享：1. 对于新技术，请确保你需要，再去使用；2. 保持简单，每次学一样，深入理解和使用。
 
-
-接下来，我们将从语言特性、代码风格、构建工具、依赖管理、路由管理、核心类库、状态管理、CSS预处理、API 工具库、测试工具等前端开发的方方面面进行技术梳理，为你挑出这些最佳实践并规划面向未来的技术学习之路。但同时，面对剧烈变革同时又日趋稳定的前端新技术，有两句话和大家共享：`1. 对于新技术，请确保你需要，再去使用；2. 保持简单，每次学一样，深入理解和使用。`
-
-## 语言：ES6特性 + Babel编译器
-
-![](https://raw.githubusercontent.com/gaohailang/blog/master/source/images/14595751679057.jpg)￼
+## 语言：ES6 + Babel编译器
 
 ECMAScript 6 是 JavaScript 的最新版本。由于 ES6 很新，你可能还没学习到，浏览器也可能尚未兼容，但别担心，通过Bebel编译器和你的打包工具结合，将能够为你自动转换成兼容代码。
 
 Babel是个可插拔ES6编译器，配置合适的预设（babel-preset-es2015，babel-preset-react....），我们就可以开动了。
 
 ## 代码风格：ESlint
-
-![](https://raw.githubusercontent.com/gaohailang/blog/master/source/images/14595751760900.jpg)￼
 
 使用ESlint配合Airbnb指南来保持我们团队的代码风格。
 
@@ -28,8 +19,6 @@ Babel是个可插拔ES6编译器，配置合适的预设（babel-preset-es2015�
 一旦你开始熟悉它，我建议你开启更多的规则。在编辑撰写代码时候越多的捕获不规范（配置你的编辑器IDE使用上这个ESLint插件），就会避免分歧和在决定费神，从而让你和团队更加高效！
 
 ## 依赖管理：NPM
-
-![](https://raw.githubusercontent.com/gaohailang/blog/master/source/images/14595751832101.jpg)￼
 
 这一点很明确 ，就用NPM，忘记之前的bower。
 
@@ -40,8 +29,6 @@ Babel是个可插拔ES6编译器，配置合适的预设（babel-preset-es2015�
 同时考虑使用利用类似于 [Sinopia](https://www.npmjs.com/package/sinopia) 来构建自己的私有npm服务器。Babel可以把 ES6 模块语法编译到CommonJS。意味着你可面向未来的语法，和在使用构建工具（如Webpack 2.0）时获得它支持的一些静态代码分析工具如 [tree shaking](http://www.2ality.com/2015/12/webpack-tree-shaking.html) 的优势
 
 ## 构建工具：Webpack
-
-![](https://raw.githubusercontent.com/gaohailang/blog/master/source/images/14595751900659.jpg)￼
 
 不想在你的页面文件中加入非常多的外链Script引用，那你就需要一个构建工具来打包你的依赖。如果你也需要允许npm包在浏览器运行工作的工具，那么Webpack就是你需要的。
 
@@ -66,8 +53,6 @@ Webpack目前也是处理大型SPA应用项目的最好方案，利用它的代�
 
 ## 核心类库：React
 
-![](https://raw.githubusercontent.com/gaohailang/blog/master/source/images/14595750418996.jpg)￼
-
 谁能做到真正的跨平台，谁就能笼络更多的人心。React在目前前端技术所表现出的亮点吸引了大批的开发者：
 - 从顶到底都是组件，你的应用程序代码非常容易理解
 - 学习曲线非常平缓，要知道罗列它所有关键的API都不会超过一页A4纸张。
@@ -81,7 +66,6 @@ Webpack目前也是处理大型SPA应用项目的最好方案，利用它的代�
 
 现在不少全能的大型框架如Ember，Angular，它们承诺说帮你处理所有的事。但是在React生态中，尽管需要对组件做一些决定，但是这方案更强壮。同时，很多其他框架，譬如Angular2.0等，正在快速追赶React。
 
-
 ## 路由：Router
 
 “单页面应用” 是时下的技术热点. 当网页加载完成, 用户点击链接或者按钮的时候, JavaScript 会更新页面和改变地址栏, 但网页不会刷新. 地址栏的管理就是通过 **路由(router)** 来完成的.
@@ -91,8 +75,6 @@ Webpack目前也是处理大型SPA应用项目的最好方案，利用它的代�
 **如果你创建的并非单页面应用, 请不要使用路由.** 无论如何, 大部分项目都是从大型应用中的小组件开始的.
 
 ## 应用生命周期：Redux
-
-![](https://raw.githubusercontent.com/gaohailang/blog/master/source/images/14595751610038.jpg)￼
 
 现在我们有了我们的视图和组件层，应用程序还需要管理数据状态和应用的生命周期。Redux也是毋容置疑的优胜者。除了React，Facebook展示了名叫Flux的单向数据流的设计模式。Flux最早用来解决和简化应用的状态管理，但是随之而来，很多开发者提出了不少新的问题如如何存储数据状态和从哪发送Ajax请求。
 
@@ -105,8 +87,6 @@ Webpack目前也是处理大型SPA应用项目的最好方案，利用它的代�
 不过有一点需要注意的是不要轻易的去尝试抽象Redux的项目模板。那些模板背后都是有意义有原因的。所以你尝试盲目修改前确保你已经使用过它和理解这样组织代码背后的原因。
 
 ## 测试：Mocha + Chai + Sinon
-
-![](https://raw.githubusercontent.com/gaohailang/blog/master/source/images/14595751982308.jpg)￼
 
 目前在 JavaScript 单元测试上，我们有众多选择，你选择任何一个都不会错太多。因为你开始做单元测试，你就走对一大步了。
 
@@ -152,20 +132,20 @@ Lodash，目前来说应该是杂七杂八都有的首选。同时它类似注�
 
 *当你开始用 React 的时候, 只要用你平常使用的方法去写就好了.*React 就像其他 JavaScript 库一样, 可以和 CSS 预处理器很好地配合工作.
 
-> 有一点需要特殊注意的是，CSS Modules。它限制了CSS的层叠部分，使得我们可以定义更加明确的依赖，来避免冲突。你再也不用担心Class名称一致导致的覆盖，也不用特意为了避免它而添加额外的前缀。它和React也配合的很好。有个不足：css-loader和css modules一起使用会导致非常缓慢，如果你的样式数量不少，那么在它优化之前还是避免使用它吧。
+有一点需要特殊注意的是，CSS Modules。它限制了CSS的层叠部分，使得我们可以定义更加明确的依赖，来避免冲突。你再也不用担心Class名称一致导致的覆盖，也不用特意为了避免它而添加额外的前缀。它和React也配合的很好。有个不足：css-loader和css modules一起使用会导致非常缓慢，如果你的样式数量不少，那么在它优化之前还是避免使用它吧。
 
-## 更多技术讨论
+## Immutable.js
 
-### 前后端同构
+[Immutable.js](https://facebook.github.io/immutable-js/) 提供了一系列的数据结构, 以帮助解决构造 React 应用时的某些性能问题. 这是一个很棒的库, 你可能会在应用发展的过程里大量用到它, 但直到你在意识到性能问题以前, 它是完全不必要的.
+
+## 前后端同构
 
 Universal或Isometric的JavaScript代表着JavaScript写的代码可以被同时运行在客户端和服务器上。这需要用来在服务器端预先渲染页面来提升性能或SEO友好。
 
 感谢React，之前只有类似于Ebay或Facebook这样的巨型科技公司才能实施的方案，现在很多小的开发团队都能做到。不过它并不那么容易，它显著的加大了复杂性，限制了你类库和工具选择。如果你在构建B2C的网站，类似于电商网站，那么你可能必须使用这个方案。但如果你是在做内部网站或者是B2B应用站点，那么这样的性能提升和SEO其实并不需要。所以和你的项目经理讨论下，看看是否有必要~
 
-### Immutable.js
+## 参考资料
 
-[Immutable.js](https://facebook.github.io/immutable-js/) 提供了一系列的数据结构, 以帮助解决构造 React 应用时的某些性能问题. 这是一个很棒的库, 你可能会在应用发展的过程里大量用到它, 但直到你在意识到性能问题以前, 它是完全不必要的.
+1.《[展望 Javascript 2016年的趋势和生态发展](https://github.com/gaohailang/blog/issues/12)》，gaohailang同学译著，英文原文为《[State of the Art JavaScript in 2016](https://medium.com/javascript-and-opinions/state-of-the-art-javascript-in-2016-ab67fc68eb0b)》
 
-### Relay, Falcor
-
-这些技术可以帮你减少 AJAX 请求数, 它们仍然是非常前沿的, 所以如果你没有遇到过多 AJAX 请求的问题, 就不需要用到 Relay 或者 Falcor.
+2.《[如何学习React](https://github.com/petehunt/react-howto/blob/master/README-zh.md)》，Zhangjd同学译著，原文为《[react-howto](https://github.com/petehunt/react-howto)》

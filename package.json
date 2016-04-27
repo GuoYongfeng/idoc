@@ -42,7 +42,8 @@
                     "Redux超酷的开发工具Redux-Devtools.md",
                     "深入理解Redux的Middleware.md",
                     "JavaScript函数式编程.md",
-                    "组件测试.md"
+                    "组件测试.md",
+                    "Webpack基础.md"
                 ]
             },
             {

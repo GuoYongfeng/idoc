@@ -1,19 +1,30 @@
 <h1 style="font-size: 40px;text-align:center;color: #007cdc;">React 学习指南</h1>
 
-<img src="/img/react/react.png" />
+**React 系列课程**面向初中级前端开发人员以及感兴趣的开发者，同时希望你具有以下的基本开发环境配置以及基本知识储备。如果对课程及内容有任何反馈，请到[这里](https://github.com/GuoYongfeng/idoc/issues/3)。
 
+`开发环境`<br>
+- 全局Node环境 && NPM<br>
+- 编辑器；Atom/Sublime Text/Webstorm/VSCode<br>
+- Chome浏览器<br>
+- bash客户端：MAC系统自带/Windows用户可以下载Git Bash
 
-**React 系列课程**面向初中级前端开发人员以及感兴趣的开发者，我们希望你具备 HTML, CSS 和 JavaScript 的Web 开发的基础，同时希望你具有以下的基本开发环境配置以及基本知识储备。如果对课程及内容有任何反馈，请到[这里](https://github.com/GuoYongfeng/idoc/issues/3)。
+`开发基础`<br>
+- HTML/CSS/JAVASCRIPT<br>
+- Git基本操作<br>
+- Node基础
 
-接下来，我们将从语言特性、代码风格、构建工具、依赖管理、路由管理、核心类库、状态管理、CSS预处理、API 工具库、测试工具等前端开发的方方面面进行技术梳理，为你挑出这些最佳实践并规划面向未来的技术学习之路。但同时，面对剧烈变革同时又日趋稳定的前端新技术，有两句话和大家共享：1. 对于新技术，请确保你需要，再去使用；2. 保持简单，每次学一样，深入理解和使用。
+## Babel编译器
 
-## 语言：ES6 + Babel编译器
+Babel 是一个 JavaScript 编译器，用于转化你的 JavaScript 代码：
+- 帮你做ES2015 语法的转化，这些转化器能让你现在就使用最新的 JavaScript 语法，而不用等待浏览器提供支持。
+- 可以对 JSX 支持，我们可以很方便的使用React的JSX语法封装组件，Babel会帮我们将JSX代码转换成浏览器可执行的代码。
+- 可以组合使用Babel的插件满足我们的转化需求，甚至可以自己封装插件和预设。
+
+## ES6新特性
 
 ECMAScript 6 是 JavaScript 的最新版本。由于 ES6 很新，你可能还没学习到，浏览器也可能尚未兼容，但别担心，通过Bebel编译器和你的打包工具结合，将能够为你自动转换成兼容代码。
 
-Babel是个可插拔ES6编译器，配置合适的预设（babel-preset-es2015，babel-preset-react....），我们就可以开动了。
-
-## 代码风格：ESlint
+## ESlint代码风格检查
 
 使用ESlint配合Airbnb指南来保持我们团队的代码风格。
 
@@ -21,7 +32,7 @@ Babel是个可插拔ES6编译器，配置合适的预设（babel-preset-es2015�
 
 一旦你开始熟悉它，我建议你开启更多的规则。在编辑撰写代码时候越多的捕获不规范（配置你的编辑器IDE使用上这个ESLint插件），就会避免分歧和在决定费神，从而让你和团队更加高效！
 
-## 依赖管理：NPM
+## NPM包依赖管理
 
 这一点很明确，就用NPM，因为这意味着我们可以充分的使用NPM上20w+的优秀第三方package。
 
@@ -31,7 +42,7 @@ Babel是个可插拔ES6编译器，配置合适的预设（babel-preset-es2015�
 
 同时考虑使用利用类似于 [Sinopia](https://www.npmjs.com/package/sinopia) 来构建自己的私有npm服务器。Babel可以把 ES6 模块语法编译到CommonJS。意味着你可面向未来的语法，和在使用构建工具（如Webpack 2.0）时获得它支持的一些静态代码分析工具如 [tree shaking](http://www.2ality.com/2015/12/webpack-tree-shaking.html) 的优势
 
-## 构建工具：Webpack
+## Webpack构建工具
 
 不想在你的页面文件中加入非常多的外链Script引用，那你就需要一个构建工具来打包你的依赖。如果你也需要允许npm包在浏览器运行工作的工具，那么Webpack就是你需要的。
 
@@ -54,8 +65,7 @@ Webpack目前也是处理大型SPA应用项目的最好方案，利用它的代�
 > 那么Gulp或Grunt呢？ Webpack比起来最适合处理静态资源。所以他们开始可以用来跑一些其他的任务（但是也不推荐），现在更简单的方法是直接用上 [npm scripts](https://docs.npmjs.com/cli/run-script)
 
 
-## 核心类库：React
-
+## React
 
 React在目前前端技术所表现出的亮点吸引了大批的开发者：
 - 从顶到底都是组件，你的应用程序代码非常容易理解
@@ -74,7 +84,7 @@ React在目前前端技术所表现出的亮点吸引了大批的开发者：
 
 有了React的实践之后，你可以继续使用React Native来开发应用。我想，你的老板会考虑给你加薪的，因为你的能力对公司越来越重要。
 
-## 路由管理：React-router
+## React-router管理应用路由
 
 “单页面应用” 是时下的技术热点. 当网页加载完成, 用户点击链接或者按钮的时候, JavaScript 会更新页面和改变地址栏, 但网页不会刷新. 地址栏的管理就是通过 **路由(router)** 来完成的.
 
@@ -82,7 +92,7 @@ React在目前前端技术所表现出的亮点吸引了大批的开发者：
 
 **如果你创建的并非单页面应用, 请不要使用路由.** 无论如何, 大部分项目都是从大型应用中的小组件开始的.
 
-## 应用生命周期：Redux
+## Redux管理应用生命周期
 
 现在我们有了我们的视图和组件层，应用程序还需要管理数据状态和应用的生命周期。Redux也是毋容置疑的优胜者。除了React，Facebook展示了名叫Flux的单向数据流的设计模式。Flux最早用来解决和简化应用的状态管理，但是随之而来，很多开发者提出了不少新的问题如如何存储数据状态和从哪发送Ajax请求。
 
@@ -94,7 +104,7 @@ React在目前前端技术所表现出的亮点吸引了大批的开发者：
 
 不过有一点需要注意的是不要轻易的去尝试抽象Redux的项目模板。那些模板背后都是有意义有原因的。所以你尝试盲目修改前确保你已经使用过它和理解这样组织代码背后的原因。
 
-## 测试：Mocha + Chai + Sinon
+## 测试框架和工具
 
 目前在 JavaScript 单元测试上，我们有众多选择，你选择任何一个都不会错太多。因为你开始做单元测试，你就走对一大步了。
 
@@ -114,7 +124,7 @@ Webpack的 [mocha loader](https://github.com/webpack/mocha-loader) 让你编码�
 
 我非常喜欢Mocha的特性和支持情况。如果你喜欢一些最小主义的，读读这篇[关于tape的文章](https://medium.com/javascript-scene/why-i-use-tape-instead-of-mocha-so-should-you-6aa105d8eaf4)
 
-## 工具库：Lodash
+## Lodash工具库
 
 JavaScript不像Java或.NET上有很多强大的内置工具集。所以你可能需要引入一个。
 
@@ -124,7 +134,7 @@ Lodash，目前来说应该是杂七杂八都有的首选。同时它类似注�
 
 如果你真的很喜欢函数式编程，那么不管怎么样，留意下优秀的[Ramda](http://ramdajs.com/0.19.1/index.html)。
 
-## HTTP请求：fetch
+## HTTP请求
 
 许多React应用再也不需要jQuery了。除非你需要使用一些遗留的老旧的第三方组件（它依赖于jQuery），因为根本没必要。同时，意味着你需要一个类似于$.ajax的替代品。
 
@@ -132,7 +142,7 @@ Lodash，目前来说应该是杂七杂八都有的首选。同时它类似注�
 
 我推荐使用[isomorphic-fetch](https://github.com/matthew-andrews/isomorphic-fetch) 来在服务器端在内覆盖了基础组件选择。还有一些其他好的类库选择如[Axios](https://github.com/mzabriskie/axios)，但目前在fetch之上没有多余需求。
 
-## 样式：考虑CSS模块
+## CSS Module
 
 在 React 出现之前, 很多人通过像 SASS 这样的预处理器来重用复杂的 CSS 样式表. 鉴于 React 使开发可重用组件变得容易, 你的样式表可以变得没那么复杂了. 社区中许多人正尝试完全抛弃样式表.
 
@@ -140,11 +150,11 @@ Lodash，目前来说应该是杂七杂八都有的首选。同时它类似注�
 
 有一点需要特殊注意的是，CSS Modules。它限制了CSS的层叠部分，使得我们可以定义更加明确的依赖，来避免冲突。你再也不用担心Class名称一致导致的覆盖，也不用特意为了避免它而添加额外的前缀。它和React也配合的很好。有个不足：css-loader和css modules一起使用会导致非常缓慢，如果你的样式数量不少，那么在它优化之前还是避免使用它吧。
 
-## 数据结构：Immutable.js
+## Immutable.js
 
 [Immutable.js](https://facebook.github.io/immutable-js/) 提供了一系列的数据结构, 以帮助解决构造 React 应用时的某些性能问题. 这是一个很棒的库, 你可能会在应用发展的过程里大量用到它, 但直到你在意识到性能问题以前, 它是完全不必要的.
 
-## 前后端同构
+## 同构渲染
 
 Universal或Isometric的JavaScript代表着JavaScript写的代码可以被同时运行在客户端和服务器上。这需要用来在服务器端预先渲染页面来提升性能或SEO友好。
 

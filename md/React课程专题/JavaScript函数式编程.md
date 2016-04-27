@@ -5,17 +5,7 @@
 
 一份用 ES6 写的 JavaScript 函数式编程手册
 
-### 概要
-
-* [Pure functions](#纯函数式)
-* [Higher-order functions](#高阶函数)
-* [Recursion](#递归)
-* [Functor](#functor)
-* [Compose](#组合)
-* [Destructuring](#解构)
-* [Currying](#柯里化)
-
-### 纯函数式
+## 1.纯函数式
 
 相同的参数返回相同的结果，它的执行不依赖于系统的状态
 
@@ -39,7 +29,7 @@ increment(1);
 // 2
 ```
 
-### 高阶函数
+## 2.高阶函数
 函数把其他函数当做参数传递使用或者返回一个函数
 1) 加法
 
@@ -102,7 +92,7 @@ totalGrades
 // 19
 ```
 
-### 递归
+## 3.递归
 
 当一个函数调用它自己的时候，就创造了一个循环
 
@@ -141,7 +131,7 @@ factorial(5);
 //120
 ```
 
-### Functor
+## 4.Functor
 有 map 方法的对象。functor 的 map 方法通过 map 回调函数调用自己的内容，然后返回一个新的 functor.
 
 1) 给数组所有的元素添加一个值
@@ -154,7 +144,7 @@ numbers.map(plus1);
 // [2, 3, 4]
 ```
 
-### 组合
+## 5.组合
 
 通过组合两个或更多的函数生成一个新的函数
 
@@ -187,7 +177,7 @@ reallyAngry("stop this");
 // STOP THIS!!!!!!
 ```
 
-### 解构
+## 6.解构
 
 从数组中提取数据或对象使用一种语法混合数组和对象文本的建设。或“模式匹配”。
 
@@ -222,7 +212,7 @@ ajax({ }, "additional", "data", "hello");
 // Url: localhost Port: 80 Rest: [ 'additional', 'data', 'hello' ]
 ```
 
-### 柯里化
+## 7.柯里化
 
 一个函数有多个参数,把每个参数通过链式的形式返回下一个函数,直到最后返回结果。
 
@@ -251,7 +241,7 @@ addFive(10);
 // 15
 ```
 
-### 参考资源
+## 参考资源
 [https://gist.github.com/mikaelbr/9900818](https://gist.github.com/mikaelbr/9900818)
 
 [https://www.gitbook.com/book/jcouyang/functional-javascript/details](https://www.gitbook.com/book/jcouyang/functional-javascript/details)

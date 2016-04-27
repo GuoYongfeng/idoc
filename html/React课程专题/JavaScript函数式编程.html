@@ -37,7 +37,7 @@
 <div class="container">
 
     <div class="page-toc">
-        <ul><li><a href="#t0JavaScript 函数式编程手册 (ES6)">JavaScript 函数式编程手册 (ES6)</a><ul><li><a href="#t1概要">概要</a></li><li><a href="#t2纯函数式">纯函数式</a></li><li><a href="#t3高阶函数">高阶函数</a></li><li><a href="#t4递归">递归</a></li><li><a href="#t5Functor">Functor</a></li><li><a href="#t6组合">组合</a></li><li><a href="#t7解构">解构</a></li><li><a href="#t8柯里化">柯里化</a></li><li><a href="#t9参考资源">参考资源</a></li></ul></li></ul>
+        <ul><li><a href="#t0JavaScript 函数式编程手册 (ES6)">JavaScript 函数式编程手册 (ES6)</a><ul><li><a href="#t11.纯函数式">1.纯函数式</a></li><li><a href="#t22.高阶函数">2.高阶函数</a></li><li><a href="#t33.递归">3.递归</a></li><li><a href="#t44.Functor">4.Functor</a></li><li><a href="#t55.组合">5.组合</a></li><li><a href="#t66.解构">6.解构</a></li><li><a href="#t77.柯里化">7.柯里化</a></li><li><a href="#t8参考资源">参考资源</a></li></ul></li></ul>
     </div>
     
     <div class="content markdown-body">
@@ -47,17 +47,7 @@
 <p>&#x672C;&#x6587;&#x7531;dyygtfx&#x540C;&#x5B66;&#x7FFB;&#x8BD1;&#xFF0C;&#x539F;&#x6587;<a href="https://github.com/js-functional/js-funcional">JavaScript Functional Programming Cookbook (ES6)</a></p>
 </blockquote>
 <p>&#x4E00;&#x4EFD;&#x7528; ES6 &#x5199;&#x7684; JavaScript &#x51FD;&#x6570;&#x5F0F;&#x7F16;&#x7A0B;&#x624B;&#x518C;</p>
-<h3 id="t1&#x6982;&#x8981;">&#x6982;&#x8981; <a href="#t1&#x6982;&#x8981;"> # </a></h3>
-<ul>
-<li><a href="#&#x7EAF;&#x51FD;&#x6570;&#x5F0F;">Pure functions</a></li>
-<li><a href="#&#x9AD8;&#x9636;&#x51FD;&#x6570;">Higher-order functions</a></li>
-<li><a href="#&#x9012;&#x5F52;">Recursion</a></li>
-<li><a href="#functor">Functor</a></li>
-<li><a href="#&#x7EC4;&#x5408;">Compose</a></li>
-<li><a href="#&#x89E3;&#x6784;">Destructuring</a></li>
-<li><a href="#&#x67EF;&#x91CC;&#x5316;">Currying</a></li>
-</ul>
-<h3 id="t2&#x7EAF;&#x51FD;&#x6570;&#x5F0F;">&#x7EAF;&#x51FD;&#x6570;&#x5F0F; <a href="#t2&#x7EAF;&#x51FD;&#x6570;&#x5F0F;"> # </a></h3>
+<h2 id="t11.&#x7EAF;&#x51FD;&#x6570;&#x5F0F;">1.&#x7EAF;&#x51FD;&#x6570;&#x5F0F; <a href="#t11.&#x7EAF;&#x51FD;&#x6570;&#x5F0F;"> # </a></h2>
 <p>&#x76F8;&#x540C;&#x7684;&#x53C2;&#x6570;&#x8FD4;&#x56DE;&#x76F8;&#x540C;&#x7684;&#x7ED3;&#x679C;&#xFF0C;&#x5B83;&#x7684;&#x6267;&#x884C;&#x4E0D;&#x4F9D;&#x8D56;&#x4E8E;&#x7CFB;&#x7EDF;&#x7684;&#x72B6;&#x6001;</p>
 <p>1) &#x975E;&#x7EAF;&#x51C0;&#x7684;</p>
 <pre><code class="lang-javascript"><span class="hljs-keyword">let</span> number = <span class="hljs-number">1</span>;
@@ -73,7 +63,7 @@ increment();
 increment(<span class="hljs-number">1</span>);
 <span class="hljs-comment">// 2</span>
 </code></pre>
-<h3 id="t3&#x9AD8;&#x9636;&#x51FD;&#x6570;">&#x9AD8;&#x9636;&#x51FD;&#x6570; <a href="#t3&#x9AD8;&#x9636;&#x51FD;&#x6570;"> # </a></h3>
+<h2 id="t22.&#x9AD8;&#x9636;&#x51FD;&#x6570;">2.&#x9AD8;&#x9636;&#x51FD;&#x6570; <a href="#t22.&#x9AD8;&#x9636;&#x51FD;&#x6570;"> # </a></h2>
 <p>&#x51FD;&#x6570;&#x628A;&#x5176;&#x4ED6;&#x51FD;&#x6570;&#x5F53;&#x505A;&#x53C2;&#x6570;&#x4F20;&#x9012;&#x4F7F;&#x7528;&#x6216;&#x8005;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;&#x51FD;&#x6570;
 1) &#x52A0;&#x6CD5;</p>
 <pre><code class="lang-javascript"><span class="hljs-keyword">const</span> sum = (x, y) =&gt; x + y;
@@ -121,7 +111,7 @@ students.filter(isApproved).map(byName);
 totalGrades
 <span class="hljs-comment">// 19</span>
 </code></pre>
-<h3 id="t4&#x9012;&#x5F52;">&#x9012;&#x5F52; <a href="#t4&#x9012;&#x5F52;"> # </a></h3>
+<h2 id="t33.&#x9012;&#x5F52;">3.&#x9012;&#x5F52; <a href="#t33.&#x9012;&#x5F52;"> # </a></h2>
 <p>&#x5F53;&#x4E00;&#x4E2A;&#x51FD;&#x6570;&#x8C03;&#x7528;&#x5B83;&#x81EA;&#x5DF1;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x5C31;&#x521B;&#x9020;&#x4E86;&#x4E00;&#x4E2A;&#x5FAA;&#x73AF;</p>
 <p>1) &#x9012;&#x51CF;</p>
 <pre><code class="lang-javascript"><span class="hljs-keyword">const</span> countdown = num =&gt; {
@@ -152,7 +142,7 @@ countdown(<span class="hljs-number">5</span>);
 factorial(<span class="hljs-number">5</span>);
 <span class="hljs-comment">//120</span>
 </code></pre>
-<h3 id="t5Functor">Functor <a href="#t5Functor"> # </a></h3>
+<h2 id="t44.Functor">4.Functor <a href="#t44.Functor"> # </a></h2>
 <p>&#x6709; map &#x65B9;&#x6CD5;&#x7684;&#x5BF9;&#x8C61;&#x3002;functor &#x7684; map &#x65B9;&#x6CD5;&#x901A;&#x8FC7; map &#x56DE;&#x8C03;&#x51FD;&#x6570;&#x8C03;&#x7528;&#x81EA;&#x5DF1;&#x7684;&#x5185;&#x5BB9;&#xFF0C;&#x7136;&#x540E;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;&#x65B0;&#x7684; functor.</p>
 <p>1) &#x7ED9;&#x6570;&#x7EC4;&#x6240;&#x6709;&#x7684;&#x5143;&#x7D20;&#x6DFB;&#x52A0;&#x4E00;&#x4E2A;&#x503C;</p>
 <pre><code class="lang-javascript"><span class="hljs-keyword">const</span> plus1 = num =&gt; num + <span class="hljs-number">1</span>;
@@ -161,7 +151,7 @@ factorial(<span class="hljs-number">5</span>);
 numbers.map(plus1);
 <span class="hljs-comment">// [2, 3, 4]</span>
 </code></pre>
-<h3 id="t6&#x7EC4;&#x5408;">&#x7EC4;&#x5408; <a href="#t6&#x7EC4;&#x5408;"> # </a></h3>
+<h2 id="t55.&#x7EC4;&#x5408;">5.&#x7EC4;&#x5408; <a href="#t55.&#x7EC4;&#x5408;"> # </a></h2>
 <p>&#x901A;&#x8FC7;&#x7EC4;&#x5408;&#x4E24;&#x4E2A;&#x6216;&#x66F4;&#x591A;&#x7684;&#x51FD;&#x6570;&#x751F;&#x6210;&#x4E00;&#x4E2A;&#x65B0;&#x7684;&#x51FD;&#x6570;</p>
 <p>1) &#x7EC4;&#x5408;&#x4E24;&#x4E2A;&#x51FD;&#x6570;&#x751F;&#x6210;&#x4E00;&#x4E2A;&#x65B0;&#x7684;&#x51FD;&#x6570;</p>
 <pre><code class="lang-javascript"><span class="hljs-keyword">const</span> compose = (f,g) =&gt; x =&gt; f(g(x));
@@ -186,7 +176,7 @@ angry(<span class="hljs-string">&quot;stop this&quot;</span>);
 reallyAngry(<span class="hljs-string">&quot;stop this&quot;</span>);
 <span class="hljs-comment">// STOP THIS!!!!!!</span>
 </code></pre>
-<h3 id="t7&#x89E3;&#x6784;">&#x89E3;&#x6784; <a href="#t7&#x89E3;&#x6784;"> # </a></h3>
+<h2 id="t66.&#x89E3;&#x6784;">6.&#x89E3;&#x6784; <a href="#t66.&#x89E3;&#x6784;"> # </a></h2>
 <p>&#x4ECE;&#x6570;&#x7EC4;&#x4E2D;&#x63D0;&#x53D6;&#x6570;&#x636E;&#x6216;&#x5BF9;&#x8C61;&#x4F7F;&#x7528;&#x4E00;&#x79CD;&#x8BED;&#x6CD5;&#x6DF7;&#x5408;&#x6570;&#x7EC4;&#x548C;&#x5BF9;&#x8C61;&#x6587;&#x672C;&#x7684;&#x5EFA;&#x8BBE;&#x3002;&#x6216;&#x201C;&#x6A21;&#x5F0F;&#x5339;&#x914D;&#x201D;&#x3002;</p>
 <p>1) Select from pattern</p>
 <pre><code class="lang-javascript"><span class="hljs-keyword">const</span> foo = () =&gt; [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>];
@@ -210,7 +200,7 @@ ajax({ url: <span class="hljs-string">&quot;someHost&quot;</span> }, <span class
 ajax({ }, <span class="hljs-string">&quot;additional&quot;</span>, <span class="hljs-string">&quot;data&quot;</span>, <span class="hljs-string">&quot;hello&quot;</span>);
 <span class="hljs-comment">// Url: localhost Port: 80 Rest: [ &apos;additional&apos;, &apos;data&apos;, &apos;hello&apos; ]</span>
 </code></pre>
-<h3 id="t8&#x67EF;&#x91CC;&#x5316;">&#x67EF;&#x91CC;&#x5316; <a href="#t8&#x67EF;&#x91CC;&#x5316;"> # </a></h3>
+<h2 id="t77.&#x67EF;&#x91CC;&#x5316;">7.&#x67EF;&#x91CC;&#x5316; <a href="#t77.&#x67EF;&#x91CC;&#x5316;"> # </a></h2>
 <p>&#x4E00;&#x4E2A;&#x51FD;&#x6570;&#x6709;&#x591A;&#x4E2A;&#x53C2;&#x6570;,&#x628A;&#x6BCF;&#x4E2A;&#x53C2;&#x6570;&#x901A;&#x8FC7;&#x94FE;&#x5F0F;&#x7684;&#x5F62;&#x5F0F;&#x8FD4;&#x56DE;&#x4E0B;&#x4E00;&#x4E2A;&#x51FD;&#x6570;,&#x76F4;&#x5230;&#x6700;&#x540E;&#x8FD4;&#x56DE;&#x7ED3;&#x679C;&#x3002;</p>
 <p>1) &#x5BF9;&#x8C61;&#x67EF;&#x91CC;&#x5316;</p>
 <pre><code class="lang-javascript"><span class="hljs-keyword">const</span> student = name =&gt; grade =&gt; <span class="hljs-string">`Name: <span class="hljs-subst">${name}</span> | Grade: <span class="hljs-subst">${grade}</span>`</span>;
@@ -230,7 +220,7 @@ increment(<span class="hljs-number">3</span>);
 addFive(<span class="hljs-number">10</span>);
 <span class="hljs-comment">// 15</span>
 </code></pre>
-<h3 id="t9&#x53C2;&#x8003;&#x8D44;&#x6E90;">&#x53C2;&#x8003;&#x8D44;&#x6E90; <a href="#t9&#x53C2;&#x8003;&#x8D44;&#x6E90;"> # </a></h3>
+<h2 id="t8&#x53C2;&#x8003;&#x8D44;&#x6E90;">&#x53C2;&#x8003;&#x8D44;&#x6E90; <a href="#t8&#x53C2;&#x8003;&#x8D44;&#x6E90;"> # </a></h2>
 <p><a href="https://gist.github.com/mikaelbr/9900818">https://gist.github.com/mikaelbr/9900818</a></p>
 <p><a href="https://www.gitbook.com/book/jcouyang/functional-javascript/details">https://www.gitbook.com/book/jcouyang/functional-javascript/details</a></p>
 <p><a href="https://www.youtube.com/playlist?list=PL0zVEGEvSaeEd9hlmCXrk5yUyqUag-n84">https://www.youtube.com/playlist?list=PL0zVEGEvSaeEd9hlmCXrk5yUyqUag-n84</a></p>

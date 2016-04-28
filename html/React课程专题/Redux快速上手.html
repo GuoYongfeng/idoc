@@ -1,0 +1,824 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>YOFFE</title>
+        
+    <link rel="stylesheet" type="text/css" href="../../static/css/main.css">
+</head>
+<body>
+<div class="navbar navbar-line">
+    <div class="container">
+        <div class="logo">
+            
+                YOFFE
+            
+        </div>
+        <input type="checkbox" id="idoc_nav" />
+        <div class="menu_tree">
+        <ul><li><a href="../../index.html">首页</a></li><li><a href="#"><span></span>React课程专题</a><ul><li><a href="../../html/React课程专题/React学习指南.html">React学习指南</a></li><li><a href="../../html/React课程专题/React技术分享.html">React技术分享</a></li><li><a href="../../html/React课程专题/React编码规范.html">React编码规范</a></li><li><a href="../../html/React课程专题/React基础知识详解.html">React基础知识详解</a></li><li><a href="../../html/React课程专题/一步步搭建一个评论应用.html">一步步搭建一个评论应用</a></li><li><a href="../../html/React课程专题/github-notetaker应用开发.html">github-notetaker应用开发</a></li><li><a href="../../html/React课程专题/React-AJAX的最佳实践.html">React-AJAX的最佳实践</a></li><li><a href="../../html/React课程专题/React-router路由实践.html">React-router路由实践</a></li><li><a href="../../html/React课程专题/React高级研讨课大纲.html">React高级研讨课大纲</a></li><li><a href="../../html/React课程专题/使用Webpack搭建前端开发工作流.html">使用Webpack搭建前端开发工作流</a></li><li><a href="../../html/React课程专题/快速搞定ES6基本语法.html">快速搞定ES6基本语法</a></li><li><a href="../../html/React课程专题/Babel使用指南.html">Babel使用指南</a></li><li><a href="../../html/React课程专题/全栈Redux实战.html">全栈Redux实战</a></li><li class="active"><a href="../../html/React课程专题/Redux快速上手.html">Redux快速上手</a></li><li><a href="../../html/React课程专题/Redux超酷的开发工具Redux-Devtools.html">Redux超酷的开发工具Redux-Devtools</a></li><li><a href="../../html/React课程专题/深入理解Redux的Middleware.html">深入理解Redux的Middleware</a></li><li><a href="../../html/React课程专题/JavaScript函数式编程.html">JavaScript函数式编程</a></li><li><a href="../../html/React课程专题/组件测试.html">组件测试</a></li><li><a href="../../html/React课程专题/Webpack基础.html">Webpack基础</a></li><li><a href="../../html/React课程专题/使用Webpack搭建开发态工作流.html">使用Webpack搭建开发态工作流</a></li></ul></li><li><a href="#"><span></span>前沿观察</a><ul><li><a href="../../html/前沿观察/ECMAScript 6入门.html">ECMAScript 6入门</a></li><li><a href="../../html/前沿观察/Immutable详解及React中实践.html">Immutable详解及React中实践</a></li><li><a href="../../html/前沿观察/Node.js MVC框架ThinkJS.html">Node.js MVC框架ThinkJS</a></li><li><a href="../../html/前沿观察/Nodejs 5.0.0版本.html">Nodejs 5.0.0版本</a></li><li><a href="../../html/前沿观察/关系型数据库PostgreSQL.html">关系型数据库PostgreSQL</a></li><li><a href="../../html/前沿观察/轻型MVVM框架Vue.js.html">轻型MVVM框架Vue.js</a></li><li><a href="../../html/前沿观察/基于nodejs的开发框架koa.html">基于nodejs的开发框架koa</a></li></ul></li><li><a href="#"><span></span>前端工程化</a><ul><li><a href="../../html/前端工程化/前端模板.html">前端模板</a></li><li><a href="../../html/前端工程化/性能优化和前端工程的爱恨情仇.html">性能优化和前端工程的爱恨情仇</a></li><li><a href="../../html/前端工程化/webpack入门及实践.html">webpack入门及实践</a></li><li><a href="../../html/前端工程化/前端工程化不完全装逼指南.html">前端工程化不完全装逼指南</a></li></ul></li><li><a href="#"><span></span>性能优化</a><ul><li><a href="../../html/性能优化/jshint代码质量检测.html">jshint代码质量检测</a></li><li><a href="../../html/性能优化/jshint配置说明.html">jshint配置说明</a></li><li><a href="../../html/性能优化/NC性能优化.html">NC性能优化</a></li><li><a href="../../html/性能优化/性能优化待办事项.html">性能优化待办事项</a></li><li><a href="../../html/性能优化/性能优化点总结.html">性能优化点总结</a></li></ul></li><li><a href="#"><span></span>技术分享</a><ul><li><a href="../../html/技术分享/学习Git.html">学习Git</a></li><li><a href="../../html/技术分享/面向对象.html">面向对象</a></li><li><a href="../../html/技术分享/Node.js知识详解.html">Node.js知识详解</a></li><li><a href="../../html/技术分享/2015年大前端技术年终总结.html">2015年大前端技术年终总结</a></li><li><a href="../../html/技术分享/Nodejs环境配置和Git基本配置.html">Nodejs环境配置和Git基本配置</a></li></ul></li><li><a href="#"><span></span>团队</a><ul><li><a href="../../html/团队/新员工入职指南.html">新员工入职指南</a></li><li><a href="../../html/团队/笔试面试大纲.html">笔试面试大纲</a></li><li><a href="../../html/团队/项目技术栈规划.html">项目技术栈规划</a></li><li><a href="../../html/团队/React组件开发过程.html">React组件开发过程</a></li><li><a href="../../html/团队/前端技术平台.html">前端技术平台</a></li></ul></li><li><a href="../../html/CONTACT.html">CONTACT</a></li></ul>    
+        </div>
+        
+        
+        <div class="forkgithub"><a target="_blank" href="https://github.com/GuoYongfeng">fork on github</a></div>
+        
+
+        <section class="idoc_nav_btn">
+            <label for="idoc_nav"><span></span></label>
+        </section>
+    </div>
+    
+</div>
+
+
+
+
+<div class="container">
+
+    <div class="page-toc">
+        <ul><li><a href="#t0Redux快速上手">Redux快速上手</a><ul><li><a href="#t11. 基本介绍">1. 基本介绍</a><ul><li><a href="#t21.1 Flux & Redux">1.1 Flux & Redux</a></li><li><a href="#t31.2 对 Redux 的介绍">1.2 对 Redux 的介绍</a></li></ul></li><li><a href="#t42. 快速上手">2. 快速上手</a></li><li><a href="#t53. 理解 Redux 的核心概念">3. 理解 Redux 的核心概念</a><ul><li><a href="#t63.1 Action & Action Creator">3.1 Action & Action Creator</a></li><li><a href="#t73.2 Reducer">3.2 Reducer</a></li><li><a href="#t83.3 Store">3.3 Store</a><ul><li><a href="#t93.3.1 getState()">3.3.1 getState()</a></li><li><a href="#t103.3.2 dispatch(action)">3.3.2 dispatch(action)</a></li><li><a href="#t113.3.3 subscribe(listener)">3.3.3 subscribe(listener)</a></li></ul></li></ul></li><li><a href="#t124. Redux 的顶层 API 介绍">4. Redux 的顶层 API 介绍</a><ul><li><a href="#t134.1 createStore">4.1 createStore</a></li><li><a href="#t144.2 combineReducers">4.2 combineReducers</a></li><li><a href="#t154.3 applyMiddleware">4.3 applyMiddleware</a></li><li><a href="#t164.4 bindActionCreators">4.4 bindActionCreators</a></li><li><a href="#t174.5 compose">4.5 compose</a></li></ul></li><li><a href="#t185. 使用 React-redux 连接 react 和 redux">5. 使用 React-redux 连接 react 和 redux</a><ul><li><a href="#t195.1 没有react-redux的写法">5.1 没有react-redux的写法</a></li><li><a href="#t205.2 React-redux 提供的 connect 和 Provider">5.2 React-redux 提供的 connect 和 Provider</a></li></ul></li><li><a href="#t216. 一步步开发一个 TODO 应用">6. 一步步开发一个 TODO 应用</a><ul><li><a href="#t226.1 入口文件">6.1 入口文件</a></li><li><a href="#t236.2 Action 创建函数和常量">6.2 Action 创建函数和常量</a></li><li><a href="#t246.3 Reducers">6.3 Reducers</a></li><li><a href="#t256.4 容器组件">6.4 容器组件</a></li><li><a href="#t266.5 展示组件">6.5 展示组件</a></li></ul></li><li><a href="#t27完结寄语">完结寄语</a></li><li><a href="#t28参考资料">参考资料</a></li></ul></li></ul>
+    </div>
+    
+    <div class="content markdown-body">
+        <h1 style="font-size: 40px;text-align:center;color: #007cdc;" id="t0Redux&#x5FEB;&#x901F;&#x4E0A;&#x624B;">Redux&#x5FEB;&#x901F;&#x4E0A;&#x624B; <a href="#t0Redux&#x5FEB;&#x901F;&#x4E0A;&#x624B;"> # </a></h1>
+
+<blockquote>
+<p><strong>&#x91CD;&#x8981;&#x63D0;&#x793A;&#xFF1A;</strong> &#x672C;&#x6559;&#x7A0B;&#x914D;&#x5957;&#x793A;&#x4F8B;&#x4EE3;&#x7801;&#x8BF7;&#x524D;&#x5F80;<a href="https://github.com/GuoYongfeng/redux-complete-sample">redux-complete-sample</a>&#x4E0B;&#x8F7D;&#xFF0C;&#x8BFE;&#x7A0B;&#x4E2D;&#x4F1A;&#x6709;&#x5927;&#x91CF;&#x7684;&#x793A;&#x4F8B;&#x64CD;&#x4F5C;&#xFF0C;&#x64CD;&#x4F5C;&#x8BF4;&#x660E;&#x5747;&#x57FA;&#x4E8E;&#x8FD9;&#x4E2A;&#x914D;&#x5957;&#x7684;&#x793A;&#x4F8B;&#x4EE3;&#x7801;&#x4ED3;&#x5E93;&#xFF0C;&#x6240;&#x4EE5;&#x4E3A;&#x4E86;&#x65B9;&#x4FBF;&#x5B66;&#x4E60;&#xFF0C;&#x8BF7;&#x52A1;&#x5FC5;&#x4E0B;&#x8F7D;&#x5B89;&#x88C5;&#x5E76;&#x542F;&#x52A8;&#x3002;</p>
+</blockquote>
+<p>&#x5728;&#x5F00;&#x59CB;&#x5F80;&#x4E0B;&#x9605;&#x8BFB;&#x4E4B;&#x524D;&#xFF0C;&#x6211;&#x9ED8;&#x8BA4;&#x4F60;&#x5DF2;&#x7ECF;&#x5B66;&#x4E60;&#x4E86;&#x524D;&#x9762;&#x7684;&#x8BFE;&#x7A0B;&#xFF0C;&#x5E76;&#x4E14;&#x638C;&#x63E1;&#x4E86;Webpack&#x3001;ES6&#x3001;React&#x7B49;&#x77E5;&#x8BC6;&#x7684;&#x5E94;&#x7528;&#x3002;</p>
+<p>&#x5728;&#x524D;&#x9762;&#x7684;&#x8BFE;&#x7A0B;&#xFF0C;&#x6211;&#x4EEC;&#x5DF2;&#x7ECF;&#x4F7F;&#x7528;React&#x521B;&#x5EFA;&#x4E86;&#x4E00;&#x4E2A;&#x5E94;&#x7528;&#xFF0C;&#x4F46;&#x662F;&#x5728;&#x5B9E;&#x9645;&#x9879;&#x76EE;&#x4E2D;&#xFF0C;&#x9762;&#x5BF9;&#x590D;&#x6742;&#x4E1A;&#x52A1;&#x903B;&#x8F91;&#x7684;&#x6311;&#x6218;&#xFF0C;&#x5982;&#x4F55;&#x6E05;&#x6670;&#x9AD8;&#x6548;&#x7684;&#x7BA1;&#x7406;&#x5E94;&#x7528;&#x5185;&#x7684;&#x6570;&#x636E;&#x6D41;&#x52A8;&#x6210;&#x4E3A;&#x4E86;&#x5173;&#x952E;&#x3002;</p>
+<p>Flux&#x601D;&#x60F3;&#x5DF2;&#x7ECF;&#x5728;&#x63D0;&#x51FA;&#x540E;&#x5F97;&#x5230;&#x9010;&#x6B65;&#x63A8;&#x5E7F;&#xFF0C;&#x5E76;&#x5E7F;&#x6CDB;&#x5E94;&#x7528;&#x5230;&#x5B9E;&#x9645;&#x7684;&#x9879;&#x76EE;&#x4E2D;&#x3002;facebook&#x7684;flux&#x5B9E;&#x73B0;&#xFF0C;&#x5F00;&#x6E90;&#x793E;&#x533A;&#x7684;reflux&#x3001;redux&#x7B49;&#x7C7B;&#x5E93;&#x5F00;&#x59CB;&#x6D8C;&#x73B0;&#x5E76;&#x5F97;&#x5230;&#x4E86;&#x5E7F;&#x5927;&#x5F00;&#x53D1;&#x8005;&#x7684;&#x8BA4;&#x540C;&#x548C;&#x4F7F;&#x7528;&#x3002;</p>
+<p>Redux&#x4EE5;&#x5176;&#x7B80;&#x5355;&#x6613;&#x7528;&#x3001;&#x6587;&#x6863;&#x9F50;&#x5168;&#x6613;&#x61C2;&#x7B49;&#x4F18;&#x70B9;&#x5728;&#x5F00;&#x6E90;&#x793E;&#x533A;&#x5F97;&#x5230;&#x5F00;&#x53D1;&#x8005;&#x7684;&#x4E00;&#x81F4;&#x597D;&#x8BC4;&#xFF0C;&#x6240;&#x4EE5;&#x63A5;&#x4E0B;&#x6765;&#x8BA9;&#x6211;&#x4EEC;&#x4E00;&#x8D77;&#x8D70;&#x8FDB;Redux&#xFF0C;&#x5B66;&#x4E60;&#x5E76;&#x5C06;&#x5176;&#x4F7F;&#x7528;&#x5230;&#x6211;&#x4EEC;&#x5B9E;&#x9645;&#x7684;&#x9879;&#x76EE;&#x5F00;&#x53D1;&#x4E2D;&#x3002;</p>
+<h2 id="t11. &#x57FA;&#x672C;&#x4ECB;&#x7ECD;">1. &#x57FA;&#x672C;&#x4ECB;&#x7ECD; <a href="#t11. &#x57FA;&#x672C;&#x4ECB;&#x7ECD;"> # </a></h2>
+<p>React &#x5DF2;&#x7ECF;&#x5E2E;&#x6211;&#x4EEC;&#x5728;&#x89C6;&#x56FE;&#x5C42;&#x89E3;&#x51B3;&#x4E86;&#x7981;&#x6B62;&#x5F02;&#x6B65;&#x548C;&#x76F4;&#x63A5;&#x64CD;&#x4F5C; DOM &#x7B49;&#x95EE;&#x9898;&#xFF0C;&#x8BA9;&#x9875;&#x9762;&#x7684;&#x9AD8;&#x6548;&#x6E32;&#x67D3;&#x548C;&#x7EC4;&#x4EF6;&#x5316;&#x5F00;&#x53D1;&#x6210;&#x4E3A;&#x4E86;&#x53EF;&#x80FD;&#x3002;&#x7F8E;&#x4E2D;&#x4E0D;&#x8DB3;&#x7684;&#x662F;&#xFF0C;React &#x4F9D;&#x65E7;&#x628A;&#x5904;&#x7406; state &#x4E2D;&#x6570;&#x636E;&#x7684;&#x95EE;&#x9898;&#x7559;&#x7ED9;&#x4E86;&#x4F60;&#xFF0C;&#x90A3;&#x4E48;&#xFF0C;Redux&#x7684;&#x51FA;&#x73B0;&#x5C31;&#x662F;&#x4E3A;&#x4E86;&#x5E2E;&#x4F60;&#x89E3;&#x51B3;&#x8FD9;&#x4E2A;&#x95EE;&#x9898;&#x3002;</p>
+<h3 id="t21.1 Flux &amp; Redux">1.1 Flux &amp; Redux <a href="#t21.1 Flux &amp; Redux"> # </a></h3>
+<p>&#x6700;&#x521D;&#xFF0C;Facebook&#x5B98;&#x65B9;&#x63D0;&#x51FA;&#x4E86;FLUX&#x601D;&#x60F3;&#x7BA1;&#x7406;&#x6570;&#x636E;&#x6D41;&#xFF0C;&#x540C;&#x65F6;&#x4E5F;&#x7ED9;&#x51FA;&#x4E86;&#x81EA;&#x5DF1;&#x7684;&#x5B9E;&#x73B0;&#x65B9;&#x6848;<a href="https://github.com/facebook/flux">flux</a>&#x6765;&#x7BA1;&#x7406;React&#x5E94;&#x7528;&#x3002;</p>
+<p><img src="../..//img/redux/flux.jpg"></p>
+<p><strong>&#x770B;&#x56FE;&#x8BF4;&#x8BDD;&#xFF1A;</strong><br>
+1.&#x5728;view&#x4E2D;&#x89E6;&#x53D1;action&#x4E2D;&#x7684;&#x65B9;&#x6CD5;&#x540E;<br>
+2.action&#x53D1;&#x9001;dispatch<br>
+3.store&#x63A5;&#x6536;&#x65B0;&#x7684;&#x6570;&#x636E;&#x8FDB;&#x884C;&#x5408;&#x5E76;&#xFF0C;&#x7136;&#x540E;&#x89E6;&#x53D1;View&#x4E2D;&#x7ED1;&#x5B9A;&#x5728;store&#x4E0A;&#x7684;&#x65B9;&#x6CD5;<br>
+4.&#x6700;&#x540E;&#x901A;&#x8FC7;&#x4FEE;&#x6539;&#x5C40;&#x90E8;state&#x6765;&#x6539;&#x53D8;view&#x7684;&#x5C55;&#x793A;<br></p>
+<p><img src="../..//img/redux/redux.jpg"></p>
+<p><strong>&#x770B;&#x56FE;&#x8BF4;&#x8BDD;&#xFF1A;</strong><br>
+1.view&#x76F4;&#x63A5;&#x89E6;&#x53D1;dispatch<br>
+2.dispatch&#x5C06;action&#x53D1;&#x9001;&#x5230;reducer&#x4E2D;&#x540E;&#xFF0C;&#x6839;&#x8282;&#x70B9;&#x4E0A;&#x4F1A;&#x66F4;&#x65B0;props&#xFF0C;&#x6539;&#x53D8;&#x5168;&#x5C40;view&#x3002;<br>
+3.redux&#x5C06;view&#x548C;store&#x7684;&#x7ED1;&#x5B9A;&#x4ECE;&#x624B;&#x52A8;&#x7F16;&#x7801;&#x4E2D;&#x63D0;&#x53D6;&#x51FA;&#x6765;&#xFF0C;&#x653E;&#x5728;&#x4E86;&#x7EDF;&#x4E00;&#x89C4;&#x8303;&#x653E;&#x5728;&#x4E86;&#x81EA;&#x5DF1;&#x7684;&#x4F53;&#x7CFB;&#x4E2D;&#x3002;<br></p>
+<blockquote>
+<p>&#x76F8;&#x5BF9;&#x4E8E;Flux&#x800C;&#x8A00;&#xFF0C;Redux&#x7684;&#x5B9E;&#x73B0;&#x66F4;&#x7B80;&#x5355;&#xFF0C;&#x601D;&#x8DEF;&#x66F4;&#x6E05;&#x6670;&#xFF0C;&#x5199;&#x7684;&#x4EE3;&#x7801;&#x4E5F;&#x76F8;&#x5BF9;&#x66F4;&#x5C11;&#xFF1B;&#x53EA;&#x7EF4;&#x62A4;&#x5355;&#x4E00;&#x7684; store&#xFF1B;&#x5728;github&#x4E0A;&#x6536;&#x8D27;&#x4E86;16000+&#x7684;star&#xFF0C;&#x5E7F;&#x53D7;&#x6B22;&#x8FCE;...</p>
+</blockquote>
+<h3 id="t31.2 &#x5BF9; Redux &#x7684;&#x4ECB;&#x7ECD;">1.2 &#x5BF9; Redux &#x7684;&#x4ECB;&#x7ECD; <a href="#t31.2 &#x5BF9; Redux &#x7684;&#x4ECB;&#x7ECD;"> # </a></h3>
+<ul>
+<li>Redux &#x662F; State &#x5BB9;&#x5668;&#xFF0C;&#x63D0;&#x4F9B;&#x53EF;&#x9884;&#x6D4B;&#x5316;&#x7684;&#x72B6;&#x6001;&#x7BA1;&#x7406;</li>
+<li>&#x5B83;&#x53EF;&#x4EE5;&#x8BA9;&#x4F60;&#x6784;&#x5EFA;&#x4E00;&#x81F4;&#x5316;&#x7684;&#x5E94;&#x7528;&#xFF0C;&#x8FD0;&#x884C;&#x4E8E;&#x4E0D;&#x540C;&#x7684;&#x73AF;&#x5883;&#xFF08;&#x5BA2;&#x6237;&#x7AEF;&#x3001;&#x670D;&#x52A1;&#x5668;&#x3001;&#x539F;&#x751F;&#x5E94;&#x7528;&#xFF09;&#xFF0C;&#x5E76;&#x4E14;&#x6613;&#x4E8E;&#x6D4B;&#x8BD5;</li>
+<li>&#x8FD8;&#x63D0;&#x4F9B; redux-devtools &#x8BA9;&#x5F00;&#x53D1;&#x8005;&#x4EAB;&#x53D7;&#x8D85;&#x723D;&#x7684;&#x5F00;&#x53D1;&#x4F53;&#x9A8C;</li>
+<li>&#x4F53;&#x5C0F;&#x7CBE;&#x608D;&#xFF08;&#x53EA;&#x6709;2kB&#xFF09;&#x4E14;&#x6CA1;&#x6709;&#x4EFB;&#x4F55;&#x4F9D;&#x8D56;</li>
+<li>&#x62E5;&#x6709;&#x4E30;&#x5BCC;&#x7684;&#x751F;&#x6001;&#x5708;&#xFF1A;&#x6559;&#x7A0B;&#x3001;&#x5F00;&#x53D1;&#x8005;&#x5DE5;&#x5177;&#x3001;&#x8DEF;&#x7531;&#x3001;&#x7EC4;&#x4EF6;&#x3001;&#x4E2D;&#x95F4;&#x4EF6;&#x3001;&#x5DE5;&#x5177;&#x96C6;...</li>
+</ul>
+<h2 id="t42. &#x5FEB;&#x901F;&#x4E0A;&#x624B;">2. &#x5FEB;&#x901F;&#x4E0A;&#x624B; <a href="#t42. &#x5FEB;&#x901F;&#x4E0A;&#x624B;"> # </a></h2>
+<p>&#x672C;&#x6B21;&#x6559;&#x7A0B;&#x5185;&#x5BB9;&#x7684;&#x6240;&#x6709;&#x793A;&#x4F8B;&#x53EF;&#x4EE5;&#x5728;<a href="https://github.com/GuoYongfeng/redux-complete-sample"></a></p>
+<pre><code>$ git clone git@github.com:GuoYongfeng/redux-complete-sample.git
+$ cd redux-complete-sample &amp;&amp; npm install
+$ cd demo-redux-start
+$ webpack-dev-server --progress --colors
+</code></pre><p>&#x793A;&#x4F8B;&#x4EE3;&#x7801;&#x5FEB;&#x901F;&#x4F53;&#x9A8C;</p>
+<pre><code>import { createStore } from &apos;redux&apos;;
+
+// &#x8FD9;&#x662F;&#x4E00;&#x4E2A; reducer&#xFF0C;&#x5F62;&#x5F0F;&#x4E3A; (state, action) =&gt; state &#x7684;&#x7EAF;&#x51FD;&#x6570;&#x3002;&#x63CF;&#x8FF0;&#x4E86; action &#x5982;&#x4F55;&#x628A; state &#x8F6C;&#x53D8;&#x6210;&#x4E0B;&#x4E00;&#x4E2A; state&#x3002;
+
+// state &#x7684;&#x5F62;&#x5F0F;&#x53D6;&#x51B3;&#x4E8E;&#x4F60;&#xFF0C;&#x53EF;&#x4EE5;&#x662F;&#x57FA;&#x672C;&#x7C7B;&#x578B;&#x3001;&#x6570;&#x7EC4;&#x3001;&#x5BF9;&#x8C61;&#x3001;
+// &#x751A;&#x81F3;&#x662F; Immutable.js &#x751F;&#x6210;&#x7684;&#x6570;&#x636E;&#x7ED3;&#x6784;&#x3002;&#x60DF;&#x4E00;&#x7684;&#x8981;&#x70B9;&#x662F;
+// &#x5F53; state &#x53D8;&#x5316;&#x65F6;&#x9700;&#x8981;&#x8FD4;&#x56DE;&#x5168;&#x65B0;&#x7684;&#x5BF9;&#x8C61;&#xFF0C;&#x800C;&#x4E0D;&#x662F;&#x4FEE;&#x6539;&#x4F20;&#x5165;&#x7684;&#x53C2;&#x6570;&#x3002;
+function counter(state = 0, action) {
+  switch (action.type) {
+  case &apos;INCREMENT&apos;:
+    return state + 1;
+  case &apos;DECREMENT&apos;:
+    return state - 1;
+  default:
+    return state;
+  }
+}
+
+// &#x521B;&#x5EFA; Redux store &#x6765;&#x5B58;&#x653E;&#x5E94;&#x7528;&#x7684;&#x72B6;&#x6001;&#x3002;
+// API &#x662F; { subscribe, dispatch, getState }&#x3002;
+let store = createStore(counter);
+
+// &#x4E00;&#x4E2A;&#x5355;&#x7EAF;&#x6E32;&#x67D3;&#x9875;&#x9762;&#x5185;&#x5BB9;&#x7684;&#x51FD;&#x6570;
+const PureRender = () =&gt; {
+  document.body.innerText = store.getState();
+}
+
+// &#x53EF;&#x4EE5;&#x624B;&#x52A8;&#x8BA2;&#x9605;&#x66F4;&#x65B0;&#xFF0C;&#x4E5F;&#x53EF;&#x4EE5;&#x4E8B;&#x4EF6;&#x7ED1;&#x5B9A;&#x5230;&#x89C6;&#x56FE;&#x5C42;&#x3002;
+store.subscribe(PureRender);
+// &#x6267;&#x884C;&#x6E32;&#x67D3;&#x51FD;&#x6570;
+PureRender();
+
+// &#x6539;&#x53D8;&#x5185;&#x90E8; state &#x60DF;&#x4E00;&#x65B9;&#x6CD5;&#x662F; dispatch &#x4E00;&#x4E2A; action&#x3002;
+// action &#x53EF;&#x4EE5;&#x88AB;&#x5E8F;&#x5217;&#x5316;&#xFF0C;&#x7528;&#x65E5;&#x8BB0;&#x8BB0;&#x5F55;&#x548C;&#x50A8;&#x5B58;&#x4E0B;&#x6765;&#xFF0C;&#x540E;&#x671F;&#x8FD8;&#x53EF;&#x4EE5;&#x4EE5;&#x56DE;&#x653E;&#x7684;&#x65B9;&#x5F0F;&#x6267;&#x884C;
+document.addEventListener(&apos;click&apos;, function( e ){
+  // store dispatch &#x8C03;&#x5EA6;&#x5206;&#x53D1;&#x4E00;&#x4E2A; action&#xFF08;fire&#xFF09;
+  store.dispatch({ type: &apos;DECREMENT&apos;});
+})
+</code></pre><h2 id="t53. &#x7406;&#x89E3; Redux &#x7684;&#x6838;&#x5FC3;&#x6982;&#x5FF5;">3. &#x7406;&#x89E3; Redux &#x7684;&#x6838;&#x5FC3;&#x6982;&#x5FF5; <a href="#t53. &#x7406;&#x89E3; Redux &#x7684;&#x6838;&#x5FC3;&#x6982;&#x5FF5;"> # </a></h2>
+<h3 id="t63.1 Action &amp; Action Creator">3.1 Action &amp; Action Creator <a href="#t63.1 Action &amp; Action Creator"> # </a></h3>
+<p>&#x5728; Redux &#x4E2D;&#xFF0C;&#x6539;&#x53D8; State &#x53EA;&#x80FD;&#x901A;&#x8FC7; action&#xFF0C;&#x5B83;&#x662F; store &#x6570;&#x636E;&#x7684;&#x552F;&#x4E00;&#x6765;&#x6E90;&#x3002;&#x4E00;&#x822C;&#x6765;&#x8BF4;&#x4F60;&#x4F1A;&#x901A;&#x8FC7; store.dispatch() &#x5C06; action &#x4F20;&#x5230; store&#x3002;&#x3002;&#x5E76;&#x4E14;&#xFF0C;&#x6BCF;&#x4E00;&#x4E2A; action &#x90FD;&#x5FC5;&#x987B;&#x662F; Javascript &#x7684;&#x7B80;&#x5355;&#x5BF9;&#x8C61;&#xFF0C;&#x4F8B;&#x5982;&#xFF1A;</p>
+<pre><code>{
+  type: &apos;ADD_TODO&apos;,
+  text: &apos;Learn Redux&apos;
+}
+</code></pre><p>Redux &#x8981;&#x6C42; action &#x662F;&#x53EF;&#x4EE5;&#x88AB;&#x5E8F;&#x5217;&#x5316;&#x7684;&#xFF0C;&#x4F7F;&#x8FD9;&#x5F97;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x7684;&#x72B6;&#x6001;&#x4FDD;&#x5B58;&#x3001;&#x56DE;&#x653E;&#x3001;Undo &#x4E4B;&#x7C7B;&#x7684;&#x529F;&#x80FD;&#x53EF;&#x4EE5;&#x88AB;&#x5B9E;&#x73B0;&#x3002;&#x56E0;&#x6B64;&#xFF0C;action &#x4E2D;&#x4E0D;&#x80FD;&#x5305;&#x542B;&#x8BF8;&#x5982;&#x51FD;&#x6570;&#x8C03;&#x7528;&#x8FD9;&#x6837;&#x7684;&#x4E0D;&#x53EF;&#x5E8F;&#x5217;&#x5316;&#x5B57;&#x6BB5;&#x3002;</p>
+<p>action &#x7684;&#x683C;&#x5F0F;&#x662F;&#x6709;&#x5EFA;&#x8BAE;&#x89C4;&#x8303;&#x7684;&#xFF0C;&#x53EF;&#x4EE5;&#x5305;&#x542B;&#x4EE5;&#x4E0B;&#x5B57;&#x6BB5;&#xFF1A;</p>
+<pre><code>{
+  type: &apos;ADD_TODO&apos;,
+  payload: {
+    text: &apos;Do something.&apos;
+  },
+  `meta: {}`
+}
+</code></pre><p>&#x5982;&#x679C; action &#x7528;&#x6765;&#x8868;&#x793A;&#x51FA;&#x9519;&#x7684;&#x60C5;&#x51B5;&#xFF0C;&#x5219;&#x53EF;&#x80FD;&#x4E3A;&#xFF1A;</p>
+<pre><code>{
+  type: &apos;ADD_TODO&apos;,
+  payload: new Error(),
+  error: true
+}
+</code></pre><p>type &#x662F;&#x5FC5;&#x987B;&#x8981;&#x6709;&#x7684;&#x5C5E;&#x6027;&#xFF0C;&#x5176;&#x4ED6;&#x90FD;&#x662F;&#x53EF;&#x9009;&#x7684;&#x3002;&#x5B8C;&#x6574;&#x5EFA;&#x8BAE;&#x8BF7;&#x53C2;&#x8003; <a href="https://github.com/acdlite/flux-standard-action">Flux Standard Action(FSA)</a> &#x5B9A;&#x4E49;&#x3002;&#x5DF2;&#x7ECF;&#x6709;&#x4E0D;&#x5C11;&#x7B2C;&#x4E09;&#x65B9;&#x6A21;&#x5757;&#x662F;&#x57FA;&#x4E8E; FSA &#x7684;&#x7EA6;&#x5B9A;&#x6765;&#x5F00;&#x53D1;&#x4E86;&#x3002;</p>
+<p><strong>Action Creator</strong></p>
+<p>&#x4E8B;&#x5B9E;&#x4E0A;&#xFF0C;&#x521B;&#x5EFA; action &#x5BF9;&#x8C61;&#x5F88;&#x5C11;&#x7528;&#x8FD9;&#x79CD;&#x6BCF;&#x6B21;&#x76F4;&#x63A5;&#x58F0;&#x660E;&#x5BF9;&#x8C61;&#x7684;&#x65B9;&#x5F0F;&#xFF0C;&#x66F4;&#x591A;&#x5730;&#x662F;&#x901A;&#x8FC7;&#x4E00;&#x4E2A;&#x521B;&#x5EFA;&#x51FD;&#x6570;&#x3002;&#x8FD9;&#x4E2A;&#x51FD;&#x6570;&#x88AB;&#x79F0;&#x4E3A;Action Creator&#xFF0C;&#x4F8B;&#x5982;&#xFF1A;</p>
+<pre><code>function addTodo(text) {
+  return {
+    type: ADD_TODO,
+    text
+  };
+}
+</code></pre><p>Action Creator &#x770B;&#x8D77;&#x6765;&#x5F88;&#x7B80;&#x5355;&#xFF0C;&#x4F46;&#x662F;&#x5982;&#x679C;&#x7ED3;&#x5408;&#x4E0A; Middleware &#x5C31;&#x53EF;&#x4EE5;&#x53D8;&#x5F97;&#x975E;&#x5E38;&#x7075;&#x6D3B;&#xFF0C;&#x540E;&#x9762;&#x4F1A;&#x4E13;&#x95E8;&#x8BB2; Middleware &#x3002;</p>
+<h3 id="t73.2 Reducer">3.2 Reducer <a href="#t73.2 Reducer"> # </a></h3>
+<p>&#x6211;&#x4EEC;&#x5148;&#x6765;&#x770B;&#x4E00;&#x4E0B; Javascript &#x4E2D; <a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/Reduce_clone">Array.prototype.reduce</a> &#x7684;&#x7528;&#x6CD5;&#xFF1A;</p>
+<pre><code>const initState = &apos;&apos;;
+const actions = [&apos;a&apos;, &apos;b&apos;, &apos;c&apos;];
+// &#x4F20;&#x5165;&#x5F53;&#x524D;&#x7684; state &#x548C; action &#xFF0C;&#x8FD4;&#x56DE;&#x65B0;&#x7684; state
+const newState = actions.reduce((curState, action) =&gt; curState + action);
+console.log( newState );
+</code></pre><p>&#x5BF9;&#x5E94;&#x7684;&#x7406;&#x89E3;&#xFF0C;Redux &#x4E2D;&#x7684; reducer &#x662F;&#x4E00;&#x4E2A;&#x7EAF;&#x51FD;&#x6570;&#xFF0C;&#x4F20;&#x5165;state&#x548C;action&#xFF0C;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;&#x65B0;&#x7684;state tree&#xFF0C;&#x7B80;&#x5355;&#x800C;&#x7EAF;&#x7CB9;&#x7684;&#x5B8C;&#x6210;&#x67D0;&#x4E00;&#x4EF6;&#x5177;&#x4F53;&#x7684;&#x4E8B;&#x60C5;&#xFF0C;&#x6CA1;&#x6709;&#x4F9D;&#x8D56;&#xFF0C;<strong>&#x7B80;&#x5355;&#x800C;&#x7EAF;&#x7CB9;&#x662F;&#x5B83;&#x7684;&#x6807;&#x7B7E;</strong>&#x3002;</p>
+<pre><code>const counter = (state = 0, action) =&gt; {
+  switch (action.type) {
+      case &apos;INCREMENT&apos;:
+        return state + 1;
+      case &apos;DECREMENT&apos;:
+        return state - 1;
+      default:
+        return state;
+  }
+}
+</code></pre><h3 id="t83.3 Store">3.3 Store <a href="#t83.3 Store"> # </a></h3>
+<p>Store &#x5C31;&#x662F;&#x7528;&#x6765;&#x7EF4;&#x6301;&#x5E94;&#x7528;&#x6240;&#x6709;&#x7684; <a href="">state &#x6811;</a> &#x7684;&#x4E00;&#x4E2A;&#x5BF9;&#x8C61;&#x3002;
+&#x6539;&#x53D8; store &#x5185; state &#x7684;&#x60DF;&#x4E00;&#x9014;&#x5F84;&#x662F;&#x5BF9;&#x5B83; dispatch &#x4E00;&#x4E2A; <a href="">action</a>&#x3002;</p>
+<p>Store &#x662F;&#x4E00;&#x4E2A;&#x5177;&#x6709;&#x4EE5;&#x4E0B;&#x56DB;&#x4E2A;&#x65B9;&#x6CD5;&#x7684;&#x5BF9;&#x8C61;&#xFF1A;</p>
+<ul>
+<li><code>getState()</code></li>
+<li><code>dispatch(action)</code></li>
+<li><code>subscribe(listener)</code></li>
+<li><code>replaceReducer(nextReducer)</code></li>
+</ul>
+<h4 id="t93.3.1 getState()">3.3.1 getState() <a href="#t93.3.1 getState()"> # </a></h4>
+<p>&#x8FD4;&#x56DE;&#x5E94;&#x7528;&#x5F53;&#x524D;&#x7684; state &#x6811;&#x3002;
+&#x5B83;&#x4E0E; store &#x7684;&#x6700;&#x540E;&#x4E00;&#x4E2A; reducer &#x8FD4;&#x56DE;&#x503C;&#x76F8;&#x540C;&#x3002;</p>
+<p>&#x8FD4;&#x56DE;&#x503C;&#xFF1A;&#x5E94;&#x7528;&#x5F53;&#x524D;&#x7684; state &#x6811;&#x3002;</p>
+<h4 id="t103.3.2 dispatch(action)">3.3.2 dispatch(action) <a href="#t103.3.2 dispatch(action)"> # </a></h4>
+<p>dispatch &#x5206;&#x53D1; action&#x3002;&#x8FD9;&#x662F;&#x89E6;&#x53D1; state &#x53D8;&#x5316;&#x7684;&#x60DF;&#x4E00;&#x9014;&#x5F84;&#x3002;</p>
+<p>&#x4F1A;&#x4F7F;&#x7528;&#x5F53;&#x524D; <code>getState()</code> &#x7684;&#x7ED3;&#x679C;&#x548C;&#x4F20;&#x5165;&#x7684; <code>action</code> &#x4EE5;&#x540C;&#x6B65;&#x65B9;&#x5F0F;&#x7684;&#x8C03;&#x7528; store &#x7684; reduce &#x51FD;&#x6570;&#x3002;&#x8FD4;&#x56DE;&#x503C;&#x4F1A;&#x88AB;&#x4F5C;&#x4E3A;&#x4E0B;&#x4E00;&#x4E2A; state&#x3002;&#x4ECE;&#x73B0;&#x5728;&#x5F00;&#x59CB;&#xFF0C;&#x8FD9;&#x5C31;&#x6210;&#x4E3A;&#x4E86; <code>getState()</code> &#x7684;&#x8FD4;&#x56DE;&#x503C;&#xFF0C;&#x540C;&#x65F6;&#x53D8;&#x5316;&#x76D1;&#x542C;&#x5668;(change listener)&#x4F1A;&#x88AB;&#x89E6;&#x53D1;&#x3002;</p>
+<blockquote>
+<p>&#x5728; Redux &#x91CC;&#xFF0C;&#x53EA;&#x4F1A;&#x5728;&#x6839; reducer &#x8FD4;&#x56DE;&#x65B0; state &#x7ED3;&#x675F;&#x540E;&#x518D;&#x4F1A;&#x8C03;&#x7528;&#x4E8B;&#x4EF6;&#x76D1;&#x542C;&#x5668;&#xFF0C;&#x56E0;&#x6B64;&#xFF0C;&#x4F60;&#x53EF;&#x4EE5;&#x5728;&#x4E8B;&#x4EF6;&#x76D1;&#x542C;&#x5668;&#x91CC;&#x518D;&#x505A; dispatch&#x3002;&#x60DF;&#x4E00;&#x4F7F;&#x4F60;&#x4E0D;&#x80FD;&#x5728; reducer &#x4E2D;&#x9014; dispatch &#x7684;&#x539F;&#x56E0;&#x662F;&#x8981;&#x786E;&#x4FDD; reducer &#x6CA1;&#x6709;&#x526F;&#x4F5C;&#x7528;&#x3002;&#x5982;&#x679C; action &#x5904;&#x7406;&#x4F1A;&#x4EA7;&#x751F;&#x526F;&#x4F5C;&#x7528;&#xFF0C;&#x6B63;&#x786E;&#x7684;&#x505A;&#x6CD5;&#x662F;&#x4F7F;&#x7528;&#x5F02;&#x6B65; action &#x521B;&#x5EFA;&#x51FD;&#x6570;&#x3002;</p>
+</blockquote>
+<p>&#x793A;&#x4F8B;&#xFF1A;</p>
+<pre><code>import { createStore } from &apos;redux&apos;
+
+// reducer
+const todos = (state = [&apos;&apos;], action) =&gt; {
+  switch (action.type) {
+    case &apos;ADD_TODO&apos;:
+      console.log(Object.assign([], state, [action.text]))
+      return Object.assign([], state, [action.text]);
+    default:
+      return state;
+  }
+}
+
+let store = createStore(todos, [ &apos;Use Redux&apos; ])
+
+// action creator
+function addTodo(text) {
+  return {
+    type: &apos;ADD_TODO&apos;,
+    text
+  }
+}
+
+// dispatch
+store.dispatch(addTodo(&apos;Read the docs&apos;))
+store.dispatch(addTodo(&apos;Read about the middleware&apos;))
+</code></pre><h4 id="t113.3.3 subscribe(listener)">3.3.3 subscribe(listener) <a href="#t113.3.3 subscribe(listener)"> # </a></h4>
+<p>&#x6DFB;&#x52A0;&#x4E00;&#x4E2A;&#x53D8;&#x5316;&#x76D1;&#x542C;&#x5668;&#x3002;&#x6BCF;&#x5F53; dispatch action &#x7684;&#x65F6;&#x5019;&#x5C31;&#x4F1A;&#x6267;&#x884C;&#xFF0C;state &#x6811;&#x4E2D;&#x7684;&#x4E00;&#x90E8;&#x5206;&#x53EF;&#x80FD;&#x5DF2;&#x7ECF;&#x53D8;&#x5316;&#x3002;&#x8FD9;&#x662F;&#x4E00;&#x4E2A;&#x5E95;&#x5C42; API&#x3002;&#x591A;&#x6570;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&#x4F60;&#x4E0D;&#x4F1A;&#x76F4;&#x63A5;&#x4F7F;&#x7528;&#x5B83;&#xFF0C;&#x4F1A;&#x4F7F;&#x7528;&#x4E00;&#x4E9B; React&#xFF08;&#x6216;&#x5176;&#x5B83;&#x5E93;&#xFF09;&#x7684;&#x7ED1;&#x5B9A;&#x3002;</p>
+<p>&#x793A;&#x4F8B;</p>
+<pre><code>import { createStore } from &apos;redux&apos;
+
+// reducer
+const todos = (state = [&apos;&apos;], action) =&gt; {
+  switch (action.type) {
+    case &apos;ADD_TODO&apos;:
+      return Object.assign([], state, [action.text]);
+    default:
+      return state;
+  }
+}
+
+let store = createStore(todos, [ &apos;Use Redux&apos; ])
+
+// action creator
+function addTodo(text) {
+  return {
+    type: &apos;ADD_TODO&apos;,
+    text
+  }
+}
+
+const handleChange =  () =&gt; {
+  console.log(store.getState());
+}
+
+let unsubscribe = store.subscribe(handleChange)
+
+handleChange()
+
+// dispatch
+store.dispatch(addTodo(&apos;Read the docs&apos;))
+store.dispatch(addTodo(&apos;Read about the middleware&apos;))
+</code></pre><h2 id="t124. Redux &#x7684;&#x9876;&#x5C42; API &#x4ECB;&#x7ECD;">4. Redux &#x7684;&#x9876;&#x5C42; API &#x4ECB;&#x7ECD; <a href="#t124. Redux &#x7684;&#x9876;&#x5C42; API &#x4ECB;&#x7ECD;"> # </a></h2>
+<h3 id="t134.1 createStore">4.1 createStore <a href="#t134.1 createStore"> # </a></h3>
+<p>&#x8C03;&#x7528;&#x65B9;&#x5F0F;&#xFF1A;createStore(reducer, [initialState])</p>
+<p>&#x521B;&#x5EFA;&#x4E00;&#x4E2A; Redux store &#x6765;&#x4EE5;&#x5B58;&#x653E;&#x5E94;&#x7528;&#x4E2D;&#x6240;&#x6709;&#x7684; state&#xFF0C;&#x5E94;&#x7528;&#x4E2D;&#x5E94;&#x6709;&#x4E14;&#x4EC5;&#x6709;&#x4E00;&#x4E2A; store&#x3002;
+&#x8FD9;&#x4E2A;API&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;store&#xFF0C;&#x8FD9;&#x4E2A;store&#x4E2D;&#x4FDD;&#x5B58;&#x4E86;&#x5E94;&#x7528;&#x6240;&#x6709; state &#x7684;&#x5BF9;&#x8C61;&#x3002;&#x6539;&#x53D8; state &#x7684;&#x60DF;&#x4E00;&#x65B9;&#x6CD5;&#x662F; dispatch action&#x3002;&#x4F60;&#x4E5F;&#x53EF;&#x4EE5; subscribe &#x76D1;&#x542C; state &#x7684;&#x53D8;&#x5316;&#xFF0C;&#x7136;&#x540E;&#x66F4;&#x65B0; UI&#x3002;&#x6211;&#x4EEC;&#x6765;&#x770B;&#x4E00;&#x4E2A;&#x793A;&#x4F8B;</p>
+<p><strong>&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x8BD5;&#x7740;&#x6A21;&#x62DF; createStore&#xFF0C;&#x6DF1;&#x5165;&#x4E86;&#x89E3;&#x5176;&#x539F;&#x7406;</strong></p>
+<pre><code>// reducer &#x7EAF;&#x51FD;&#x6570;&#xFF0C;&#x5177;&#x4F53;&#x7684;action&#x6267;&#x884C;&#x903B;&#x8F91;
+const counter = (state = 0, action) =&gt; {
+  switch (action.type) {
+      case &apos;INCREMENT&apos;:
+        return state + 1;
+      case &apos;DECREMENT&apos;:
+        return state - 1;
+      default:
+        return state;
+  }
+}
+
+// &#x6A21;&#x62DF;create store&#xFF0C;&#x4E86;&#x89E3;&#x5176;&#x539F;&#x7406;
+const createStore = (reducer) =&gt; {
+  let state;
+  let listeners = [];
+
+  const getState = () =&gt; state;
+
+  const dispatch = (action) =&gt; {
+    state = reducer(state, action);
+    listeners.forEach(listener =&gt; listener());
+  }
+
+  const subscribe = (listener) =&gt; {
+      listeners.push(listener);
+      return () =&gt; {
+        listeners = listeners.filter(item =&gt; item !== listener);
+      }
+  }
+
+  dispatch({});
+
+  return { getState, dispatch, subscribe };
+}
+
+const store = createStore(counter);
+
+// view &#x5BF9;&#x5E94;&#x5230;React&#x91CC;&#x9762;&#x7684;component
+const PureRender = () =&gt; {
+  document.body.innerText = store.getState();
+}
+
+// store subscribe &#x8BA2;&#x9605;&#x6216;&#x662F;&#x76D1;&#x542C;view&#xFF08;on&#xFF09;
+store.subscribe(PureRender);
+PureRender();
+
+document.addEventListener(&apos;click&apos;, function( e ){
+  // store dispatch &#x8C03;&#x5EA6;&#x5206;&#x53D1;&#x4E00;&#x4E2A; action&#xFF08;fire&#xFF09;
+  store.dispatch({ type: &apos;DECREMENT&apos;});
+})
+</code></pre><h3 id="t144.2 combineReducers">4.2 combineReducers <a href="#t144.2 combineReducers"> # </a></h3>
+<p>&#x8C03;&#x7528;&#x65B9;&#x5F0F;&#xFF1A;combineReducers(reducers)</p>
+<p>&#x968F;&#x7740;&#x5E94;&#x7528;&#x53D8;&#x5F97;&#x590D;&#x6742;&#xFF0C;&#x9700;&#x8981;&#x5BF9; reducer &#x51FD;&#x6570;&#x8FDB;&#x884C;&#x62C6;&#x5206;&#xFF0C;&#x62C6;&#x5206;&#x540E;&#x7684;&#x6BCF;&#x4E00;&#x5757;&#x72EC;&#x7ACB;&#x8D1F;&#x8D23;&#x7BA1;&#x7406; state &#x7684;&#x4E00;&#x90E8;&#x5206;&#x3002;&#x628A;&#x4E00;&#x4E2A;&#x7531;&#x591A;&#x4E2A;&#x4E0D;&#x540C; reducer &#x51FD;&#x6570;&#x4F5C;&#x4E3A; value &#x7684; object&#xFF0C;&#x5408;&#x5E76;&#x6210;&#x4E00;&#x4E2A;&#x6700;&#x7EC8;&#x7684; reducer &#x51FD;&#x6570;&#xFF0C;&#x7136;&#x540E;&#x5C31;&#x53EF;&#x4EE5;&#x5BF9;&#x8FD9;&#x4E2A; reducer &#x8C03;&#x7528; createStore&#x3002;</p>
+<p><strong>&#x793A;&#x4F8B;&#x5982;&#x4E0B;</strong></p>
+<p>&#x4EE3;&#x7801;&#x6E05;&#x5355;&#xFF1A;<code>reducer/todos.js</code></p>
+<pre><code>export default function todos(state = [], action) {
+  switch (action.type) {
+  case &apos;ADD_TODO&apos;:
+    return state.concat([action.text])
+  default:
+    return state
+  }
+}
+</code></pre><p>&#x4EE3;&#x7801;&#x6E05;&#x5355;&#xFF1A;<code>reducer/counter.js</code></p>
+<pre><code>export default function counter(state = 0, action) {
+  switch (action.type) {
+  case &apos;INCREMENT&apos;:
+    return state + 1
+  case &apos;DECREMENT&apos;:
+    return state - 1
+  default:
+    return state
+  }
+}
+</code></pre><p>&#x4EE3;&#x7801;&#x6E05;&#x5355;&#xFF1A;<code>reducers/index.js</code></p>
+<pre><code>import { combineReducers } from &apos;redux&apos;
+import todos from &apos;./todos&apos;
+import counter from &apos;./counter&apos;
+
+export default combineReducers({
+  todos,
+  counter
+})
+</code></pre><p>&#x4EE3;&#x7801;&#x6E05;&#x5355;&#xFF1A;<code>App.js</code></p>
+<pre><code>import { createStore } from &apos;redux&apos;
+import reducer from &apos;./reducer/index.js&apos;
+
+let store = createStore(reducer)
+console.log(&apos;&#x5F53;&#x524D;&#x7684; state :&apos;, store.getState())
+
+store.dispatch({
+  type: &apos;ADD_TODO&apos;,
+  text: &apos;Use Redux&apos;
+})
+store.dispatch({
+  type: &apos;INCREMENT&apos;,
+})
+console.log(&apos;&#x6539;&#x53D8;&#x540E;&#x7684; state :&apos;, store.getState())
+</code></pre><h3 id="t154.3 applyMiddleware">4.3 applyMiddleware <a href="#t154.3 applyMiddleware"> # </a></h3>
+<p>&#x8C03;&#x7528;&#x65B9;&#x5F0F;&#xFF1A;applyMiddleware(...middlewares)</p>
+<p>&#x4F7F;&#x7528;&#x5305;&#x542B;&#x81EA;&#x5B9A;&#x4E49;&#x529F;&#x80FD;&#x7684; middleware &#x6765;&#x6269;&#x5C55; Redux &#x662F;&#x4E00;&#x79CD;&#x63A8;&#x8350;&#x7684;&#x65B9;&#x5F0F;&#x3002;Middleware &#x53EF;&#x4EE5;&#x8BA9;&#x4F60;&#x5305;&#x88C5; store &#x7684; dispatch &#x65B9;&#x6CD5;&#x6765;&#x8FBE;&#x5230;&#x4F60;&#x60F3;&#x8981;&#x7684;&#x76EE;&#x7684;&#x3002;&#x540C;&#x65F6;&#xFF0C; middleware &#x8FD8;&#x62E5;&#x6709;&#x201C;&#x53EF;&#x7EC4;&#x5408;&#x201D;&#x8FD9;&#x4E00;&#x5173;&#x952E;&#x7279;&#x6027;&#x3002;&#x591A;&#x4E2A; middleware &#x53EF;&#x4EE5;&#x88AB;&#x7EC4;&#x5408;&#x5230;&#x4E00;&#x8D77;&#x4F7F;&#x7528;&#xFF0C;&#x5F62;&#x6210; middleware &#x94FE;&#x3002;&#x5176;&#x4E2D;&#xFF0C;&#x6BCF;&#x4E2A; middleware &#x90FD;&#x4E0D;&#x9700;&#x8981;&#x5173;&#x5FC3;&#x94FE;&#x4E2D;&#x5B83;&#x524D;&#x540E;&#x7684; middleware &#x7684;&#x4EFB;&#x4F55;&#x4FE1;&#x606F;&#x3002;</p>
+<p>&#x5177;&#x4F53;&#x7528;&#x6CD5;&#x6211;&#x4EEC;&#x9AD8;&#x7EA7;&#x90E8;&#x5206;&#x8BE6;&#x7EC6;&#x8BF4;&#x660E;&#x3002;</p>
+<h3 id="t164.4 bindActionCreators">4.4 bindActionCreators <a href="#t164.4 bindActionCreators"> # </a></h3>
+<p>&#x8C03;&#x7528;&#x65B9;&#x5F0F;&#xFF1A;bindActionCreators(actionCreators, dispatch)</p>
+<p>&#x60DF;&#x4E00;&#x4F7F;&#x7528; bindActionCreators &#x7684;&#x573A;&#x666F;&#x662F;&#x5F53;&#x4F60;&#x9700;&#x8981;&#x628A; action creator &#x5F80;&#x4E0B;&#x4F20;&#x5230;&#x4E00;&#x4E2A;&#x7EC4;&#x4EF6;&#x4E0A;&#xFF0C;&#x5374;&#x4E0D;&#x60F3;&#x8BA9;&#x8FD9;&#x4E2A;&#x7EC4;&#x4EF6;&#x89C9;&#x5BDF;&#x5230; Redux &#x7684;&#x5B58;&#x5728;&#xFF0C;&#x800C;&#x4E14;&#x4E0D;&#x5E0C;&#x671B;&#x628A; Redux store &#x6216; dispatch &#x4F20;&#x7ED9;&#x5B83;&#x3002;</p>
+<p>&#x5177;&#x4F53;&#x7528;&#x6CD5;&#x6211;&#x4EEC;&#x9AD8;&#x7EA7;&#x90E8;&#x5206;&#x8BE6;&#x7EC6;&#x8BF4;&#x660E;&#x3002;</p>
+<h3 id="t174.5 compose">4.5 compose <a href="#t174.5 compose"> # </a></h3>
+<p>&#x8C03;&#x7528;&#x65B9;&#x5F0F;&#xFF1A;compose(...functions)</p>
+<p>compose &#x7528;&#x6765;&#x5B9E;&#x73B0;&#x4ECE;&#x53F3;&#x5230;&#x5DE6;&#x6765;&#x7EC4;&#x5408;&#x4F20;&#x5165;&#x7684;&#x591A;&#x4E2A;&#x51FD;&#x6570;&#xFF0C;&#x5B83;&#x505A;&#x7684;&#x53EA;&#x662F;&#x8BA9;&#x4F60;&#x4E0D;&#x4F7F;&#x7528;&#x6DF1;&#x5EA6;&#x53F3;&#x62EC;&#x53F7;&#x7684;&#x60C5;&#x51B5;&#x4E0B;&#x6765;&#x5199;&#x6DF1;&#x5EA6;&#x5D4C;&#x5957;&#x7684;&#x51FD;&#x6570;&#xFF0C;&#x4EC5;&#x6B64;&#x800C;&#x5DF2;&#x3002;</p>
+<h2 id="t185. &#x4F7F;&#x7528; React-redux &#x8FDE;&#x63A5; react &#x548C; redux">5. &#x4F7F;&#x7528; React-redux &#x8FDE;&#x63A5; react &#x548C; redux <a href="#t185. &#x4F7F;&#x7528; React-redux &#x8FDE;&#x63A5; react &#x548C; redux"> # </a></h2>
+<h3 id="t195.1 &#x6CA1;&#x6709;react-redux&#x7684;&#x5199;&#x6CD5;">5.1 &#x6CA1;&#x6709;react-redux&#x7684;&#x5199;&#x6CD5; <a href="#t195.1 &#x6CA1;&#x6709;react-redux&#x7684;&#x5199;&#x6CD5;"> # </a></h3>
+<p>&#x5C01;&#x88C5;&#x4E00;&#x4E2A;&#x7EC4;&#x4EF6;&#xFF0C;&#x5C06;&#x7EC4;&#x4EF6;&#x548C;Redux&#x505A;&#x57FA;&#x672C;&#x7684;&#x7EC4;&#x5408;</p>
+<pre><code>import { createStore } from &apos;redux&apos;;
+import React, { Component } from &apos;react&apos;;
+import ReactDOM from &apos;react-dom&apos;;
+
+// reducer &#x7EAF;&#x51FD;&#x6570;&#xFF0C;&#x5177;&#x4F53;&#x7684;action&#x6267;&#x884C;&#x903B;&#x8F91;
+const counter = (state = 0, action) =&gt; {
+  switch (action.type) {
+      case &apos;INCREMENT&apos;:
+        return state + 1;
+      case &apos;DECREMENT&apos;:
+        return state - 1;
+      default:
+        return state;
+  }
+}
+
+const store = createStore(counter);
+
+// Counter &#x7EC4;&#x4EF6;
+class Counter extends Component {
+  render(){
+    return (
+      &lt;div&gt;
+        &lt;h1&gt;{this.props.value}&lt;/h1&gt;
+        &lt;button onClick={this.props.onIncrement}&gt;&#x70B9;&#x51FB;&#x52A0;1&lt;/button&gt;
+        &lt;button onClick={this.props.onDecrement}&gt;&#x70B9;&#x51FB;&#x51CF;1&lt;/button&gt;
+      &lt;/div&gt;
+    )
+  }
+}
+
+const PureRender = () =&gt; {
+  ReactDOM.render(
+      &lt;Counter
+        value={store.getState()}
+        onIncrement={ () =&gt; store.dispatch({type: &quot;INCREMENT&quot;}) }
+        onDecrement={ () =&gt; store.dispatch({type: &quot;DECREMENT&quot;}) }
+      /&gt;, document.getElementById(&apos;app&apos;)
+  );
+}
+
+// store subscribe &#x8BA2;&#x9605;&#x6216;&#x662F;&#x76D1;&#x542C;view&#xFF08;on&#xFF09;
+store.subscribe(PureRender)
+PureRender()
+</code></pre><h3 id="t205.2 React-redux &#x63D0;&#x4F9B;&#x7684; connect &#x548C; Provider">5.2 React-redux &#x63D0;&#x4F9B;&#x7684; connect &#x548C; Provider <a href="#t205.2 React-redux &#x63D0;&#x4F9B;&#x7684; connect &#x548C; Provider"> # </a></h3>
+<p><code>&lt;Provider store&gt;</code> &#x4F7F;&#x7EC4;&#x4EF6;&#x5C42;&#x7EA7;&#x4E2D;&#x7684; <code>connect()</code> &#x65B9;&#x6CD5;&#x90FD;&#x80FD;&#x591F;&#x83B7;&#x5F97; <code>Redux store</code>&#x3002;&#x6B63;&#x5E38;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&#x4F60;&#x7684;&#x6839;&#x7EC4;&#x4EF6;&#x5E94;&#x8BE5;&#x5D4C;&#x5957;&#x5728; <code>`&lt;Provider&gt;</code> &#x4E2D;&#x624D;&#x80FD;&#x4F7F;&#x7528; <code>connect()</code> &#x65B9;&#x6CD5;&#x3002;</p>
+<pre><code>ReactDOM.render(
+  {/*  &#x4F7F;&#x7EC4;&#x4EF6;&#x5C42;&#x7EA7;&#x4E2D;&#x7684; connect() &#x65B9;&#x6CD5;&#x90FD;&#x80FD;&#x591F;&#x83B7;&#x5F97; Redux store */}
+  &lt;Provider store={store}&gt;
+    {/* &#x8FD9;&#x91CC;&#x4F20;&#x5165;&#x7684;&#x7EC4;&#x4EF6;MyRootComponent&#x662F;&#x7EC4;&#x4EF6;&#x5C42;&#x7EA7;&#x7684;&#x6839;&#x7EC4;&#x4EF6; */}
+    &lt;MyRootComponent /&gt;
+  &lt;/Provider&gt;,
+  rootEl
+);
+</code></pre><p><code>connect([mapStateToProps], [mapDispatchToProps], [mergeProps], [options])</code>
+connect&#x65B9;&#x6CD5;&#x662F;&#x7528;&#x6765;&#x8FDE;&#x63A5; React &#x7EC4;&#x4EF6;&#x4E0E; Redux store&#xFF0C;&#x8FDE;&#x63A5;&#x64CD;&#x4F5C;&#x4E0D;&#x4F1A;&#x6539;&#x53D8;&#x539F;&#x6765;&#x7684;&#x7EC4;&#x4EF6;&#x7C7B;&#xFF0C;&#x53CD;&#x800C;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;&#x65B0;&#x7684;&#x5DF2;&#x4E0E; Redux store &#x8FDE;&#x63A5;&#x7684;&#x7EC4;&#x4EF6;&#x7C7B;&#x3002;</p>
+<p><strong>&#x4F7F;&#x7528;react-redux&#x7684;&#x4E00;&#x4E2A;&#x7B80;&#x5355;&#x5B8C;&#x6574;&#x793A;&#x4F8B;</strong></p>
+<pre><code>import React, { Component, PropTypes } from &apos;react&apos;
+import ReactDOM from &apos;react-dom&apos;
+import { createStore } from &apos;redux&apos;
+import { Provider, connect } from &apos;react-redux&apos;
+
+// &#x8FD9;&#x662F;&#x4E00;&#x4E2A;&#x5C55;&#x793A;&#x578B;&#x7EC4;&#x4EF6; Counter
+class Counter extends Component {
+  render() {
+    const { value, onIncreaseClick } = this.props
+    return (
+      &lt;div&gt;
+        &lt;span&gt;{value}&lt;/span&gt;
+        &lt;button onClick={onIncreaseClick}&gt;&#x6233;&#x6211;&#x52A0;1&lt;/button&gt;
+      &lt;/div&gt;
+    )
+  }
+}
+
+Counter.propTypes = {
+  value: PropTypes.number.isRequired,
+  onIncreaseClick: PropTypes.func.isRequired
+}
+
+// Action
+const increaseAction = { type: &apos;increase&apos; }
+
+// Reducer
+function counter(state = { count: 0 }, action) {
+  let count = state.count
+  switch (action.type) {
+    case &apos;increase&apos;:
+      return { count: count + 1 }
+    default:
+      return state
+  }
+}
+
+// Store
+let store = createStore(counter)
+
+// Map Redux state to component props
+function mapStateToProps(state) {
+  // &#x8FD9;&#x91CC;&#x62FF;&#x5230;&#x7684;state&#x5C31;&#x662F;store&#x91CC;&#x9762;&#x7ED9;&#x7684;state
+  console.log(state);
+  return {
+    value: state.count
+  }
+}
+
+// Map Redux actions to component props
+function mapDispatchToProps(dispatch) {
+  // dispatch(action) { }
+  return {
+    onIncreaseClick: () =&gt; dispatch(increaseAction)
+  }
+}
+
+class App extends Component {
+  render() {
+    // store&#x91CC;&#x7684;state&#x7ECF;&#x8FC7;connect&#x8FDE;&#x63A5;&#x540E;&#x7ED9;&#x4E86;&#x6839;&#x7EC4;&#x4EF6;&#x7684;props
+    console.log(this.props);
+    return (
+      &lt;div&gt;
+        &lt;h1&gt;&#x5B66;&#x4E60;&#x4F7F;&#x7528;react-redux&lt;/h1&gt;
+        &lt;Counter {...this.props} /&gt;
+      &lt;/div&gt;
+    )
+  }
+}
+
+// Connected Component
+let RootApp = connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(App)
+
+ReactDOM.render(
+  &lt;Provider store={store}&gt;
+    &lt;RootApp /&gt;
+  &lt;/Provider&gt;,
+  document.getElementById(&apos;app&apos;)
+)
+</code></pre><p>&#x5B9E;&#x9645;&#x5E94;&#x7528;&#x4E2D;&#xFF0C;connect&#x8FD9;&#x4E2A;&#x90E8;&#x5206;&#x4F1A;&#x6BD4;&#x8F83;&#x590D;&#x6742;&#xFF0C;&#x6211;&#x4EEC;&#x540E;&#x7EED;&#x9AD8;&#x7EA7;&#x90E8;&#x5206;&#x5185;&#x5BB9;&#x8FDB;&#x884C;&#x8865;&#x5145;&#x3002;</p>
+<h2 id="t216. &#x4E00;&#x6B65;&#x6B65;&#x5F00;&#x53D1;&#x4E00;&#x4E2A; TODO &#x5E94;&#x7528;">6. &#x4E00;&#x6B65;&#x6B65;&#x5F00;&#x53D1;&#x4E00;&#x4E2A; TODO &#x5E94;&#x7528; <a href="#t216. &#x4E00;&#x6B65;&#x6B65;&#x5F00;&#x53D1;&#x4E00;&#x4E2A; TODO &#x5E94;&#x7528;"> # </a></h2>
+<h3 id="t226.1 &#x5165;&#x53E3;&#x6587;&#x4EF6;">6.1 &#x5165;&#x53E3;&#x6587;&#x4EF6; <a href="#t226.1 &#x5165;&#x53E3;&#x6587;&#x4EF6;"> # </a></h3>
+<p><code>index.js</code></p>
+<pre><code class="lang-js"><span class="hljs-keyword">import</span> React <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;react&apos;</span>
+<span class="hljs-keyword">import</span> { render } <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;react-dom&apos;</span>
+<span class="hljs-keyword">import</span> { createStore } <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;redux&apos;</span>
+<span class="hljs-keyword">import</span> { Provider } <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;react-redux&apos;</span>
+<span class="hljs-keyword">import</span> App <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;./containers/App&apos;</span>
+<span class="hljs-keyword">import</span> todoApp <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;./reducers&apos;</span>
+
+let store = createStore(todoApp)
+
+let rootElement = document.getElementById(<span class="hljs-string">&apos;app&apos;</span>)
+render(
+  &lt;Provider store={store}&gt;
+    &lt;App /&gt;
+  &lt;/Provider&gt;,
+  rootElement
+)
+</code></pre>
+<h3 id="t236.2 Action &#x521B;&#x5EFA;&#x51FD;&#x6570;&#x548C;&#x5E38;&#x91CF;">6.2 Action &#x521B;&#x5EFA;&#x51FD;&#x6570;&#x548C;&#x5E38;&#x91CF; <a href="#t236.2 Action &#x521B;&#x5EFA;&#x51FD;&#x6570;&#x548C;&#x5E38;&#x91CF;"> # </a></h3>
+<p><code>actions.js</code></p>
+<pre><code class="lang-js"><span class="hljs-comment">/*
+ * action &#x7C7B;&#x578B;
+ */</span>
+
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> ADD_TODO = <span class="hljs-string">&apos;ADD_TODO&apos;</span>;
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> COMPLETE_TODO = <span class="hljs-string">&apos;COMPLETE_TODO&apos;</span>;
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> SET_VISIBILITY_FILTER = <span class="hljs-string">&apos;SET_VISIBILITY_FILTER&apos;</span>
+
+<span class="hljs-comment">/*
+ * &#x5176;&#x5B83;&#x7684;&#x5E38;&#x91CF;
+ */</span>
+
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> VisibilityFilters = {
+  SHOW_ALL: <span class="hljs-string">&apos;SHOW_ALL&apos;</span>,
+  SHOW_COMPLETED: <span class="hljs-string">&apos;SHOW_COMPLETED&apos;</span>,
+  SHOW_ACTIVE: <span class="hljs-string">&apos;SHOW_ACTIVE&apos;</span>
+};
+
+<span class="hljs-comment">/*
+ * action &#x521B;&#x5EFA;&#x51FD;&#x6570;
+ */</span>
+
+<span class="hljs-keyword">export</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">addTodo</span>(<span class="hljs-params">text</span>) </span>{
+  <span class="hljs-keyword">return</span> { type: ADD_TODO, text }
+}
+
+<span class="hljs-keyword">export</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">completeTodo</span>(<span class="hljs-params">index</span>) </span>{
+  <span class="hljs-keyword">return</span> { type: COMPLETE_TODO, index }
+}
+
+<span class="hljs-keyword">export</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">setVisibilityFilter</span>(<span class="hljs-params">filter</span>) </span>{
+  <span class="hljs-keyword">return</span> { type: SET_VISIBILITY_FILTER, filter }
+}
+</code></pre>
+<h3 id="t246.3 Reducers">6.3 Reducers <a href="#t246.3 Reducers"> # </a></h3>
+<p><code>reducers.js</code></p>
+<pre><code class="lang-js"><span class="hljs-keyword">import</span> { combineReducers } <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;redux&apos;</span>
+<span class="hljs-keyword">import</span> { ADD_TODO, COMPLETE_TODO, SET_VISIBILITY_FILTER, VisibilityFilters } <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;./actions&apos;</span>
+const { SHOW_ALL } = VisibilityFilters
+
+function visibilityFilter(state = SHOW_ALL, action) {
+  switch (action.type) {
+    case SET_VISIBILITY_FILTER:
+      return action.filter
+    default:
+      return state
+  }
+}
+
+function todos(state = [], action) {
+  switch (action.type) {
+    case ADD_TODO:
+      return [
+        ...state,
+        {
+          text: action.text,
+          completed: false
+        }
+      ]
+    case COMPLETE_TODO:
+      return [
+        ...state.slice(0, action.index),
+        Object.assign({}, state[action.index], {
+          completed: true
+        }),
+        ...state.slice(action.index + 1)
+      ]
+    default:
+      return state
+  }
+}
+
+const todoApp = combineReducers({
+  visibilityFilter,
+  todos
+})
+
+export default todoApp
+</code></pre>
+<h3 id="t256.4 &#x5BB9;&#x5668;&#x7EC4;&#x4EF6;">6.4 &#x5BB9;&#x5668;&#x7EC4;&#x4EF6; <a href="#t256.4 &#x5BB9;&#x5668;&#x7EC4;&#x4EF6;"> # </a></h3>
+<p><code>containers/App.js</code></p>
+<pre><code class="lang-js"><span class="hljs-keyword">import</span> React, { Component, PropTypes } <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;react&apos;</span>
+<span class="hljs-keyword">import</span> { connect } <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;react-redux&apos;</span>
+<span class="hljs-keyword">import</span> { addTodo, completeTodo, setVisibilityFilter, VisibilityFilters } <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;../actions&apos;</span>
+<span class="hljs-keyword">import</span> AddTodo <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;../components/AddTodo&apos;</span>
+<span class="hljs-keyword">import</span> TodoList <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;../components/TodoList&apos;</span>
+<span class="hljs-keyword">import</span> Footer <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;../components/Footer&apos;</span>
+
+class App extends Component {
+  render() {
+    // Injected by connect() call:
+    const { dispatch, visibleTodos, visibilityFilter } = this.props
+    return (
+      &lt;div&gt;
+        &lt;AddTodo
+          onAddClick={text =&gt;
+            dispatch(addTodo(text))
+          } /&gt;
+        &lt;TodoList
+          todos={visibleTodos}
+          onTodoClick={index =&gt;
+            dispatch(completeTodo(index))
+          } /&gt;
+        &lt;Footer
+          filter={visibilityFilter}
+          onFilterChange={nextFilter =&gt;
+            dispatch(setVisibilityFilter(nextFilter))
+          } /&gt;
+      &lt;/div&gt;
+    )
+  }
+}
+
+App.propTypes = {
+  visibleTodos: PropTypes.arrayOf(PropTypes.shape({
+    text: PropTypes.string.isRequired,
+    completed: PropTypes.bool.isRequired
+  }).isRequired).isRequired,
+  visibilityFilter: PropTypes.oneOf([
+    <span class="hljs-string">&apos;SHOW_ALL&apos;</span>,
+    <span class="hljs-string">&apos;SHOW_COMPLETED&apos;</span>,
+    <span class="hljs-string">&apos;SHOW_ACTIVE&apos;</span>
+  ]).isRequired
+}
+
+function selectTodos(todos, filter) {
+  switch (filter) {
+    case VisibilityFilters.SHOW_ALL:
+      return todos
+    case VisibilityFilters.SHOW_COMPLETED:
+      return todos.filter(todo =&gt; todo.completed)
+    case VisibilityFilters.SHOW_ACTIVE:
+      return todos.filter(todo =&gt; !todo.completed)
+  }
+}
+
+// Which props do we want to inject, given the global state?
+// Note: use https://github.com/faassen/reselect for better performance.
+function select(state) {
+  return {
+    visibleTodos: selectTodos(state.todos, state.visibilityFilter),
+    visibilityFilter: state.visibilityFilter
+  }
+}
+
+// &#x5305;&#x88C5; component &#xFF0C;&#x6CE8;&#x5165; dispatch &#x548C; state &#x5230;&#x5176;&#x9ED8;&#x8BA4;&#x7684; connect(select)(App) &#x4E2D;&#xFF1B;
+export default connect(select)(App)
+</code></pre>
+<h3 id="t266.5 &#x5C55;&#x793A;&#x7EC4;&#x4EF6;">6.5 &#x5C55;&#x793A;&#x7EC4;&#x4EF6; <a href="#t266.5 &#x5C55;&#x793A;&#x7EC4;&#x4EF6;"> # </a></h3>
+<p><code>components/AddTodo.js</code></p>
+<pre><code class="lang-js"><span class="hljs-keyword">import</span> React, { Component, PropTypes } <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;react&apos;</span>
+
+export default class AddTodo extends Component {
+  render() {
+    return (
+      &lt;div&gt;
+        &lt;input type=<span class="hljs-string">&apos;text&apos;</span> ref=<span class="hljs-string">&apos;input&apos;</span> /&gt;
+        &lt;button onClick={(e) =&gt; this.handleClick(e)}&gt;
+          Add
+        &lt;/button&gt;
+      &lt;/div&gt;
+    )
+  }
+
+  handleClick(e) {
+    const node = this.refs.input
+    const text = node.value.trim()
+    this.props.onAddClick(text)
+    node.value = <span class="hljs-string">&apos;&apos;</span>
+  }
+}
+
+AddTodo.propTypes = {
+  onAddClick: PropTypes.func.isRequired
+}
+</code></pre>
+<p><code>components/Footer.js</code></p>
+<pre><code class="lang-js"><span class="hljs-keyword">import</span> React, { Component, PropTypes } <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;react&apos;</span>
+
+export default class Footer extends Component {
+  renderFilter(filter, name) {
+    if (filter === this.props.filter) {
+      return name
+    }
+
+    return (
+      &lt;a href=<span class="hljs-string">&apos;#&apos;</span> onClick={e =&gt; {
+        e.preventDefault()
+        this.props.onFilterChange(filter)
+      }}&gt;
+        {name}
+      &lt;/a&gt;
+    )
+  }
+
+  render() {
+    return (
+      &lt;p&gt;
+        Show:
+        {<span class="hljs-string">&apos; &apos;</span>}
+        {this.renderFilter(<span class="hljs-string">&apos;SHOW_ALL&apos;</span>, <span class="hljs-string">&apos;All&apos;</span>)}
+        {<span class="hljs-string">&apos;, &apos;</span>}
+        {this.renderFilter(<span class="hljs-string">&apos;SHOW_COMPLETED&apos;</span>, <span class="hljs-string">&apos;Completed&apos;</span>)}
+        {<span class="hljs-string">&apos;, &apos;</span>}
+        {this.renderFilter(<span class="hljs-string">&apos;SHOW_ACTIVE&apos;</span>, <span class="hljs-string">&apos;Active&apos;</span>)}
+        .
+      &lt;/p&gt;
+    )
+  }
+}
+
+Footer.propTypes = {
+  onFilterChange: PropTypes.func.isRequired,
+  filter: PropTypes.oneOf([
+    <span class="hljs-string">&apos;SHOW_ALL&apos;</span>,
+    <span class="hljs-string">&apos;SHOW_COMPLETED&apos;</span>,
+    <span class="hljs-string">&apos;SHOW_ACTIVE&apos;</span>
+  ]).isRequired
+}
+</code></pre>
+<p><code>components/Todo.js</code></p>
+<pre><code class="lang-js"><span class="hljs-keyword">import</span> React, { Component, PropTypes } <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;react&apos;</span>
+
+export default class Todo extends Component {
+  render() {
+    return (
+      &lt;li
+        onClick={this.props.onClick}
+        style={{
+          textDecoration: this.props.completed ? <span class="hljs-string">&apos;line-through&apos;</span> : <span class="hljs-string">&apos;none&apos;</span>,
+          cursor: this.props.completed ? <span class="hljs-string">&apos;default&apos;</span> : <span class="hljs-string">&apos;pointer&apos;</span>
+        }}&gt;
+        {this.props.text}
+      &lt;/li&gt;
+    )
+  }
+}
+
+Todo.propTypes = {
+  onClick: PropTypes.func.isRequired,
+  text: PropTypes.string.isRequired,
+  completed: PropTypes.bool.isRequired
+}
+</code></pre>
+<p><code>components/TodoList.js</code></p>
+<pre><code class="lang-js"><span class="hljs-keyword">import</span> React, { Component, PropTypes } <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;react&apos;</span>
+<span class="hljs-keyword">import</span> Todo <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;./Todo&apos;</span>
+
+export default class TodoList extends Component {
+  render() {
+    return (
+      &lt;ul&gt;
+        {this.props.todos.map((todo, index) =&gt;
+          &lt;Todo {...todo}
+                key={index}
+                onClick={() =&gt; this.props.onTodoClick(index)} /&gt;
+        )}
+      &lt;/ul&gt;
+    )
+  }
+}
+
+TodoList.propTypes = {
+  onTodoClick: PropTypes.func.isRequired,
+  todos: PropTypes.arrayOf(PropTypes.shape({
+    text: PropTypes.string.isRequired,
+    completed: PropTypes.bool.isRequired
+  }).isRequired).isRequired
+}
+</code></pre>
+<h2 id="t27&#x5B8C;&#x7ED3;&#x5BC4;&#x8BED;">&#x5B8C;&#x7ED3;&#x5BC4;&#x8BED; <a href="#t27&#x5B8C;&#x7ED3;&#x5BC4;&#x8BED;"> # </a></h2>
+<p>Redux&#x7684;&#x57FA;&#x7840;&#x90E8;&#x5206;&#x7684;&#x5185;&#x5BB9;&#x5C31;&#x5230;&#x8FD9;&#x91CC;&#x4E86;&#xFF0C;&#x6211;&#x4EEC;&#x7B80;&#x5355;&#x56DE;&#x987E;&#x4E0B;&#xFF1A;&#x57FA;&#x672C;&#x7684;&#x8BA4;&#x8BC6;&#x4E86;redux&#x7684;&#x601D;&#x60F3;&#x540E;&#xFF0C;&#x6211;&#x4EEC;&#x901A;&#x8FC7;&#x4E00;&#x4E2A;&#x7B80;&#x5355;&#x7684;&#x4F8B;&#x5B50;&#x5FEB;&#x901F;&#x7684;&#x4F53;&#x9A8C;&#x4E86;redux&#x7684;&#x4F7F;&#x7528;&#xFF0C;&#x901A;&#x8FC7;&#x5BF9;action&#x3001;reducer&#x3001;store&#x7B49;&#x6838;&#x5FC3;&#x6982;&#x5FF5;&#x7684;&#x8BB2;&#x89E3;&#x540E;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x7406;&#x89E3;redux&#x7684;&#x5DE5;&#x4F5C;&#x539F;&#x7406;&#xFF1B;&#x5728;&#x4E86;&#x89E3;&#x4E86;redux&#x7684;&#x51E0;&#x4E2A;&#x9876;&#x5C42;API&#x4E4B;&#x540E;&#xFF0C;&#x6211;&#x4EEC;&#x5B66;&#x4E60;&#x4E86;react-redux&#xFF0C;&#x5E76;&#x5B8C;&#x6210;&#x4E86;&#x4E00;&#x4E2A;&#x57FA;&#x672C;&#x793A;&#x4F8B;&#xFF0C;&#x901A;&#x8FC7;&#x8FD9;&#x4E2A;&#x793A;&#x4F8B;&#x8BA4;&#x8BC6;&#x5230;react&#x548C;redux&#x7ED3;&#x5408;&#x4F7F;&#x7528;&#x7684;&#x59FF;&#x52BF;&#xFF1B;&#x6700;&#x540E;&#x901A;&#x8FC7;&#x4E00;&#x6B65;&#x6B65;&#x5F00;&#x53D1;&#x4E00;&#x4E2A;todo&#x5E94;&#x7528;&#x6765;&#x603B;&#x7ED3;&#x6211;&#x4EEC;&#x57FA;&#x7840;&#x90E8;&#x5206;&#x7684;&#x5185;&#x5BB9;&#x5B66;&#x4E60;&#x3002;</p>
+<p>&#x53E6;&#x5916;&#xFF0C;&#x66F4;&#x591A;&#x6DF1;&#x5165;&#x5185;&#x5BB9;&#x5728;<a href="http://guoyongfeng.github.io/idoc/html/React%E8%AF%BE%E7%A8%8B%E4%B8%93%E9%A2%98/%E8%AE%A9Redux%E6%9D%A5%E7%AE%A1%E7%90%86%E4%BD%A0%E7%9A%84%E5%BA%94%E7%94%A8%EF%BC%88%E4%BA%8C%EF%BC%89.html">&#x8BA9;Redux&#x6765;&#x7BA1;&#x7406;&#x4F60;&#x7684;&#x5E94;&#x7528;&#xFF08;&#x4E8C;&#xFF09;</a>&#x548C;&#x5927;&#x5BB6;&#x76F8;&#x89C1;&#x3002;</p>
+<h2 id="t28&#x53C2;&#x8003;&#x8D44;&#x6599;">&#x53C2;&#x8003;&#x8D44;&#x6599; <a href="#t28&#x53C2;&#x8003;&#x8D44;&#x6599;"> # </a></h2>
+<ul>
+<li><a href="http://cn.redux.js.org/">Redux &#x4E2D;&#x6587;&#x6587;&#x6863;</a></li>
+<li><a href="https:github.com/reactjs/redux">redux on github</a></li>
+</ul>
+
+        <div class="copyright">Powered by <a href="https://github.com/jaywcjlove/idoc" target="_blank">idoc</a>. Dependence <a href="https://nodejs.org">Node.js</a> run.</div>
+    </div>
+
+</div>
+
+
+</body>
+</html>

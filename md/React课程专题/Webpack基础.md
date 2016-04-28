@@ -4,23 +4,21 @@ webpack是一款强大的模块加载器兼打包工具，它能把各种资源�
 
 <img src="/img/webpack/what-is-webpack.png" />
 
+**webpack有什么特别之处**
 
-`webpack能做什么`
-- 把依赖树拆成可按需加载的块
-- 让初始化加载时间尽可能地少
-- 每个静态资源都是一个模块
-- 模块化集成第三方库
-- 尽可能地自定义打包器的每一部分
-
-`webpack有什么特别之处`
-- 做代码拆分
-- 丰富的loaders
-- 出色的插件系统
-- 支持第三方库的解析
+- 插件plugins：rich plugins & flexible
+- 构建性能Performance: async I/O
+- 加载器Loaders: bundle any static resource
+- 对模块的支持Support: supports AMD and CommonJs module styles & support most existing libraries.
+- 代码拆分Code Splitting: split your codebase into chunks
+- 性能优化Optimizations: can do many optimizations to reduce the output size & handle request caching
+- 开发者工具Development Tools: SourceMaps & development middleware & development server
+- 多端适用Multiple targets: web & node.js
 
 接下来我们将一步步熟悉Webpack的使用，并使用它来搭建一套前端工作流。
 
-## 初始化项目
+
+## 1.初始化项目
 
 创建一个项目
 ```
@@ -128,7 +126,7 @@ bundle.js  2.04 kB       0  [emitted]  main
 
 build目录下也新增了一个bundle.js文件
 
-## webpack和webpack-dev-server的基本命令
+## 2.webpack和webpack-dev-server的基本命令
 
 ```
 $ webpack --help
@@ -141,7 +139,7 @@ $ webpack --help
 * `webpack -d` 引入 source maps
 * `webpack --progress` 显示构建进度
 * `webpack --display-error-details` 这个很有用，显示打包过程中的出错信息
-
+* `webpack --profile` 输出性能数据，可以看到每一步的耗时
 
 另外，让我们使用webpack-dev-server来起一个本地服务进行调试：
 ```
@@ -160,7 +158,7 @@ $ webpack-dev-server --progress --colors --content-base build
 - `webpack-dev-server --hot` 开启代码热替换，可以加上HotModuleReplacementPlugin
 - `webpack-dev-server --port 3000` 设置服务端口
 
-## 多文件入口
+## 3.多文件入口
 
 ```
 $ cd src && touch entry1.js entry2.js
@@ -182,7 +180,7 @@ module.exports = {
 };
 ```
 
-## 使用Babel-loader来解析es6和jsx
+## 4.使用Babel-loader来解析es6和jsx
 
 我们在src/index.js里面尝试写一个最基本的组件代码，暂时不用理会代码为什么要这么写，这里先把ES6语法和JSX语法加进来，用于跑通我们的开发环境，后续会有专题内容来详细讲述。
 
@@ -285,7 +283,7 @@ $ npm run dev
 在浏览器中访问：`http://localhost:8080/`
 
 
-## devServer
+## 5.devServer
 
 刚才我们看到，在运行webpack-dev-server的时候，后面带了一串参数，这里我们可以使用devServer字段统一在webpack.config.js文件里面维护。
 
@@ -334,7 +332,7 @@ ok, npm run dev即可
 
 更多请看[这里](http://webpack.github.io/docs/webpack-dev-server.html)
 
-## resolve
+## 6.resolve
 
 resolve下常用的是extension和alias字段的配置：
 - extension 不用在require或是import的时候加文件后缀
@@ -424,10 +422,168 @@ module.exports = {
 1.每当 "react" 在代码中被引入，它会使用压缩后的 React JS 文件，而不是到 node_modules 中找。
 2.每当 Webpack 尝试去解析那个压缩后的文件，我们阻止它，因为这不必要。
 
-## 解析样式文件
+## 7.解析样式文件
 style-loader css-loader 样式内嵌
 css module 配置?modules
 less-loader；
-## devtools
-## 图标字体等资源
-file-loader
+
+
+前面的大部分工作都在处理JS逻辑的解析和加载，但是我们还一直没有提我们的样式文件应该如何去处理。
+
+我们在课程中暂且约定使用less预处理器（saas的类似）来写我们项目的样式，那么首先需要下载几个webpack的loader
+
+```
+$ npm install --save-dev style-loader css-loader less-loader
+```
+
+进行webpack配置。
+代码清单：`webpack.config.js`
+```
+loaders: [
+	{
+      test: /\.js$/,
+      loaders: ['react-hot', 'babel'],
+      exclude: path.resolve(__dirname, 'node_modules')
+    },
+    {
+      test: /\.css/,
+      loader: 'style!css'
+    },
+    {
+      test: /\.less/,
+      loader: 'style!css!less'
+    }
+]
+```
+
+接下来测试一下，在src目录新增一个基本的React组件，然后在index.js中引用这个组件。
+
+新增一个目录coponents并且在目录下新建一个Button组件
+```
+$ cd src && mkdir components
+$ cd components && mkdir Button
+$ cd Button && touch Button.js Button.less
+```
+
+代码清单：`src/components/Button.js`
+```
+import React, { Component } from 'react';
+
+class Button extends Component {
+  handleClick(){
+    alert('戳我干嘛！');
+  }
+  render(){
+    const style = require('./Button.less');
+
+    return (
+      <button className="my-button" onClick={this.handleClick.bind(this)}>
+        快戳我
+      </button>
+    );
+  }
+}
+
+export default Button;
+
+```
+
+代码清单：`src/components/Button.less`
+```
+.my-button {
+  color: #fff;
+  background-color: #2db7f5;
+  border-color: #2db7f5;
+  padding: 4px 15px 5px 15px;
+  font-size: 14px;
+  border-radius: 6px;
+}
+```
+
+代码清单：`src/index.js`
+```
+'use strict';
+import React from 'react';
+import ReactDOM from 'react-dom';
+import Button from './components/Button/Button';
+
+let root = document.getElementById('app');
+ReactDOM.render( <Button />, root );
+```
+
+搞定，跑一把。
+```
+$ npm run dev
+```
+修改一下less文件，浏览器会自动刷新，DONE，看起来还是很不错的样子。
+
+## 8.devtool
+
+
+我们在配置中新增devtool字段，并设置值为source-map，这样我们就可以在浏览器中直接调试我们的源码，在控制台的sources下，点开可以看到`webpack://`目录，点开有惊喜哦。
+
+代码清单：`webpack.config.js`
+```
+devtool: 'cheap-module-source-map'
+```
+
+devtool可以有几个配置项：
+
+|devtool|	build speed	| rebuild speed	|production supported |quality|
+|---|---|---|---|---|
+|eval|	+++	|+++	|no	|generated code|
+|cheap-eval-source-map	|+|	++|	no|	transformed code (lines only)|
+|cheap-source-map|	+	|o	|yes|	transformed code (lines only)|
+|cheap-module-eval-source-map|	o	|++|	no|	original source (lines only)|
+|cheap-module-source-map	|o|	-	|yes|	original source (lines only)|
+|eval-source-map|	–	|+	|no|	original source|
+|source-map|	–|	–	|yes	|original source|
+
+## 9.图标字体等资源
+
+图标字体的加载可以选择file-loader 或 url-loader 进行加载，配置如下（示例配置，大家在项目中最好还是按实际情况配置）
+```
+{
+  test: /\.(woff|woff2|ttf|svg|eot)(\?v=\d+\.\d+\.\d+)?$/,
+  loader: "url?limit=10000"
+}
+```
+
+更多loader可以参考[webpack wiki](https://github.com/webpack/docs/wiki/list-of-loaders)。
+
+照例，我们需要把配置跑通，首先下载我们熟悉的bootstrap，它给我们提供了整套的css并且还有优秀的图标字体库。
+
+```
+$ npm install bootstrap --save
+```
+
+在App.js里面应用bootstrap。
+代码清单：`src/container/App.js`
+```
+import React, { Component } from 'react';
+import Button from '../components/Button/Button';
+
+import 'bootstrap/dist/css/bootstrap.css';
+import './App.less';
+
+class App extends Component {
+  render(){
+    return (
+      <div className="text-center">
+        <Button />
+        <div className="tip"></div>
+        {/* 这里我们使用以下图标字体 */}
+        <span className="glyphicon glyphicon-asterisk"></span>
+      </div>
+    );
+  }
+}
+
+export default App;
+```
+
+跑一下代码，一切正常，有没有感觉webpack果然是前端开发神器。
+
+## 未完待续
+
+请看下一篇：使用webpack搭建开发态工作流

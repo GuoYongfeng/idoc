@@ -37,11 +37,22 @@
 <div class="container">
 
     <div class="page-toc">
-        <ul><li><a href="#t0面 向 对 象 和 数 组">面 向 对 象 和 数 组</a><ul><li><a href="#t11 对象">1 对象</a><ul><li><a href="#t21.1 初识对象">1.1 初识对象</a></li><li><a href="#t31.2 数据发展">1.2 数据发展</a></li><li><a href="#t41.3  对象的特点">1.3  对象的特点</a></li><li><a href="#t51.4  遍历对象">1.4  遍历对象</a></li></ul></li><li><a href="#t62 面向对象">2 面向对象</a><ul><li><a href="#t72.1 创建单一的一个对象">2.1 创建单一的一个对象</a></li><li><a href="#t82.2 批量生产对象的方式：工厂模式">2.2 批量生产对象的方式：工厂模式</a></li><li><a href="#t92.3 有区别的批量生成对象：构造函数">2.3 有区别的批量生成对象：构造函数</a></li><li><a href="#t102.4 兼顾以上二者的混合模式">2.4 兼顾以上二者的混合模式</a></li></ul></li><li><a href="#t113 数组基础">3 数组基础</a><ul><li><a href="#t123.1 数组定义">3.1 数组定义</a></li><li><a href="#t133.2 数组方法">3.2 数组方法</a><ul><li><a href="#t143.2.1 元素添加和删除">3.2.1 元素添加和删除</a></li><li><a href="#t153.2.2 slice和splice方法">3.2.2 slice和splice方法</a></li><li><a href="#t163.2.3 toString方法">3.2.3 toString方法</a></li><li><a href="#t173.2.4 排序方法">3.2.4 排序方法</a></li><li><a href="#t183.2.5 数组转换">3.2.5 数组转换</a></li><li><a href="#t193.2.6 位置方法（ECMA5的方法）">3.2.6 位置方法（ECMA5的方法）</a></li><li><a href="#t203.2.7 迭代方法（ECMA5的方法）">3.2.7 迭代方法（ECMA5的方法）</a></li><li><a href="#t213.2.8 缩小方法">3.2.8 缩小方法</a></li></ul></li></ul></li><li><a href="#t224 数组和面向对象">4 数组和面向对象</a><ul><li><a href="#t234.1数组和对象的关系">4.1数组和对象的关系</a></li><li><a href="#t244.2数组的前世今生">4.2数组的前世今生</a></li><li><a href="#t254.3 对象和数组的同源性">4.3 对象和数组的同源性</a></li><li><a href="#t264.4检测数组类型">4.4检测数组类型</a></li><li><a href="#t274.3数组方法模拟与扩展(深入理解prototype)">4.3数组方法模拟与扩展(深入理解prototype)</a><ul><li><a href="#t284.3.1 数组去重复的实现">4.3.1 数组去重复的实现</a></li><li><a href="#t294.3.2 数组克隆的实现">4.3.2 数组克隆的实现</a></li></ul></li></ul></li></ul></li></ul>
+        <ul><li><a href="#t0
+    深入浅出讲解JAVASCRIPT的面向对象和数组
+">
+    深入浅出讲解JAVASCRIPT的面向对象和数组
+</a><ul><li><a href="#t11 对象">1 对象</a><ul><li><a href="#t21.1 初识对象">1.1 初识对象</a></li><li><a href="#t31.2 数据发展">1.2 数据发展</a></li><li><a href="#t41.3  对象的特点">1.3  对象的特点</a></li><li><a href="#t51.4  遍历对象">1.4  遍历对象</a></li></ul></li><li><a href="#t62 面向对象">2 面向对象</a><ul><li><a href="#t72.1 创建单一的一个对象">2.1 创建单一的一个对象</a></li><li><a href="#t82.2 批量生产对象的方式：工厂模式">2.2 批量生产对象的方式：工厂模式</a></li><li><a href="#t92.3 有区别的批量生成对象：构造函数">2.3 有区别的批量生成对象：构造函数</a></li><li><a href="#t102.4 兼顾以上二者的混合模式">2.4 兼顾以上二者的混合模式</a></li></ul></li><li><a href="#t113 数组基础">3 数组基础</a><ul><li><a href="#t123.1 数组定义">3.1 数组定义</a></li><li><a href="#t133.2 数组方法">3.2 数组方法</a><ul><li><a href="#t143.2.1 元素添加和删除">3.2.1 元素添加和删除</a></li><li><a href="#t153.2.2 slice和splice方法">3.2.2 slice和splice方法</a></li><li><a href="#t163.2.3 toString方法">3.2.3 toString方法</a></li><li><a href="#t173.2.4 排序方法">3.2.4 排序方法</a></li><li><a href="#t183.2.5 数组转换">3.2.5 数组转换</a></li><li><a href="#t193.2.6 位置方法（ECMA5的方法）">3.2.6 位置方法（ECMA5的方法）</a></li><li><a href="#t203.2.7 迭代方法（ECMA5的方法）">3.2.7 迭代方法（ECMA5的方法）</a></li><li><a href="#t213.2.8 缩小方法">3.2.8 缩小方法</a></li></ul></li></ul></li><li><a href="#t224 数组和面向对象">4 数组和面向对象</a><ul><li><a href="#t234.1数组和对象的关系">4.1数组和对象的关系</a></li><li><a href="#t244.2数组的前世今生">4.2数组的前世今生</a></li><li><a href="#t254.3 对象和数组的同源性">4.3 对象和数组的同源性</a></li><li><a href="#t264.4检测数组类型">4.4检测数组类型</a></li><li><a href="#t274.3数组方法模拟与扩展(深入理解prototype)">4.3数组方法模拟与扩展(深入理解prototype)</a><ul><li><a href="#t284.3.1 数组去重复的实现">4.3.1 数组去重复的实现</a></li><li><a href="#t294.3.2 数组克隆的实现">4.3.2 数组克隆的实现</a></li></ul></li></ul></li></ul></li></ul>
     </div>
     
     <div class="content markdown-body">
-        <h1 id="t0&#x9762; &#x5411; &#x5BF9; &#x8C61; &#x548C; &#x6570; &#x7EC4;">&#x9762; &#x5411; &#x5BF9; &#x8C61; &#x548C; &#x6570; &#x7EC4; <a href="#t0&#x9762; &#x5411; &#x5BF9; &#x8C61; &#x548C; &#x6570; &#x7EC4;"> # </a></h1>
+        <h1 style="font-size: 40px;text-align:center;color: #007cdc;" id="t0
+    &#x6DF1;&#x5165;&#x6D45;&#x51FA;&#x8BB2;&#x89E3;JAVASCRIPT&#x7684;&#x9762;&#x5411;&#x5BF9;&#x8C61;&#x548C;&#x6570;&#x7EC4;
+">
+    &#x6DF1;&#x5165;&#x6D45;&#x51FA;&#x8BB2;&#x89E3;JAVASCRIPT&#x7684;&#x9762;&#x5411;&#x5BF9;&#x8C61;&#x548C;&#x6570;&#x7EC4;
+ <a href="#t0
+    &#x6DF1;&#x5165;&#x6D45;&#x51FA;&#x8BB2;&#x89E3;JAVASCRIPT&#x7684;&#x9762;&#x5411;&#x5BF9;&#x8C61;&#x548C;&#x6570;&#x7EC4;
+"> # </a></h1>
+
 <h2 id="t11 &#x5BF9;&#x8C61;">1 &#x5BF9;&#x8C61; <a href="#t11 &#x5BF9;&#x8C61;"> # </a></h2>
 <h3 id="t21.1 &#x521D;&#x8BC6;&#x5BF9;&#x8C61;">1.1 &#x521D;&#x8BC6;&#x5BF9;&#x8C61; <a href="#t21.1 &#x521D;&#x8BC6;&#x5BF9;&#x8C61;"> # </a></h3>
 <p>&#x5BF9;&#x8C61;&#x5728;JavaScript&#x4E2D;&#x662F;&#x5BF9;&#x6570;&#x636E;&#x7C7B;&#x578B;&#x7684;&#x7B3C;&#x7EDF;&#x7684;&#x79F0;&#x547C;&#xFF0C;&#x5BF9;&#x8C61;&#x672C;&#x8EAB;&#x4E5F;&#x662F;&#x4E00;&#x79CD;&#x6570;&#x636E;&#x7C7B;&#x578B;&#xFF0C;&#x5728;&#x57FA;&#x7840;&#x8BFE;&#x7A0B;&#x4E2D;&#x8BB2;&#x4E86;&#x5355;&#x4E00;&#x7684;&#x503C;&#x7C7B;&#x578B;&#xFF0C;&#x5982;&#xFF1A;</p>
@@ -430,7 +441,7 @@ Array.prototype.distinct=function (){//&#x5728;Array&#x539F;&#x578B;&#x4E0A;&#x6
       var item=a[j];//&#x5C06;&#x5F85;&#x6BD4;&#x8F83;&#x7684;&#x6570;&#x63D0;&#x51FA;&#x6765;
       for(var i=j+1;i&lt;a.length;){
           if(item===a[i]){//&#x5F85;&#x6BD4;&#x8F83;&#x6570;&#x4E0E;&#x6570;&#x7EC4;&#x4E2D;&#x5176;&#x4ED6;&#x6570;&#x505A;&#x6BD4;&#x8F83;
-              a.splice(i,1);    //&#x4E24;&#x6570;&#x76F8;&#x7B49;&#xFF0C;&#x5219;&#x5220;&#x9664;&#x76F8;&#x5E94;&#x9879;        
+              a.splice(i,1);    //&#x4E24;&#x6570;&#x76F8;&#x7B49;&#xFF0C;&#x5219;&#x5220;&#x9664;&#x76F8;&#x5E94;&#x9879;
           }else{
               i++;
           }

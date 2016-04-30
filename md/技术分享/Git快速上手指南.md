@@ -7,13 +7,7 @@
 在使用Git前我们需要先安装 Git。Git 目前支持 Linux/Unix、Solaris、Mac和 Windows 平台上运行。
 Git 各平台安装包下载地址为：http://git-scm.com/downloads
 
-### windows
-在 Windows 平台上安装 Git 同样轻松，有个叫做 msysGit 的项目提供了安装包，可以到 GitHub 的页面上下载 exe 安装文件并运行：
-安装包下载地址：https://git-for-windows.github.io/
-
-### mac
-在 Mac 平台上安装 Git 最容易的当属使用图形化的 Git 安装工具，下载地址为：
-http://sourceforge.net/projects/git-osx-installer/
+当然，也有相应的图形化工具可供下载使用，比如[sourcetree](https://www.sourcetreeapp.com/download/).
 
 ## 2.基本配置
 
@@ -38,7 +32,7 @@ $ git config --list
 
 ## 3.工作流程
 
-- 克隆 Git 资源作为工作目录。
+- 克隆 Git 资源作为工作目录（或者自己新建一个工作目录并初始化为Git仓库）。
 - 在克隆的资源上添加或修改文件。
 - 如果其他人修改了，你可以更新资源。
 - 在提交前查看修改。
@@ -108,12 +102,23 @@ $ git reset --hard 版本号
 $ git rm README.md
 ```
 
+### 配置alias别名
+
+配置别名的好处是方便简写命令
+
+```
+$ git config --global alias.st status
+$ git config --global alias.ci commit
+$ git config --global alias.co checkout
+$ git config --global alias.br branch
+$ git config --global alias.lg "log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
+```
+
 ## 6.push到服务器
 
 把代码从本地push到服务器上，这意味着我们首先要有个服务器或是托管我们代码的第三方服务，公司有gitlab也可以直接push到那。
 
 为了方便练习，更为了以后学习，强烈建议直接把代码push到github进行托管。
-
 
 ### 开通github账号，方便技术交流和信息获取
 

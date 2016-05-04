@@ -1,4 +1,4 @@
-<h1 style="font-size: 40px;text-align:center;color: #007cdc;">使用Webpack搭建开发态工作流</h1>
+<h1 style="font-size: 40px;text-align:center;color: #007cdc;">使用Webpack搭建开发环境工作流</h1>
 
 接上一篇：[Webpack基础](/idoc/html/React课程专题/Webpack基础.html)，跑完基础流程后我们可以继续使用Webpack搭建我们的开发态的工作流。
 

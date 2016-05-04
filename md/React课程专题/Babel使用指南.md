@@ -79,7 +79,7 @@ $ babel src -d lib
 
 ### <a id="toc-running-babel-cli-from-within-a-project"></a>在项目内运行 Babel CLI
 
-尽管你*可以*把 Babel CLI 全局安装在你的机器上，但是按项目逐个安装在**本地**会更好。
+尽管你*可以*把 Babel CLI 全局安装在你的机器上，但是按项目安装会更好。
 
 有两个主要的原因。
 
@@ -222,7 +222,7 @@ babel.transformFromAst(ast, code, options);
 
 > 由于 Babel 是一个可以用各种花样去使用的通用编译器，因此默认情况下它反而什么都不做。你必须明确地告诉 Babel 应该要做什么。
 
-你可以通过安装**插件（plugins）**或**预设（presets，也就是一组插件）**来指示 Babel 去做什么事情。
+你可以通过安装**插件（plugins）**或**预设（presets，也就是一组插件）**来指示 Babel 去做什么事情。（所谓的 presets 其实就是一些同类plugin打包的结果，方便进行添加）
 
 ## <a id="toc-babelrc"></a>`.babelrc`
 

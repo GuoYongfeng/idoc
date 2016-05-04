@@ -34,7 +34,6 @@
                     "React-AJAX的最佳实践.md",
                     "React-router路由实践.md",
                     "React高级研讨课大纲.md",
-                    "使用Webpack搭建前端开发工作流.md",
                     "快速搞定ES6基本语法.md",
                     "Babel使用指南.md",
                     "全栈Redux实战.md",
@@ -43,8 +42,9 @@
                     "深入理解Redux的Middleware.md",
                     "JavaScript函数式编程.md",
                     "组件测试.md",
+                    "使用Webpack搭建开发态工作流.md",
                     "Webpack基础.md",
-                    "使用Webpack搭建开发态工作流.md"
+                    "使用Webpack搭建前端开发工作流.md"
                 ]
             },
             {

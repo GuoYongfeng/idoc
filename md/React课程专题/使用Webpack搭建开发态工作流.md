@@ -2,60 +2,62 @@
 
 接上一篇：[Webpack基础](/idoc/html/React课程专题/Webpack基础.html)，跑完基础流程后我们可以继续使用Webpack搭建我们的开发态的工作流。
 
-## 1.Hot Module Replacement  HMR热更新
+## 自动刷新
 
-实现热更新有几种方式，也是容易让大家混淆的。
+webpack-dev-server有两种模式支持自动刷新——iframe模式和inline模式。
 
-### 方案1：在webpack配置
+- 在iframe模式下：页面是嵌套在一个iframe下的，在代码发生改动的时候，这个iframe会重新加载；使用iframe模式无需额外的配置，只需在浏览器输入以下地址：
 
-对每个模块livereload，生产环境使用，依据代码更新情况只下载需要更新的部分
+```
+http://localhost:8080/webpack-dev-server/index.html
+```
+- 在inline模式下：一个小型的webpack-dev-server客户端会作为入口文件打包，这个客户端会在后端代码改变的时候刷新页面。
 
-- 在webpack配置
+// 1.启动webpack-dev-server的时候带上inline参数
+```
+webpack-dev-server --inline
+```
 
+// 2.给HTML插入JS
+```
+<script src="http://localhost:3000/webpack-dev-server.js"></script>
+```
+
+// 3.webpack配置
+```
+entry: [
+  'webpack-dev-server/client?http://localhost:3000',
+  path.resolve(__dirname, 'src/index.js')
+],
+```
+
+## Hot Module Replacement 模块热替换
+
+webpac-dev-server支持Hot Module Replacement，即模块热替换，在前端代码变动的时候无需整个刷新页面，只把变化的部分替换掉。使用HMR功能也有两种方式：命令行方式和Node.js API。
+
+// 1.cli命令行方式
+```
+webpack-dev-server --inline --hot
+```
+
+// 2.Node.js API方式
 ```
 entry: [
   'webpack/hot/dev-server',
-  'webpack-dev-server/client?http://localhost:8080',
   path.resolve(__dirname, 'src/index.js')
 ],
-
-...
-
+devServer: {
+  hot: true
+},
 plugins: [
   new webpack.HotModuleReplacementPlugin(),
-  new webpack.NoErrorsPlugin()
 ]
 
 ```
 
-如果想自己刷新页面，webpack配置改为
-```
-webpack/hot/only-dev-server
-```
+更多内容可以参见这篇文章：http://www.jianshu.com/p/941bfaf13be1，这篇文章将webpack官网上对webpack-dev-server的代码刷新部分的介绍进行了翻译。
 
-### 方案2：通过webpack-dev-server开启热更新
-
-- webpack-dev-server启动参数
-
-```
-webpack-dev-server --hot
-// 如果--hot选项会开启代码热替换，可以加上
-// HotModuleReplacementPlugin，这样的话代码中可以不用写HotModuleReplacementPlugin
-
-webpack-dev-server --inline
-// 可以自动加上dev-server的管理代码，这样不用在entry的地方加上webpack/hot/dev-server
-```
-
-- 在webpack配置
-
-```
-entry: [
-  'webpack-dev-server/client?http://localhost:8080',
-  path.resolve(__dirname, 'src/index.js')
-]
-```
-
-## 2.React-hot-loader 组件级热更新
+## React-hot-loader 组件级热更新
 
 虽然实现了代码的热替换，只要在编辑器中保存我们编辑的代码，浏览器即可实时刷新。但同时也有一个烦恼，如果我们的项目开发中用到了几十个组件，为了测试某个组件我们需要一步步操作到固定的步骤去实现，一旦保存编辑器中修改的一行代码，从入口文件开始的所有代码都全部刷新了一次，这样很不利于调试。
 
@@ -102,7 +104,7 @@ module.exports = {
 
 更多资料请参考[这里](http://gaearon.github.io/react-hot-loader/getstarted/)
 
-## 3.HTML Webpack Plugin 解析html模板
+## HTML Webpack Plugin 解析html模板
 
 
 前面我们还是先在public目录手动加上的index.html，这样在项目中不是很适用，因为我们希望public产出的资源应该是通过工具来统一产出并发布上线，这样质量和工程化角度来思考是更合适的。下面我们来实现。
@@ -150,7 +152,7 @@ plugins: [
 ok，运行`npm run dev`跑一遍，效果正常。
 
 
-## 4.open-browser-webpack-plugin 自动打开浏览器
+## open-browser-webpack-plugin 自动打开浏览器
 
 这个相对很简单，下载open-browser-webpack-plugin这个插件，配置在webpack里面，等我们的资源构建完成之后，自动打开浏览器，提高开发体验。
 
@@ -170,7 +172,7 @@ plugin: [
 ```
 
 
-## 5.区分环境标识 Environment flags
+## 区分环境标识 Environment flags
 
 
 项目中有些代码我们只为在开发环境（例如日志）或者是内部测试环境（例如那些没有发布的新功能）中使用，那就需要引入下面这些魔法全局变量（magic globals）：
@@ -205,9 +207,38 @@ module.exports = {
 };
 ```
 
-配置完成后，就可以使用 `BUILD_DEV=1 BUILD_PRERELEASE=1 webpack`来打包代码了。
+在package.json里面配置运行脚本：
+```
+"scripts": {
+    "publish-mac": "export NODE_ENV=prod && webpack-dev-server -p --progress --colors",
+    "publish-win": "set NODE_ENV=prod && webpack-dev-server -p --progress --colors"
+}
+````
+
 值得注意的是，`webpack -p` 会删除所有无作用代码，也就是说那些包裹在这些全局变量下的代码块都会被删除，这样就能保证这些代码不会因发布上线而泄露。
 
-## 6.Code splitting 代码拆分 bundle-loader
+## Exposing global variables 暴露全局对象
 
-## 7.Exposing global variables 暴露全局对象
+如果想将report数据上报组件放到全局，有两种办法：
+
+方法一：
+
+在loader里使expose将report暴露到全局，然后就可以直接使用report进行上报
+
+```
+{
+    test: path.join(config.path.src, '/js/common/report'),
+    loader: 'expose?report'
+},
+```
+
+方法二：
+
+
+如果想用R直接代表report，除了要用expose loader之外，还需要用ProvidePlugin帮助，指向report，这样在代码中直接用R.tdw， R.monitor这样就可以
+
+```
+new webpack.ProvidePlugin({
+    "R": "report",
+}),
+```

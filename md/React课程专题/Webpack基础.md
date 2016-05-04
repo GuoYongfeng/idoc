@@ -153,10 +153,13 @@ $ webpack-dev-server --progress --colors --content-base build
 - `webpack-dev-server --devtool eval` - 为你的代码创建源地址。当有任何报错的时候可以让你更加精确地定位到文件和行号
 - `webpack-dev-server --progress` - 显示合并代码进度
 - `webpack-dev-server --colors` - 命令行中显示颜色！
-- `webpack-dev-server --content-base build` - 指向设置的输出目录
+- `webpack-dev-server --content-base build` - 设置静态资源的输出目录（Using this config webpack-dev-server will serve the static files in your build folder. ）
 - `webpack-dev-server --inline` 可以自动加上dev-server的管理代码，实现热更新
 - `webpack-dev-server --hot` 开启代码热替换，可以加上HotModuleReplacementPlugin
 - `webpack-dev-server --port 3000` 设置服务端口
+
+> 关于webpack-dev-server的简单介绍：webpack-dev-server是一个小型的node.js Express服务器,它使用webpack-dev-middleware中间件来为通过webpack打包生成的资源文件提供Web服务。它还有一个通过Socket.IO连接着webpack-dev-server服务器的小型运行时程序。webpack-dev-server发送关于编译状态的消息到客户端，客户端根据消息作出响应。
+
 
 ## 3.多文件入口
 

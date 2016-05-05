@@ -75,7 +75,7 @@ module.exports = {
 
 另外这里手动去修改index.html是一个不是很友好的体验，这里暂且按下不表，后续我们会通过插件来统一生成public下的资源，这样让调试和部署更加便捷。
 
-## 将js文件的应用和第三方分开打包
+##  Vendor chunk 应用代码和第三方代码分离
 
 修改webpack配置中的entry入口，并且添加CommonsChunkPlugin插件抽取出第三方资源。
 
@@ -116,6 +116,35 @@ plugins: [
 
 ```
 
+## Common chunk 提取出应用中公共的代码
+
+```
+
+module.exports = {
+  entry: {
+    bundle1: './a.jsx',
+    bundle2: './b.jsx'
+  },
+  output: {
+    filename: '[name].js'
+  },
+  module: {
+    loaders:[
+      {
+        test: /\.js[x]?$/,
+        exclude: /node_modules/,
+        loader: 'babel-loader',
+        query: {
+          presets: ['es2015', 'react']
+        }
+      },
+    ]
+  },
+  plugins: [
+    new webpack.optimize.CommonsChunkPlugin('init.js')
+  ]
+}
+```
 
 ## 给文件添加hash
 
@@ -220,4 +249,117 @@ output: {
     path: "/home/proj/public/assets", // webpack的build路径
     publicPath: "/assets/" // 你require的路径
 }
+```
+
+
+## CSS Module的实现
+
+webpack 的 css-loader 是解决这个问题的最好办法之一。简单配置一下：
+
+```
+module: {
+  loaders: [{
+    test: /\.css$/,
+    loaders: [
+      'style-loader',
+      'css-loader?modules&localIdentName=[name]__[local]___[hash:base64:5]',
+      'postcss-loader'
+    ]
+  }]
+},
+postcss: [
+  require('postcss-nested')(),
+  require('cssnext')(),
+  require('autoprefixer-core')({ browsers: ['last 2 versions'] })
+]
+```
+然后把下面的代码交给 webpack：
+
+`js`
+```
+import styles from './ChatMessage.css';
+
+class ChatMessage extends React.Component {
+  render() {
+    return (
+      <div className={styles.root}>
+        <img src="http://very.cute.png" />
+        <p className={styles.text}> woooooow </p>
+      </div>
+    );
+  }
+}
+```
+
+`css`
+```
+.root {
+  background-color: #f0f0f0;
+  > img {
+    width: 32px;
+    height: 32px;
+    border-radius: 16px;
+  }
+}
+
+.text {
+  font-size: 22px;
+}
+```
+
+最后输出
+
+`HTML`
+```
+<div class="ChatMessage__root__1aF8de0">
+  <img src="http://very.cute.png" />
+  <p class="ChatMessage__text__fo40mmi"> woooooow </p>
+</div>
+```
+
+`CSS`
+```
+.ChatMessage__root__1aF8de0 {
+  background-color: #f0f0f0;
+}
+.ChatMessage__root__1aF8de0 > img {
+  width: 32px;
+  height: 32px;
+  border-radius: 16px;
+}
+.ChatMessage__text__fo40mmi {
+  font-size: 22px;
+}
+```
+
+简而言之，我们通过编译期 renaming 的方式为 CSS 引入了局部变量。
+
+## UglifyJs Plugin 压缩资源
+
+```
+var uglifyJsPlugin = webpack.optimize.UglifyJsPlugin;
+
+...
+
+plugins: [
+
+  new uglifyJsPlugin({
+    compress: {
+      warnings: false
+    }
+  }),
+  new webpack.optimize.MinChunkSizePlugin({
+    compress: {
+      warnings: false
+    }
+  }),
+  // 查找相等或近似的模块，避免在最终生成的文件中出现重复的模块
+  new webpack.optimize.DedupePlugin(),
+  // 按引用频度来排序 ID，以便达到减少文件大小的效果
+  new webpack.optimize.OccurenceOrderPlugin(),
+  new webpack.optimize.AggressiveMergingPlugin({
+      minSizeReduce: 1.5,
+      moveToParents: true
+  })
+]
 ```

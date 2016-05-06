@@ -1,9 +1,23 @@
 
 <h1 style="font-size: 40px;text-align:center;color: #007cdc;">JavaScript 函数式编程 (ES6)</h1>
 
+**什么是函数式编程**
+
+函数式编程是一种编程范式，我们常见的编程范式有命令式编程（Imperative programming），函数式编程，逻辑式编程，常见的面向对象编程是也是一种命令式编程。在函数式编程世界里，函数是一等公民。谈及函数式编程，你可能会想到它们：Haskell 和 Lisp这两门函数式编程语言。
+
+**函数式编程给我们带来了什么好处**
+
+由于命令式编程语言也可以通过类似函数指针的方式来实现高阶函数，函数式的最主要的好处主要是不可变性带来的。没有可变的状态，函数就是引用透明（Referential transparency）的和没有副作用（No Side Effect）。
+
+好处：函数即不依赖外部的状态也不修改外部的状态，函数调用的结果不依赖调用的时间和位置，这样写的代码容易进行推理，不容易出错。这使得单元测试和调试都更容易。
+
+> 我们今天不玩虚的，不玩概念，只求实实在在的学一下函数式编程在Javascript语言中的简单应用及带来的改变。
+
 ## 1.纯函数式
 
-相同的参数返回相同的结果，它的执行不依赖于系统的状态
+> 什么是纯函数：相同的参数返回相同的结果，它的执行不依赖于系统的状态
+
+函数式编程的核心就是借助形式化数学来描述逻辑：lambda 运算。数学家们喜欢将程序描述为数据的变换，这也引入了第一个概念：纯函数。纯函数无副作用，仅仅依赖于函数的输入，并且当输入相同时输出保持一致。
 
 1) 非纯净的
 
@@ -237,8 +251,8 @@ addFive(10);
 // 15
 ```
 
-> 本文整理自dyygtfx同学翻译的[JavaScript Functional Programming Cookbook (ES6)](https://github.com/js-functional/js-funcional)
-
 ## 参考资源
-- [https://gist.github.com/mikaelbr/9900818](https://gist.github.com/mikaelbr/9900818)
-- [https://www.gitbook.com/book/jcouyang/functional-javascript/details](https://www.gitbook.com/book/jcouyang/functional-javascript/details)
+
+- https://www.zhihu.com/question/28292740
+- https://github.com/js-functional/js-funcional
+- https://zhuanlan.zhihu.com/p/20824527

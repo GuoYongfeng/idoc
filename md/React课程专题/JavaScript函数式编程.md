@@ -1,9 +1,5 @@
 
-<h1 style="font-size: 40px;text-align:center;color: #007cdc;">JavaScript 函数式编程手册 (ES6)</h1>
-
-> 本文由dyygtfx同学翻译，原文[JavaScript Functional Programming Cookbook (ES6)](https://github.com/js-functional/js-funcional)
-
-一份用 ES6 写的 JavaScript 函数式编程手册
+<h1 style="font-size: 40px;text-align:center;color: #007cdc;">JavaScript 函数式编程 (ES6)</h1>
 
 ## 1.纯函数式
 
@@ -241,17 +237,8 @@ addFive(10);
 // 15
 ```
 
+> 本文整理自dyygtfx同学翻译的[JavaScript Functional Programming Cookbook (ES6)](https://github.com/js-functional/js-funcional)
+
 ## 参考资源
-[https://gist.github.com/mikaelbr/9900818](https://gist.github.com/mikaelbr/9900818)
-
-[https://www.gitbook.com/book/jcouyang/functional-javascript/details](https://www.gitbook.com/book/jcouyang/functional-javascript/details)
-
-[https://www.youtube.com/playlist?list=PL0zVEGEvSaeEd9hlmCXrk5yUyqUag-n84](https://www.youtube.com/playlist?list=PL0zVEGEvSaeEd9hlmCXrk5yUyqUag-n84)
-
-[http://functionaljavascript.blogspot.com.br/2013/07/functors.html](http://functionaljavascript.blogspot.com.br/2013/07/functors.html)
-
-[http://nicoespeon.com/en/2015/01/pure-functions-javascript/](http://nicoespeon.com/en/2015/01/pure-functions-javascript/)
-
-[https://drboolean.gitbooks.io/mostly-adequate-guide/](https://drboolean.gitbooks.io/mostly-adequate-guide/)
-
-[https://www.youtube.com/watch?v=DisD9ftUyCk](https://www.youtube.com/watch?v=DisD9ftUyCk)
+- [https://gist.github.com/mikaelbr/9900818](https://gist.github.com/mikaelbr/9900818)
+- [https://www.gitbook.com/book/jcouyang/functional-javascript/details](https://www.gitbook.com/book/jcouyang/functional-javascript/details)

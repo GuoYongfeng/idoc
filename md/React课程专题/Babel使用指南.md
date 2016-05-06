@@ -1,9 +1,8 @@
 <h1 style="font-size: 40px;text-align:center;color: #007cdc;">Babel 使用指南</h1>
 
-
 <img src="/img/babel.jpg" />
 
-> 本文内容整理自thejameskyle翻译的的babel-handbook。另外，学习指南对应的教程包请参见[babel-starter-kit](https://github.com/GuoYongfeng/babel-starter-kit)。还有为你贴心制作的 [Babel Gitbook](http://guoyongfeng.github.io/my-gitbook/index.html)。
+> 本教程对应的代码包请参见[babel-starter-kit](https://github.com/GuoYongfeng/babel-starter-kit)。还有为你贴心制作的 [Babel Gitbook](http://guoyongfeng.github.io/my-gitbook/index.html)。
 
 # <a id="toc-introduction"></a>介绍
 

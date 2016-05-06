@@ -37,7 +37,7 @@
 <div class="container">
 
     <div class="page-toc">
-        <ul><li><a href="#t0快速搞定ES6基本语法">快速搞定ES6基本语法</a><ul><li><a href="#t11. Let + Const 块级作用域和常量">1. Let + Const 块级作用域和常量</a></li><li><a href="#t22.Arrows 箭头函数">2.Arrows 箭头函数</a></li><li><a href="#t33.Class, extends, super 类的支持">3.Class, extends, super 类的支持</a></li><li><a href="#t44.Enhanced Object Literals 增强的对象字面量">4.Enhanced Object Literals 增强的对象字面量</a></li><li><a href="#t55.Template Strings 字符串模板">5.Template Strings 字符串模板</a></li><li><a href="#t66.Destructuring 解构">6.Destructuring 解构</a></li><li><a href="#t77.Default + Rest + Spread">7.Default + Rest + Spread</a><ul><li><a href="#t8Default 默认参数值">Default 默认参数值</a></li><li><a href="#t9Rest 剩余参数">Rest 剩余参数</a></li><li><a href="#t10Spread  扩展操作符">Spread  扩展操作符</a></li></ul></li><li><a href="#t118.For..Of 值遍历">8.For..Of 值遍历</a></li><li><a href="#t129.Iterator, Generators">9.Iterator, Generators</a></li><li><a href="#t1310.Modules 模块">10.Modules 模块</a><ul><li><a href="#t14export">export</a></li><li><a href="#t15import">import</a></li></ul></li><li><a href="#t1611.Map，Set 和 WeakMap，WeakSet">11.Map，Set 和 WeakMap，WeakSet</a></li><li><a href="#t1712.Proxies">12.Proxies</a></li><li><a href="#t1813.Symbols">13.Symbols</a></li><li><a href="#t1914.Math + Number + String + Array + Object APIs">14.Math + Number + String + Array + Object APIs</a></li><li><a href="#t2015.Promises">15.Promises</a></li><li><a href="#t2116.Decorator">16.Decorator</a></li><li><a href="#t22结语">结语</a></li></ul></li></ul>
+        <ul><li><a href="#t0快速搞定ES6基本语法">快速搞定ES6基本语法</a><ul><li><a href="#t11. Let + Const 块级作用域和常量">1. Let + Const 块级作用域和常量</a></li><li><a href="#t22.Arrows 箭头函数">2.Arrows 箭头函数</a></li><li><a href="#t33.Class, extends, super 类的支持">3.Class, extends, super 类的支持</a></li><li><a href="#t44.Enhanced Object Literals 增强的对象字面量">4.Enhanced Object Literals 增强的对象字面量</a></li><li><a href="#t55.Template Strings 字符串模板">5.Template Strings 字符串模板</a></li><li><a href="#t66.Destructuring 解构">6.Destructuring 解构</a></li><li><a href="#t77.Default + Rest + Spread">7.Default + Rest + Spread</a><ul><li><a href="#t8Default 默认参数值">Default 默认参数值</a></li><li><a href="#t9Rest 剩余参数">Rest 剩余参数</a></li><li><a href="#t10Spread  扩展操作符">Spread  扩展操作符</a></li></ul></li><li><a href="#t118.Map，Set 和 WeakMap，WeakSet">8.Map，Set 和 WeakMap，WeakSet</a></li><li><a href="#t129.Proxies">9.Proxies</a></li><li><a href="#t1310.Object assign">10.Object assign</a></li><li><a href="#t1411.Promises">11.Promises</a></li><li><a href="#t1512.Decorator">12.Decorator</a></li><li><a href="#t1613.Modules 模块">13.Modules 模块</a><ul><li><a href="#t17export">export</a></li><li><a href="#t18import">import</a></li></ul></li><li><a href="#t19结语">结语</a></li></ul></li></ul>
     </div>
     
     <div class="content markdown-body">
@@ -46,7 +46,7 @@
 <p>&#x5728;&#x9879;&#x76EE;&#x4E2D;80%&#x7684;&#x65F6;&#x95F4;&#x7528;&#x5230;&#x7684;ES6&#x8BED;&#x6CD5;&#x53EA;&#x5360;&#x5176;20%&#xFF0C;&#x6240;&#x4EE5;&#x6211;&#x4EEC;&#x6682;&#x65F6;&#x5148;&#x96C6;&#x4E2D;&#x7CBE;&#x529B;&#x628A;&#x8FD9;20%&#x5B66;&#x597D;&#xFF0C;&#x90A3;&#x5C31;&#x5DEE;&#x4E0D;&#x591A;&#x591F;&#x7528;&#x4E86;&#xFF0C;&#x5269;&#x4E0B;&#x7684;&#x53EF;&#x4EE5;&#x770B;&#x4E66;&#x6216;&#x662F;&#x67E5;&#x6587;&#x6863;&#xFF0C;&#x73B0;&#x5B66;&#x73B0;&#x7528;&#x3002;</p>
 <p><strong>&#x91CD;&#x8981;&#x63D0;&#x793A;&#xFF1A;</strong>&#x6559;&#x7A0B;&#x7684;&#x793A;&#x4F8B;&#x4EE3;&#x7801;&#x8BF7;&#x524D;&#x5F80;<a href="https://github.com/GuoYongfeng/es6-demo">es6-demo</a>&#xFF0C;&#x4E0B;&#x8F7D;&#x540E;&#x53EF;&#x4EE5;&#x7ED3;&#x5408;&#x8FD9;&#x4E2A;&#x8BB2;&#x4E49;&#x8FDB;&#x884C;&#x5B66;&#x4E60;&#x64CD;&#x4F5C;&#x3002;</p>
 <h2 id="t11. Let + Const &#x5757;&#x7EA7;&#x4F5C;&#x7528;&#x57DF;&#x548C;&#x5E38;&#x91CF;">1. Let + Const &#x5757;&#x7EA7;&#x4F5C;&#x7528;&#x57DF;&#x548C;&#x5E38;&#x91CF; <a href="#t11. Let + Const &#x5757;&#x7EA7;&#x4F5C;&#x7528;&#x57DF;&#x548C;&#x5E38;&#x91CF;"> # </a></h2>
-<p>let&#x548C;const&#x7684;&#x51FA;&#x73B0;&#x8BA9;js&#x6709;&#x4E86;&#x5757;&#x7EA7;&#x4F5C;&#x7528;&#x57DF;&#xFF0C;&#x8FD9;&#x4E2A;&#x5757;&#x7EA7;&#x4F5C;&#x7528;&#x57DF;&#x662F;&#x4E2A;&#x795E;&#x5668;&#xFF0C;&#x7531;&#x4E8E;&#x4E4B;&#x524D;&#x6CA1;&#x6709;&#x5757;&#x7EA7;&#x4F5C;&#x7528;&#x57DF;&#x7684;&#x5B58;&#x5728;&#xFF0C;&#x4EE5;&#x53CA;var&#x5173;&#x952E;&#x5B57;&#x7684;&#x53D8;&#x91CF;&#x63D0;&#x5347;&#xFF0C;&#x5BFC;&#x81F4;&#x6211;&#x4EEC;&#x8C03;&#x8BD5;&#x7684;&#x65F6;&#x5019;&#x4F1A;&#x51FA;&#x73B0;&#x4E00;&#x4E9B;&#x83AB;&#x540D;&#x5176;&#x5999;&#x7684;&#x95EE;&#x9898;&#xFF0C;&#x540C;&#x65F6;&#x4E5F;&#x662F;&#x5F88;&#x957F;&#x4E00;&#x6BB5;&#x65F6;&#x95F4;&#x9762;&#x8BD5;&#x7684;&#x5E38;&#x95EE;&#x95EE;&#x9898;&#x4E4B;&#x4E00;&#x3002;</p>
+<p>let&#x548C;const&#x7684;&#x51FA;&#x73B0;&#x8BA9; JS &#x6709;&#x4E86;&#x5757;&#x7EA7;&#x4F5C;&#x7528;&#x57DF;&#xFF0C;&#x8FD8;&#x53EF;&#x4EE5;&#x50CF;&#x5F3A;&#x7C7B;&#x578B;&#x8BED;&#x8A00;&#x4E00;&#x6837;&#x5B9A;&#x4E49;&#x5E38;&#x91CF;&#x3002;&#x7531;&#x4E8E;&#x4E4B;&#x524D;&#x6CA1;&#x6709;&#x5757;&#x7EA7;&#x4F5C;&#x7528;&#x57DF;&#x4EE5;&#x53CA; var &#x5173;&#x952E;&#x5B57;&#x6240;&#x5E26;&#x6765;&#x7684;&#x53D8;&#x91CF;&#x63D0;&#x5347;&#xFF0C;&#x7ECF;&#x5E38;&#x7ED9;&#x6211;&#x4EEC;&#x7684;&#x5F00;&#x53D1;&#x5E26;&#x6765;&#x4E00;&#x4E9B;&#x83AB;&#x540D;&#x5176;&#x5999;&#x7684;&#x95EE;&#x9898;&#x3002;</p>
 <p>&#x4E0B;&#x9762;&#x770B;&#x4E24;&#x4E2A;&#x7B80;&#x5355;&#x7684;demo&#x7406;&#x89E3;&#x3002;</p>
 <pre><code>// demo 1
 function f1() {
@@ -64,8 +64,11 @@ console.log(PI); // 3.1415
 PI = 3;
 console.log(PI); // TypeError: &quot;PI&quot; is read-only
 </code></pre><h2 id="t22.Arrows &#x7BAD;&#x5934;&#x51FD;&#x6570;">2.Arrows &#x7BAD;&#x5934;&#x51FD;&#x6570; <a href="#t22.Arrows &#x7BAD;&#x5934;&#x51FD;&#x6570;"> # </a></h2>
-<p>&#x5982;&#x679C;&#x4F60;&#x4F1A;C#&#x6216;&#x8005;Java&#xFF0C;&#x4F60;&#x80AF;&#x5B9A;&#x77E5;&#x9053;lambda&#x8868;&#x8FBE;&#x5F0F;&#xFF0C;ES6&#x4E2D;&#x65B0;&#x589E;&#x7684;&#x7BAD;&#x5934;&#x64CD;&#x4F5C;&#x7B26;=&gt;&#x4FBF;&#x6709;&#x5F02;&#x66F2;&#x540C;&#x5DE5;&#x4E4B;&#x5999;&#x3002;&#x5B83;&#x7B80;&#x5316;&#x4E86;&#x51FD;&#x6570;&#x7684;&#x4E66;&#x5199;&#x3002;&#x64CD;&#x4F5C;&#x7B26;&#x5DE6;&#x8FB9;&#x4E3A;&#x8F93;&#x5165;&#x7684;&#x53C2;&#x6570;&#xFF0C;&#x800C;&#x53F3;&#x8FB9;&#x5219;&#x662F;&#x8FDB;&#x884C;&#x7684;&#x64CD;&#x4F5C;&#x4EE5;&#x53CA;&#x8FD4;&#x56DE;&#x7684;&#x503C;Inputs=&gt;outputs&#x3002;</p>
-<p>&#x6211;&#x4EEC;&#x77E5;&#x9053;&#x5728;JS&#x4E2D;&#x56DE;&#x8C03;&#x662F;&#x7ECF;&#x5E38;&#x7684;&#x4E8B;&#xFF0C;&#x800C;&#x4E00;&#x822C;&#x56DE;&#x8C03;&#x53C8;&#x4EE5;&#x533F;&#x540D;&#x51FD;&#x6570;&#x7684;&#x5F62;&#x5F0F;&#x51FA;&#x73B0;&#xFF0C;&#x6BCF;&#x6B21;&#x90FD;&#x9700;&#x8981;&#x5199;&#x4E00;&#x4E2A;function&#xFF0C;&#x751A;&#x662F;&#x7E41;&#x7410;&#x3002;&#x5F53;&#x5F15;&#x5165;&#x7BAD;&#x5934;&#x64CD;&#x4F5C;&#x7B26;&#x540E;&#x53EF;&#x4EE5;&#x65B9;&#x4FBF;&#x5730;&#x5199;&#x56DE;&#x8C03;&#x4E86;&#x3002;&#x8BF7;&#x770B;&#x4E0B;&#x9762;&#x7684;&#x4F8B;&#x5B50;&#x3002;</p>
+<ul>
+<li>&#x7BAD;&#x5934;&#x51FD;&#x6570;&#x7B80;&#x5316;&#x4E86;&#x51FD;&#x6570;&#x7684;&#x7684;&#x5B9A;&#x4E49;&#x65B9;&#x5F0F;&#xFF0C;&#x4E00;&#x822C;&#x4EE5; &quot;=&gt;&quot; &#x64CD;&#x4F5C;&#x7B26;&#x5DE6;&#x8FB9;&#x4E3A;&#x8F93;&#x5165;&#x7684;&#x53C2;&#x6570;&#xFF0C;&#x800C;&#x53F3;&#x8FB9;&#x5219;&#x662F;&#x8FDB;&#x884C;&#x7684;&#x64CD;&#x4F5C;&#x4EE5;&#x53CA;&#x8FD4;&#x56DE;&#x7684;&#x503C;Inputs=&gt;outputs&#x3002;</li>
+<li>&#x7BAD;&#x5934;&#x51FD;&#x6570;&#x6839;&#x672C;&#x6CA1;&#x6709;&#x81EA;&#x5DF1;&#x7684;this&#xFF0C;&#x5BFC;&#x81F4;&#x5185;&#x90E8;&#x7684;this&#x5C31;&#x662F;&#x5916;&#x5C42;&#x4EE3;&#x7801;&#x5757;&#x7684;this&#x3002;&#x6B63;&#x662F;&#x56E0;&#x4E3A;&#x5B83;&#x6CA1;&#x6709;this&#xFF0C;&#x6240;&#x4EE5;&#x4E5F;&#x5C31;&#x4E0D;&#x80FD;&#x7528;&#x4F5C;&#x6784;&#x9020;&#x51FD;&#x6570;&#xFF0C;&#x4ECE;&#x800C;&#x907F;&#x514D;&#x4E86;this&#x6307;&#x5411;&#x7684;&#x95EE;&#x9898;&#x3002;</li>
+</ul>
+<p>&#x8BF7;&#x770B;&#x4E0B;&#x9762;&#x7684;&#x4F8B;&#x5B50;&#x3002;</p>
 <pre><code>var array = [1, 2, 3];
 //&#x4F20;&#x7EDF;&#x5199;&#x6CD5;
 array.forEach(function(v, i, a) {
@@ -74,25 +77,16 @@ array.forEach(function(v, i, a) {
 //ES6
 array.forEach(v = &gt; console.log(v));
 </code></pre><p>&#x66F4;&#x591A;&#x793A;&#x4F8B;&#xFF1A;</p>
-<pre><code>class Animal {
-    constructor(name){
-        this.name = name;
+<pre><code>const Template = {
+    test: function(){
+        console.log(this);
+        $(&apos;#event&apos;).on(&apos;click&apos;,()=&gt;{
+            // &#x5927;&#x5BB6;&#x89C9;&#x5F97;&#x8FD9;&#x4E2A; this &#x662F;&#x4EC0;&#x4E48;
+            console.log(this);
+        });
     }
-    // type = &apos;water&apos;&#x8FD9;&#x91CC;&#x7684;&#x610F;&#x601D;&#x662F;&#x5F53;type&#x672A;&#x4F20;&#x503C;&#x7684;&#x65F6;&#x5019;&#x9ED8;&#x8BA4;&#x662F;&apos;water&apos;
-    drink(type = &apos;water&apos;){
-        // &#x4F7F;&#x7528;&#x4E86;&#x7BAD;&#x5934;&#x51FD;&#x6570;
-        setInterval( () =&gt; {
-            // &#x6A21;&#x677F;&#x5B57;&#x7B26;&#x4E32;
-            console.log(`${this.name} want to drink ${type}`)
-        }, 1000)
-    }
-}
-
-let pig = new Animal(&apos;pig&apos;);
-
-console.log(pig.drink(&apos;milk&apos;));
-
-export default Animal;
+};
+Template.test();
 </code></pre><h2 id="t33.Class, extends, super &#x7C7B;&#x7684;&#x652F;&#x6301;">3.Class, extends, super &#x7C7B;&#x7684;&#x652F;&#x6301; <a href="#t33.Class, extends, super &#x7C7B;&#x7684;&#x652F;&#x6301;"> # </a></h2>
 <p>&#x56DE;&#x60F3;&#x4E4B;&#x524D;&#xFF0C;&#x5982;&#x679C;&#x6211;&#x4EEC;&#x9700;&#x8981;&#x6A21;&#x62DF;&#x4E00;&#x4E2A;js&#x7684;&#x7C7B;&#xFF0C;&#x4E00;&#x822C;&#x4F1A;&#x91C7;&#x7528;&#x6784;&#x9020;&#x51FD;&#x6570;&#x52A0;&#x539F;&#x578B;&#x7684;&#x65B9;&#x5F0F;&#x3002;</p>
 <pre><code>function Point(x,y){
@@ -103,7 +97,8 @@ export default Animal;
 Point.prototype.toString = function () {
   return &apos;(&apos; + this.x + &apos;, &apos; + this.y + &apos;)&apos;;
 }
-</code></pre><p>ES6&#x4E2D;&#x6DFB;&#x52A0;&#x4E86;&#x5BF9;&#x7C7B;&#x7684;&#x652F;&#x6301;&#xFF0C;&#x5F15;&#x5165;&#x4E86;class&#x5173;&#x952E;&#x5B57;&#xFF08;&#x5176;&#x5B9E;class&#x5728;JavaScript&#x4E2D;&#x4E00;&#x76F4;&#x662F;&#x4FDD;&#x7559;&#x5B57;&#xFF0C;&#x76EE;&#x7684;&#x5C31;&#x662F;&#x8003;&#x8651;&#x5230;&#x53EF;&#x80FD;&#x5728;&#x4EE5;&#x540E;&#x7684;&#x65B0;&#x7248;&#x672C;&#x4E2D;&#x4F1A;&#x7528;&#x5230;&#xFF0C;&#x73B0;&#x5728;&#x7EC8;&#x4E8E;&#x6D3E;&#x4E0A;&#x7528;&#x573A;&#x4E86;&#xFF09;&#x3002;JS&#x672C;&#x8EAB;&#x5C31;&#x662F;&#x9762;&#x5411;&#x5BF9;&#x8C61;&#x7684;&#xFF0C;ES6&#x4E2D;&#x63D0;&#x4F9B;&#x7684;&#x7C7B;&#x5B9E;&#x9645;&#x4E0A;&#x53EA;&#x662F;JS&#x539F;&#x578B;&#x6A21;&#x5F0F;&#x7684;&#x5305;&#x88C5;&#x3002;&#x73B0;&#x5728;&#x63D0;&#x4F9B;&#x539F;&#x751F;&#x7684;class&#x652F;&#x6301;&#x540E;&#xFF0C;&#x5BF9;&#x8C61;&#x7684;&#x521B;&#x5EFA;&#xFF0C;&#x7EE7;&#x627F;&#x66F4;&#x52A0;&#x76F4;&#x89C2;&#x4E86;&#xFF0C;&#x5E76;&#x4E14;&#x7236;&#x7C7B;&#x65B9;&#x6CD5;&#x7684;&#x8C03;&#x7528;&#xFF0C;&#x5B9E;&#x4F8B;&#x5316;&#xFF0C;&#x9759;&#x6001;&#x65B9;&#x6CD5;&#x548C;&#x6784;&#x9020;&#x51FD;&#x6570;&#x7B49;&#x6982;&#x5FF5;&#x90FD;&#x66F4;&#x52A0;&#x5F62;&#x8C61;&#x5316;&#x3002;</p>
+</code></pre><p>ES6&#x4E2D;&#x6DFB;&#x52A0;&#x4E86;&#x5BF9;&#x7C7B;&#x7684;&#x652F;&#x6301;&#xFF0C;&#x5F15;&#x5165;&#x4E86;class&#x5173;&#x952E;&#x5B57;&#xFF08;&#x5176;&#x5B9E;class&#x5728;JavaScript&#x4E2D;&#x4E00;&#x76F4;&#x662F;&#x4FDD;&#x7559;&#x5B57;&#xFF0C;&#x76EE;&#x7684;&#x5C31;&#x662F;&#x8003;&#x8651;&#x5230;&#x53EF;&#x80FD;&#x5728;&#x4EE5;&#x540E;&#x7684;&#x65B0;&#x7248;&#x672C;&#x4E2D;&#x4F1A;&#x7528;&#x5230;&#xFF0C;&#x73B0;&#x5728;&#x7EC8;&#x4E8E;&#x6D3E;&#x4E0A;&#x7528;&#x573A;&#x4E86;&#xFF09;&#x3002;</p>
+<p>JS&#x672C;&#x8EAB;&#x5C31;&#x662F;&#x9762;&#x5411;&#x5BF9;&#x8C61;&#x7684;&#xFF0C;ES6&#x4E2D;&#x63D0;&#x4F9B;&#x7684;&#x7C7B;&#x5B9E;&#x9645;&#x4E0A;&#x53EA;&#x662F;JS&#x539F;&#x578B;&#x6A21;&#x5F0F;&#x7684;&#x5305;&#x88C5;&#x3002;&#x73B0;&#x5728;&#x63D0;&#x4F9B;&#x539F;&#x751F;&#x7684;class&#x652F;&#x6301;&#x540E;&#xFF0C;&#x5BF9;&#x8C61;&#x7684;&#x521B;&#x5EFA;&#xFF0C;&#x7EE7;&#x627F;&#x66F4;&#x52A0;&#x76F4;&#x89C2;&#x4E86;&#xFF0C;&#x5E76;&#x4E14;&#x7236;&#x7C7B;&#x65B9;&#x6CD5;&#x7684;&#x8C03;&#x7528;&#xFF0C;&#x5B9E;&#x4F8B;&#x5316;&#xFF0C;&#x9759;&#x6001;&#x65B9;&#x6CD5;&#x548C;&#x6784;&#x9020;&#x51FD;&#x6570;&#x7B49;&#x6982;&#x5FF5;&#x90FD;&#x66F4;&#x52A0;&#x5F62;&#x8C61;&#x5316;&#x3002;</p>
 <p>&#x4E0B;&#x9762;&#x4EE3;&#x7801;&#x5C55;&#x793A;&#x4E86;&#x7C7B;&#x5728;ES6&#x4E2D;&#x7684;&#x4F7F;&#x7528;&#x3002;</p>
 <pre><code>//&#x7C7B;&#x7684;&#x5B9A;&#x4E49;
 class Animal {
@@ -129,16 +124,19 @@ class Programmer extends Animal {
 
 //&#x6D4B;&#x8BD5;&#x6211;&#x4EEC;&#x7684;&#x7C7B;
 var animal=new Animal(&apos;dummy&apos;),
-wayou=new Programmer(&apos;wayou&apos;);
+zf=new Programmer(&apos;zf&apos;);
+
 animal.sayName();//&#x8F93;&#x51FA; &#x2018;My name is dummy&#x2019;
-wayou.sayName();//&#x8F93;&#x51FA; &#x2018;My name is wayou&#x2019;
-wayou.program();//&#x8F93;&#x51FA; &#x2018;I&apos;m coding...&#x2019;
+zf.sayName();//&#x8F93;&#x51FA; &#x2018;My name is zf&#x2019;
+zf.program();//&#x8F93;&#x51FA; &#x2018;I&apos;m coding...&#x2019;
 </code></pre><h2 id="t44.Enhanced Object Literals &#x589E;&#x5F3A;&#x7684;&#x5BF9;&#x8C61;&#x5B57;&#x9762;&#x91CF;">4.Enhanced Object Literals &#x589E;&#x5F3A;&#x7684;&#x5BF9;&#x8C61;&#x5B57;&#x9762;&#x91CF; <a href="#t44.Enhanced Object Literals &#x589E;&#x5F3A;&#x7684;&#x5BF9;&#x8C61;&#x5B57;&#x9762;&#x91CF;"> # </a></h2>
 <p>&#x5BF9;&#x8C61;&#x5B57;&#x9762;&#x91CF;&#x88AB;&#x589E;&#x5F3A;&#x4E86;&#xFF0C;&#x5199;&#x6CD5;&#x66F4;&#x52A0;&#x7B80;&#x6D01;&#x4E0E;&#x7075;&#x6D3B;&#xFF0C;&#x540C;&#x65F6;&#x5728;&#x5B9A;&#x4E49;&#x5BF9;&#x8C61;&#x7684;&#x65F6;&#x5019;&#x80FD;&#x591F;&#x505A;&#x7684;&#x4E8B;&#x60C5;&#x66F4;&#x591A;&#x4E86;&#x3002;&#x5177;&#x4F53;&#x8868;&#x73B0;&#x5728;&#xFF1A;</p>
-<p>&#x53EF;&#x4EE5;&#x5728;&#x5BF9;&#x8C61;&#x5B57;&#x9762;&#x91CF;&#x91CC;&#x9762;&#x5B9A;&#x4E49;&#x539F;&#x578B;
-&#x5B9A;&#x4E49;&#x65B9;&#x6CD5;&#x53EF;&#x4EE5;&#x4E0D;&#x7528;function&#x5173;&#x952E;&#x5B57;
-&#x76F4;&#x63A5;&#x8C03;&#x7528;&#x7236;&#x7C7B;&#x65B9;&#x6CD5;
-&#x8FD9;&#x6837;&#x4E00;&#x6765;&#xFF0C;&#x5BF9;&#x8C61;&#x5B57;&#x9762;&#x91CF;&#x4E0E;&#x524D;&#x9762;&#x63D0;&#x5230;&#x7684;&#x7C7B;&#x6982;&#x5FF5;&#x66F4;&#x52A0;&#x543B;&#x5408;&#xFF0C;&#x5728;&#x7F16;&#x5199;&#x9762;&#x5411;&#x5BF9;&#x8C61;&#x7684;JavaScript&#x65F6;&#x66F4;&#x52A0;&#x8F7B;&#x677E;&#x65B9;&#x4FBF;&#x4E86;&#x3002;</p>
+<ul>
+<li>&#x53EF;&#x4EE5;&#x5728;&#x5BF9;&#x8C61;&#x5B57;&#x9762;&#x91CF;&#x91CC;&#x9762;&#x5B9A;&#x4E49;&#x539F;&#x578B;</li>
+<li>&#x5B9A;&#x4E49;&#x65B9;&#x6CD5;&#x53EF;&#x4EE5;&#x4E0D;&#x7528;function&#x5173;&#x952E;&#x5B57;</li>
+<li>&#x76F4;&#x63A5;&#x8C03;&#x7528;&#x7236;&#x7C7B;&#x65B9;&#x6CD5;</li>
+</ul>
+<p>&#x8FD9;&#x6837;&#x4E00;&#x6765;&#xFF0C;&#x5BF9;&#x8C61;&#x5B57;&#x9762;&#x91CF;&#x4E0E;&#x524D;&#x9762;&#x63D0;&#x5230;&#x7684;&#x7C7B;&#x6982;&#x5FF5;&#x66F4;&#x52A0;&#x543B;&#x5408;&#xFF0C;&#x5728;&#x7F16;&#x5199;&#x9762;&#x5411;&#x5BF9;&#x8C61;&#x7684;JavaScript&#x65F6;&#x66F4;&#x52A0;&#x8F7B;&#x677E;&#x65B9;&#x4FBF;&#x4E86;&#x3002;</p>
 <pre><code>//&#x901A;&#x8FC7;&#x5BF9;&#x8C61;&#x5B57;&#x9762;&#x91CF;&#x521B;&#x5EFA;&#x5BF9;&#x8C61;
 var human = {
     breathe() {
@@ -165,19 +163,19 @@ console.log(`your num is ${num}`);
 let name = &apos;guoyongfeng&apos;;
 let age = 18;
 
-console.log(`${name} want to drink ${age}`)
+console.log(`${name} was ${age}`)
 </code></pre><h2 id="t66.Destructuring &#x89E3;&#x6784;">6.Destructuring &#x89E3;&#x6784; <a href="#t66.Destructuring &#x89E3;&#x6784;"> # </a></h2>
 <p>Destructuring&#x662F;&#x89E3;&#x6784;&#x7684;&#x610F;&#x601D;&#xFF0C;ES6&#x5141;&#x8BB8;&#x6309;&#x7167;&#x4E00;&#x5B9A;&#x6A21;&#x5F0F;&#xFF0C;&#x4ECE;&#x6570;&#x7EC4;&#x548C;&#x5BF9;&#x8C61;&#x4E2D;&#x63D0;&#x53D6;&#x503C;&#xFF0C;&#x5BF9;&#x53D8;&#x91CF;&#x8FDB;&#x884C;&#x8D4B;&#x503C;&#xFF0C;&#x8FD9;&#x88AB;&#x79F0;&#x4E3A;&#x89E3;&#x6784;&#xFF08;Destructuring&#xFF09;&#x3002;</p>
 <p>&#x6BD4;&#x5982;&#x82E5;&#x4E00;&#x4E2A;&#x51FD;&#x6570;&#x8981;&#x8FD4;&#x56DE;&#x591A;&#x4E2A;&#x503C;&#xFF0C;&#x5E38;&#x89C4;&#x7684;&#x505A;&#x6CD5;&#x662F;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;&#x5BF9;&#x8C61;&#xFF0C;&#x5C06;&#x6BCF;&#x4E2A;&#x503C;&#x505A;&#x4E3A;&#x8FD9;&#x4E2A;&#x5BF9;&#x8C61;&#x7684;&#x5C5E;&#x6027;&#x8FD4;&#x56DE;&#x3002;&#x4F46;&#x5728;ES6&#x4E2D;&#xFF0C;&#x5229;&#x7528;&#x89E3;&#x6784;&#x8FD9;&#x4E00;&#x7279;&#x6027;&#xFF0C;&#x53EF;&#x4EE5;&#x76F4;&#x63A5;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;&#x6570;&#x7EC4;&#xFF0C;&#x7136;&#x540E;&#x6570;&#x7EC4;&#x4E2D;&#x7684;&#x503C;&#x4F1A;&#x81EA;&#x52A8;&#x88AB;&#x89E3;&#x6790;&#x5230;&#x5BF9;&#x5E94;&#x63A5;&#x6536;&#x8BE5;&#x503C;&#x7684;&#x53D8;&#x91CF;&#x4E2D;&#x3002;</p>
 <pre><code>var [x,y]=getVal(),//&#x51FD;&#x6570;&#x8FD4;&#x56DE;&#x503C;&#x7684;&#x89E3;&#x6784;
-    [name,,age]=[&apos;wayou&apos;,&apos;male&apos;,&apos;secrect&apos;];//&#x6570;&#x7EC4;&#x89E3;&#x6784;
+    [name,,age]=[&apos;zf&apos;,&apos;male&apos;,&apos;secrect&apos;];//&#x6570;&#x7EC4;&#x89E3;&#x6784;
 
 function getVal() {
     return [ 1, 2 ];
 }
 
 console.log(&apos;x:&apos;+x+&apos;, y:&apos;+y);//&#x8F93;&#x51FA;&#xFF1A;x:1, y:2
-console.log(&apos;name:&apos;+name+&apos;, age:&apos;+age);//&#x8F93;&#x51FA;&#xFF1A; name:wayou, age:secrect
+console.log(&apos;name:&apos;+name+&apos;, age:&apos;+age);//&#x8F93;&#x51FA;&#xFF1A; name:zf, age:secrect
 </code></pre><p>&#x6570;&#x7EC4;&#x3001;&#x5BF9;&#x8C61;&#x548C;&#x5B57;&#x7B26;&#x4E32;&#x7684;&#x89E3;&#x6784;&#x8D4B;&#x503C;&#x793A;&#x4F8B;&#xFF1A;</p>
 <pre><code>&apos;use strict&apos;;
 
@@ -208,9 +206,9 @@ function sayHello2(name=&apos;dude&apos;){
     console.log(`Hello ${name}`);
 }
 sayHello();//&#x8F93;&#x51FA;&#xFF1A;Hello dude
-sayHello(&apos;Wayou&apos;);//&#x8F93;&#x51FA;&#xFF1A;Hello Wayou
+sayHello(&apos;zf&apos;);//&#x8F93;&#x51FA;&#xFF1A;Hello zf
 sayHello2();//&#x8F93;&#x51FA;&#xFF1A;Hello dude
-sayHello2(&apos;Wayou&apos;);//&#x8F93;&#x51FA;&#xFF1A;Hello Wayou
+sayHello2(&apos;zf&apos;);//&#x8F93;&#x51FA;&#xFF1A;Hello zf
 </code></pre><h3 id="t9Rest &#x5269;&#x4F59;&#x53C2;&#x6570;">Rest &#x5269;&#x4F59;&#x53C2;&#x6570; <a href="#t9Rest &#x5269;&#x4F59;&#x53C2;&#x6570;"> # </a></h3>
 <p>&#x4E0D;&#x5B9A;&#x53C2;&#x6570;&#x662F;&#x5728;&#x51FD;&#x6570;&#x4E2D;&#x4F7F;&#x7528;&#x547D;&#x540D;&#x53C2;&#x6570;&#x540C;&#x65F6;&#x63A5;&#x6536;&#x4E0D;&#x5B9A;&#x6570;&#x91CF;&#x7684;&#x672A;&#x547D;&#x540D;&#x53C2;&#x6570;&#x3002;&#x8FD9;&#x53EA;&#x662F;&#x4E00;&#x79CD;&#x8BED;&#x6CD5;&#x7CD6;&#xFF0C;&#x5728;&#x4EE5;&#x524D;&#x7684;JavaScript&#x4EE3;&#x7801;&#x4E2D;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x901A;&#x8FC7; <code>arguments</code> &#x53D8;&#x91CF;&#x6765;&#x8FBE;&#x5230;&#x8FD9;&#x4E00;&#x76EE;&#x7684;&#x3002;</p>
 <p>&#x4E0D;&#x5B9A;&#x53C2;&#x6570;&#x7684;&#x683C;&#x5F0F;&#x662F;&#x4E09;&#x4E2A;&#x53E5;&#x70B9;&#x540E;&#x8DDF;&#x4EE3;&#x8868;&#x6240;&#x6709;&#x4E0D;&#x5B9A;&#x53C2;&#x6570;&#x7684;&#x53D8;&#x91CF;&#x540D;&#x3002;&#x6BD4;&#x5982;&#x4E0B;&#x9762;&#x8FD9;&#x4E2A;&#x4F8B;&#x5B50;&#x4E2D;&#xFF0C;&#x2026;x&#x4EE3;&#x8868;&#x4E86;&#x6240;&#x6709;&#x4F20;&#x5165;add&#x51FD;&#x6570;&#x7684;&#x53C2;&#x6570;&#x3002;</p>
@@ -232,106 +230,17 @@ console.log(add(1,2,3));//&#x8F93;&#x51FA;&#xFF1A;6
 console.log(add(1,2,3,4,5));//&#x8F93;&#x51FA;&#xFF1A;15
 </code></pre><h3 id="t10Spread  &#x6269;&#x5C55;&#x64CD;&#x4F5C;&#x7B26;">Spread  &#x6269;&#x5C55;&#x64CD;&#x4F5C;&#x7B26; <a href="#t10Spread  &#x6269;&#x5C55;&#x64CD;&#x4F5C;&#x7B26;"> # </a></h3>
 <p>&#x6269;&#x5C55;&#x64CD;&#x4F5C;&#x7B26;&#x5219;&#x662F;&#x53E6;&#x4E00;&#x79CD;&#x5F62;&#x5F0F;&#x7684;&#x8BED;&#x6CD5;&#x7CD6;&#xFF0C;&#x5B83;&#x5141;&#x8BB8;&#x4F20;&#x9012;&#x6570;&#x7EC4;&#x6216;&#x8005;&#x7C7B;&#x6570;&#x7EC4;&#x76F4;&#x63A5;&#x505A;&#x4E3A;&#x51FD;&#x6570;&#x7684;&#x53C2;&#x6570;&#x800C;&#x4E0D;&#x7528;&#x901A;&#x8FC7;apply&#x3002;</p>
-<pre><code>var people=[&apos;Wayou&apos;,&apos;John&apos;,&apos;Sherlock&apos;];
+<pre><code>var people=[&apos;zf&apos;,&apos;John&apos;,&apos;Sherlock&apos;];
 
 function sayHello(people1,people2,people3){
     console.log(`Hello ${people1},${people2},${people3}`);
 }
 //&#x4F46;&#x662F;&#x6211;&#x4EEC;&#x5C06;&#x4E00;&#x4E2A;&#x6570;&#x7EC4;&#x4EE5;&#x62D3;&#x5C55;&#x53C2;&#x6570;&#x7684;&#x5F62;&#x5F0F;&#x4F20;&#x9012;&#xFF0C;&#x5B83;&#x80FD;&#x5F88;&#x597D;&#x5730;&#x6620;&#x5C04;&#x5230;&#x6BCF;&#x4E2A;&#x5355;&#x72EC;&#x7684;&#x53C2;&#x6570;
-sayHello(...people);//&#x8F93;&#x51FA;&#xFF1A;Hello Wayou,John,Sherlock
+sayHello(...people);//&#x8F93;&#x51FA;&#xFF1A;Hello zf,John,Sherlock
 
 //&#x800C;&#x5728;&#x4EE5;&#x524D;&#xFF0C;&#x5982;&#x679C;&#x9700;&#x8981;&#x4F20;&#x9012;&#x6570;&#x7EC4;&#x5F53;&#x53C2;&#x6570;&#xFF0C;&#x6211;&#x4EEC;&#x9700;&#x8981;&#x4F7F;&#x7528;&#x51FD;&#x6570;&#x7684;apply&#x65B9;&#x6CD5;
-sayHello.apply(null,people);//&#x8F93;&#x51FA;&#xFF1A;Hello Wayou,John,Sherlock
-</code></pre><h2 id="t118.For..Of &#x503C;&#x904D;&#x5386;">8.For..Of &#x503C;&#x904D;&#x5386; <a href="#t118.For..Of &#x503C;&#x904D;&#x5386;"> # </a></h2>
-<p>&#x6211;&#x4EEC;&#x90FD;&#x77E5;&#x9053;for in &#x5FAA;&#x73AF;&#x7528;&#x4E8E;&#x904D;&#x5386;&#x6570;&#x7EC4;&#xFF0C;&#x7C7B;&#x6570;&#x7EC4;&#x6216;&#x5BF9;&#x8C61;&#xFF0C;ES6&#x4E2D;&#x65B0;&#x5F15;&#x5165;&#x7684;for of&#x5FAA;&#x73AF;&#x529F;&#x80FD;&#x76F8;&#x4F3C;&#xFF0C;&#x4E0D;&#x540C;&#x7684;&#x662F;&#x6BCF;&#x6B21;&#x5FAA;&#x73AF;&#x5B83;&#x63D0;&#x4F9B;&#x7684;&#x4E0D;&#x662F;&#x5E8F;&#x53F7;&#x800C;&#x662F;&#x503C;&#x3002;</p>
-<pre><code>var someArray = [ &quot;a&quot;, &quot;b&quot;, &quot;c&quot; ];
-
-for (v of someArray) {
-    console.log(v);//&#x8F93;&#x51FA; a,b,c
-}
-</code></pre><p>&#x6CE8;&#x610F;&#xFF0C;&#x6B64;&#x529F;&#x80FD;google traceur&#x5E76;&#x672A;&#x5B9E;&#x73B0;&#xFF0C;&#x6240;&#x4EE5;&#x65E0;&#x6CD5;&#x6A21;&#x62DF;&#x8C03;&#x8BD5;,&#x4E0B;&#x9762;&#x6709;&#x4E9B;&#x529F;&#x80FD;&#x4E5F;&#x662F;&#x5982;&#x6B64;</p>
-<h2 id="t129.Iterator, Generators">9.Iterator, Generators <a href="#t129.Iterator, Generators"> # </a></h2>
-<p>&#x8FD9;&#x4E00;&#x90E8;&#x5206;&#x7684;&#x5185;&#x5BB9;&#x6709;&#x70B9;&#x751F;&#x6DA9;&#xFF0C;&#x6211;&#x4EEC;&#x5148;&#x770B;&#x4EE5;&#x4E0B;&#x57FA;&#x672C;&#x6982;&#x5FF5;&#x3002;&#x8BE6;&#x7EC6;&#x5185;&#x5BB9;&#x53EF;&#x518D;&#x9605;&#x8BFB;&#x76F8;&#x5173;&#x4E66;&#x7C4D;&#x3002;</p>
-<ul>
-<li>iterator:&#x5B83;&#x662F;&#x8FD9;&#x4E48;&#x4E00;&#x4E2A;&#x5BF9;&#x8C61;&#xFF0C;&#x62E5;&#x6709;&#x4E00;&#x4E2A;next&#x65B9;&#x6CD5;&#xFF0C;&#x8FD9;&#x4E2A;&#x65B9;&#x6CD5;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;&#x5BF9;&#x8C61;{done,value}&#xFF0C;&#x8FD9;&#x4E2A;&#x5BF9;&#x8C61;&#x5305;&#x542B;&#x4E24;&#x4E2A;&#x5C5E;&#x6027;&#xFF0C;&#x4E00;&#x4E2A;&#x5E03;&#x5C14;&#x7C7B;&#x578B;&#x7684;done&#x548C;&#x5305;&#x542B;&#x4EFB;&#x610F;&#x503C;&#x7684;value</li>
-<li>iterable: &#x8FD9;&#x662F;&#x8FD9;&#x4E48;&#x4E00;&#x4E2A;&#x5BF9;&#x8C61;&#xFF0C;&#x62E5;&#x6709;&#x4E00;&#x4E2A;obj[@@iterator]&#x65B9;&#x6CD5;&#xFF0C;&#x8FD9;&#x4E2A;&#x65B9;&#x6CD5;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;iterator</li>
-<li>generator: &#x5B83;&#x662F;&#x4E00;&#x79CD;&#x7279;&#x6B8A;&#x7684;iterator&#x3002;&#x53CD;&#x7684;next&#x65B9;&#x6CD5;&#x53EF;&#x4EE5;&#x63A5;&#x6536;&#x4E00;&#x4E2A;&#x53C2;&#x6570;&#x5E76;&#x4E14;&#x8FD4;&#x56DE;&#x503C;&#x53D6;&#x51B3;&#x4E0E;&#x5B83;&#x7684;&#x6784;&#x9020;&#x51FD;&#x6570;&#xFF08;generator function&#xFF09;&#x3002;generator&#x540C;&#x65F6;&#x62E5;&#x6709;&#x4E00;&#x4E2A;throw&#x65B9;&#x6CD5;</li>
-<li>generator &#x51FD;&#x6570;: &#x5373;generator&#x7684;&#x6784;&#x9020;&#x51FD;&#x6570;&#x3002;&#x6B64;&#x51FD;&#x6570;&#x5185;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;yield&#x5173;&#x952E;&#x5B57;&#x3002;&#x5728;yield&#x51FA;&#x73B0;&#x7684;&#x5730;&#x65B9;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;generator&#x7684;next&#x6216;throw&#x65B9;&#x6CD5;&#x5411;&#x5916;&#x754C;&#x4F20;&#x9012;&#x503C;&#x3002;generator &#x51FD;&#x6570;&#x662F;&#x901A;&#x8FC7;function*&#x6765;&#x58F0;&#x660E;&#x7684;</li>
-<li>yield &#x5173;&#x952E;&#x5B57;&#xFF1A;&#x5B83;&#x53EF;&#x4EE5;&#x6682;&#x505C;&#x51FD;&#x6570;&#x7684;&#x6267;&#x884C;&#xFF0C;&#x968F;&#x540E;&#x53EF;&#x4EE5;&#x518D;&#x8FDB;&#x8FDB;&#x5165;&#x51FD;&#x6570;&#x7EE7;&#x7EED;&#x6267;&#x884C;</li>
-</ul>
-<h2 id="t1310.Modules &#x6A21;&#x5757;">10.Modules &#x6A21;&#x5757; <a href="#t1310.Modules &#x6A21;&#x5757;"> # </a></h2>
-<p>&#x5728;ES6&#x6807;&#x51C6;&#x4E2D;&#xFF0C;JavaScript&#x539F;&#x751F;&#x652F;&#x6301;module&#x4E86;&#x3002;&#x8FD9;&#x79CD;&#x5C06;JS&#x4EE3;&#x7801;&#x5206;&#x5272;&#x6210;&#x4E0D;&#x540C;&#x529F;&#x80FD;&#x7684;&#x5C0F;&#x5757;&#x8FDB;&#x884C;&#x6A21;&#x5757;&#x5316;&#x7684;&#x6982;&#x5FF5;&#x662F;&#x5728;&#x4E00;&#x4E9B;&#x4E09;&#x65B9;&#x89C4;&#x8303;&#x4E2D;&#x6D41;&#x884C;&#x8D77;&#x6765;&#x7684;&#xFF0C;&#x6BD4;&#x5982;CommonJS&#x548C;AMD&#x6A21;&#x5F0F;&#x3002;</p>
-<p>&#x5C06;&#x4E0D;&#x540C;&#x529F;&#x80FD;&#x7684;&#x4EE3;&#x7801;&#x5206;&#x522B;&#x5199;&#x5728;&#x4E0D;&#x540C;&#x6587;&#x4EF6;&#x4E2D;&#xFF0C;&#x5404;&#x6A21;&#x5757;&#x53EA;&#x9700;&#x5BFC;&#x51FA;&#x516C;&#x5171;&#x63A5;&#x53E3;&#x90E8;&#x5206;&#xFF0C;&#x7136;&#x540E;&#x901A;&#x8FC7;&#x6A21;&#x5757;&#x7684;&#x5BFC;&#x5165;&#x7684;&#x65B9;&#x5F0F;&#x53EF;&#x4EE5;&#x5728;&#x5176;&#x4ED6;&#x5730;&#x65B9;&#x4F7F;&#x7528;&#x3002;</p>
-<p>&#x4E0D;&#x8FC7;&#xFF0C;&#x8FD8;&#x662F;&#x6709;&#x5F88;&#x591A;&#x7EC6;&#x8282;&#x7684;&#x5730;&#x65B9;&#x9700;&#x8981;&#x6CE8;&#x610F;&#xFF0C;&#x6211;&#x4EEC;&#x770B;&#x4F8B;&#x5B50;&#xFF1A;</p>
-<p>&#x7B80;&#x5355;&#x4F7F;&#x7528;&#x65B9;&#x5F0F;&#xFF1A;</p>
-<pre><code>// point.js
-export class Point {
-     constructor (x, y) {
-         public x = x;
-         public y = y;
-     }
- }
-
-
-// myapp.js
-//&#x8FD9;&#x91CC;&#x53EF;&#x4EE5;&#x770B;&#x51FA;&#xFF0C;&#x5C3D;&#x7BA1;&#x58F0;&#x660E;&#x4E86;&#x5F15;&#x7528;&#x7684;&#x6A21;&#x5757;&#xFF0C;&#x8FD8;&#x662F;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x6307;&#x5B9A;&#x9700;&#x8981;&#x7684;&#x90E8;&#x5206;&#x8FDB;&#x884C;&#x5BFC;&#x5165;
-import Point from &quot;point&quot;;
-
-var origin = new Point(0, 0);
-console.log(origin);
-</code></pre><h3 id="t14export">export <a href="#t14export"> # </a></h3>
-<pre><code>// demo1&#xFF1A;&#x7B80;&#x5355;&#x4F7F;&#x7528;
-export var firstName = &apos;Michael&apos;;
-export var lastName = &apos;Jackson&apos;;
-export var year = 1958;
-
-// &#x7B49;&#x4EF7;&#x4E8E;
-var firstName = &apos;Michael&apos;;
-var lastName = &apos;Jackson&apos;;
-var year = 1958;
-
-export {firstName, lastName, year};
-</code></pre><pre><code>// demo2&#xFF1A;&#x8FD8;&#x53EF;&#x4EE5;&#x8FD9;&#x6837;
-function v1() { ... }
-function v2() { ... }
-
-export {
-  v1 as streamV1,
-  v2 as streamV2,
-  v2 as streamLatestVersion
-};
-</code></pre><pre><code>// demo3&#xFF1A;&#x9700;&#x8981;&#x6CE8;&#x610F;&#x7684;&#x662F;
-
-// &#x62A5;&#x9519;
-function f() {}
-export f;
-
-// &#x6B63;&#x786E;
-export function f() {};
-</code></pre><p>&#x4E3A;&#x4E86;&#x7ED9;&#x7528;&#x6237;&#x63D0;&#x4F9B;&#x65B9;&#x4FBF;&#xFF0C;&#x8BA9;&#x4ED6;&#x4EEC;&#x4E0D;&#x7528;&#x9605;&#x8BFB;&#x6587;&#x6863;&#x5C31;&#x80FD;&#x52A0;&#x8F7D;&#x6A21;&#x5757;&#xFF0C;&#x5C31;&#x8981;&#x7528;&#x5230;export default&#x547D;&#x4EE4;&#xFF0C;&#x4E3A;&#x6A21;&#x5757;&#x6307;&#x5B9A;&#x9ED8;&#x8BA4;&#x8F93;&#x51FA;&#x3002;&#x8FD9;&#x6837;&#x5176;&#x4ED6;&#x6A21;&#x5757;&#x52A0;&#x8F7D;&#x8BE5;&#x6A21;&#x5757;&#x65F6;&#xFF0C;import&#x547D;&#x4EE4;&#x53EF;&#x4EE5;&#x4E3A;&#x8BE5;&#x533F;&#x540D;&#x51FD;&#x6570;&#x6307;&#x5B9A;&#x4EFB;&#x610F;&#x540D;&#x5B57;&#x3002;&#x9700;&#x8981;&#x6CE8;&#x610F;&#x7684;&#x662F;&#xFF0C;&#x8FD9;&#x65F6;import&#x547D;&#x4EE4;&#x540E;&#x9762;&#xFF0C;&#x4E0D;&#x4F7F;&#x7528;&#x5927;&#x62EC;&#x53F7;&#x3002;</p>
-<pre><code>export default function () {
-  console.log(&apos;foo&apos;);
-}
-</code></pre><h3 id="t15import">import <a href="#t15import"> # </a></h3>
-<pre><code>// 1
-import $ from &apos;jquery&apos;;
-
-// 2
-import {firstName, lastName, year} from &apos;./profile&apos;;
-
-// 3
-import React, { Component, PropTypes } from &apos;react&apos;;
-
-// 4
-import * as React from &apos;react&apos;;
-</code></pre><p>&#x6700;&#x540E;&#x9700;&#x8981;&#x5F3A;&#x8C03;&#x7684;&#x662F;&#xFF1A;ES6&#x6A21;&#x5757;&#x52A0;&#x8F7D;&#x7684;&#x673A;&#x5236;&#xFF0C;&#x4E0E;CommonJS&#x6A21;&#x5757;&#x5B8C;&#x5168;&#x4E0D;&#x540C;&#x3002;CommonJS&#x6A21;&#x5757;&#x8F93;&#x51FA;&#x7684;&#x662F;&#x4E00;&#x4E2A;&#x503C;&#x7684;&#x62F7;&#x8D1D;&#xFF0C;&#x800C;ES6&#x6A21;&#x5757;&#x8F93;&#x51FA;&#x7684;&#x662F;&#x503C;&#x7684;&#x5F15;&#x7528;&#x3002;</p>
-<ul>
-<li><p>CommonJS&#x6A21;&#x5757;&#x8F93;&#x51FA;&#x7684;&#x662F;&#x88AB;&#x8F93;&#x51FA;&#x503C;&#x7684;&#x62F7;&#x8D1D;&#xFF0C;&#x4E5F;&#x5C31;&#x662F;&#x8BF4;&#xFF0C;&#x4E00;&#x65E6;&#x8F93;&#x51FA;&#x4E00;&#x4E2A;&#x503C;&#xFF0C;&#x6A21;&#x5757;&#x5185;&#x90E8;&#x7684;&#x53D8;&#x5316;&#x5C31;&#x5F71;&#x54CD;&#x4E0D;&#x5230;&#x8FD9;&#x4E2A;&#x503C;&#x3002;</p>
-</li>
-<li><p>ES6&#x6A21;&#x5757;&#x7684;&#x8FD0;&#x884C;&#x673A;&#x5236;&#x4E0E;CommonJS&#x4E0D;&#x4E00;&#x6837;&#xFF0C;&#x5B83;&#x9047;&#x5230;&#x6A21;&#x5757;&#x52A0;&#x8F7D;&#x547D;&#x4EE4;import&#x65F6;&#xFF0C;&#x4E0D;&#x4F1A;&#x53BB;&#x6267;&#x884C;&#x6A21;&#x5757;&#xFF0C;&#x800C;&#x662F;&#x53EA;&#x751F;&#x6210;&#x4E00;&#x4E2A;&#x52A8;&#x6001;&#x7684;&#x53EA;&#x8BFB;&#x5F15;&#x7528;&#x3002;&#x7B49;&#x5230;&#x771F;&#x7684;&#x9700;&#x8981;&#x7528;&#x5230;&#x65F6;&#xFF0C;&#x518D;&#x5230;&#x6A21;&#x5757;&#x91CC;&#x9762;&#x53BB;&#x53D6;&#x503C;&#xFF0C;&#x6362;&#x53E5;&#x8BDD;&#x8BF4;&#xFF0C;ES6&#x7684;&#x8F93;&#x5165;&#x6709;&#x70B9;&#x50CF;Unix&#x7CFB;&#x7EDF;&#x7684;&#x201D;&#x7B26;&#x53F7;&#x8FDE;&#x63A5;&#x201C;&#xFF0C;&#x539F;&#x59CB;&#x503C;&#x53D8;&#x4E86;&#xFF0C;import&#x8F93;&#x5165;&#x7684;&#x503C;&#x4E5F;&#x4F1A;&#x8DDF;&#x7740;&#x53D8;&#x3002;&#x56E0;&#x6B64;&#xFF0C;ES6&#x6A21;&#x5757;&#x662F;&#x52A8;&#x6001;&#x5F15;&#x7528;&#xFF0C;&#x5E76;&#x4E14;&#x4E0D;&#x4F1A;&#x7F13;&#x5B58;&#x503C;&#xFF0C;&#x6A21;&#x5757;&#x91CC;&#x9762;&#x7684;&#x53D8;&#x91CF;&#x7ED1;&#x5B9A;&#x5176;&#x6240;&#x5728;&#x7684;&#x6A21;&#x5757;&#x3002;</p>
-</li>
-</ul>
-<h2 id="t1611.Map&#xFF0C;Set &#x548C; WeakMap&#xFF0C;WeakSet">11.Map&#xFF0C;Set &#x548C; WeakMap&#xFF0C;WeakSet <a href="#t1611.Map&#xFF0C;Set &#x548C; WeakMap&#xFF0C;WeakSet"> # </a></h2>
+sayHello.apply(null,people);//&#x8F93;&#x51FA;&#xFF1A;Hello zf,John,Sherlock
+</code></pre><h2 id="t118.Map&#xFF0C;Set &#x548C; WeakMap&#xFF0C;WeakSet">8.Map&#xFF0C;Set &#x548C; WeakMap&#xFF0C;WeakSet <a href="#t118.Map&#xFF0C;Set &#x548C; WeakMap&#xFF0C;WeakSet"> # </a></h2>
 <p>&#x8FD9;&#x4E9B;&#x662F;&#x65B0;&#x52A0;&#x7684;&#x96C6;&#x5408;&#x7C7B;&#x578B;&#xFF0C;&#x63D0;&#x4F9B;&#x4E86;&#x66F4;&#x52A0;&#x65B9;&#x4FBF;&#x7684;&#x83B7;&#x53D6;&#x5C5E;&#x6027;&#x503C;&#x7684;&#x65B9;&#x6CD5;&#xFF0C;&#x4E0D;&#x7528;&#x50CF;&#x4EE5;&#x524D;&#x4E00;&#x6837;&#x7528;<code>hasOwnProperty</code>&#x6765;&#x68C0;&#x67E5;&#x67D0;&#x4E2A;&#x5C5E;&#x6027;&#x662F;&#x5C5E;&#x4E8E;&#x539F;&#x578B;&#x94FE;&#x4E0A;&#x7684;&#x5462;&#x8FD8;&#x662F;&#x5F53;&#x524D;&#x5BF9;&#x8C61;&#x7684;&#x3002;&#x540C;&#x65F6;&#xFF0C;&#x5728;&#x8FDB;&#x884C;&#x5C5E;&#x6027;&#x503C;&#x6DFB;&#x52A0;&#x4E0E;&#x83B7;&#x53D6;&#x65F6;&#x6709;&#x4E13;&#x95E8;&#x7684;<code>get&#xFF0C;set</code>&#x65B9;&#x6CD5;&#x3002;</p>
 <pre><code>// Sets
 var s = new Set();
@@ -353,11 +262,11 @@ wm.size === undefined
 // Weak Sets
 var ws = new WeakSet();
 ws.add({ data: 42 });//&#x56E0;&#x4E3A;&#x6DFB;&#x52A0;&#x5230;ws&#x7684;&#x8FD9;&#x4E2A;&#x4E34;&#x65F6;&#x5BF9;&#x8C61;&#x6CA1;&#x6709;&#x5176;&#x4ED6;&#x53D8;&#x91CF;&#x5F15;&#x7528;&#x5B83;&#xFF0C;&#x6240;&#x4EE5;ws&#x4E0D;&#x4F1A;&#x4FDD;&#x5B58;&#x5B83;&#x7684;&#x503C;&#xFF0C;&#x4E5F;&#x5C31;&#x662F;&#x8BF4;&#x8FD9;&#x6B21;&#x6DFB;&#x52A0;&#x5176;&#x5B9E;&#x6CA1;&#x6709;&#x610F;&#x601D;
-</code></pre><h2 id="t1712.Proxies">12.Proxies <a href="#t1712.Proxies"> # </a></h2>
+</code></pre><h2 id="t129.Proxies">9.Proxies <a href="#t129.Proxies"> # </a></h2>
 <p>Proxy&#x53EF;&#x4EE5;&#x76D1;&#x542C;&#x5BF9;&#x8C61;&#x8EAB;&#x4E0A;&#x53D1;&#x751F;&#x4E86;&#x4EC0;&#x4E48;&#x4E8B;&#x60C5;&#xFF0C;&#x5E76;&#x5728;&#x8FD9;&#x4E9B;&#x4E8B;&#x60C5;&#x53D1;&#x751F;&#x540E;&#x6267;&#x884C;&#x4E00;&#x4E9B;&#x76F8;&#x5E94;&#x7684;&#x64CD;&#x4F5C;&#x3002;&#x4E00;&#x4E0B;&#x5B50;&#x8BA9;&#x6211;&#x4EEC;&#x5BF9;&#x4E00;&#x4E2A;&#x5BF9;&#x8C61;&#x6709;&#x4E86;&#x5F88;&#x5F3A;&#x7684;&#x8FFD;&#x8E2A;&#x80FD;&#x529B;&#xFF0C;&#x540C;&#x65F6;&#x5728;&#x6570;&#x636E;&#x7ED1;&#x5B9A;&#x65B9;&#x9762;&#x4E5F;&#x5F88;&#x6709;&#x7528;&#x5904;&#x3002;</p>
-<p>&#x4EE5;&#x4E0B;&#x4F8B;&#x5B50;&#x501F;&#x7528;&#x81EA;&#x8FD9;&#x91CC;&#x3002;</p>
 <pre><code>//&#x5B9A;&#x4E49;&#x88AB;&#x4FA6;&#x542C;&#x7684;&#x76EE;&#x6807;&#x5BF9;&#x8C61;
 var engineer = { name: &apos;Joe Sixpack&apos;, salary: 50 };
+
 //&#x5B9A;&#x4E49;&#x5904;&#x7406;&#x7A0B;&#x5E8F;
 var interceptor = {
   set: function (receiver, property, value) {
@@ -365,55 +274,14 @@ var interceptor = {
     receiver[property] = value;
   }
 };
+
 //&#x521B;&#x5EFA;&#x4EE3;&#x7406;&#x4EE5;&#x8FDB;&#x884C;&#x4FA6;&#x542C;
 engineer = Proxy(engineer, interceptor);
 //&#x505A;&#x4E00;&#x4E9B;&#x6539;&#x52A8;&#x6765;&#x89E6;&#x53D1;&#x4EE3;&#x7406;
 engineer.salary = 60;//&#x63A7;&#x5236;&#x53F0;&#x8F93;&#x51FA;&#xFF1A;salary is changed to 60
 </code></pre><p>&#x4E0A;&#x9762;&#x4EE3;&#x7801;&#x6211;&#x5DF2;&#x52A0;&#x4E86;&#x6CE8;&#x91CA;&#xFF0C;&#x8FD9;&#x91CC;&#x8FDB;&#x4E00;&#x6B65;&#x89E3;&#x91CA;&#x3002;&#x5BF9;&#x4E8E;&#x5904;&#x7406;&#x7A0B;&#x5E8F;&#xFF0C;&#x662F;&#x5728;&#x88AB;&#x4FA6;&#x542C;&#x7684;&#x5BF9;&#x8C61;&#x8EAB;&#x4E0A;&#x53D1;&#x751F;&#x4E86;&#x76F8;&#x5E94;&#x4E8B;&#x4EF6;&#x4E4B;&#x540E;&#xFF0C;&#x5904;&#x7406;&#x7A0B;&#x5E8F;&#x91CC;&#x9762;&#x7684;&#x65B9;&#x6CD5;&#x5C31;&#x4F1A;&#x88AB;&#x8C03;&#x7528;&#xFF0C;&#x4E0A;&#x9762;&#x4F8B;&#x5B50;&#x4E2D;&#x6211;&#x4EEC;&#x8BBE;&#x7F6E;&#x4E86;<code>set</code>&#x7684;&#x5904;&#x7406;&#x51FD;&#x6570;&#xFF0C;&#x8868;&#x660E;&#xFF0C;&#x5982;&#x679C;&#x6211;&#x4EEC;&#x4FA6;&#x542C;&#x7684;&#x5BF9;&#x8C61;&#x7684;&#x5C5E;&#x6027;&#x88AB;&#x66F4;&#x6539;&#xFF0C;&#x4E5F;&#x5C31;&#x662F;&#x88AB;<code>set</code>&#x4E86;&#xFF0C;&#x90A3;&#x8FD9;&#x4E2A;&#x5904;&#x7406;&#x7A0B;&#x5E8F;&#x5C31;&#x4F1A;&#x88AB;&#x8C03;&#x7528;&#xFF0C;&#x540C;&#x65F6;&#x901A;&#x8FC7;&#x53C2;&#x6570;&#x80FD;&#x591F;&#x5F97;&#x77E5;&#x662F;&#x54EA;&#x4E2A;&#x5C5E;&#x6027;&#x88AB;&#x66F4;&#x6539;&#xFF0C;&#x66F4;&#x6539;&#x4E3A;&#x4E86;&#x4EC0;&#x4E48;&#x503C;&#x3002;</p>
-<h2 id="t1813.Symbols">13.Symbols <a href="#t1813.Symbols"> # </a></h2>
-<p>&#x6211;&#x4EEC;&#x77E5;&#x9053;&#x5BF9;&#x8C61;&#x5176;&#x5B9E;&#x662F;&#x952E;&#x503C;&#x5BF9;&#x7684;&#x96C6;&#x5408;&#xFF0C;&#x800C;&#x952E;&#x901A;&#x5E38;&#x6765;&#x8BF4;&#x662F;&#x5B57;&#x7B26;&#x4E32;&#x3002;&#x800C;&#x73B0;&#x5728;&#x9664;&#x4E86;&#x5B57;&#x7B26;&#x4E32;&#x5916;&#xFF0C;&#x6211;&#x4EEC;&#x8FD8;&#x53EF;&#x4EE5;&#x7528;symbol&#x8FD9;&#x79CD;&#x503C;&#x6765;&#x505A;&#x4E3A;&#x5BF9;&#x8C61;&#x7684;&#x952E;&#x3002;<code>Symbol</code>&#x662F;&#x4E00;&#x79CD;&#x57FA;&#x672C;&#x7C7B;&#x578B;&#xFF0C;&#x50CF;&#x6570;&#x5B57;&#xFF0C;&#x5B57;&#x7B26;&#x4E32;&#x8FD8;&#x6709;&#x5E03;&#x5C14;&#x4E00;&#x6837;&#xFF0C;&#x5B83;&#x4E0D;&#x662F;&#x4E00;&#x4E2A;&#x5BF9;&#x8C61;&#x3002;Symbol &#x901A;&#x8FC7;&#x8C03;&#x7528;symbol&#x51FD;&#x6570;&#x4EA7;&#x751F;&#xFF0C;&#x5B83;&#x63A5;&#x6536;&#x4E00;&#x4E2A;&#x53EF;&#x9009;&#x7684;&#x540D;&#x5B57;&#x53C2;&#x6570;&#xFF0C;&#x8BE5;&#x51FD;&#x6570;&#x8FD4;&#x56DE;&#x7684;<code>symbol</code>&#x662F;&#x552F;&#x4E00;&#x7684;&#x3002;&#x4E4B;&#x540E;&#x5C31;&#x53EF;&#x4EE5;&#x7528;&#x8FD9;&#x4E2A;&#x8FD4;&#x56DE;&#x503C;&#x505A;&#x4E3A;&#x5BF9;&#x8C61;&#x7684;&#x952E;&#x4E86;&#x3002;<code>Symbol</code>&#x8FD8;&#x53EF;&#x4EE5;&#x7528;&#x6765;&#x521B;&#x5EFA;&#x79C1;&#x6709;&#x5C5E;&#x6027;&#xFF0C;&#x5916;&#x90E8;&#x65E0;&#x6CD5;&#x76F4;&#x63A5;&#x8BBF;&#x95EE;&#x7531;<code>symbol</code>&#x505A;&#x4E3A;&#x952E;&#x7684;&#x5C5E;&#x6027;&#x503C;&#x3002;</p>
-<pre><code>(function() {
-
-  // &#x521B;&#x5EFA;symbol
-  var key = Symbol(&quot;key&quot;);
-
-  function MyClass(privateData) {
-    this[key] = privateData;
-  }
-
-  MyClass.prototype = {
-    doStuff: function() {
-      ... this[key] ...
-    }
-  };
-
-})();
-
-var c = new MyClass(&quot;hello&quot;)
-c[&quot;key&quot;] === undefined//&#x65E0;&#x6CD5;&#x8BBF;&#x95EE;&#x8BE5;&#x5C5E;&#x6027;&#xFF0C;&#x56E0;&#x4E3A;&#x662F;&#x79C1;&#x6709;&#x7684;
-</code></pre><h2 id="t1914.Math + Number + String + Array + Object APIs">14.Math + Number + String + Array + Object APIs <a href="#t1914.Math + Number + String + Array + Object APIs"> # </a></h2>
-<p>&#x5BF9;<code>Math,Number,String</code>&#x8FD8;&#x6709;<code>Object</code>&#x7B49;&#x6DFB;&#x52A0;&#x4E86;&#x8BB8;&#x591A;&#x65B0;&#x7684;<code>API</code>&#x3002;&#x4E0B;&#x9762;&#x4EE3;&#x7801;&#x540C;&#x6837;&#x6765;&#x81EA;<code>es6features</code>&#xFF0C;&#x5BF9;&#x8FD9;&#x4E9B;&#x65B0;API&#x8FDB;&#x884C;&#x4E86;&#x7B80;&#x5355;&#x5C55;&#x793A;&#x3002;</p>
-<pre><code>Number.EPSILON
-Number.isInteger(Infinity) // false
-Number.isNaN(&quot;NaN&quot;) // false
-
-Math.acosh(3) // 1.762747174039086
-Math.hypot(3, 4) // 5
-Math.imul(Math.pow(2, 32) - 1, Math.pow(2, 32) - 2) // 2
-
-&quot;abcde&quot;.contains(&quot;cd&quot;) // true
-&quot;abc&quot;.repeat(3) // &quot;abcabcabc&quot;
-
-Array.from(document.querySelectorAll(&apos;*&apos;)) // Returns a real Array
-Array.of(1, 2, 3) // Similar to new Array(...), but without special one-arg behavior
-[0, 0, 0].fill(7, 1) // [0,7,7]
-[1,2,3].findIndex(x =&gt; x == 2) // 1
-[&quot;a&quot;, &quot;b&quot;, &quot;c&quot;].entries() // iterator [0, &quot;a&quot;], [1,&quot;b&quot;], [2,&quot;c&quot;]
-[&quot;a&quot;, &quot;b&quot;, &quot;c&quot;].keys() // iterator 0, 1, 2
-[&quot;a&quot;, &quot;b&quot;, &quot;c&quot;].values() // iterator &quot;a&quot;, &quot;b&quot;, &quot;c&quot;
-
-Object.assign(Point, { origin: new Point(0,0) })
-</code></pre><p>&#x4E0A;&#x9762;&#x4F7F;&#x7528;&#x7684;Object.assign&#x8BFE;&#x7528;&#x4E8E;&#x5BF9;&#x8C61;&#x7684;&#x5408;&#x5E76;&#xFF0C;ES6&#x5BF9;object&#x505A;&#x4E86;&#x5F88;&#x591A;&#x6269;&#x5C55;&#xFF0C;assign&#x662F;&#x6700;&#x503C;&#x5F97;&#x70B9;&#x8BC4;&#x7684;&#x3002;&#x60F3;&#x5FC5;&#x4F60;&#x5F88;&#x719F;&#x6089;jquery&#x63D0;&#x4F9B;&#x7684;extend&#x63A5;&#x53E3;&#xFF0C;&#x90A3;&#x4E48;ES6&#x7684;Object.assign&#x5C31;&#x4ECE;&#x8BED;&#x6CD5;&#x5C42;&#x9762;&#x505A;&#x4E86;&#x8FD9;&#x4EF6;&#x4E8B;&#x60C5;&#xFF0C;&#x662F;&#x4E0D;&#x662F;&#x5F88;nice&#x3002;</p>
+<h2 id="t1310.Object assign">10.Object assign <a href="#t1310.Object assign"> # </a></h2>
+<p>Object.assign &#x7528;&#x4E8E;&#x5BF9;&#x8C61;&#x7684;&#x5408;&#x5E76;&#xFF0C;ES6&#x5BF9;object&#x505A;&#x4E86;&#x5F88;&#x591A;&#x6269;&#x5C55;&#xFF0C;assign&#x662F;&#x6700;&#x503C;&#x5F97;&#x70B9;&#x8BC4;&#x7684;&#x3002;&#x60F3;&#x5FC5;&#x4F60;&#x5F88;&#x719F;&#x6089;jquery&#x63D0;&#x4F9B;&#x7684;extend&#x63A5;&#x53E3;&#xFF0C;&#x90A3;&#x4E48;ES6&#x7684;Object.assign&#x5C31;&#x662F;&#x4ECE;&#x8BED;&#x6CD5;&#x5C42;&#x9762;&#x505A;&#x4E86;&#x8FD9;&#x4EF6;&#x4E8B;&#x60C5;&#xFF0C;&#x662F;&#x4E0D;&#x662F;&#x5F88;nice&#x3002;</p>
 <pre><code>var target = { a: 1 };
 
 var source1 = { b: 2 };
@@ -421,8 +289,9 @@ var source2 = { c: 3 };
 
 Object.assign(target, source1, source2);
 console.log(target); // {a:1, b:2, c:3}
-</code></pre><h2 id="t2015.Promises">15.Promises <a href="#t2015.Promises"> # </a></h2>
+</code></pre><h2 id="t1411.Promises">11.Promises <a href="#t1411.Promises"> # </a></h2>
 <p>Promises&#x662F;&#x5904;&#x7406;&#x5F02;&#x6B65;&#x64CD;&#x4F5C;&#x7684;&#x4E00;&#x79CD;&#x6A21;&#x5F0F;&#xFF0C;&#x4E4B;&#x524D;&#x5728;&#x5F88;&#x591A;&#x4E09;&#x65B9;&#x5E93;&#x4E2D;&#x6709;&#x5B9E;&#x73B0;&#xFF0C;&#x6BD4;&#x5982;jQuery&#x7684;deferred &#x5BF9;&#x8C61;&#x3002;&#x5F53;&#x4F60;&#x53D1;&#x8D77;&#x4E00;&#x4E2A;&#x5F02;&#x6B65;&#x8BF7;&#x6C42;&#xFF0C;&#x5E76;&#x7ED1;&#x5B9A;&#x4E86;.when(), .done()&#x7B49;&#x4E8B;&#x4EF6;&#x5904;&#x7406;&#x7A0B;&#x5E8F;&#x65F6;&#xFF0C;&#x5176;&#x5B9E;&#x5C31;&#x662F;&#x5728;&#x5E94;&#x7528;promise&#x6A21;&#x5F0F;&#x3002;</p>
+<p>&#x6211;&#x4EEC;&#x6765;&#x770B;ES6&#x4E2D;&#x7684;Promise&#x5BF9;&#x8C61;&#x7684;&#x4F7F;&#x7528;&#xFF1A;</p>
 <pre><code>//&#x521B;&#x5EFA;promise
 var promise = new Promise(function(resolve, reject) {
     // &#x8FDB;&#x884C;&#x4E00;&#x4E9B;&#x5F02;&#x6B65;&#x6216;&#x8017;&#x65F6;&#x64CD;&#x4F5C;
@@ -470,7 +339,7 @@ getJSON(&quot;/posts.json&quot;).then(function(json) {
 }, function(error) {
   console.error(&apos;&#x51FA;&#x9519;&#x4E86;&apos;, error);
 });
-</code></pre><h2 id="t2116.Decorator">16.Decorator <a href="#t2116.Decorator"> # </a></h2>
+</code></pre><h2 id="t1512.Decorator">12.Decorator <a href="#t1512.Decorator"> # </a></h2>
 <p>&#x4FEE;&#x9970;&#x5668;&#xFF08;Decorator&#xFF09;&#x662F;&#x4E00;&#x4E2A;&#x8868;&#x8FBE;&#x5F0F;&#xFF0C;&#x7528;&#x6765;&#x4FEE;&#x6539;&#x7C7B;&#x7684;&#x884C;&#x4E3A;&#x3002;&#x8FD9;&#x662F;ES7&#x7684;&#x4E00;&#x4E2A;&#x63D0;&#x6848;&#xFF0C;&#x76EE;&#x524D;Babel&#xFF08;babel-plugin-transform-decorators-legacy&#xFF09;&#x8F6C;&#x7801;&#x5668;&#x5DF2;&#x7ECF;&#x652F;&#x6301;&#x3002;</p>
 <p>&#x4E0D;&#x77E5;&#x9053;&#x5927;&#x5BB6;&#x6709;&#x6CA1;&#x6709;&#x4F7F;&#x7528;&#x8FC7;java&#x7684;spring mvc&#xFF0C;&#x5176;&#x4E2D;&#x7684;&#x6CE8;&#x89E3;&#x5C31;&#x8DDF;&#x8FD9;&#x4E2A;&#x6BD4;&#x8F83;&#x76F8;&#x4F3C;&#xFF0C;&#x5B66;&#x4E60;React&#x7684;&#x8BDD;&#x53EF;&#x4EE5;&#x91CD;&#x70B9;&#x5173;&#x6CE8;&#x4E0B;&#x8FD9;&#x4E2A;&#x8BED;&#x6CD5;&#xFF0C;&#x56E0;&#x4E3A;&#x540E;&#x9762;&#x4F7F;&#x7528;redux&#x7C7B;&#x5E93;&#x7684;&#x65F6;&#x5019;&#x4F1A;&#x9891;&#x7E41;&#x7684;&#x7528;&#x5230;decorator&#x3002;</p>
 <p>&#x9996;&#x5148;&#x8BF4;&#x4E0B;&#x5982;&#x4F55;&#x914D;&#x7F6E;babel&#x7684;&#x63D2;&#x4EF6;&#x6765;&#x8FDB;&#x884C;decorator&#x7684;&#x89E3;&#x6790;&#x3002;</p>
@@ -490,8 +359,82 @@ $ npm install babel-plugin-transform-decorators-legacy --save-dev
 class MyTestableClass {}
 
 console.log(MyTestableClass.isTestable) // true
-</code></pre><h2 id="t22&#x7ED3;&#x8BED;">&#x7ED3;&#x8BED; <a href="#t22&#x7ED3;&#x8BED;"> # </a></h2>
-<p>&#x591A;&#x7684;&#x4E0D;&#x5728;&#x8D58;&#x8FF0;&#xFF0C;&#x4EE5;&#x4E0A;&#x7684;&#x4E00;&#x4E9B;&#x77E5;&#x8BC6;&#x53EF;&#x4EE5;&#x5F53;&#x6210;&#x5B66;&#x4E60;ES6&#x7684;&#x4E00;&#x4E2A;&#x5FEB;&#x9910;&#xFF0C;&#x4E0D;&#x6210;&#x4F53;&#x7CFB;&#xFF0C;&#x5E0C;&#x671B;&#x80FD;&#x591F;&#x5E2E;&#x52A9;&#x4F60;&#x5FEB;&#x901F;&#x7684;&#x638C;&#x63E1;&#x4E00;&#x4E9B;ES6&#x5E38;&#x7528;&#x7684;&#x8BED;&#x6CD5;&#xFF0C;&#x6709;&#x65F6;&#x95F4;&#x6709;&#x7CBE;&#x529B;&#x5EFA;&#x8BAE;&#x6700;&#x597D;&#x4E70;&#x672C;&#x4E66;&#x901A;&#x8BFB;&#x4E00;&#x904D;&#x3002;</p>
+</code></pre><h2 id="t1613.Modules &#x6A21;&#x5757;">13.Modules &#x6A21;&#x5757; <a href="#t1613.Modules &#x6A21;&#x5757;"> # </a></h2>
+<p>&#x5728;ES6&#x6807;&#x51C6;&#x4E2D;&#xFF0C;JavaScript&#x539F;&#x751F;&#x652F;&#x6301;module&#x4E86;&#x3002;&#x8FD9;&#x79CD;&#x5C06;JS&#x4EE3;&#x7801;&#x5206;&#x5272;&#x6210;&#x4E0D;&#x540C;&#x529F;&#x80FD;&#x7684;&#x5C0F;&#x5757;&#x8FDB;&#x884C;&#x6A21;&#x5757;&#x5316;&#x7684;&#x6982;&#x5FF5;&#x662F;&#x5728;&#x4E00;&#x4E9B;&#x4E09;&#x65B9;&#x89C4;&#x8303;&#x4E2D;&#x6D41;&#x884C;&#x8D77;&#x6765;&#x7684;&#xFF0C;&#x6BD4;&#x5982;CommonJS&#x548C;AMD&#x6A21;&#x5F0F;&#x3002;</p>
+<p>&#x5C06;&#x4E0D;&#x540C;&#x529F;&#x80FD;&#x7684;&#x4EE3;&#x7801;&#x5206;&#x522B;&#x5199;&#x5728;&#x4E0D;&#x540C;&#x6587;&#x4EF6;&#x4E2D;&#xFF0C;&#x5404;&#x6A21;&#x5757;&#x53EA;&#x9700;&#x5BFC;&#x51FA;&#x516C;&#x5171;&#x63A5;&#x53E3;&#x90E8;&#x5206;&#xFF0C;&#x7136;&#x540E;&#x901A;&#x8FC7;&#x6A21;&#x5757;&#x7684;&#x5BFC;&#x5165;&#x7684;&#x65B9;&#x5F0F;&#x53EF;&#x4EE5;&#x5728;&#x5176;&#x4ED6;&#x5730;&#x65B9;&#x4F7F;&#x7528;&#x3002;</p>
+<p>&#x4E0D;&#x8FC7;&#xFF0C;&#x8FD8;&#x662F;&#x6709;&#x5F88;&#x591A;&#x7EC6;&#x8282;&#x7684;&#x5730;&#x65B9;&#x9700;&#x8981;&#x6CE8;&#x610F;&#xFF0C;&#x6211;&#x4EEC;&#x770B;&#x4F8B;&#x5B50;&#xFF1A;</p>
+<p>&#x7B80;&#x5355;&#x4F7F;&#x7528;&#x65B9;&#x5F0F;&#xFF1A;</p>
+<pre><code>// point.js
+export class Point {
+     constructor (x, y) {
+         public x = x;
+         public y = y;
+     }
+ }
+
+
+// myapp.js
+//&#x8FD9;&#x91CC;&#x53EF;&#x4EE5;&#x770B;&#x51FA;&#xFF0C;&#x5C3D;&#x7BA1;&#x58F0;&#x660E;&#x4E86;&#x5F15;&#x7528;&#x7684;&#x6A21;&#x5757;&#xFF0C;&#x8FD8;&#x662F;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x6307;&#x5B9A;&#x9700;&#x8981;&#x7684;&#x90E8;&#x5206;&#x8FDB;&#x884C;&#x5BFC;&#x5165;
+import Point from &quot;point&quot;;
+
+var origin = new Point(0, 0);
+console.log(origin);
+</code></pre><h3 id="t17export">export <a href="#t17export"> # </a></h3>
+<pre><code>// demo1&#xFF1A;&#x7B80;&#x5355;&#x4F7F;&#x7528;
+export var firstName = &apos;Michael&apos;;
+export var lastName = &apos;Jackson&apos;;
+export var year = 1958;
+
+// &#x7B49;&#x4EF7;&#x4E8E;
+var firstName = &apos;Michael&apos;;
+var lastName = &apos;Jackson&apos;;
+var year = 1958;
+
+export {firstName, lastName, year};
+</code></pre><pre><code>// demo2&#xFF1A;&#x8FD8;&#x53EF;&#x4EE5;&#x8FD9;&#x6837;
+function v1() { ... }
+function v2() { ... }
+
+export {
+  v1 as streamV1,
+  v2 as streamV2,
+  v2 as streamLatestVersion
+};
+</code></pre><pre><code>// demo3&#xFF1A;&#x9700;&#x8981;&#x6CE8;&#x610F;&#x7684;&#x662F;
+
+// &#x62A5;&#x9519;
+function f() {}
+export f;
+
+// &#x6B63;&#x786E;
+export function f() {};
+</code></pre><p>&#x6211;&#x4EEC;&#x518D;&#x6765;&#x770B;&#x4E00;&#x4E0B;export&#x7684;&#x9ED8;&#x8BA4;&#x8F93;&#x51FA;&#xFF1A;</p>
+<pre><code>export default function () {
+  console.log(&apos;foo&apos;);
+}
+</code></pre><p>&#x4E3A;&#x4E86;&#x7ED9;&#x7528;&#x6237;&#x63D0;&#x4F9B;&#x65B9;&#x4FBF;&#xFF0C;&#x8BA9;&#x4ED6;&#x4EEC;&#x4E0D;&#x7528;&#x9605;&#x8BFB;&#x6587;&#x6863;&#x5C31;&#x80FD;&#x52A0;&#x8F7D;&#x6A21;&#x5757;&#xFF0C;&#x5C31;&#x8981;&#x7528;&#x5230;export default&#x547D;&#x4EE4;&#xFF0C;&#x4E3A;&#x6A21;&#x5757;&#x6307;&#x5B9A;&#x9ED8;&#x8BA4;&#x8F93;&#x51FA;&#x3002;&#x8FD9;&#x6837;&#x5176;&#x4ED6;&#x6A21;&#x5757;&#x52A0;&#x8F7D;&#x8BE5;&#x6A21;&#x5757;&#x65F6;&#xFF0C;import&#x547D;&#x4EE4;&#x53EF;&#x4EE5;&#x4E3A;&#x8BE5;&#x533F;&#x540D;&#x51FD;&#x6570;&#x6307;&#x5B9A;&#x4EFB;&#x610F;&#x540D;&#x5B57;&#x3002;</p>
+<p>&#x9700;&#x8981;&#x6CE8;&#x610F;&#x7684;&#x662F;&#xFF0C;&#x8FD9;&#x65F6;import&#x547D;&#x4EE4;&#x540E;&#x9762;&#xFF0C;&#x4E0D;&#x4F7F;&#x7528;&#x5927;&#x62EC;&#x53F7;&#x3002;</p>
+<p>&#x6700;&#x540E;&#x9700;&#x8981;&#x5F3A;&#x8C03;&#x7684;&#x662F;&#xFF1A;ES6&#x6A21;&#x5757;&#x52A0;&#x8F7D;&#x7684;&#x673A;&#x5236;&#xFF0C;&#x4E0E;CommonJS&#x6A21;&#x5757;&#x5B8C;&#x5168;&#x4E0D;&#x540C;&#x3002;CommonJS&#x6A21;&#x5757;&#x8F93;&#x51FA;&#x7684;&#x662F;&#x4E00;&#x4E2A;&#x503C;&#x7684;&#x62F7;&#x8D1D;&#xFF0C;&#x800C;ES6&#x6A21;&#x5757;&#x8F93;&#x51FA;&#x7684;&#x662F;&#x503C;&#x7684;&#x5F15;&#x7528;&#x3002;</p>
+<ul>
+<li><p>CommonJS&#x6A21;&#x5757;&#x8F93;&#x51FA;&#x7684;&#x662F;&#x88AB;&#x8F93;&#x51FA;&#x503C;&#x7684;&#x62F7;&#x8D1D;&#xFF0C;&#x4E5F;&#x5C31;&#x662F;&#x8BF4;&#xFF0C;&#x4E00;&#x65E6;&#x8F93;&#x51FA;&#x4E00;&#x4E2A;&#x503C;&#xFF0C;&#x6A21;&#x5757;&#x5185;&#x90E8;&#x7684;&#x53D8;&#x5316;&#x5C31;&#x5F71;&#x54CD;&#x4E0D;&#x5230;&#x8FD9;&#x4E2A;&#x503C;&#x3002;</p>
+</li>
+<li><p>ES6&#x6A21;&#x5757;&#x7684;&#x8FD0;&#x884C;&#x673A;&#x5236;&#x4E0E;CommonJS&#x4E0D;&#x4E00;&#x6837;&#xFF0C;&#x5B83;&#x9047;&#x5230;&#x6A21;&#x5757;&#x52A0;&#x8F7D;&#x547D;&#x4EE4;import&#x65F6;&#xFF0C;&#x4E0D;&#x4F1A;&#x53BB;&#x6267;&#x884C;&#x6A21;&#x5757;&#xFF0C;&#x800C;&#x662F;&#x53EA;&#x751F;&#x6210;&#x4E00;&#x4E2A;&#x52A8;&#x6001;&#x7684;&#x53EA;&#x8BFB;&#x5F15;&#x7528;&#x3002;&#x7B49;&#x5230;&#x771F;&#x7684;&#x9700;&#x8981;&#x7528;&#x5230;&#x65F6;&#xFF0C;&#x518D;&#x5230;&#x6A21;&#x5757;&#x91CC;&#x9762;&#x53BB;&#x53D6;&#x503C;&#xFF0C;&#x6362;&#x53E5;&#x8BDD;&#x8BF4;&#xFF0C;ES6&#x7684;&#x8F93;&#x5165;&#x6709;&#x70B9;&#x50CF;Unix&#x7CFB;&#x7EDF;&#x7684;&#x201D;&#x7B26;&#x53F7;&#x8FDE;&#x63A5;&#x201C;&#xFF0C;&#x539F;&#x59CB;&#x503C;&#x53D8;&#x4E86;&#xFF0C;import&#x8F93;&#x5165;&#x7684;&#x503C;&#x4E5F;&#x4F1A;&#x8DDF;&#x7740;&#x53D8;&#x3002;&#x56E0;&#x6B64;&#xFF0C;ES6&#x6A21;&#x5757;&#x662F;&#x52A8;&#x6001;&#x5F15;&#x7528;&#xFF0C;&#x5E76;&#x4E14;&#x4E0D;&#x4F1A;&#x7F13;&#x5B58;&#x503C;&#xFF0C;&#x6A21;&#x5757;&#x91CC;&#x9762;&#x7684;&#x53D8;&#x91CF;&#x7ED1;&#x5B9A;&#x5176;&#x6240;&#x5728;&#x7684;&#x6A21;&#x5757;&#x3002;</p>
+</li>
+</ul>
+<h3 id="t18import">import <a href="#t18import"> # </a></h3>
+<pre><code>// 1
+import $ from &apos;jquery&apos;;
+
+// 2
+import {firstName, lastName, year} from &apos;./profile&apos;;
+
+// 3
+import React, { Component, PropTypes } from &apos;react&apos;;
+
+// 4
+import * as React from &apos;react&apos;;
+</code></pre><h2 id="t19&#x7ED3;&#x8BED;">&#x7ED3;&#x8BED; <a href="#t19&#x7ED3;&#x8BED;"> # </a></h2>
+<p>&#x591A;&#x7684;&#x4E0D;&#x5728;&#x8D58;&#x8FF0;&#xFF0C;&#x4EE5;&#x4E0A;&#x7684;&#x4E00;&#x4E9B;&#x77E5;&#x8BC6;&#x53EF;&#x4EE5;&#x5F53;&#x6210;&#x5B66;&#x4E60;ES6&#x7684;&#x4E00;&#x4E2A;&#x5FEB;&#x9910;&#xFF0C;&#x4E0D;&#x6210;&#x4F53;&#x7CFB;&#xFF0C;&#x5E0C;&#x671B;&#x80FD;&#x591F;&#x5E2E;&#x52A9;&#x4F60;&#x5FEB;&#x901F;&#x7684;&#x638C;&#x63E1;&#x4E00;&#x4E9B;ES6&#x5E38;&#x7528;&#x7684;&#x8BED;&#x6CD5;&#xFF0C;&#x6709;&#x65F6;&#x95F4;&#x6709;&#x7CBE;&#x529B;&#x5EFA;&#x8BAE;&#x4E70;&#x672C;&#x962E;&#x4E00;&#x5CF0;&#x8001;&#x5E08;&#x7684;&#x300A;ES6&#x5165;&#x95E8;&#x300B;&#x901A;&#x8BFB;&#x4E00;&#x904D;&#x3002;</p>
 
         <div class="copyright">Powered by <a href="https://github.com/jaywcjlove/idoc" target="_blank">idoc</a>. Dependence <a href="https://nodejs.org">Node.js</a> run.</div>
     </div>

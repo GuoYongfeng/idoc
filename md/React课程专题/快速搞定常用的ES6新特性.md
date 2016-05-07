@@ -337,7 +337,7 @@ console.log(target); // {a:1, b:2, c:3}
 
 ## 11.Promises
 
-Promises是处理异步操作的一种模式，之前在很多三方库中有实现，比如jQuery的deferred 对象。当你发起一个异步请求，并绑定了.when(), .done()等事件处理程序时，其实就是在应用promise模式。
+ES6的Promise是一个非常重要的特性，它是处理异步操作的一种模式。有了它，JavaScript异步嵌套的问题算是得到了比较好的解决。同时，Promise也是ES7中async/await的基础。
 
 我们来看ES6中的Promise对象的使用：
 

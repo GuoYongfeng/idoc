@@ -290,7 +290,7 @@ var source2 = { c: 3 };
 Object.assign(target, source1, source2);
 console.log(target); // {a:1, b:2, c:3}
 </code></pre><h2 id="t1411.Promises">11.Promises <a href="#t1411.Promises"> # </a></h2>
-<p>Promises&#x662F;&#x5904;&#x7406;&#x5F02;&#x6B65;&#x64CD;&#x4F5C;&#x7684;&#x4E00;&#x79CD;&#x6A21;&#x5F0F;&#xFF0C;&#x4E4B;&#x524D;&#x5728;&#x5F88;&#x591A;&#x4E09;&#x65B9;&#x5E93;&#x4E2D;&#x6709;&#x5B9E;&#x73B0;&#xFF0C;&#x6BD4;&#x5982;jQuery&#x7684;deferred &#x5BF9;&#x8C61;&#x3002;&#x5F53;&#x4F60;&#x53D1;&#x8D77;&#x4E00;&#x4E2A;&#x5F02;&#x6B65;&#x8BF7;&#x6C42;&#xFF0C;&#x5E76;&#x7ED1;&#x5B9A;&#x4E86;.when(), .done()&#x7B49;&#x4E8B;&#x4EF6;&#x5904;&#x7406;&#x7A0B;&#x5E8F;&#x65F6;&#xFF0C;&#x5176;&#x5B9E;&#x5C31;&#x662F;&#x5728;&#x5E94;&#x7528;promise&#x6A21;&#x5F0F;&#x3002;</p>
+<p>ES6&#x7684;Promise&#x662F;&#x4E00;&#x4E2A;&#x975E;&#x5E38;&#x91CD;&#x8981;&#x7684;&#x7279;&#x6027;&#xFF0C;&#x5B83;&#x662F;&#x5904;&#x7406;&#x5F02;&#x6B65;&#x64CD;&#x4F5C;&#x7684;&#x4E00;&#x79CD;&#x6A21;&#x5F0F;&#x3002;&#x6709;&#x4E86;&#x5B83;&#xFF0C;JavaScript&#x5F02;&#x6B65;&#x5D4C;&#x5957;&#x7684;&#x95EE;&#x9898;&#x7B97;&#x662F;&#x5F97;&#x5230;&#x4E86;&#x6BD4;&#x8F83;&#x597D;&#x7684;&#x89E3;&#x51B3;&#x3002;&#x540C;&#x65F6;&#xFF0C;Promise&#x4E5F;&#x662F;ES7&#x4E2D;async/await&#x7684;&#x57FA;&#x7840;&#x3002;</p>
 <p>&#x6211;&#x4EEC;&#x6765;&#x770B;ES6&#x4E2D;&#x7684;Promise&#x5BF9;&#x8C61;&#x7684;&#x4F7F;&#x7528;&#xFF1A;</p>
 <pre><code>//&#x521B;&#x5EFA;promise
 var promise = new Promise(function(resolve, reject) {

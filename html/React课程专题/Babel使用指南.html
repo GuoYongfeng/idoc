@@ -237,25 +237,35 @@ $ babel src <span class="hljs-operator">-d</span> lib
 </blockquote>
 <p>&#x4EE5;&#x4E0A;&#x6BCF;&#x79CD;&#x9884;&#x8BBE;&#x90FD;&#x4F9D;&#x8D56;&#x4E8E;&#x7D27;&#x968F;&#x7684;&#x540E;&#x671F;&#x9636;&#x6BB5;&#x9884;&#x8BBE;&#x3002;&#x4F8B;&#x5982;&#xFF0C;<code>babel-preset-stage-1</code> &#x4F9D;&#x8D56; <code>babel-preset-stage-2</code>&#xFF0C;&#x540E;&#x8005;&#x53C8;&#x4F9D;&#x8D56; <code>babel-preset-stage-3</code>&#x3002;.</p>
 <p><code>Stage 0&#xFF1A;</code></p>
-<p>Function Bind Syntax&#xFF1A;&#x51FD;&#x6570;&#x7684;&#x7ED1;&#x5B9A;&#x8FD0;&#x7B97;&#x7B26;
-String.prototype.at&#xFF1A;&#x5B57;&#x7B26;&#x4E32;&#x7684;&#x9759;&#x6001;&#x65B9;&#x6CD5;at
-<code>Stage 1&#xFF1A;</code></p>
-<p>Class and Property Decorators&#xFF1A;Class&#x7684;&#x4FEE;&#x9970;&#x5668;
-Class Property Declarations&#xFF1A;Class&#x7684;&#x5C5E;&#x6027;&#x58F0;&#x660E;
-Additional export-from Statements&#xFF1A;export&#x7684;&#x5199;&#x6CD5;&#x6539;&#x8FDB;
-String.prototype.{trimLeft,trimRight}&#xFF1A;&#x5B57;&#x7B26;&#x4E32;&#x5220;&#x9664;&#x5934;&#x5C3E;&#x7A7A;&#x683C;&#x7684;&#x65B9;&#x6CD5;
-<code>Stage 2&#xFF1A;</code></p>
-<p>Rest/Spread Properties&#xFF1A;&#x5BF9;&#x8C61;&#x7684;Rest&#x53C2;&#x6570;&#x548C;&#x6269;&#x5C55;&#x8FD0;&#x7B97;&#x7B26;
-<code>Stage 3</code></p>
-<p>SIMD API&#xFF1A;&#x201C;&#x5355;&#x6307;&#x4EE4;&#xFF0C;&#x591A;&#x6570;&#x636E;&#x201D;&#x547D;&#x4EE4;&#x96C6;
-Async Functions&#xFF1A;async&#x51FD;&#x6570;
-Object.values/Object.entries&#xFF1A;Object&#x7684;&#x9759;&#x6001;&#x65B9;&#x6CD5;values()&#x548C;entries()
-String padding&#xFF1A;&#x5B57;&#x7B26;&#x4E32;&#x957F;&#x5EA6;&#x8865;&#x5168;
-Trailing commas in function parameter lists and calls&#xFF1A;&#x51FD;&#x6570;&#x53C2;&#x6570;&#x7684;&#x5C3E;&#x9017;&#x53F7;
-Object.getOwnPropertyDescriptors&#xFF1A;Object&#x7684;&#x9759;&#x6001;&#x65B9;&#x6CD5;getOwnPropertyDescriptors
-<code>Stage 4&#xFF1A;</code></p>
-<p>Array.prototype.includes&#xFF1A;&#x6570;&#x7EC4;&#x5B9E;&#x4F8B;&#x7684;includes&#x65B9;&#x6CD5;
-Exponentiation Operator&#xFF1A;&#x6307;&#x6570;&#x8FD0;&#x7B97;&#x7B26;</p>
+<ul>
+<li>Function Bind Syntax&#xFF1A;&#x51FD;&#x6570;&#x7684;&#x7ED1;&#x5B9A;&#x8FD0;&#x7B97;&#x7B26;</li>
+<li>String.prototype.at&#xFF1A;&#x5B57;&#x7B26;&#x4E32;&#x7684;&#x9759;&#x6001;&#x65B9;&#x6CD5;at</li>
+</ul>
+<p><code>Stage 1&#xFF1A;</code></p>
+<ul>
+<li>Class and Property Decorators&#xFF1A;Class&#x7684;&#x4FEE;&#x9970;&#x5668;</li>
+<li>Class Property Declarations&#xFF1A;Class&#x7684;&#x5C5E;&#x6027;&#x58F0;&#x660E;</li>
+<li>Additional export-from Statements&#xFF1A;export&#x7684;&#x5199;&#x6CD5;&#x6539;&#x8FDB;</li>
+<li>String.prototype.{trimLeft,trimRight}&#xFF1A;&#x5B57;&#x7B26;&#x4E32;&#x5220;&#x9664;&#x5934;&#x5C3E;&#x7A7A;&#x683C;&#x7684;&#x65B9;&#x6CD5;</li>
+</ul>
+<p><code>Stage 2&#xFF1A;</code></p>
+<ul>
+<li>Rest/Spread Properties&#xFF1A;&#x5BF9;&#x8C61;&#x7684;Rest&#x53C2;&#x6570;&#x548C;&#x6269;&#x5C55;&#x8FD0;&#x7B97;&#x7B26;</li>
+</ul>
+<p><code>Stage 3</code></p>
+<ul>
+<li>SIMD API&#xFF1A;&#x201C;&#x5355;&#x6307;&#x4EE4;&#xFF0C;&#x591A;&#x6570;&#x636E;&#x201D;&#x547D;&#x4EE4;&#x96C6;</li>
+<li>Async Functions&#xFF1A;async&#x51FD;&#x6570;</li>
+<li>Object.values/Object.entries&#xFF1A;Object&#x7684;&#x9759;&#x6001;&#x65B9;&#x6CD5;values()&#x548C;entries()</li>
+<li>String padding&#xFF1A;&#x5B57;&#x7B26;&#x4E32;&#x957F;&#x5EA6;&#x8865;&#x5168;</li>
+<li>Trailing commas in function parameter lists and calls&#xFF1A;&#x51FD;&#x6570;&#x53C2;&#x6570;&#x7684;&#x5C3E;&#x9017;&#x53F7;</li>
+<li>Object.getOwnPropertyDescriptors&#xFF1A;Object&#x7684;&#x9759;&#x6001;&#x65B9;&#x6CD5;getOwnPropertyDescriptors</li>
+</ul>
+<p><code>Stage 4&#xFF1A;</code></p>
+<ul>
+<li>Array.prototype.includes&#xFF1A;&#x6570;&#x7EC4;&#x5B9E;&#x4F8B;&#x7684;includes&#x65B9;&#x6CD5;</li>
+<li>Exponentiation Operator&#xFF1A;&#x6307;&#x6570;&#x8FD0;&#x7B97;&#x7B26;</li>
+</ul>
 <p>&#x4F7F;&#x7528;&#x7684;&#x65F6;&#x5019;&#x53EA;&#x9700;&#x8981;&#x5B89;&#x88C5;&#x4F60;&#x60F3;&#x8981;&#x7684;&#x9636;&#x6BB5;&#x5C31;&#x53EF;&#x4EE5;&#x4E86;&#xFF1A;</p>
 <pre><code class="lang-sh">$ npm install --save-dev babel-preset-stage-<span class="hljs-number">2</span>
 </code></pre>

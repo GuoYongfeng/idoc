@@ -13,18 +13,20 @@ http://localhost:8080/webpack-dev-server/index.html
 ```
 - 在inline模式下：一个小型的webpack-dev-server客户端会作为入口文件打包，这个客户端会在后端代码改变的时候刷新页面。
 
-// 1.启动webpack-dev-server的时候带上inline参数
+以下三种配置都可以实现页面的刷新效果：
+
 ```
+// 1.启动webpack-dev-server的时候带上inline参数
 webpack-dev-server --inline
 ```
 
-// 2.给HTML插入JS
 ```
+// 2.给HTML插入JS
 <script src="http://localhost:3000/webpack-dev-server.js"></script>
 ```
 
-// 3.webpack配置
 ```
+// 3.webpack配置
 entry: [
   'webpack-dev-server/client?http://localhost:3000',
   path.resolve(__dirname, 'src/index.js')

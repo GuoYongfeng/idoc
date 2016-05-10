@@ -53,12 +53,13 @@
 </code></pre><ul>
 <li>&#x5728;inline&#x6A21;&#x5F0F;&#x4E0B;&#xFF1A;&#x4E00;&#x4E2A;&#x5C0F;&#x578B;&#x7684;webpack-dev-server&#x5BA2;&#x6237;&#x7AEF;&#x4F1A;&#x4F5C;&#x4E3A;&#x5165;&#x53E3;&#x6587;&#x4EF6;&#x6253;&#x5305;&#xFF0C;&#x8FD9;&#x4E2A;&#x5BA2;&#x6237;&#x7AEF;&#x4F1A;&#x5728;&#x540E;&#x7AEF;&#x4EE3;&#x7801;&#x6539;&#x53D8;&#x7684;&#x65F6;&#x5019;&#x5237;&#x65B0;&#x9875;&#x9762;&#x3002;</li>
 </ul>
-<p>// 1.&#x542F;&#x52A8;webpack-dev-server&#x7684;&#x65F6;&#x5019;&#x5E26;&#x4E0A;inline&#x53C2;&#x6570;</p>
-<pre><code>webpack-dev-server --inline
-</code></pre><p>// 2.&#x7ED9;HTML&#x63D2;&#x5165;JS</p>
-<pre><code>&lt;script src=&quot;http://localhost:3000/webpack-dev-server.js&quot;&gt;&lt;/script&gt;
-</code></pre><p>// 3.webpack&#x914D;&#x7F6E;</p>
-<pre><code>entry: [
+<p>&#x4EE5;&#x4E0B;&#x4E09;&#x79CD;&#x914D;&#x7F6E;&#x90FD;&#x53EF;&#x4EE5;&#x5B9E;&#x73B0;&#x9875;&#x9762;&#x7684;&#x5237;&#x65B0;&#x6548;&#x679C;&#xFF1A;</p>
+<pre><code>// 1.&#x542F;&#x52A8;webpack-dev-server&#x7684;&#x65F6;&#x5019;&#x5E26;&#x4E0A;inline&#x53C2;&#x6570;
+webpack-dev-server --inline
+</code></pre><pre><code>// 2.&#x7ED9;HTML&#x63D2;&#x5165;JS
+&lt;script src=&quot;http://localhost:3000/webpack-dev-server.js&quot;&gt;&lt;/script&gt;
+</code></pre><pre><code>// 3.webpack&#x914D;&#x7F6E;
+entry: [
   &apos;webpack-dev-server/client?http://localhost:3000&apos;,
   path.resolve(__dirname, &apos;src/index.js&apos;)
 ],

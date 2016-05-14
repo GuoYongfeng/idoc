@@ -20,10 +20,10 @@ module.exports = {
     entry: [
       'webpack/hot/dev-server',
       'webpack-dev-server/client?http://localhost:8080',
-      path.resolve(__dirname, 'app/index.js')
+      path.resolve(__dirname, 'src/index.js')
     ],
     output: {
-        path: path.resolve(__dirname, 'public'),
+        path: path.resolve(__dirname, 'build'),
         filename: 'bundle.js',
     },
     resolve: {
@@ -55,7 +55,7 @@ module.exports = {
 ```
 
 同时，也需要在我们的index.html去引入bundle.css文件。
-代码清单：`public/index.html`
+代码清单：`build/index.html`
 ```
 <!DOCTYPE html>
 <html lang="en">
@@ -73,7 +73,7 @@ module.exports = {
 
 执行`npm run dev`后你就可以在浏览器中看到加载的分离后的css文件了。
 
-另外这里手动去修改index.html是一个不是很友好的体验，这里暂且按下不表，后续我们会通过插件来统一生成public下的资源，这样让调试和部署更加便捷。
+另外这里手动去修改index.html是一个不是很友好的体验，这里暂且按下不表，后续我们会通过插件来统一生成build下的资源，这样让调试和部署更加便捷。
 
 ##  Vendor chunk 应用代码和第三方代码分离
 
@@ -85,7 +85,7 @@ entry: {
  index: [
     'webpack/hot/dev-server',
     'webpack-dev-server/client?http://localhost:8080',
-    path.resolve(__dirname, 'app/index.js')
+    path.resolve(__dirname, 'src/index.js')
   ],
   vendor: ['react', 'react-dom']
 },
@@ -98,7 +98,7 @@ plugins: [
 ```
 
 同时我们还有修改index.html文件的引用。
-代码清单：`public/index.html`
+代码清单：`build/index.html`
 ```
 <!DOCTYPE html>
 <html lang="en">
@@ -155,7 +155,7 @@ module.exports = {
 var path = require('path');
 var webpack = require('webpack');
 var ExtractTextPlugin = require("extract-text-webpack-plugin");
-var publicPath = path.resolve(__dirname, 'public');
+var buildPath = path.resolve(__dirname, 'build');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
@@ -163,12 +163,12 @@ module.exports = {
       index: [
         'webpack/hot/dev-server',
         'webpack-dev-server/client?http://localhost:8080',
-        path.resolve(__dirname, 'app/index.js')
+        path.resolve(__dirname, 'src/index.js')
       ],
       vendor: ['react', 'react-dom']
     },
     output: {
-        path: publicPath,
+        path: buildPath,
         filename: '[name].js?[hash]'
     },
     resolve: {
@@ -209,7 +209,7 @@ module.exports = {
       }),
       new HtmlWebpackPlugin({
         title: 'zhufeng-react',
-        template: './app/index.html',
+        template: './src/index.html',
       })
     ],
     devtool: 'cheap-module-source-map'
@@ -241,13 +241,13 @@ if (window.location.pathname === '/feed') {
 
 剩下的事就可以交给webpack，它会为你生成并加载这些额外的 **chunk** 文件。
 
-webpack 默认会从项目的根目录下引入这些chunk文件。你也可以通过 `output.publicPath`来配置chunk文件的引入路径
+webpack 默认会从项目的根目录下引入这些chunk文件。你也可以通过 `output.buildPath`来配置chunk文件的引入路径
 
 ```js
 // webpack.config.js
 output: {
-    path: "/home/proj/public/assets", // webpack的build路径
-    publicPath: "/assets/" // 你require的路径
+    path: "/home/proj/build/assets", // webpack的build路径
+    buildPath: "/assets/" // 你require的路径
 }
 ```
 

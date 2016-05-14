@@ -37,13 +37,15 @@ entry: [
 
 webpac-dev-server支持Hot Module Replacement，即模块热替换，在前端代码变动的时候无需整个刷新页面，只把变化的部分替换掉。使用HMR功能也有两种方式：命令行方式和Node.js API。
 
-// 1.cli命令行方式
+
 ```
+// 1.cli命令行方式
 webpack-dev-server --inline --hot
 ```
 
-// 2.Node.js API方式
+
 ```
+// 2.Node.js API方式
 entry: [
   'webpack/hot/dev-server',
   path.resolve(__dirname, 'src/index.js')
@@ -57,7 +59,7 @@ plugins: [
 
 ```
 
-更多内容可以参见这篇文章：http://www.jianshu.com/p/941bfaf13be1，这篇文章将webpack官网上对webpack-dev-server的代码刷新部分的介绍进行了翻译。
+更多内容可以参见[这篇文章](http://www.jianshu.com/p/941bfaf13be1)，文章将webpack官网上对webpack-dev-server的代码刷新部分的介绍进行了翻译。
 
 ## React-hot-loader 组件级热更新
 
@@ -79,10 +81,10 @@ module.exports = {
     entry: [
       'webpack/hot/dev-server',
       'webpack-dev-server/client?http://localhost:8080',
-      path.resolve(__dirname, 'app/index.js')
+      path.resolve(__dirname, 'src/index.js')
     ],
     output: {
-        path: path.resolve(__dirname, 'public'),
+        path: path.resolve(__dirname, 'build'),
         filename: 'bundle.js',
     },
     module: {
@@ -109,13 +111,13 @@ module.exports = {
 ## HTML Webpack Plugin 解析html模板
 
 
-前面我们还是先在public目录手动加上的index.html，这样在项目中不是很适用，因为我们希望public产出的资源应该是通过工具来统一产出并发布上线，这样质量和工程化角度来思考是更合适的。下面我们来实现。
+前面我们还是先在build目录手动加上的index.html，这样在项目中不是很适用，因为我们希望build产出的资源应该是通过工具来统一产出并发布上线，这样质量和工程化角度来思考是更合适的。下面我们来实现。
 
-在app目录下新建一个index.html文件，并写上简单的代码。
+在src目录下新建一个index.html文件，并写上简单的代码。
 ```
-$ cd app && touch index.html
+$ cd src && touch index.html
 ```
-代码清单：`app/index.html`
+代码清单：`src/index.html`
 ```
 <!DOCTYPE html>
 <html lang="en">
@@ -146,7 +148,7 @@ plugins: [
 	  // 使用这个plugin，这是最简单的一个配置，更多资料可到github查看
       new HtmlWebpackPlugin({
         title: 'zhufeng-react',
-        template: './app/index.html',
+        template: './src/index.html',
       })
 ]
 ```

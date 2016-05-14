@@ -35,40 +35,14 @@ node_modules
 .idea
 ```
 
-下载webpack和webpack-dev-server
-```
-$ npm install --save-dev webpack webpack-dev-server
-# 同时进行全局安装，进行测试，但后面会将命令配置在package.json里面
-$ npm install -g webpack webpack-dev-server
-```
-
-创建webpack的配置文件
-```
-$ touch webpack.config.js
-```
-
-进行基本配置
-```
-var path = require('path');
-
-module.exports = {
-    entry: path.resolve(__dirname, 'src/index.js'),
-    output: {
-        path: path.resolve(__dirname, 'build'),
-        filename: 'bundle.js'
-    },
-};
-
-```
 建立src和build两个目录
+
 ```
+# src 目录存放源码，build 目录存放编译打包之后的资源
 $ mkdir src build
 $ cd src && touch index.js component.js
 $ cd ../build && touch index.html
 ```
-
-- src 目录存放源码
-- build 目录存放编译打包之后的资源
 
 
 ```
@@ -103,6 +77,36 @@ module.exports = function(){
   <script src="bundle.js"></script>
 </body>
 </html>
+
+```
+
+下载webpack和webpack-dev-server
+```
+# 安装并保存在项目的依赖中
+$ npm install --save-dev webpack webpack-dev-server
+# 如果想直接在命令行使用webpack或webpack-dev-server命令，请全局安装
+$ npm install -g webpack webpack-dev-server
+```
+
+创建webpack的配置文件
+```
+$ touch webpack.config.js
+```
+
+`# 请注意webpack.config.js这个文件命名，默认情况下需要严格按照这个命名，不然会报Output filename not configured的错误；另外，如果不按这个命名，那么在webpack运行的时候通过--conf这个参数指定配置文件，比如：webpack --config conf.js`
+
+进行基本配置
+
+```
+var path = require('path');
+
+module.exports = {
+    entry: path.resolve(__dirname, 'src/index.js'),
+    output: {
+        path: path.resolve(__dirname, 'build'),
+        filename: 'bundle.js'
+    },
+};
 
 ```
 
@@ -152,8 +156,8 @@ $ webpack-dev-server --progress --colors --content-base build
 - `webpack-dev-server` - 在 localhost:8080 建立一个 Web 服务器
 - `webpack-dev-server --devtool eval` - 为你的代码创建源地址。当有任何报错的时候可以让你更加精确地定位到文件和行号
 - `webpack-dev-server --progress` - 显示合并代码进度
-- `webpack-dev-server --colors` - 命令行中显示颜色！
-- `webpack-dev-server --content-base build` - 设置静态资源的输出目录（Using this config webpack-dev-server will serve the static files in your build folder. ）
+- `webpack-dev-server --colors` - 命令行中显示颜色
+- `webpack-dev-server --content-base build` -  webpack-dev-server服务会默认以当前目录伺服文件，如果设置了content-base的话，服务的根路径则为build目录
 - `webpack-dev-server --inline` 可以自动加上dev-server的管理代码，实现热更新
 - `webpack-dev-server --hot` 开启代码热替换，可以加上HotModuleReplacementPlugin
 - `webpack-dev-server --port 3000` 设置服务端口
@@ -332,6 +336,17 @@ module.exports = {
 ```
 
 ok, npm run dev即可
+
+另外，也有同学问到，怎么mock数据呢，我们可以用proxy代理的方式。
+
+```
+proxy: {
+  '/some/path*': {
+    target: 'https://other-server.example.com',
+    secure: false
+  }
+}
+```
 
 更多请看[这里](http://webpack.github.io/docs/webpack-dev-server.html)
 

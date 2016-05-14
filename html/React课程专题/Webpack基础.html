@@ -67,31 +67,12 @@ $ npm init
 <pre><code>node_modules
 *.log*
 .idea
-</code></pre><p>&#x4E0B;&#x8F7D;webpack&#x548C;webpack-dev-server</p>
-<pre><code>$ npm install --save-dev webpack webpack-dev-server
-# &#x540C;&#x65F6;&#x8FDB;&#x884C;&#x5168;&#x5C40;&#x5B89;&#x88C5;&#xFF0C;&#x8FDB;&#x884C;&#x6D4B;&#x8BD5;&#xFF0C;&#x4F46;&#x540E;&#x9762;&#x4F1A;&#x5C06;&#x547D;&#x4EE4;&#x914D;&#x7F6E;&#x5728;package.json&#x91CC;&#x9762;
-$ npm install -g webpack webpack-dev-server
-</code></pre><p>&#x521B;&#x5EFA;webpack&#x7684;&#x914D;&#x7F6E;&#x6587;&#x4EF6;</p>
-<pre><code>$ touch webpack.config.js
-</code></pre><p>&#x8FDB;&#x884C;&#x57FA;&#x672C;&#x914D;&#x7F6E;</p>
-<pre><code>var path = require(&apos;path&apos;);
-
-module.exports = {
-    entry: path.resolve(__dirname, &apos;src/index.js&apos;),
-    output: {
-        path: path.resolve(__dirname, &apos;build&apos;),
-        filename: &apos;bundle.js&apos;
-    },
-};
 </code></pre><p>&#x5EFA;&#x7ACB;src&#x548C;build&#x4E24;&#x4E2A;&#x76EE;&#x5F55;</p>
-<pre><code>$ mkdir src build
+<pre><code># src &#x76EE;&#x5F55;&#x5B58;&#x653E;&#x6E90;&#x7801;&#xFF0C;build &#x76EE;&#x5F55;&#x5B58;&#x653E;&#x7F16;&#x8BD1;&#x6253;&#x5305;&#x4E4B;&#x540E;&#x7684;&#x8D44;&#x6E90;
+$ mkdir src build
 $ cd src &amp;&amp; touch index.js component.js
 $ cd ../build &amp;&amp; touch index.html
-</code></pre><ul>
-<li>src &#x76EE;&#x5F55;&#x5B58;&#x653E;&#x6E90;&#x7801;</li>
-<li>build &#x76EE;&#x5F55;&#x5B58;&#x653E;&#x7F16;&#x8BD1;&#x6253;&#x5305;&#x4E4B;&#x540E;&#x7684;&#x8D44;&#x6E90;</li>
-</ul>
-<pre><code>/* src/index.js */
+</code></pre><pre><code>/* src/index.js */
 var component = require(&apos;./component.js&apos;);
 
 component();
@@ -111,6 +92,24 @@ module.exports = function(){
   &lt;script src=&quot;bundle.js&quot;&gt;&lt;/script&gt;
 &lt;/body&gt;
 &lt;/html&gt;
+</code></pre><p>&#x4E0B;&#x8F7D;webpack&#x548C;webpack-dev-server</p>
+<pre><code># &#x5B89;&#x88C5;&#x5E76;&#x4FDD;&#x5B58;&#x5728;&#x9879;&#x76EE;&#x7684;&#x4F9D;&#x8D56;&#x4E2D;
+$ npm install --save-dev webpack webpack-dev-server
+# &#x5982;&#x679C;&#x60F3;&#x76F4;&#x63A5;&#x5728;&#x547D;&#x4EE4;&#x884C;&#x4F7F;&#x7528;webpack&#x6216;webpack-dev-server&#x547D;&#x4EE4;&#xFF0C;&#x8BF7;&#x5168;&#x5C40;&#x5B89;&#x88C5;
+$ npm install -g webpack webpack-dev-server
+</code></pre><p>&#x521B;&#x5EFA;webpack&#x7684;&#x914D;&#x7F6E;&#x6587;&#x4EF6;</p>
+<pre><code>$ touch webpack.config.js
+</code></pre><p><code># &#x8BF7;&#x6CE8;&#x610F;webpack.config.js&#x8FD9;&#x4E2A;&#x6587;&#x4EF6;&#x547D;&#x540D;&#xFF0C;&#x9ED8;&#x8BA4;&#x60C5;&#x51B5;&#x4E0B;&#x9700;&#x8981;&#x4E25;&#x683C;&#x6309;&#x7167;&#x8FD9;&#x4E2A;&#x547D;&#x540D;&#xFF0C;&#x4E0D;&#x7136;&#x4F1A;&#x62A5;Output filename not configured&#x7684;&#x9519;&#x8BEF;&#xFF1B;&#x53E6;&#x5916;&#xFF0C;&#x5982;&#x679C;&#x4E0D;&#x6309;&#x8FD9;&#x4E2A;&#x547D;&#x540D;&#xFF0C;&#x90A3;&#x4E48;&#x5728;webpack&#x8FD0;&#x884C;&#x7684;&#x65F6;&#x5019;&#x901A;&#x8FC7;--conf&#x8FD9;&#x4E2A;&#x53C2;&#x6570;&#x6307;&#x5B9A;&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#xFF0C;&#x6BD4;&#x5982;&#xFF1A;webpack --config conf.js</code></p>
+<p>&#x8FDB;&#x884C;&#x57FA;&#x672C;&#x914D;&#x7F6E;</p>
+<pre><code>var path = require(&apos;path&apos;);
+
+module.exports = {
+    entry: path.resolve(__dirname, &apos;src/index.js&apos;),
+    output: {
+        path: path.resolve(__dirname, &apos;build&apos;),
+        filename: &apos;bundle.js&apos;
+    },
+};
 </code></pre><p>&#x6267;&#x884C;webpack&#x547D;&#x4EE4;</p>
 <pre><code>$ webpack
 </code></pre><p>&#x53EF;&#x4EE5;&#x770B;&#x5230;&#x63A7;&#x5236;&#x53F0;&#x51FA;&#x73B0;&#x5982;&#x4E0B;&#x4FE1;&#x606F;&#xFF1A;</p>
@@ -143,8 +142,8 @@ bundle.js  2.04 kB       0  [emitted]  main
 <li><code>webpack-dev-server</code> - &#x5728; localhost:8080 &#x5EFA;&#x7ACB;&#x4E00;&#x4E2A; Web &#x670D;&#x52A1;&#x5668;</li>
 <li><code>webpack-dev-server --devtool eval</code> - &#x4E3A;&#x4F60;&#x7684;&#x4EE3;&#x7801;&#x521B;&#x5EFA;&#x6E90;&#x5730;&#x5740;&#x3002;&#x5F53;&#x6709;&#x4EFB;&#x4F55;&#x62A5;&#x9519;&#x7684;&#x65F6;&#x5019;&#x53EF;&#x4EE5;&#x8BA9;&#x4F60;&#x66F4;&#x52A0;&#x7CBE;&#x786E;&#x5730;&#x5B9A;&#x4F4D;&#x5230;&#x6587;&#x4EF6;&#x548C;&#x884C;&#x53F7;</li>
 <li><code>webpack-dev-server --progress</code> - &#x663E;&#x793A;&#x5408;&#x5E76;&#x4EE3;&#x7801;&#x8FDB;&#x5EA6;</li>
-<li><code>webpack-dev-server --colors</code> - &#x547D;&#x4EE4;&#x884C;&#x4E2D;&#x663E;&#x793A;&#x989C;&#x8272;&#xFF01;</li>
-<li><code>webpack-dev-server --content-base build</code> - &#x8BBE;&#x7F6E;&#x9759;&#x6001;&#x8D44;&#x6E90;&#x7684;&#x8F93;&#x51FA;&#x76EE;&#x5F55;&#xFF08;Using this config webpack-dev-server will serve the static files in your build folder. &#xFF09;</li>
+<li><code>webpack-dev-server --colors</code> - &#x547D;&#x4EE4;&#x884C;&#x4E2D;&#x663E;&#x793A;&#x989C;&#x8272;</li>
+<li><code>webpack-dev-server --content-base build</code> -  webpack-dev-server&#x670D;&#x52A1;&#x4F1A;&#x9ED8;&#x8BA4;&#x4EE5;&#x5F53;&#x524D;&#x76EE;&#x5F55;&#x4F3A;&#x670D;&#x6587;&#x4EF6;&#xFF0C;&#x5982;&#x679C;&#x8BBE;&#x7F6E;&#x4E86;content-base&#x7684;&#x8BDD;&#xFF0C;&#x670D;&#x52A1;&#x7684;&#x6839;&#x8DEF;&#x5F84;&#x5219;&#x4E3A;build&#x76EE;&#x5F55;</li>
 <li><code>webpack-dev-server --inline</code> &#x53EF;&#x4EE5;&#x81EA;&#x52A8;&#x52A0;&#x4E0A;dev-server&#x7684;&#x7BA1;&#x7406;&#x4EE3;&#x7801;&#xFF0C;&#x5B9E;&#x73B0;&#x70ED;&#x66F4;&#x65B0;</li>
 <li><code>webpack-dev-server --hot</code> &#x5F00;&#x542F;&#x4EE3;&#x7801;&#x70ED;&#x66FF;&#x6362;&#xFF0C;&#x53EF;&#x4EE5;&#x52A0;&#x4E0A;HotModuleReplacementPlugin</li>
 <li><code>webpack-dev-server --port 3000</code> &#x8BBE;&#x7F6E;&#x670D;&#x52A1;&#x7AEF;&#x53E3;</li>
@@ -267,7 +266,14 @@ module.exports = {
 </code></pre><p>&#x5BF9;&#x5E94;&#x7684;&#x4FEE;&#x6539;index.html&#x6587;&#x4EF6;&#x4E2D;&#x7684;&#x8D44;&#x6E90;&#x5F15;&#x7528;&#x5730;&#x5740;</p>
 <pre><code>&lt;script src=&quot;/static/bundle.js&quot;&gt;&lt;/script&gt;
 </code></pre><p>ok, npm run dev&#x5373;&#x53EF;</p>
-<p>&#x66F4;&#x591A;&#x8BF7;&#x770B;<a href="http://webpack.github.io/docs/webpack-dev-server.html">&#x8FD9;&#x91CC;</a></p>
+<p>&#x53E6;&#x5916;&#xFF0C;&#x4E5F;&#x6709;&#x540C;&#x5B66;&#x95EE;&#x5230;&#xFF0C;&#x600E;&#x4E48;mock&#x6570;&#x636E;&#x5462;&#xFF0C;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x7528;proxy&#x4EE3;&#x7406;&#x7684;&#x65B9;&#x5F0F;&#x3002;</p>
+<pre><code>proxy: {
+  &apos;/some/path*&apos;: {
+    target: &apos;https://other-server.example.com&apos;,
+    secure: false
+  }
+}
+</code></pre><p>&#x66F4;&#x591A;&#x8BF7;&#x770B;<a href="http://webpack.github.io/docs/webpack-dev-server.html">&#x8FD9;&#x91CC;</a></p>
 <h2 id="t66.resolve">6.resolve <a href="#t66.resolve"> # </a></h2>
 <p>resolve&#x4E0B;&#x5E38;&#x7528;&#x7684;&#x662F;extension&#x548C;alias&#x5B57;&#x6BB5;&#x7684;&#x914D;&#x7F6E;&#xFF1A;</p>
 <ul>

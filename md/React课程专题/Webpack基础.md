@@ -339,13 +339,48 @@ ok, npm run dev即可
 
 另外，也有同学问到，怎么mock数据呢，我们可以用proxy代理的方式。
 
+
 ```
-proxy: {
-  '/some/path*': {
-    target: 'https://other-server.example.com',
-    secure: false
-  }
+var path = require('path');
+
+function rewriteUrl(replacePath) {
+  return function (req, opt) {
+    var queryIndex = req.url.indexOf('?');
+    var query = queryIndex >= 0 ? req.url.substr(queryIndex) : "";
+
+    req.url = req.path.replace(opt.path, replacePath) + query;
+    console.log("rewriting ", req.originalUrl, req.url);
+  };
 }
+
+module.exports = {
+    entry: {
+      index: "./src/index.js"
+    },
+    output: {
+      publicPath: "/static/",
+      path: path.resolve(__dirname, "build"),
+
+      filename: "bundle.js"
+    },
+    devServer: {
+      publicPath: "/static/",
+      stats: { colors: true },
+      port: 8080,
+      contentBase: 'build',
+      inline: true,
+      proxy: [
+          {
+            path: /^\/api\/(.*)/,
+            target: "http://localhost:8080/",
+            rewrite: rewriteUrl('/$1\.json'),
+            changeOrigin: true
+          }
+      ]
+    },
+
+};
+
 ```
 
 更多请看[这里](http://webpack.github.io/docs/webpack-dev-server.html)

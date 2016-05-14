@@ -267,12 +267,45 @@ module.exports = {
 <pre><code>&lt;script src=&quot;/static/bundle.js&quot;&gt;&lt;/script&gt;
 </code></pre><p>ok, npm run dev&#x5373;&#x53EF;</p>
 <p>&#x53E6;&#x5916;&#xFF0C;&#x4E5F;&#x6709;&#x540C;&#x5B66;&#x95EE;&#x5230;&#xFF0C;&#x600E;&#x4E48;mock&#x6570;&#x636E;&#x5462;&#xFF0C;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x7528;proxy&#x4EE3;&#x7406;&#x7684;&#x65B9;&#x5F0F;&#x3002;</p>
-<pre><code>proxy: {
-  &apos;/some/path*&apos;: {
-    target: &apos;https://other-server.example.com&apos;,
-    secure: false
-  }
+<pre><code>var path = require(&apos;path&apos;);
+
+function rewriteUrl(replacePath) {
+  return function (req, opt) {
+    var queryIndex = req.url.indexOf(&apos;?&apos;);
+    var query = queryIndex &gt;= 0 ? req.url.substr(queryIndex) : &quot;&quot;;
+
+    req.url = req.path.replace(opt.path, replacePath) + query;
+    console.log(&quot;rewriting &quot;, req.originalUrl, req.url);
+  };
 }
+
+module.exports = {
+    entry: {
+      index: &quot;./src/index.js&quot;
+    },
+    output: {
+      publicPath: &quot;/static/&quot;,
+      path: path.resolve(__dirname, &quot;build&quot;),
+
+      filename: &quot;bundle.js&quot;
+    },
+    devServer: {
+      publicPath: &quot;/static/&quot;,
+      stats: { colors: true },
+      port: 8080,
+      contentBase: &apos;build&apos;,
+      inline: true,
+      proxy: [
+          {
+            path: /^\/api\/(.*)/,
+            target: &quot;http://localhost:8080/&quot;,
+            rewrite: rewriteUrl(&apos;/$1\.json&apos;),
+            changeOrigin: true
+          }
+      ]
+    },
+
+};
 </code></pre><p>&#x66F4;&#x591A;&#x8BF7;&#x770B;<a href="http://webpack.github.io/docs/webpack-dev-server.html">&#x8FD9;&#x91CC;</a></p>
 <h2 id="t66.resolve">6.resolve <a href="#t66.resolve"> # </a></h2>
 <p>resolve&#x4E0B;&#x5E38;&#x7528;&#x7684;&#x662F;extension&#x548C;alias&#x5B57;&#x6BB5;&#x7684;&#x914D;&#x7F6E;&#xFF1A;</p>

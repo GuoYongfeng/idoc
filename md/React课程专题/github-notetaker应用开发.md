@@ -378,10 +378,10 @@ $ cd ../Notes && touch Notes.jsx
 ```
 import React, { Component } from 'react';
 
-export default class UserRepos extends Component {
+export default class UserProfile extends Component {
   render(){
     return (
-      <div> UserRepos </div>
+      <div> UserProfile </div>
     )
   }
 }
@@ -525,7 +525,7 @@ export default class UserProfile extends Component {
 
 ```
 
-代码清单：`app/components/UserProfile/UserProfile.jsx`
+代码清单：`app/components/UserRepos/UserRepos.jsx`
 
 ```
 import React, { Component } from 'react';
@@ -543,7 +543,7 @@ export default class UserRepos extends Component {
 
 ```
 
-代码清单：`app/components/UserProfile/UserProfile.jsx`
+代码清单：`app/components/Notes/Notes.jsx`
 
 ```
 import React, { Component } from 'react';

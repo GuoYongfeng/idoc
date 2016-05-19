@@ -295,7 +295,7 @@ import React, { Component } from 'react';
 
 class LifeCycle extends Component {
 
-  props = {
+  Props = {
     value: '开始渲染'
   }
 

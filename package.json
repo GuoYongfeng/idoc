@@ -1,7 +1,7 @@
 {
-    "name": "YOFFE",
-    "version": "1.0.1",
-    "description": "郭永峰前端技术博客",
+    "name": "Yoffe",
+    "version": "1.0.0",
+    "description": "Welcome To GuoYongfeng's Blog",
     "keywords": [
         "idoc",
         "guoyongfeng"
@@ -14,14 +14,20 @@
     },
     "licenses": "MIT",
     "scripts": {
+        "dev": "idoc server",
         "build": "idoc build",
+<<<<<<< HEAD
         "ci": "git commit -m 'update'",
         "push": "git push origin gh-pages",
         "deploy": "npm run build && npm run commit && npm run push"
+=======
+        "deploy": "git push origin gh-pages"
+>>>>>>> master
     },
     "idoc": {
-        "theme": "default",
+        "theme": "doc",
         "md": [
+<<<<<<< HEAD
             "首页.md",
             {
                 "React课程专题": [
@@ -98,6 +104,9 @@
                 ]
             },
             "CONTACT.md"
+=======
+            "首页.md"
+>>>>>>> master
         ]
     }
 }

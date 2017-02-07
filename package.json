@@ -1,6 +1,6 @@
 {
-    "name": "MyTechBook",
-    "version": "0.3.1",
+    "name": "Yoffe",
+    "version": "1.0.0",
     "description": "Welcome To GuoYongfeng's Blog",
     "keywords": [
         "idoc",
@@ -14,6 +14,7 @@
     },
     "licenses": "MIT",
     "scripts": {
+        "dev": "idoc server",
         "build": "idoc build",
         "deploy": "git push -u origin gh-pages"
     },

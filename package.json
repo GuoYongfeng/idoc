@@ -18,7 +18,7 @@
         "deploy": "git push -u origin gh-pages"
     },
     "idoc": {
-        "theme": "default",
+        "theme": "doc",
         "md": [
             "首页.md",
             {

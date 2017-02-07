@@ -16,7 +16,7 @@
     "scripts": {
         "dev": "idoc server",
         "build": "idoc build",
-        "deploy": "git push -u origin gh-pages"
+        "deploy": "git push origin gh-pages"
     },
     "idoc": {
         "theme": "doc",

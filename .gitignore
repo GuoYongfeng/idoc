@@ -40,3 +40,4 @@ Thumbs.db
 .build
 node_modules
 .cache
+*.log

@@ -16,97 +16,14 @@
     "scripts": {
         "dev": "idoc server",
         "build": "idoc build",
-<<<<<<< HEAD
         "ci": "git commit -m 'update'",
         "push": "git push origin gh-pages",
         "deploy": "npm run build && npm run commit && npm run push"
-=======
-        "deploy": "git push origin gh-pages"
->>>>>>> master
     },
     "idoc": {
         "theme": "doc",
         "md": [
-<<<<<<< HEAD
-            "首页.md",
-            {
-                "React课程专题": [
-                    "React学习指南.md",
-                    "React技术分享.md",
-                    "React编码规范.md",
-                    "React基础知识详解.md",
-                    "一步步搭建一个评论应用.md",
-                    "github-notetaker应用开发.md",
-                    "React-AJAX的最佳实践.md",
-                    "React-router路由实践.md",
-                    "React高级研讨课大纲.md",
-                    "Babel使用指南.md",
-                    "全栈Redux实战.md",
-                    "Redux快速上手.md",
-                    "Redux超酷的开发工具Redux-Devtools.md",
-                    "深入理解Redux的Middleware.md",
-                    "JavaScript函数式编程.md",
-                    "组件测试.md",
-                    "使用Webpack搭建开发态工作流.md",
-                    "Webpack基础.md",
-                    "使用Webpack搭建生产环境工作流.md",
-                    "快速搞定常用的ES6新特性.md"
-                ]
-            },
-            {
-                "前沿观察": [
-                    "ECMAScript 6入门.md",
-                    "Immutable详解及React中实践.md",
-                    "Node.js MVC框架ThinkJS.md",
-                    "Nodejs 5.0.0版本.md",
-                    "关系型数据库PostgreSQL.md",
-                    "轻型MVVM框架Vue.js.md",
-                    "基于nodejs的开发框架koa.md"
-                ]
-            },
-            {
-                "前端工程化": [
-                    "前端模板.md",
-                    "性能优化和前端工程的爱恨情仇.md",
-                    "webpack入门及实践.md",
-                    "前端工程化不完全装逼指南.md"
-                ]
-            },
-            {
-                "性能优化": [
-                    "jshint代码质量检测.md",
-                    "jshint配置说明.md",
-                    "NC性能优化.md",
-                    "性能优化待办事项.md",
-                    "性能优化点总结.md"
-                ]
-            },
-            {
-                "技术分享": [
-                    "学习Git.md",
-                    "面向对象.md",
-                    "Node.js知识详解.md",
-                    "2015年大前端技术年终总结.md",
-                    "Nodejs环境配置.md",
-                    "NPM的使用方法.md",
-                    "基本SHELL命令使用.md",
-                    "Git和Github快速入门指南.md",
-                    "【转】基于NodeJS的前后端分离.md"
-                ]
-            },
-            {
-                "团队": [
-                    "新员工入职指南.md",
-                    "笔试面试大纲.md",
-                    "项目技术栈规划.md",
-                    "React组件开发过程.md",
-                    "前端技术平台.md"
-                ]
-            },
-            "CONTACT.md"
-=======
             "首页.md"
->>>>>>> master
         ]
     }
 }

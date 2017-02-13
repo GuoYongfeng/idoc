@@ -1,4 +1,4 @@
-<h1 style="font-size: 40px;text-align:center;color: blue;">React技术分享</h1>
+<h1 style="font-size: 40px;text-align:center;color: #007cdc;">React技术分享</h1>
 
 ![](/img/percentage.jpg)
 
@@ -1132,24 +1132,6 @@ ReactDOM.render( <MessageBox/>,
 	document.getElementById('app')
 )
 ```
-
-
-# Chapter  4 --  高级和应用篇
-
-## 1. 开发环境
-- gulp
-- webpack
-- babel
-- browserify
-- reactify
-
-## 2. 架构方案
-- 和backbone结合
-- 和flux/reflux/redux结合
-- 结合ES6语法
-- 服务端渲染
-- 路由
-- 测试
 
 # 参考资源
 
